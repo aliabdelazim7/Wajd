@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Wajd Marketing Agency"
+version = "1.0.0"
+id = "artifacts/wajd-agency"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20733
+
+[services.development]
+run = "pnpm --filter @workspace/wajd-agency run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/wajd-agency", "run", "build" ]
+publicDir = "artifacts/wajd-agency/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20733"
+BASE_PATH = "/"

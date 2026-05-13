@@ -1,0 +1,314 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: leads
+    description: Lead capture for brand analysis requests
+  - name: portfolio
+    description: Portfolio item management
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /leads/submit:
+    post:
+      operationId: submitLead
+      tags: [leads]
+      summary: Submit a brand analysis request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitLeadBody"
+      responses:
+        "200":
+          description: Lead submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmitLeadResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /leads:
+    get:
+      operationId: getLeads
+      tags: [leads]
+      summary: List all leads
+      responses:
+        "200":
+          description: List of leads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Lead"
+  /leads/{id}/status:
+    patch:
+      operationId: updateLeadStatus
+      tags: [leads]
+      summary: Update a lead status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateLeadStatusBody"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lead"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /portfolio:
+    get:
+      operationId: getPortfolioItems
+      tags: [portfolio]
+      summary: List all portfolio items
+      responses:
+        "200":
+          description: List of portfolio items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PortfolioItem"
+    post:
+      operationId: createPortfolioItem
+      tags: [portfolio]
+      summary: Create a new portfolio item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePortfolioItemBody"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PortfolioItem"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /portfolio/{id}:
+    delete:
+      operationId: deletePortfolioItem
+      tags: [portfolio]
+      summary: Delete a portfolio item
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    SubmitLeadBody:
+      type: object
+      properties:
+        pageUrl:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+      required:
+        - pageUrl
+        - email
+        - phone
+    SubmitLeadResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+        - message
+    UpdateLeadStatusBody:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [new, contacted, done]
+      required:
+        - status
+    Lead:
+      type: object
+      properties:
+        id:
+          type: integer
+        pageUrl:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        status:
+          type: string
+        createdAt:
+          type: string
+      required:
+        - id
+        - pageUrl
+        - email
+        - phone
+        - status
+        - createdAt
+    PortfolioMetric:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: number
+        prefix:
+          type: string
+        suffix:
+          type: string
+        decimals:
+          type: integer
+      required:
+        - label
+        - value
+        - prefix
+        - suffix
+        - decimals
+    PortfolioItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        client:
+          type: string
+        period:
+          type: string
+        tag:
+          type: string
+        color:
+          type: string
+        metrics:
+          type: array
+          items:
+            $ref: "#/components/schemas/PortfolioMetric"
+        sortOrder:
+          type: integer
+        createdAt:
+          type: string
+      required:
+        - id
+        - client
+        - period
+        - tag
+        - color
+        - metrics
+        - sortOrder
+        - createdAt
+    CreatePortfolioItemBody:
+      type: object
+      properties:
+        client:
+          type: string
+        period:
+          type: string
+        tag:
+          type: string
+        color:
+          type: string
+        metrics:
+          type: array
+          items:
+            $ref: "#/components/schemas/PortfolioMetric"
+        sortOrder:
+          type: integer
+      required:
+        - client
+        - period
+        - tag
+        - color
+        - metrics
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+        - success
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
