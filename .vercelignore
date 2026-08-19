@@ -2,3 +2,13 @@
 /node_modules
 /public/uploads/*
 !/public/uploads/.gitkeep
+/.env
+/.env.*
+!/.env.example
+/.git
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+/database/database.sqlite
+/debug_cdp.py

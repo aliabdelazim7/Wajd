@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class SiteSetting extends Model
 {
-    protected $table = 'site_settings';
-    protected $guarded = [];
-    public $timestamps = false;
+    protected $fillable = ['key', 'value', 'type'];
 
-    protected $casts = [
-        'social_links' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'value' => 'array',
+        ];
+    }
 }

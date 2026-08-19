@@ -1,0 +1,178 @@
+export const translations = {
+    ar: {
+        nav: {
+            home: 'الرئيسية',
+            about: 'عن وجد',
+            services: 'الخدمات',
+            portfolio: 'أعمالنا',
+            contact: 'اتصل بنا',
+            cta: 'ضاعف أرباحك الآن'
+        },
+        hero: {
+            badge: 'RIYADH & DUBAI • GROWTH ENGINEERING AGENCY',
+            title1: 'نُهندس النمو',
+            title2: 'للعلامات الطموحة.',
+            slogan: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.',
+            desc: 'نبدأ معك من حيث أنت — بميزانية اختبار صغيرة أو خطة توسّع أكبر. نبني لك تسويقاً عملياً يناسب السوق الخليجي، يحوّل الانتباه إلى عملاء، ويكبر مع نتائجك لا مع الوعود.',
+            cta: 'لنبدأ هندسة نجاحك',
+            metrics: {
+                adSpend: 'Ad Spend Managed',
+                maxRoas: 'Max ROAS Achieved',
+                conversions: 'Actual Conversions',
+                sectors: 'Market Sectors'
+            }
+        },
+        simulator: {
+            title: 'محاكي الأثر المالي',
+            subtitle: 'صمم استراتيجيتك وشاهد النتائج المتوقعة لحملتك القادمة.',
+            step1: '01. مستوى الاستثمار الشهري',
+            step2: '02. قطاع السوق',
+            revenue: 'الإيرادات المتوقعة',
+            roasTarget: 'العائد المستهدف (ROAS)',
+            estReach: 'الوصول المتوقع',
+            disclaimer: '* هذه المحاكاة مبنية على متوسط أداء حملاتنا السابقة. النتائج الفعلية تعتمد على جودة المنتج والعرض.',
+            cta: 'احجز مقعدك في القمة',
+            sectors: {
+                ecommerce: 'التجارة الإلكترونية',
+                realestate: 'العقارات',
+                b2b: 'الخدمات والشركات',
+                healthcare: 'الرعاية الصحية'
+            }
+        },
+        whyUs: {
+            tag: 'THE WAJD EDGE',
+            title: 'لماذا وجد تحديداً؟',
+            subtitle: 'لأننا لا نبيعك "وعوداً تسويقية"، بل نُهندس لك "نتائج مالية" ملموسة.',
+            items: [
+                { title: 'عقلية الشريك لا الوكالة', desc: 'نتعامل مع ميزانيتك كأنها مالنا الخاص. هدفنا ليس صرف الميزانية، بل تعظيم الربح الصافي لك.' },
+                { title: 'هندسة العروض (Offer Engineering)', desc: 'لا نكتفي بإطلاق الإعلانات، بل نساعدك في صياغة "عرض لا يقاوم" يضمن أعلى معدل تحويل في السوق.' },
+                { title: 'الشفافية المطلقة 24/7', desc: 'لوحة بيانات حية (Live Dashboard) تتبع كل ريال تنفقه والنتائج المحققة في لحظتها. لا أرقام مخفية أبداً.' },
+                { title: 'سرعة التنفيذ الفائقة', desc: 'في سوق متسارع، التأخير يعني خسارة. حملاتك تنطلق وتُحسن خلال 48 ساعة فقط من بدء التعاون.' }
+            ]
+        },
+        packages: {
+            tag: 'STRATEGIC PACKAGES',
+            title: 'اختر باقة نموك',
+            subtitle: 'خطط شهرية واضحة للمتاجر والبراندات الناشئة في الخليج — ابدأ بشكل عملي، ثم وسّع عندما ترى ما يعمل.',
+            adSpendNote: 'الأسعار تخص أتعاب الإدارة والمحتوى فقط؛ الميزانية الإعلانية تُحدد بشكل مستقل حسب هدفك.',
+            monthlyFrom: 'الاشتراك الشهري يبدأ من',
+            mostPopular: 'الأكثر طلباً',
+            cta: 'ابدأ الآن',
+            items: [
+                {
+                    name: 'باقة الانطلاق',
+                    subtitle: '(Starter)',
+                    price: '350 ريال',
+                    features: ['إدارة منصة اجتماعية واحدة', '4 تصاميم أو مواد إعلانية', 'إعداد حملة إعلانية أولية', 'ملخص أداء شهري']
+                },
+                {
+                    name: 'باقة النمو',
+                    subtitle: '(Growth)',
+                    price: '950 ريال',
+                    popular: true,
+                    features: ['إدارة منصتين اجتماعيتين', '12 تصميماً وكتابة محتوى', 'إدارة وتحسين الحملات', 'اختبارات للجمهور والعروض', 'تقرير أداء وتوصيات شهرية']
+                },
+                {
+                    name: 'باقة الشريك',
+                    subtitle: '(Partner)',
+                    price: '2,200 ريال',
+                    features: ['استراتيجية نمو متكاملة', 'خطة محتوى وحملات شهرية', 'إدارة الإعلانات والتحسين المستمر', 'تصاميم وفيديوهات قصيرة', 'تحسين رحلة العميل', 'اجتماع استراتيجي شهري']
+                }
+            ]
+        },
+        footer: {
+            ready: 'جاهز تبدأ نموك في الخليج؟',
+            desc: 'لسنا بحاجة إلى ميزانية ضخمة كي نبدأ. احجز مكالمة قصيرة، وسنقترح لك أول خطوة مناسبة لمرحلة مشروعك الحالية.',
+            cta: 'احجز مقعدك في القمة',
+            rights: 'جميع الحقوق محفوظة لوكالة وجد للتسويق.'
+        }
+    },
+    en: {
+        nav: {
+            home: 'Home',
+            about: 'About',
+            services: 'Services',
+            portfolio: 'Portfolio',
+            contact: 'Contact',
+            cta: 'Scale Now'
+        },
+        hero: {
+            badge: 'RIYADH & DUBAI • GROWTH ENGINEERING AGENCY',
+            title1: 'Engineering Growth',
+            title2: 'For Ambitious Brands.',
+            slogan: 'WAJD... FOUND FOR RESULTS.',
+            desc: 'We meet you where you are — with a focused test budget or a larger scaling plan. We build practical marketing for Gulf markets that turns attention into customers and grows with your results, not empty promises.',
+            cta: 'Start Engineering Success',
+            metrics: {
+                adSpend: 'Ad Spend Managed',
+                maxRoas: 'Max ROAS Achieved',
+                conversions: 'Actual Conversions',
+                sectors: 'Market Sectors'
+            }
+        },
+        simulator: {
+            title: 'Wajd Impact Simulator',
+            subtitle: 'Design your strategy and preview expected campaign results.',
+            step1: '01. Monthly Investment',
+            step2: '02. Market Sector',
+            revenue: 'Projected Revenue',
+            roasTarget: 'Target ROAS',
+            estReach: 'Estimated Reach',
+            disclaimer: '* Simulation based on past agency performance. Actual results vary by product quality and offer strength.',
+            cta: 'Secure Your Spot',
+            sectors: {
+                ecommerce: 'E-commerce',
+                realestate: 'Real Estate',
+                b2b: 'B2B & Services',
+                healthcare: 'Healthcare'
+            }
+        },
+        whyUs: {
+            tag: 'THE WAJD EDGE',
+            title: 'Why Wajd Specifically?',
+            subtitle: 'Because we don’t sell you "marketing promises", we engineer tangible "financial outcomes".',
+            items: [
+                { title: 'Partner Mindset, Not Agency', desc: 'We treat your budget as our own. Our goal is never just spending, but maximizing your net profit.' },
+                { title: 'Offer Engineering', desc: 'We do not just launch ads; we craft an "irresistible offer" that guarantees peak market conversion.' },
+                { title: 'Absolute Transparency 24/7', desc: 'A live dashboard tracking every spent rial and real-time result. No hidden metrics ever.' },
+                { title: 'Blazing Fast Execution', desc: 'In a fast-paced market, delay is loss. Your campaigns launch and optimize within 48 hours of onboarding.' }
+            ]
+        },
+        packages: {
+            tag: 'STRATEGIC PACKAGES',
+            title: 'Choose Your Growth Tier',
+            subtitle: 'Clear monthly plans for Gulf startups, stores, and growing brands — start lean, then scale what proves its value.',
+            adSpendNote: 'Plans cover management and creative work only; your ad budget is set separately around your goals.',
+            monthlyFrom: 'Monthly plan from',
+            mostPopular: 'Most Popular',
+            cta: 'Get Started',
+            items: [
+                {
+                    name: 'Starter Plan',
+                    subtitle: '(Starter)',
+                    price: 'SAR 350',
+                    features: ['One social platform managed', '4 creative assets', 'Initial campaign setup', 'Monthly performance summary']
+                },
+                {
+                    name: 'Growth Plan',
+                    subtitle: '(Growth)',
+                    price: 'SAR 950',
+                    popular: true,
+                    features: ['Two social platforms managed', '12 creative assets with copy', 'Campaign management & optimization', 'Audience and offer testing', 'Monthly performance report']
+                },
+                {
+                    name: 'Partner Plan',
+                    subtitle: '(Partner)',
+                    price: 'SAR 2,200',
+                    features: ['Complete growth strategy', 'Monthly content and campaign plan', 'Ongoing ad management', 'Designs and short-form videos', 'Customer journey optimization', 'Monthly strategy session']
+                }
+            ]
+        },
+        footer: {
+            ready: 'Ready to grow across the Gulf?',
+            desc: 'You do not need a massive budget to start. Book a short call and we will recommend the right first move for your current stage.',
+            cta: 'Secure Your Spot',
+            rights: 'All rights reserved to Wajd Marketing Agency.'
+        }
+    }
+};

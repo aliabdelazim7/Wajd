@@ -3,12 +3,40 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  background-color: #0b0c10;
-  color: #f3f4f6;
-  font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+  min-height: 100%;
+  background-color: #050505;
+  color: #ffffff;
+  /* Blend fonts: Serif for headlines, Arabic for primary content, Sans for technical/English */
+  font-family: 'Tajawal', 'Instrument Sans', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-sans {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', 'Tajawal', serif;
+  font-weight: 500;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(197, 168, 98, 0.2);
 }
 
 *, *:before, *:after {
@@ -20,4 +48,49 @@ html, body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+/* Custom Selection */
+::selection {
+  background: #c5a862;
+  color: #050505;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 98, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a862;
+}
+
+/* Smooth Scrolling for Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

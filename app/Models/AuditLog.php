@@ -6,7 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class AuditLog extends Model
 {
-    protected $table = 'audit_logs';
-    protected $guarded = [];
-    public $timestamps = false;
+    protected $fillable = [
+        'user_id', 'action', 'entity', 'entity_id', 'metadata', 'ip_address',
+    ];
+
+    protected $hidden = [
+        'ip_address',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'metadata' => 'array',
+        ];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

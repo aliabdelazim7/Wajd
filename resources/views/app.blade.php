@@ -4,91 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo-dark.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="wrq_DepAqQvzoWVUmM2vE0JlUGSEkvrS5tDlxmBVrI4" />
 
-    <!-- SEO Meta Tags -->
     <title>وكالة وجد للتسويق | نُوجِد الأثر الذي يتحول إلى مبيعات</title>
-    <meta name="description" content="وجد للتسويق - شريكك الاستراتيجي لإطلاق الحملات الإعلانية وصناعة الهوية الرقمية التي ترفع أرباحك وتوسع حضورك في السوق. وجد... للنتائج وجد." />
-    <meta name="keywords" content="وجد, وجد ماركتينج, وكالة تسويق, تسويق الكتروني, حملات اعلانية, زيادة مبيعات, إدارة حسابات, سيو, تسويق تيك توك, تسويق انستغرام" />
-    <meta name="author" content="Wajd Marketing Agency" />
+    <meta name="description" content="وجد للتسويق — شريك نمو عملي للمتاجر والبراندات الناشئة في الخليج." />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="وكالة وجد للتسويق | نُوجِد الأثر الذي يتحول إلى مبيعات" />
-    <meta property="og:description" content="حملات إعلانية واستراتيجيات تسويق ترفع أرباحك وتوسّع حضورك في السوق بقوة. وجد... للنتائج وجد." />
-    <meta property="og:image" content="https://wajd-agency.com/logo-dark.png" />
-    <meta property="og:url" content="https://wajd-agency.com/" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="وكالة وجد للتسويق | نُوجِد الأثر الذي يتحول إلى مبيعات" />
-    <meta property="twitter:description" content="حملات إعلانية واستراتيجيات تسويق ترفع أرباحك وتوسّع حضورك في السوق بقوة. وجد... للنتائج وجد." />
-    <meta property="twitter:image" content="https://wajd-agency.com/logo-dark.png" />
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <!-- Structured Data: JSON-LD Schemas -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://wajd-agency.com/#organization",
-          "name": "وكالة وجد للتسويق",
-          "url": "https://wajd-agency.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://wajd-agency.com/logo-dark.png",
-            "width": "512",
-            "height": "512"
-          },
-          "email": "wajd.marketing@gmail.com",
-          "sameAs": [
-            "https://linktr.ee/wajd.agency",
-            "https://instagram.com/wajd.agency"
-          ]
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://wajd-agency.com/#localbusiness",
-          "name": "وكالة وجد للتسويق",
-          "image": "https://wajd-agency.com/logo-dark.png",
-          "telephone": "+966500000000",
-          "url": "https://wajd-agency.com/",
-          "priceRange": "$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "الرياض",
-            "addressCountry": "SA"
-          },
-          "areaServed": ["EG", "SA", "AE", "KW", "QA", "OM", "BH"]
-        },
-        {
-          "@type": "Service",
-          "name": "حلول هندسة النمو والتسويق الرقمي",
-          "provider": {
-            "@type": "Organization",
-            "name": "وكالة وجد للتسويق"
-          },
-          "description": "إعلانات ممولة، استراتيجيات نمو، تحليل بيانات، هندسة عروض، تسويق أداء، بناء هوية رقمية، وتكامل تتبع الخادم API Conversions.",
-          "areaServed": {
-            "@type": "Country",
-            "name": "GCC & Middle East"
-          }
-        }
-      ]
-    }
-    </script>
-    @viteReactRefresh
-    @vite(['resources/js/main.jsx', 'resources/css/app.css'])
+    @php
+      $manifestPath = public_path('build/manifest.json');
+      $manifest = file_exists($manifestPath) ? (json_decode(file_get_contents($manifestPath), true) ?: []) : [];
+      $jsEntry = $manifest['resources/js/main.jsx'] ?? null;
+      $cssEntry = $manifest['resources/css/app.css'] ?? null;
+    @endphp
+
+    @if($jsEntry)
+      @if(!empty($jsEntry['css']))
+        @foreach($jsEntry['css'] as $cssFile)
+          <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}" />
+        @endforeach
+      @endif
+      @if($cssEntry)
+        <link rel="stylesheet" href="{{ asset('build/' . $cssEntry['file']) }}" />
+      @endif
+      <script type="module" src="{{ asset('build/' . $jsEntry['file']) }}"></script>
+    @else
+      @viteReactRefresh
+      @vite(['resources/js/main.jsx', 'resources/css/app.css'])
+    @endif
   </head>
-  <body>
+  <body class="bg-[#050505]">
     <div id="root"></div>
   </body>
 </html>

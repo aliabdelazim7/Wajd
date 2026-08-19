@@ -4,6 +4,66 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Colors - Premium Obsidian & Gold */
+    --color-obsidian-950: #050505;
+    --color-obsidian-900: #0a0a0a;
+    --color-obsidian-800: #141414;
+    --color-gold-500: #c5a862;
+    --color-gold-400: #d4bc8d;
+    --color-gold-600: #a68b4c;
+
+    /* Typography */
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-arabic: 'Tajawal', sans-serif;
+
+    /* Spacing & Utilities */
+    --spacing-container: 5%;
+}
+
+/* Global Base Styles */
+@layer base {
+    html {
+        background-color: var(--color-obsidian-950);
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply font-sans;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-serif font-medium tracking-tight;
+    }
+
+    /* Arabic Support */
+    [lang="ar"] body {
+        @apply font-arabic;
+        direction: rtl;
+    }
+}
+
+/* Custom Utilities for Premium Look */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .glass-card {
+        @apply bg-obsidian-800/50 backdrop-blur-xl border border-white/5;
+    }
+
+    .gold-gradient {
+        background: linear-gradient(135deg, var(--color-gold-400) 0%, var(--color-gold-500) 50%, var(--color-gold-600) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-padding {
+        @apply py-24 md:py-32 px-[5%];
+    }
 }
