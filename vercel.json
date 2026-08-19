@@ -10,6 +10,14 @@
   },
   "routes": [
     {
+      "src": "/api",
+      "dest": "/api/index.php?__path=/api"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.php?__path=/api/$1"
+    },
+    {
       "src": "/build/assets/(.*)",
       "dest": "/public/build/assets/$1"
     },
