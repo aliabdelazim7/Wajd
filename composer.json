@@ -51,7 +51,9 @@
             "@php artisan test"
         ],
         "vercel": [
-            "@php artisan optimize:clear --ansi || true",
+            "@php artisan config:clear --ansi",
+            "@php artisan route:clear --ansi",
+            "@php artisan view:clear --ansi || true",
             "npm install --ignore-scripts",
             "npm run build"
         ],
