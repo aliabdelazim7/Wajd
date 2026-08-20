@@ -21,7 +21,7 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
     "APP_KEY": "base64:oSq3XOMUuXXSOdUbl4KEVl+unjmMIUtTnbur214mjOc=",
     "DB_CONNECTION": "pgsql",
     "DB_HOST": "aws-0-eu-central-1.pooler.supabase.com",
