@@ -2,6 +2,22 @@
 
 $uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($uri, PHP_URL_PATH) ?? '/';
+
+if ($path === '/debug-files') {
+    header('Content-Type: text/plain');
+    echo "Current Dir: " . __DIR__ . "\n";
+    echo "Parent Dir: " . dirname(__DIR__) . "\n";
+    echo "Files in Parent Dir:\n";
+    print_r(scandir(dirname(__DIR__)));
+    echo "\nFiles in bootstrap:\n";
+    if (is_dir(dirname(__DIR__) . '/bootstrap')) {
+        print_r(scandir(dirname(__DIR__) . '/bootstrap'));
+    } else {
+        echo "bootstrap dir not found\n";
+    }
+    exit;
+}
+
 $forwardedPath = $_GET['route'] ?? ($_GET['__path'] ?? null);
 
 $isApi = str_starts_with($path, '/api') || 
