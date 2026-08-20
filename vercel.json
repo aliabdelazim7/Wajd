@@ -1,11 +1,7 @@
 {
   "version": 2,
-  "framework": null,
-  "buildCommand": "echo 'Skipping build'",
-  "installCommand": "echo 'Skipping install'",
-  "outputDirectory": ".",
   "functions": {
-    "api/index.php": {
+    "api/main.php": {
       "runtime": "vercel-php@0.9.0"
     }
   },
@@ -20,11 +16,11 @@
     },
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.php?route=/api/$1"
+      "dest": "/api/main.php?route=/api/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.php"
+      "dest": "/api/main.php"
     }
   ],
   "env": {
