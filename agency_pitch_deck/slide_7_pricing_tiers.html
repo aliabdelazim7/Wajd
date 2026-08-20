@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-section {
+            padding-top: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-bottom: 40px;
+        }
+        .eyebrow {
+            color: #D4AF37;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .divider {
+            width: 1080px;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.3);
+            margin: 0 auto 50px auto;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .tier-card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            padding-top: 40px;
+            padding-left: 30px;
+            padding-right: 30px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        .tier-name {
+            font-size: 18px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .tier-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        .tier-price span {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Tajawal', sans-serif;
+        }
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .feature-item {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item::before {
+            content: "•";
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        .highlight-card {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.05);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <span class="eyebrow">Strategic Investment</span>
+            <h1 class="title">باقات نمو مرنة تناسب مرحلتك</h1>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="pricing-grid">
+            <!-- Starter Tier -->
+            <div class="tier-card">
+                <div class="tier-name">باقة الانطلاق</div>
+                <div class="tier-price">350 <span>SAR / شهر</span></div>
+                <ul class="feature-list">
+                    <li class="feature-item">إعداد الحملات الأولي</li>
+                    <li class="feature-item">إدارة منصة اجتماعية واحدة</li>
+                    <li class="feature-item">4 أصول إبداعية شهرياً</li>
+                    <li class="feature-item">ملخص أداء دوري</li>
+                </ul>
+            </div>
+            
+            <!-- Growth Tier -->
+            <div class="tier-card highlight-card">
+                <div class="tier-name">باقة النمو</div>
+                <div class="tier-price">950 <span>SAR / شهر</span></div>
+                <ul class="feature-list">
+                    <li class="feature-item">إدارة وتحسين الحملات</li>
+                    <li class="feature-item">إدارة منصتين اجتماعيتين</li>
+                    <li class="feature-item">12 أصلاً إبداعياً مع المحتوى</li>
+                    <li class="feature-item">اختبار الجمهور والعروض</li>
+                    <li class="feature-item">تقرير أداء تفصيلي</li>
+                </ul>
+            </div>
+            
+            <!-- Partner Tier -->
+            <div class="tier-card">
+                <div class="tier-name">باقة الشريك</div>
+                <div class="tier-price">2,200 <span>SAR / شهر</span></div>
+                <ul class="feature-list">
+                    <li class="feature-item">استراتيجية نمو متكاملة</li>
+                    <li class="feature-item">خطة محتوى وحملات شاملة</li>
+                    <li class="feature-item">تصاميم وفيديوهات قصيرة</li>
+                    <li class="feature-item">تحسين رحلة العميل (CRO)</li>
+                    <li class="feature-item">جلسة استراتيجية شهرية</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="position: absolute; bottom: 40px; width: 100%; text-align: center; color: rgba(255,255,255,0.4); font-size: 14px;">
+            * الأسعار تخص أتعاب الإدارة والمحتوى؛ الميزانية الإعلانية تُحدد بشكل مستقل.
+        </div>
+    </div>
+</body>
+</html>

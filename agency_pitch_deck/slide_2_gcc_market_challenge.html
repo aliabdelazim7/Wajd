@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-section {
+            padding-top: 80px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .eyebrow {
+            color: #D4AF37;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #FFFFFF;
+        }
+        .divider {
+            width: 1080px;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.3);
+            margin: 0 auto 60px auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .content-block {
+            min-height: 300px;
+        }
+        .block-header {
+            font-size: 24px;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+        .block-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+        .highlight-box {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            min-height: 200px;
+        }
+        .stat-large {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <span class="eyebrow">Market Reality</span>
+            <h1 class="title">الواقع الجديد في السوق الخليجي</h1>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="grid-container">
+            <div class="content-block">
+                <div class="block-header">الفجوة الحالية</div>
+                <p class="block-text">
+                    معظم البراندات والمتاجر في السعودية والإمارات تنفق ميزانيات ضخمة على الإعلانات، لكنها تصطدم بضعف البنية التقنية للمتاجر، وعشوائية إدارة المخزون، وغياب رؤية الأرباح الحقيقية.
+                </p>
+                <div style="padding-top: 40px;">
+                    <div class="highlight-box">
+                        <p class="stat-large">58%</p>
+                        <p class="block-text" style="font-size: 16px;">من الميزانيات الإعلانية تُهدر بسبب ضعف تجربة المستخدم والأنظمة غير المترابطة.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="block-header">نهج وجد المتكامل</div>
+                <p class="block-text">
+                    الوكالات التقليدية تمنحك "نقرات وإعجابات"، بينما نشأت <strong>وجد</strong> لتهندس لك منظومة عمل متكاملة تحول كل ريال إعلاني إلى مبيعات قابلة للتنبؤ. نحن نبني الأساس التقني أولاً، ثم نقود النمو.
+                </p>
+                <div style="padding-top: 40px;">
+                    <div class="highlight-box" style="border-color: rgba(255,255,255,0.1);">
+                        <p class="stat-large" style="color: #FFFFFF;">نُهندس النمو</p>
+                        <p class="block-text" style="font-size: 16px;">نربط بين هندسة البيانات والإبداع التسويقي لتحقيق أرباح صافية مستدامة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

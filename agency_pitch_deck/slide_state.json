@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "title": "Cover — Wajd Agency",
+    "created": 1787214487.075,
+    "last_updated": 1787214569.51,
+    "total_slides": 8
+  },
+  "slides": [
+    {
+      "id": "slide_1_cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "slide_2_gcc_market_challenge",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "slide_3_hybrid_model",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "slide_4_tech_solutions",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "slide_5_growth_marketing",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "slide_6_case_studies",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "slide_7_pricing_tiers",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "slide_8_call_to_action",
+      "state": "edited",
+      "pageNum": 8
+    }
+  ],
+  "outline": [
+    {
+      "id": "slide_1_cover",
+      "title": "Cover — Wajd Agency",
+      "summary": "Slide 1: Cover — Wajd Agency\nTitle: وكالة وجد | شريك الحلول التقنية والنمو في الخليج\nSubtitle: نُهندس البنية التحتية الرقمية ونقود النمو المبني على الأرباح الصافية.\nVisual Accent: Obsidian & Gold Palette, Minimalist Typography",
+      "image_plan": "/tmp/wajd-form-check/contact-mobile-long.png - Matches cover slide branding and obsidian/gold minimalist palette"
+    },
+    {
+      "id": "slide_2_gcc_market_challenge",
+      "title": "The Challenge in GCC Market",
+      "summary": "Slide 2: The Challenge in GCC Market\nTitle: الواقع الجديد في السوق الخليجي\nParagraph: معظم البراندات والمتاجر في السعودية والإمارات تنفق ميزانيات ضخمة على الإعلانات، لكنها تصطدم بضعف البنية التقنية للمتاجر، وعشوائية إدارة المخزون، وغياب رؤية الأرباح الحقيقية. الوكالات التقليدية تمنحك \"نقرات وإعجابات\"، بينما نشأت وجد لتهندس لك منظومة عمل متكاملة تحول كل ريال إعلاني إلى مبيعات قابلة للتنبؤ."
+    },
+    {
+      "id": "slide_3_hybrid_model",
+      "title": "Our Unique Hybrid Model",
+      "summary": "Slide 3: Our Unique Hybrid Model\nTitle: نموذج الشراكة الهجين: التقنية + التسويق\nParagraph: نحن لسنا مجرد وكالة إعلانات، ولسنا شركة برمجة تقليدية. نحن ندمج بين هندسة النمو والتسويق بالأداء وبين تطوير الأنظمة المخصصة (SaaS & POS). هذا التكامل يضمن أن الجذب الإعلاني يواجه نظام تشغيل كفء يرفع معدلات التحويل ويمنع أي تسريب في الإيرادات.",
+      "image_plan": "/home/ubuntu/wajd-repo/deck_cover.png - Illustrates the hybrid model combining code and marketing analytics"
+    },
+    {
+      "id": "slide_4_tech_solutions",
+      "title": "Tech Infrastructure Solutions",
+      "summary": "Slide 4: Tech Infrastructure Solutions (Market POS & Adria)\nTitle: الحلول التقنية الذكية لعملياتك\nParagraph: لتتمكن من التوسع بأمان، نوفر لك أنظمة برمجية جاهزة ومخصصة تدار بأعلى كفاءة. نظام Market POS لإدارة التجزئة ونقاط البيع بسرعة فائقة ومخزون ذكي، ومنصة Adria Admin المصممة خصيصاً لقطاع الأزياء والبوتيكات مع تتبع التصنيع وحملات واتساب المدمجة.",
+      "image_plan": "/home/ubuntu/wajd-repo/tech_hybrid.png - Visualizes tech infrastructure and POS system dashboard"
+    },
+    {
+      "id": "slide_5_growth_marketing",
+      "title": "Performance Marketing & Growth Engineering",
+      "summary": "Slide 5: Performance Marketing & Growth Engineering\nTitle: الأداء الإعلاني واستحواذ العملاء\nParagraph: ندير حملاتك الإعلانية عبر منصات الخليج الكبرى (سناب شات، تيك توك، جوجل، وميتا) بناءً على بيانات سلوكية دقيقة. نركز على العائد على الإنفاق الإعلاني (ROAS) والأرباح الصافية، لا مقاييس الغرور.",
+      "image_plan": "/home/ubuntu/wajd-repo/market_pos_mockup.png - Shows performance marketing analytics and growth metrics dashboard"
+    },
+    {
+      "id": "slide_6_case_studies",
+      "title": "Proven Case Studies & Track Record",
+      "summary": "Slide 6: Proven Case Studies & Track Record\nTitle: نتائج مُثبتة في السوق السعودي والخليجي\nParagraph: قمنا بمضاعفة إيرادات براندات رائدة مثل براند العويد للعود (2.6x ROAS)، وتوسيع نطاق العمليات لتطبيق تويو بأكثر من 2,500+ تحويل عالي الجودة، وبراند قناطير الغذائي. سجل حافل بالنجاحات المبنية على الأرقام."
+    },
+    {
+      "id": "slide_7_pricing_tiers",
+      "title": "Flexible Strategic Tiers",
+      "summary": "Slide 7: Flexible Strategic Tiers\nTitle: باقات نمو مرنة تناسب مرحلتك\nParagraph: سواء كنت تبدأ بباقة الانطلاق (350 SAR) لإعداد الحملات والظهور الذكي، أو تبحث عن باقة النمو (950 SAR)، وصولاً إلى باقة الشريك المتكامل (2,200 SAR)، نقدم لك تسعيفاً عادلاً وشفافاً ينمو معك كلما زادت أرباحك."
+    },
+    {
+      "id": "slide_8_call_to_action",
+      "title": "Call to Action — Let's Build Your Growth",
+      "summary": "Slide 8: Call to Action — Let's Build Your Growth\nTitle: جاهز لنقل مشروعك إلى القمة؟\nParagraph: لا تحتاج إلى ميزانيات فلكية لنبدأ. احجز استشارة سريعة مع فريق وجد، وسنقوم بتشخيص وضعك التقني والإعلاني لنرسم لك خطوة البدء الأولى بدقة. تواصل معنا عبر موقعنا https://www.wajd-agency.com.",
+      "image_plan": "/tmp/wajd-mobile-check/home-mobile.png - Matches call to action and website interface reference"
+    }
+  ]
+}

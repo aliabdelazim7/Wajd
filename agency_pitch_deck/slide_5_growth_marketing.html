@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-section {
+            padding-top: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .eyebrow {
+            color: #D4AF37;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        .divider {
+            width: 1080px;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.3);
+            margin: 0 auto 40px auto;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 700px 1fr;
+            gap: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .image-box {
+            width: 700px;
+            height: 420px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .image-box img {
+            width: 680px;
+            height: 400px;
+            object-fit: cover;
+        }
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .feature {
+            margin-bottom: 30px;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+        .feature-desc {
+            font-size: 17px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+        .platform-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .tag {
+            padding-top: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <span class="eyebrow">Performance Marketing</span>
+            <h1 class="title">الأداء الإعلاني واستحواذ العملاء</h1>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="grid-layout">
+            <div class="image-box">
+                <img src="/home/ubuntu/wajd-repo/market_pos_mockup.png" alt="Growth Metrics Dashboard">
+            </div>
+            
+            <div class="text-box">
+                <div class="feature">
+                    <div class="feature-title">استحواذ مبني على البيانات</div>
+                    <p class="feature-desc">
+                        ندير حملاتك الإعلانية عبر منصات الخليج الكبرى بناءً على بيانات سلوكية دقيقة تضمن الوصول للعميل الصحيح في الوقت المناسب.
+                    </p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-title">التركيز على الأرباح الصافية</div>
+                    <p class="feature-desc">
+                        نركز على العائد على الإنفاق الإعلاني (ROAS) والأرباح الصافية، لا مقاييس الغرور مثل النقرات والإعجابات.
+                    </p>
+                </div>
+
+                <div class="platform-tags">
+                    <div class="tag">Snapchat</div>
+                    <div class="tag">TikTok</div>
+                    <div class="tag">Google Ads</div>
+                    <div class="tag">Meta</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

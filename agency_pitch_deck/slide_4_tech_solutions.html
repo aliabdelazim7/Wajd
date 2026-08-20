@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-section {
+            padding-top: 60px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .eyebrow {
+            color: #D4AF37;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        .divider {
+            width: 1080px;
+            height: 2px;
+            background: #D4AF37;
+            margin: 0 auto 50px auto;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .tech-modules {
+            grid-column: span 4;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .visual-mockup {
+            grid-column: span 2;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            height: 400px;
+        }
+        .visual-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        .module-card {
+            border-right: 2px solid #D4AF37;
+            padding-right: 25px;
+            min-height: 180px;
+        }
+        .module-name {
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 12px;
+            color: #D4AF37;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .module-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+        .module-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+        .summary-text {
+            grid-column: span 6;
+            margin-top: 40px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <span class="eyebrow">Tech Infrastructure</span>
+            <h1 class="title">الحلول التقنية الذكية لعملياتك</h1>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="grid-layout">
+            <div class="tech-modules">
+                <div class="module-card">
+                    <div class="module-name">Retail Management</div>
+                    <h3 class="module-title">Market POS</h3>
+                    <p class="module-desc">
+                        نظام كاشير متكامل يدير المخزون، المبيعات، والتقارير المالية بدقة متناهية. مصمم للسرعة وسهولة الاستخدام في نقاط البيع المزدحمة.
+                    </p>
+                </div>
+                
+                <div class="module-card">
+                    <div class="module-name">Fashion & Boutique</div>
+                    <h3 class="module-title">Adria Admin</h3>
+                    <p class="module-desc">
+                        منصة إدارية متقدمة لقطاع الأزياء. تشمل تتبع دورة التصنيع، إدارة الخزائن، وحملات واتساب التسويقية المدمجة لزيادة الولاء.
+                    </p>
+                </div>
+
+                <div class="module-card" style="border-color: rgba(255,255,255,0.2);">
+                    <div class="module-name" style="color: rgba(255,255,255,0.5);">Custom SaaS</div>
+                    <h3 class="module-title">أنظمة مخصصة</h3>
+                    <p class="module-desc">
+                        نطور لك الأنظمة التي يحتاجها مشروعك للنمو، من المتاجر الإلكترونية المتقدمة وحتى الأنظمة الإدارية المعقدة (ERP).
+                    </p>
+                </div>
+
+                <div class="module-card" style="border-color: rgba(255,255,255,0.2);">
+                    <div class="module-name" style="color: rgba(255,255,255,0.5);">Automation</div>
+                    <h3 class="module-title">أتمتة العمليات</h3>
+                    <p class="module-desc">
+                        ربط تقني شامل يقلل التدخل البشري ويزيد من دقة البيانات، مما يتيح لك التركيز على اتخاذ القرارات الاستراتيجية.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="visual-mockup">
+                <img src="/home/ubuntu/wajd-repo/market_pos_mockup.png" alt="Market POS Mockup">
+            </div>
+
+            <div class="summary-text">
+                لتتمكن من التوسع بأمان، نوفر لك أنظمة برمجية جاهزة ومخصصة تدار بأعلى كفاءة، مما يضمن أن البنية التحتية لمشروعك قادرة على استيعاب النمو المتسارع.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
