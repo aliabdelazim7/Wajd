@@ -179,6 +179,7 @@ const Admin = () => {
         if (!token) return;
         setLoading(true);
         setError('');
+        setPayload(null);
         try {
             const endpoint = section === 'audit' ? '/audit-logs' : `/${section}`;
             const response = await apiRequest(endpoint, {}, token);
