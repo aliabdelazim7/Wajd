@@ -8,8 +8,10 @@ use App\Mail\NewLeadNotification;
 use App\Models\Lead;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class LeadController extends Controller
 {
@@ -53,7 +55,7 @@ class LeadController extends Controller
 
         try {
             $recipient = config('mail.lead_notification_address');
-            if ($recipient) {
+            if ($recipient && config('mail.default') !== 'log') {
                 Mail::to($recipient)->send(new NewLeadNotification($lead));
             }
         } catch (\Throwable $exception) {
@@ -65,10 +67,59 @@ class LeadController extends Controller
             ]);
         }
 
+        $this->sendTelegramNotification($lead);
+
         return response()->json([
             'data' => ['id' => $lead->id],
             'message' => 'تم استلام طلبك بنجاح.',
         ], 201);
+    }
+
+    private function sendTelegramNotification(Lead $lead): void
+    {
+        $token = config('services.telegram.bot_token');
+        $chatId = config('services.telegram.chat_id');
+
+        if (!$token || !$chatId) {
+            return;
+        }
+
+        $budget = $lead->budget_sar ? number_format($lead->budget_sar) . ' SAR' : 'غير مذكورة';
+        $text = implode("\n", [
+            '🔔 طلب عميل جديد | Wajd Agency',
+            '',
+            '👤 الاسم: ' . $lead->name,
+            '✉️ البريد: ' . $lead->email,
+            '📞 الهاتف: ' . ($lead->phone ?: 'غير مذكور'),
+            '🧩 الخدمة: ' . ($lead->service ?: 'غير محددة'),
+            '💰 الميزانية: ' . $budget,
+            '🌐 اللغة: ' . strtoupper($lead->locale ?: 'ar'),
+            '🔗 الصفحة: ' . ($lead->page_url ?: 'غير مذكورة'),
+            '',
+            '📝 الرسالة:',
+            Str::limit($lead->message ?: 'لم يكتب العميل رسالة.', 1500),
+            '',
+            'افتح لوحة التحكم لمتابعة الحالة وتحديثها.',
+        ]);
+
+        try {
+            $response = Http::asForm()
+                ->timeout(8)
+                ->post("https://api.telegram.org/bot{$token}/sendMessage", [
+                    'chat_id' => $chatId,
+                    'text' => $text,
+                ]);
+
+            if (!$response->successful() || !$response->json('ok')) {
+                throw new \RuntimeException('Telegram API rejected the notification.');
+            }
+        } catch (\Throwable $exception) {
+            Log::error('Lead Telegram notification failed', [
+                'lead_id' => $lead->id,
+                'exception' => $exception::class,
+                'message' => $exception->getMessage(),
+            ]);
+        }
     }
 
     public function legacyIndex(): JsonResponse
