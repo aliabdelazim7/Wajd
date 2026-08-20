@@ -22,13 +22,13 @@
     @if($jsEntry)
       @if(!empty($jsEntry['css']))
         @foreach($jsEntry['css'] as $cssFile)
-          <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}" />
+          <link rel="stylesheet" href="{{ '/build/' . ltrim($cssFile, '/') }}" />
         @endforeach
       @endif
       @if($cssEntry)
-        <link rel="stylesheet" href="{{ asset('build/' . $cssEntry['file']) }}" />
+        <link rel="stylesheet" href="{{ '/build/' . ltrim($cssEntry['file'], '/') }}" />
       @endif
-      <script type="module" src="{{ asset('build/' . $jsEntry['file']) }}"></script>
+      <script type="module" src="{{ '/build/' . ltrim($jsEntry['file'], '/') }}"></script>
     @else
       @viteReactRefresh
       @vite(['resources/js/main.jsx', 'resources/css/app.css'])
