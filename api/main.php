@@ -4,10 +4,13 @@ $uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($uri, PHP_URL_PATH) ?? '/';
 $forwardedPath = $_GET['route'] ?? ($_GET['__path'] ?? null);
 
-$isApi = str_starts_with($path, '/api') || (is_string($forwardedPath) && str_starts_with($forwardedPath, '/api'));
+$isApi = str_starts_with($path, '/api') || 
+         str_starts_with($path, '/up') || 
+         str_starts_with($path, '/health-check') ||
+         (is_string($forwardedPath) && (str_starts_with($forwardedPath, '/api') || str_starts_with($forwardedPath, '/up')));
 
 if ($isApi) {
-    if (is_string($forwardedPath) && str_starts_with($forwardedPath, '/api')) {
+    if (is_string($forwardedPath) && (str_starts_with($forwardedPath, '/api') || str_starts_with($forwardedPath, '/up'))) {
         $query = $_GET;
         unset($query['route'], $query['__path']);
 
