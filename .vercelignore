@@ -11,5 +11,3 @@
 /storage/framework/views
 /database/database.sqlite
 /debug_cdp.py
-package.json
-package-lock.json
