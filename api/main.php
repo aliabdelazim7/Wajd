@@ -42,11 +42,15 @@ if ($isApi) {
     define('LARAVEL_START', microtime(true));
 
     // Ensure /tmp directories exist for Laravel
-    if (!is_dir('/tmp/views')) {
-        @mkdir('/tmp/views', 0777, true);
-    }
-    if (!is_dir('/tmp/sessions')) {
-        @mkdir('/tmp/sessions', 0777, true);
+    $tmpDirs = [
+        '/tmp/laravel/views',
+        '/tmp/laravel/cache',
+        '/tmp/laravel/sessions',
+    ];
+    foreach ($tmpDirs as $dir) {
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0777, true);
+        }
     }
 
     require __DIR__.'/../vendor/autoload.php';

@@ -9,6 +9,8 @@
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(favicon.ico|logo-dark.png|robots.txt)", "dest": "/public/$1" },
     { "src": "/api/(.*)", "dest": "/api/main.php?route=/api/$1" },
+    { "src": "/up", "dest": "/api/main.php?route=/up" },
+    { "src": "/debug-files", "dest": "/api/main.php" },
     { "src": "/(.*)", "dest": "/api/main.php" }
   ],
   "env": {
@@ -25,7 +27,12 @@
     "SESSION_DRIVER": "cookie",
     "CACHE_STORE": "array",
     "QUEUE_CONNECTION": "sync",
-    "VIEW_COMPILED_PATH": "/tmp/views",
+    "VIEW_COMPILED_PATH": "/tmp/laravel/views",
+    "APP_CONFIG_CACHE": "/tmp/laravel/cache/config.php",
+    "APP_ROUTES_CACHE": "/tmp/laravel/cache/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/laravel/cache/services.php",
+    "APP_PACKAGES_CACHE": "/tmp/laravel/cache/packages.php",
+    "APP_EVENTS_CACHE": "/tmp/laravel/cache/events.php",
     "LOG_CHANNEL": "stderr",
     "TELEGRAM_BOT_TOKEN": "8896346693:AAFuL8qkx5v2iYfNPaXGh442nfIoaeH8OR8",
     "TELEGRAM_CHAT_ID": "7416290524"
