@@ -124,12 +124,12 @@ const Home = () => {
             </section>
 
             {/* Why Wajd - Grid Section */}
-            <section className="section-padding" dir="rtl">
+            <section className="section-padding" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-20">
-                        <span className="text-gold-500 text-xs uppercase tracking-[0.4em] font-medium mb-6 block font-sans">{whyBlock.data?.tag || t.whyUs.tag}</span>
-                        <h2 className="text-4xl md:text-7xl font-serif mb-8">{whyBlock.title || t.whyUs.title}</h2>
-                        <p className="text-white/40 text-xl font-arabic max-w-2xl mx-auto leading-relaxed">{whyBlock.body || t.whyUs.subtitle}</p>
+                        <span className="text-gold-500 text-xs uppercase tracking-[0.4em] font-medium mb-6 block font-sans">{lang === 'ar' ? (whyBlock.data?.tag || t.whyUs.tag) : t.whyUs.tag}</span>
+                        <h2 className="text-4xl md:text-7xl font-serif mb-8">{lang === 'ar' ? (whyBlock.title || t.whyUs.title) : t.whyUs.title}</h2>
+                        <p className="text-white/40 text-xl font-arabic max-w-2xl mx-auto leading-relaxed">{lang === 'ar' ? (whyBlock.body || t.whyUs.subtitle) : t.whyUs.subtitle}</p>
                     </div>
                     <div className="grid md:grid-cols-4 gap-8">
                         {whyWajd.map((item, i) => (
@@ -139,9 +139,9 @@ const Home = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="text-right p-8 rounded-3xl border border-white/5 hover:bg-white/5 transition-colors"
+                                className={`${textAlign} p-8 rounded-3xl border border-white/5 hover:bg-white/5 transition-colors`}
                             >
-                                <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-6 mr-0 ml-auto">
+                                <div className={`w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-6 ${lang === 'ar' ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`}>
                                     <item.icon className="w-6 h-6 text-gold-500" />
                                 </div>
                                 <h3 className="text-2xl font-serif mb-4">{item.title}</h3>
@@ -200,7 +200,7 @@ const Home = () => {
             </section>
 
             {/* Growth Packages Section */}
-            <section className="section-padding bg-obsidian-950" dir="rtl">
+            <section className="section-padding bg-obsidian-950" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-20">
                         <span className="text-gold-500 text-xs uppercase tracking-[0.4em] font-medium mb-6 block font-sans">{t.packages.tag}</span>
@@ -210,14 +210,14 @@ const Home = () => {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        {cmsPackages.map((pkg, i) => (
+                        {(lang === 'ar' ? cmsPackages : t.packages.items).map((pkg, i) => (
                             <motion.div 
                                 key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.2 }}
-                                className={`glass-card p-10 rounded-[2.5rem] flex flex-col justify-between relative group transition-all ${pkg.popular ? 'border-2 border-gold-500/50 scale-105 z-10 bg-gold-500/5' : 'border border-white/5 hover:border-gold-500/20'}`}
+                                className={`glass-card p-10 rounded-[2.5rem] flex flex-col justify-between relative group transition-all ${textAlign} ${pkg.popular ? 'border-2 border-gold-500/50 scale-105 z-10 bg-gold-500/5' : 'border border-white/5 hover:border-gold-500/20'}`}
                             >
                                 {pkg.popular && (
                                     <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gold-500 text-obsidian-950 px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest">{t.packages.mostPopular}</div>
@@ -227,8 +227,8 @@ const Home = () => {
                                     <p className="text-white/30 text-sm mb-8 font-sans uppercase tracking-widest">{pkg.subtitle}</p>
                                     <ul className="space-y-4 mb-10">
                                         {pkg.features.map((feat, j) => (
-                                            <li key={j} className="flex items-center gap-3 text-white/70 font-arabic">
-                                                <CheckCircle2 className="w-5 h-5 text-gold-500 flex-shrink-0" /> {feat}
+                                            <li key={j} className={`flex items-center gap-3 text-white/70 font-arabic ${lang === 'ar' ? '' : 'flex-row-reverse justify-end text-right'}`}>
+                                                <CheckCircle2 className="w-5 h-5 text-gold-500 flex-shrink-0" /> <span>{feat}</span>
                                             </li>
                                         ))}
                                     </ul>
