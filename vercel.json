@@ -22,15 +22,23 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
+    "APP_KEY": "base64:oSq3XOMUuXXSOdUbl4KEVl+unjmMIUtTnbur214mjOc=",
+    "DB_CONNECTION": "pgsql",
+    "DB_HOST": "aws-0-eu-central-1.pooler.supabase.com",
+    "DB_PORT": "6543",
+    "DB_DATABASE": "postgres",
+    "DB_USERNAME": "postgres.evvugqwtwhvjhzcxyqjl",
+    "DB_PASSWORD": "ElhotWajd50.@",
+    "DB_SSLMODE": "require",
+    "SESSION_DRIVER": "cookie",
+    "CACHE_STORE": "array",
+    "QUEUE_CONNECTION": "sync",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
     "APP_SERVICES_CACHE": "/tmp/services.php",
     "VIEW_COMPILED_PATH": "/tmp/views",
-    "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "cookie",
-    "CACHE_STORE": "array",
-    "QUEUE_CONNECTION": "sync"
+    "LOG_CHANNEL": "stderr"
   }
 }
