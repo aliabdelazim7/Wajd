@@ -21,7 +21,7 @@
     "DB_HOST": "aws-0-eu-west-1.pooler.supabase.com",
     "DB_PORT": "5432",
     "DB_DATABASE": "postgres",
-    "DB_USERNAME": "wurvjwbnnusicksvjtey",
+    "DB_USERNAME": "postgres.wurvjwbnnusicksvjtey",
     "DB_PASSWORD": "ElhotWajd50.@",
     "DB_SSLMODE": "require",
     "SESSION_DRIVER": "cookie",
