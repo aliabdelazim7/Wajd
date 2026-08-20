@@ -18,7 +18,7 @@
     "APP_DEBUG": "true",
     "APP_KEY": "base64:oSq3XOMUuXXSOdUbl4KEVl+unjmMIUtTnbur214mjOc=",
     "DB_CONNECTION": "pgsql",
-    "DB_HOST": "db.wurvjwbnnusicksvjtey.supabase.co",
+    "DB_HOST": "173.245.59.211",
     "DB_PORT": "5432",
     "DB_DATABASE": "postgres",
     "DB_USERNAME": "postgres",
