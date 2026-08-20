@@ -85,13 +85,13 @@ const About = () => {
                         <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-obsidian-800 border border-white/5">
                             <img 
                                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                                alt="Strategy Session" 
+                                alt={lang === 'ar' ? 'جلسة استراتيجية' : 'Strategy Session'}
                                 className="w-full h-full object-cover grayscale opacity-40 hover:scale-105 transition-transform duration-1000"
                             />
                         </div>
                         <div className="absolute -bottom-12 -right-12 glass-card p-12 rounded-[2rem] hidden md:block text-right border border-gold-500/20">
                             <p className="text-6xl font-serif text-gold-500 mb-2">100%</p>
-                            <p className="text-xs uppercase tracking-[0.2em] text-white/40 font-sans">Data Driven Architecture</p>
+                            <p className="text-xs uppercase tracking-[0.2em] text-white/40 font-sans">{lang === 'ar' ? 'بنية قائمة على البيانات' : 'Data Driven Architecture'}</p>
                         </div>
                     </motion.div>
                 </div>

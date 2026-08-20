@@ -115,6 +115,21 @@ const CaseStudy = () => {
             : Object.entries(remoteProject.results || {}).map(([key, value]) => `${key}: ${value}`),
     } : fallbackProject;
 
+    if (project && lang === 'ar') {
+        const arabicCategories = {
+            'al-owaid': 'تسويق الأداء',
+            toyo: 'هندسة النمو',
+            qanatir: 'الإعلانات المدفوعة',
+        };
+        const arabicOutcomes = {
+            'al-owaid': 'نمو الإيرادات',
+            toyo: 'تحويلات',
+            qanatir: 'توسع التجارة الإلكترونية',
+        };
+        project.category = arabicCategories[id] || project.category;
+        project.outcome = arabicOutcomes[id] || project.outcome;
+    }
+
     if (!project && loading) return (
         <Layout><div className="min-h-screen flex items-center justify-center text-white/50">{copy.loading}</div></Layout>
     );
