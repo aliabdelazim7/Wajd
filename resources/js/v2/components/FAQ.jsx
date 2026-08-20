@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
-const FAQItem = ({ question, answer, i }) => {
+const FAQItem = ({ question, answer, i, direction }) => {
+    const questionDirection = direction || 'rtl';
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -15,7 +16,7 @@ const FAQItem = ({ question, answer, i }) => {
         >
             <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full py-8 flex justify-between items-center text-right group"
+                className={`w-full py-8 flex justify-between items-center group ${questionDirection === 'rtl' ? 'text-right' : 'text-left'}`}
             >
                 <span className={`text-xl md:text-2xl font-serif transition-colors ${isOpen ? 'text-gold-500' : 'text-white/80 group-hover:text-white'}`}>
                     {question}
@@ -46,6 +47,7 @@ import { useApp } from '../context/AppContext.jsx';
 
 const FAQ = () => {
     const { lang, content } = useApp();
+    const direction = lang === 'ar' ? 'rtl' : 'ltr';
 
     const fallbackFaqs = lang === 'ar' ? [
         { question: 'ما هي الميزانية الإعلانية التي تنصحون بها للبدء؟', answer: 'نبدأ باختبار إعلاني من 1,000 إلى 2,000 ريال، ثم نزيد الاستثمار فقط عندما تظهر مؤشرات واضحة على ما يعمل.' },
@@ -59,18 +61,18 @@ const FAQ = () => {
         { question: 'How do you ensure data transparency?', answer: 'We keep performance visible and explain where every riyal goes and which decisions are producing a return.' },
     ];
 
-    const faqs = content?.faqs?.length ? content.faqs : fallbackFaqs;
+    const faqs = lang === 'ar' && content?.faqs?.length ? content.faqs : fallbackFaqs;
 
     return (
-        <section className="section-padding bg-obsidian-950">
+            <section className="section-padding bg-obsidian-950" dir={direction}>
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-20">
-                    <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">Common Inquiries</span>
+                    <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">{lang === 'ar' ? 'الأسئلة المتكررة' : 'COMMON INQUIRIES'}</span>
                     <h2 className="text-4xl md:text-7xl font-serif">{lang === 'ar' ? 'أسئلة شائعة' : 'Frequently Asked Questions'}</h2>
                 </div>
                 <div className="border-t border-white/5">
                     {faqs.map((faq, i) => (
-                        <FAQItem key={i} {...faq} i={i} />
+                        <FAQItem key={i} {...faq} i={i} direction={direction} />
                     ))}
                 </div>
             </div>

@@ -22,11 +22,11 @@ const Home = () => {
         { id: 'qanatir', name: lang === 'ar' ? 'براند قناطير الغذائي' : 'Qanatir Food Brand', metric: '2.5x ROAS', desc: lang === 'ar' ? 'توسيع نطاق الإيرادات عبر المحتوى الإبداعي عالي الأداء.' : 'Expanded revenue through high-performance creative content.', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' },
     ];
 
-    const selectedWork = content?.projects?.length
+    const selectedWork = lang === 'ar' && content?.projects?.length
         ? content.projects.map((project) => ({
             id: project.slug,
             name: project.name,
-            metric: Object.values(project.results || {})[0] || 'Featured impact',
+            metric: Object.values(project.results || {})[0] || 'أثر مختار',
             desc: project.description || '',
             image: project.image_url || project.thumbnail_url || fallbackWork[0].image,
         }))
@@ -37,7 +37,7 @@ const Home = () => {
         : t.packages.items;
 
     const whyBlock = getCmsBlock(content, 'home.why_wajd', { title: t.whyUs.title, body: t.whyUs.subtitle, data: {} });
-    const whyItems = whyBlock.data?.items?.length ? whyBlock.data.items : t.whyUs.items;
+    const whyItems = lang === 'ar' && whyBlock.data?.items?.length ? whyBlock.data.items : t.whyUs.items;
     const whyWajd = whyItems.map((item, index) => ({
         ...item,
         icon: [Target, TrendingUp, Shield, Zap][index] || Target
