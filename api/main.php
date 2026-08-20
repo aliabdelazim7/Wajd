@@ -36,10 +36,6 @@ if ($isApi) {
     require __DIR__.'/../vendor/autoload.php';
     $app = require_once __DIR__.'/../bootstrap/app.php';
     
-    // Explicitly set view compiled path and register view service provider
-    config(['view.compiled' => '/tmp/views']);
-    $app->register(\Illuminate\View\ViewServiceProvider::class);
-    
     $response = $app->handleRequest(\Illuminate\Http\Request::capture());
     $response->send();
     $app->terminate($response);
