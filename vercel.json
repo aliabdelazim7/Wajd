@@ -13,19 +13,21 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
     "APP_KEY": "base64:oSq3XOMUuXXSOdUbl4KEVl+unjmMIUtTnbur214mjOc=",
     "DB_CONNECTION": "pgsql",
-    "DB_HOST": "aws-0-eu-central-1.pooler.supabase.com",
-    "DB_PORT": "6543",
+    "DB_HOST": "db.wurvjwbnnusicksvjtey.supabase.co",
+    "DB_PORT": "5432",
     "DB_DATABASE": "postgres",
-    "DB_USERNAME": "postgres.evvugqwtwhvjhzcxyqjl",
+    "DB_USERNAME": "postgres",
     "DB_PASSWORD": "ElhotWajd50.@",
     "DB_SSLMODE": "require",
     "SESSION_DRIVER": "cookie",
     "CACHE_STORE": "array",
     "QUEUE_CONNECTION": "sync",
-    "VIEW_COMPILED_PATH": "/tmp/views",
-    "LOG_CHANNEL": "stderr"
+    "VIEW_COMPILED_PATH": "/tmp",
+    "LOG_CHANNEL": "stderr",
+    "TELEGRAM_BOT_TOKEN": "8896346693:AAFuL8qkx5v2iYfNPaXGh442nfIoaeH8OR8",
+    "TELEGRAM_CHAT_ID": "7416290524"
   }
 }
