@@ -18,7 +18,7 @@
     "APP_DEBUG": "true",
     "APP_KEY": "base64:oSq3XOMUuXXSOdUbl4KEVl+unjmMIUtTnbur214mjOc=",
     "DB_CONNECTION": "pgsql",
-    "DB_HOST": "aws-0-eu-west-1.pooler.supabase.com",
+    "DB_HOST": "108.128.216.176",
     "DB_PORT": "5432",
     "DB_DATABASE": "postgres",
     "DB_USERNAME": "postgres.wurvjwbnnusicksvjtey",
