@@ -9,6 +9,9 @@ import { getCmsBlock } from '../utils/content.js';
 const CinematicHero = () => {
     const { t, lang, content } = useApp();
     const hero = getCmsBlock(content, 'home.hero', { data: {} });
+    const heroTitle1 = hero.data?.title1 || t.hero.title1;
+    const heroHighlight = hero.data?.highlight || (lang === 'ar' ? 'النمو' : 'Growth');
+    const shouldRenderHeroHighlight = !heroTitle1.includes(heroHighlight);
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -55,7 +58,7 @@ const CinematicHero = () => {
                     transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className={`text-[2.65rem] leading-[1.18] sm:text-5xl sm:leading-[1.12] md:text-7xl lg:text-[7.5rem] font-serif font-medium mb-6 lg:mb-8 tracking-tight ${lang === 'ar' ? 'text-right' : 'text-left'}`}
                 >
-                    {hero.data?.title1 || t.hero.title1} <span className="italic text-gold-500 underline decoration-gold-500/30 underline-offset-[16px]">{hero.data?.highlight || (lang === 'ar' ? 'النمو' : 'Growth')}</span> <br />
+                    {heroTitle1}{shouldRenderHeroHighlight && <> <span className="italic text-gold-500 underline decoration-gold-500/30 underline-offset-[16px]">{heroHighlight}</span></>} <br />
                     {hero.data?.title2 || t.hero.title2}
                 </motion.h1>
 
