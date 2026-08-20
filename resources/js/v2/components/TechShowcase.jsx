@@ -7,56 +7,39 @@ const TechShowcase = () => {
     const { lang } = useApp();
     const isArabic = lang === 'ar';
 
-    const content = isArabic ? {
-        eyebrow: 'الحلول التقنية',
-        title: 'أنظمة ذكية لإدارة نموك.',
-        desc: 'لا نكتفي بجلب العملاء، بل نوفر لك الأدوات التقنية لإدارة عملياتك بكفاءة عالية وأتمتة كاملة.',
-        items: [
-            {
-                id: 'market-pos',
-                title: 'Market POS',
-                category: 'نظام إدارة التجزئة',
-                desc: 'نظام كاشير متكامل يدير المخزون، المبيعات، والتقارير المالية بدقة متناهية. مصمم للسرعة وسهولة الاستخدام في نقاط البيع المزدحمة.',
-                features: ['إدارة مخزون ذكية', 'تقارير أرباح حية', 'دعم الباركود والطباعة'],
-                link: 'https://market-1-tau.vercel.app/login',
-                icon: ShoppingCart
-            },
-            {
-                id: 'adria-admin',
-                title: 'Adria Admin',
-                category: 'إدارة متاجر الأزياء',
-                desc: 'منصة إدارية متقدمة مصممة خصيصاً لقطاع الأزياء والبوتيكات. تشمل إدارة التصنيع، الخزائن، وحملات واتساب التسويقية المدمجة.',
-                features: ['تتبع دورة التصنيع', 'إدارة الخزائن والشركاء', 'حملات واتساب مدمجة'],
-                link: 'https://adria-demo.vercel.app/admin/',
-                icon: LayoutGrid
-            }
-        ],
-        cta: 'اطلب نظامك المخصص الآن'
-    } : {
-        eyebrow: 'TECH SOLUTIONS',
-        title: 'Smart Systems to Manage Your Growth.',
-        desc: 'We don’t just bring customers; we provide the tech tools to manage your operations with high efficiency and full automation.',
-        items: [
-            {
-                id: 'market-pos',
-                title: 'Market POS',
-                category: 'Retail Management System',
-                desc: 'A complete cashier system managing inventory, sales, and financial reports with extreme precision. Built for speed in busy retail environments.',
-                features: ['Smart Inventory Management', 'Live Profit Reporting', 'Barcode & Printing Support'],
-                link: 'https://market-1-tau.vercel.app/login',
-                icon: ShoppingCart
-            },
-            {
-                id: 'adria-admin',
-                title: 'Adria Admin',
-                category: 'Fashion Boutique Management',
-                desc: 'Advanced management platform specifically for fashion and boutiques. Includes manufacturing management, treasuries, and built-in WhatsApp marketing.',
-                features: ['Manufacturing Cycle Tracking', 'Treasury & Partner Management', 'Integrated WhatsApp Campaigns'],
-                link: 'https://adria-demo.vercel.app/admin/',
-                icon: LayoutGrid
-            }
-        ],
-        cta: 'Request Your Custom System'
+    const items = [
+        {
+            id: 'market-pos',
+            title: isArabic ? 'Market POS' : 'Market POS',
+            category: isArabic ? 'نظام إدارة التجزئة' : 'Retail Management System',
+            desc: isArabic 
+                ? 'نظام كاشير متكامل يدير المخزون، المبيعات، والتقارير المالية بدقة متناهية. مصمم للسرعة وسهولة الاستخدام في نقاط البيع المزدحمة.' 
+                : 'A complete cashier system managing inventory, sales, and financial reports with extreme precision. Built for speed in busy retail environments.',
+            features: isArabic 
+                ? ['إدارة مخزون ذكية', 'تقارير أرباح حية', 'دعم الباركود والطباعة']
+                : ['Smart Inventory Management', 'Live Profit Reporting', 'Barcode & Printing Support'],
+            link: 'https://market-1-tau.vercel.app/login',
+            iconType: 'pos'
+        },
+        {
+            id: 'adria-admin',
+            title: isArabic ? 'Adria Admin' : 'Adria Admin',
+            category: isArabic ? 'إدارة متاجر الأزياء' : 'Fashion Boutique Management',
+            desc: isArabic 
+                ? 'منصة إدارية متقدمة مصممة خصيصاً لقطاع الأزياء والبوتيكات. تشمل إدارة التصنيع، الخزائن، وحملات واتساب التسويقية المدمجة.' 
+                : 'Advanced management platform specifically for fashion and boutiques. Includes manufacturing management, treasuries, and built-in WhatsApp marketing.',
+            features: isArabic 
+                ? ['تتبع دورة التصنيع', 'إدارة الخزائن والشركاء', 'حملات واتساب مدمجة']
+                : ['Manufacturing Cycle Tracking', 'Treasury & Partner Management', 'Integrated WhatsApp Campaigns'],
+            link: 'https://adria-demo.vercel.app/admin/',
+            iconType: 'admin'
+        }
+    ];
+
+    const renderIcon = (type, size) => {
+        if (type === 'pos') return <ShoppingCart size={size} />;
+        if (type === 'admin') return <LayoutGrid size={size} />;
+        return <Zap size={size} />;
     };
 
     return (
@@ -72,7 +55,7 @@ const TechShowcase = () => {
                         viewport={{ once: true }}
                         className="text-gold-500 text-xs font-semibold tracking-[0.28em] uppercase mb-4 block"
                     >
-                        {content.eyebrow}
+                        {isArabic ? 'الحلول التقنية' : 'TECH SOLUTIONS'}
                     </motion.span>
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
@@ -80,7 +63,7 @@ const TechShowcase = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-serif mb-6"
                     >
-                        {content.title}
+                        {isArabic ? 'أنظمة ذكية لإدارة نموك.' : 'Smart Systems to Manage Your Growth.'}
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -88,12 +71,14 @@ const TechShowcase = () => {
                         viewport={{ once: true }}
                         className="text-white/50 text-lg md:text-xl max-w-2xl leading-relaxed"
                     >
-                        {content.desc}
+                        {isArabic 
+                            ? 'لا نكتفي بجلب العملاء، بل نوفر لك الأدوات التقنية لإدارة عملياتك بكفاءة عالية وأتمتة كاملة.' 
+                            : 'We don’t just bring customers; we provide the tech tools to manage your operations with high efficiency and full automation.'}
                     </motion.p>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-                    {content.items.map((item, index) => (
+                    {items.map((item, index) => (
                         <motion.div 
                             key={item.id}
                             initial={{ opacity: 0, y: 40 }}
@@ -103,15 +88,10 @@ const TechShowcase = () => {
                             className="group relative"
                         >
                             <div className="relative z-10 h-full bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-8 md:p-12 hover:border-gold-500/40 transition-all duration-500 overflow-hidden">
-                                {/* Decorative Icon Background */}
-                                <div className={`absolute -top-10 ${isArabic ? '-left-10' : '-right-10'} opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-700`}>
-                                    <item.icon size={240} />
-                                </div>
-
                                 <div className="flex flex-col h-full relative z-20">
                                     <div className="flex items-center gap-4 mb-8">
                                         <div className="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-500">
-                                            <item.icon size={28} />
+                                            {renderIcon(item.iconType, 28)}
                                         </div>
                                         <div>
                                             <span className="text-gold-500/60 text-xs font-semibold tracking-widest uppercase">{item.category}</span>
@@ -162,15 +142,19 @@ const TechShowcase = () => {
                     className="mt-20 p-8 md:p-12 rounded-[3rem] bg-gradient-to-br from-gold-500/10 to-transparent border border-gold-500/20 text-center"
                 >
                     <Zap className="mx-auto mb-6 text-gold-500" size={40} />
-                    <h3 className="text-2xl md:text-3xl font-serif mb-4">{isArabic ? 'هل تحتاج إلى حل تقني مخصص لعملك؟' : 'Need a Custom Tech Solution?'}</h3>
+                    <h3 className="text-2xl md:text-3xl font-serif mb-4">
+                        {isArabic ? 'هل تحتاج إلى حل تقني مخصص لعملك؟' : 'Need a Custom Tech Solution?'}
+                    </h3>
                     <p className="text-white/50 max-w-xl mx-auto mb-8">
-                        {isArabic ? 'نحن نطور لك الأنظمة التي يحتاجها مشروعك للنمو، من المتاجر الإلكترونية وحتى الأنظمة الإدارية المعقدة.' : 'We develop the systems your business needs to grow, from e-commerce stores to complex management systems.'}
+                        {isArabic 
+                            ? 'نحن نطور لك الأنظمة التي يحتاجها مشروعك للنمو، من المتاجر الإلكترونية وحتى الأنظمة الإدارية المعقدة.' 
+                            : 'We develop the systems your business needs to grow, from e-commerce stores to complex management systems.'}
                     </p>
                     <a 
                         href="/contact" 
                         className="inline-flex items-center gap-3 bg-gold-500 text-obsidian-950 px-8 py-4 rounded-full font-bold transition-all hover:bg-white hover:scale-105 active:scale-95"
                     >
-                        <span>{content.cta}</span>
+                        <span>{isArabic ? 'اطلب نظامك المخصص الآن' : 'Request Your Custom System'}</span>
                         <ArrowRight className={isArabic ? 'rotate-180' : ''} size={20} />
                     </a>
                 </motion.div>

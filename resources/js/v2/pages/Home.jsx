@@ -153,8 +153,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Tech Solutions Showcase - Temporarily disabled to debug 500 error */}
-            {/* <TechShowcase /> */}
+            {/* Tech Solutions Showcase */}
+            <TechShowcase />
 
             {/* Selected Work Section */}
             <section className="section-padding bg-obsidian-900" dir={direction}>
