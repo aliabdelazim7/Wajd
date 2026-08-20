@@ -1,11 +1,12 @@
 <?php
 
-$forwardedPath = $_GET['route'] ?? ($_GET['__path'] ?? null);
 $uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($uri, PHP_URL_PATH) ?? '/';
+$forwardedPath = $_GET['route'] ?? ($_GET['__path'] ?? null);
 
-// If it's an API request, boot Laravel
-if (str_starts_with($path, '/api') || (is_string($forwardedPath) && str_starts_with($forwardedPath, '/api'))) {
+$isApi = str_starts_with($path, '/api') || (is_string($forwardedPath) && str_starts_with($forwardedPath, '/api'));
+
+if ($isApi) {
     if (is_string($forwardedPath) && str_starts_with($forwardedPath, '/api')) {
         $query = $_GET;
         unset($query['route'], $query['__path']);
@@ -21,10 +22,6 @@ if (str_starts_with($path, '/api') || (is_string($forwardedPath) && str_starts_w
 
     define('LARAVEL_START', microtime(true));
 
-    if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-        require $maintenance;
-    }
-
     require __DIR__.'/../vendor/autoload.php';
     $app = require_once __DIR__.'/../bootstrap/app.php';
     $response = $app->handleRequest(\Illuminate\Http\Request::capture());
@@ -33,7 +30,7 @@ if (str_starts_with($path, '/api') || (is_string($forwardedPath) && str_starts_w
     exit;
 }
 
-// For all web requests, serve the high-performance static HTML shell for the React SPA instantly
+// For web requests, output HTML directly without touching Laravel or cache files!
 ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
