@@ -50,6 +50,28 @@ export const translations = {
                 { title: 'سرعة التنفيذ الفائقة', desc: 'في سوق متسارع، التأخير يعني خسارة. حملاتك تنطلق وتُحسن خلال 48 ساعة فقط من بدء التعاون.' }
             ]
         },
+        home: {
+            trustedBy: 'موثوق به من علامات طموحة',
+            outcomeEngine: {
+                eyebrow: 'محرك النتائج',
+                title1: 'نحن لا نطلق إعلانات فقط.',
+                title2: 'نحن نهندس النتائج.',
+                body: 'تركز معظم الوكالات على مقاييس الغرور مثل النقرات والإعجابات. نحن نركز على المقياس الوحيد المهم: أرباحك الصافية. تجمع هندسة النمو لدينا بين تحليل البيانات العميق والمحتوى الإبداعي عالي التأثير لتحويل كل ريال من الإنفاق الإعلاني إلى إيرادات يمكن التنبؤ بها.',
+                cta: 'اكتشف منهجيتنا',
+                cards: [
+                    { title: 'الاستحواذ (Acquisition)', desc: 'أنظمة قابلة للتوسع للعثور على عملائك المثاليين وتحويلهم.' },
+                    { title: 'الأداء (Performance)', desc: 'تحسين مبني على البيانات يحقق أقصى استفادة من كل ميزانية.' },
+                    { title: 'الإبداع (Creative)', desc: 'سرد قصصي بصري مصمم خصيصاً لجذب الانتباه والتحويل.' },
+                    { title: 'الاستراتيجية (Strategy)', desc: 'المخطط المعماري وراء كل حملة ناجحة.' }
+                ]
+            },
+            selectedImpact: {
+                eyebrow: 'أثر مختار',
+                title: 'أعمال مختارة',
+                viewAll: 'عرض جميع المشاريع',
+                primaryOutcome: 'النتيجة الأساسية'
+            }
+        },
         packages: {
             tag: 'STRATEGIC PACKAGES',
             title: 'اختر باقة نموك',
@@ -137,6 +159,28 @@ export const translations = {
                 { title: 'Absolute Transparency 24/7', desc: 'A live dashboard tracking every spent rial and real-time result. No hidden metrics ever.' },
                 { title: 'Blazing Fast Execution', desc: 'In a fast-paced market, delay is loss. Your campaigns launch and optimize within 48 hours of onboarding.' }
             ]
+        },
+        home: {
+            trustedBy: 'Trusted by ambitious brands',
+            outcomeEngine: {
+                eyebrow: 'The Outcome Engine',
+                title1: 'We do not just launch ads.',
+                title2: 'We engineer outcomes.',
+                body: 'Most agencies focus on vanity metrics like clicks and likes. We focus on the only metric that matters: your net profit. Our growth engineering combines deep data analysis with high-impact creative to turn every riyal of ad spend into predictable revenue.',
+                cta: 'Discover our methodology',
+                cards: [
+                    { title: 'Acquisition', desc: 'Scalable systems to find and convert your ideal customers.' },
+                    { title: 'Performance', desc: 'Data-led optimization that makes the most of every budget.' },
+                    { title: 'Creative', desc: 'Visual storytelling designed to earn attention and drive conversion.' },
+                    { title: 'Strategy', desc: 'The architectural blueprint behind every successful campaign.' }
+                ]
+            },
+            selectedImpact: {
+                eyebrow: 'Selected Impact',
+                title: 'Selected work',
+                viewAll: 'View all projects',
+                primaryOutcome: 'Primary outcome'
+            }
         },
         packages: {
             tag: 'STRATEGIC PACKAGES',

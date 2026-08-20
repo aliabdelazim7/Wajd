@@ -6,9 +6,16 @@ import { getCmsBlock } from '../utils/content.js';
 
 const About = () => {
     const { lang, content } = useApp();
-    const hero = getCmsBlock(content, 'about.hero', { title: 'نحن نُوجد لتحويل الإمكانات إلى أرباح.', body: 'فلسفة وجد', data: { eyebrow: 'فلسفتنا' } });
-    const narrative = getCmsBlock(content, 'about.narrative', { title: 'منهجية وجد', body: 'في وجد، لا نؤمن بالتسويق كنشاط قائم بذاته. نؤمن بهندسة الإيرادات.', data: { paragraphs: ['فريقنا مزيج من مهندسي الأداء والمبدعين الاستراتيجيين وعلماء البيانات.', 'لا نعمل لديك فقط؛ نعمل من أجل أرباحك الصافية.'] } });
-    const principlesBlock = getCmsBlock(content, 'about.principles', { title: 'مبادئنا الجوهرية', body: 'القيم التي تحرك كل قرار نتخذه في سبيل نمو علامتك التجارية.', data: { items: [] } });
+    const direction = lang === 'ar' ? 'rtl' : 'ltr';
+    const hero = getCmsBlock(content, 'about.hero', lang === 'ar'
+        ? { title: 'نحن نُوجد لتحويل الإمكانات إلى أرباح.', body: 'فلسفة وجد', data: { eyebrow: 'فلسفتنا' } }
+        : { title: 'We turn potential into profit.', body: 'The Wajd philosophy', data: { eyebrow: 'OUR PHILOSOPHY' } });
+    const narrative = getCmsBlock(content, 'about.narrative', lang === 'ar'
+        ? { title: 'منهجية وجد', body: 'في وجد، لا نؤمن بالتسويق كنشاط قائم بذاته. نؤمن بهندسة الإيرادات.', data: { paragraphs: ['فريقنا مزيج من مهندسي الأداء والمبدعين الاستراتيجيين وعلماء البيانات.', 'لا نعمل لديك فقط؛ نعمل من أجل أرباحك الصافية.'] } }
+        : { title: 'The Wajd Method', body: 'At Wajd, we do not see marketing as an isolated activity. We see it as revenue engineering.', data: { paragraphs: ['Our team combines performance engineers, strategic creatives, and data scientists.', 'We do not just work for your business; we work for your net profit.'] } });
+    const principlesBlock = getCmsBlock(content, 'about.principles', lang === 'ar'
+        ? { title: 'مبادئنا الجوهرية', body: 'القيم التي تحرك كل قرار نتخذه في سبيل نمو علامتك التجارية.', data: { items: [] } }
+        : { title: 'Our core principles', body: 'The values behind every decision we make for your growth.', data: { items: [] } });
     const principles = principlesBlock.data?.items?.length ? principlesBlock.data.items : (lang === 'ar' ? [
         { title: 'شفافية مطلقة', desc: 'لا توجد رسوم مخفية، ولا بيانات محجوبة.' },
         { title: 'هوس بالنتائج', desc: 'كل قرار يقاس مقابل نمو الإيرادات الفعلي.' },
@@ -31,7 +38,7 @@ const About = () => {
     return (
         <Layout>
             {/* Hero Section */}
-            <section className="relative pt-48 pb-24 px-[5%] overflow-hidden" dir="rtl">
+            <section className="relative pt-48 pb-24 px-[5%] overflow-hidden" dir={direction}>
                 <div className="max-w-6xl mx-auto text-right">
                     <motion.span 
                         initial="hidden"
@@ -53,7 +60,7 @@ const About = () => {
             </section>
 
             {/* Core Narrative */}
-            <section className="section-padding bg-obsidian-900" dir="rtl">
+            <section className="section-padding bg-obsidian-900" dir={direction}>
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-24 items-center">
                     <motion.div 
                         initial="hidden"
@@ -91,7 +98,7 @@ const About = () => {
             </section>
 
             {/* Principles */}
-            <section className="section-padding" dir="rtl">
+            <section className="section-padding" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-24">
                         <h2 className="text-5xl md:text-8xl font-serif mb-8">{principlesBlock.title}</h2>

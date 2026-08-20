@@ -10,11 +10,16 @@ import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 
 const Home = () => {
-    const { t, content } = useApp();
+    const { lang, t, content } = useApp();
+    const outcomeEngine = t.home.outcomeEngine;
+    const selectedImpact = t.home.selectedImpact;
+    const direction = lang === 'ar' ? 'rtl' : 'ltr';
+    const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
+    const ctaJustify = lang === 'ar' ? 'justify-end' : 'justify-start';
     const fallbackWork = [
-        { id: 'al-owaid', name: 'براند العويد للعود', metric: '2.6x ROAS', desc: 'استراتيجية استحواذ لبراند عطور فاخر على منصة سلة.', image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop' },
-        { id: 'toyo', name: 'تطبيق تويو (Toyo)', metric: '2,500+ Conv.', desc: 'نمو محلي مكثف لخدمات التوصيل في السوق السعودي.', image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop' },
-        { id: 'qanatir', name: 'براند قناطير الغذائي', metric: '2.5x ROAS', desc: 'توسيع نطاق الإيرادات عبر المحتوى الإبداعي عالي الأداء.', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' },
+        { id: 'al-owaid', name: lang === 'ar' ? 'براند العويد للعود' : 'Al Owaid Oud', metric: '2.6x ROAS', desc: lang === 'ar' ? 'استراتيجية استحواذ لبراند عطور فاخر على منصة سلة.' : 'Acquisition strategy for a luxury fragrance brand on Salla.', image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop' },
+        { id: 'toyo', name: lang === 'ar' ? 'تطبيق تويو (Toyo)' : 'Toyo App', metric: '2,500+ Conv.', desc: lang === 'ar' ? 'نمو محلي مكثف لخدمات التوصيل في السوق السعودي.' : 'Focused local growth for delivery services in Saudi Arabia.', image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop' },
+        { id: 'qanatir', name: lang === 'ar' ? 'براند قناطير الغذائي' : 'Qanatir Food Brand', metric: '2.5x ROAS', desc: lang === 'ar' ? 'توسيع نطاق الإيرادات عبر المحتوى الإبداعي عالي الأداء.' : 'Expanded revenue through high-performance creative content.', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' },
     ];
 
     const selectedWork = content?.projects?.length
@@ -39,11 +44,11 @@ const Home = () => {
     }));
 
     const partners = [
-        { name: 'العويد للعود', logo: 'https://images.unsplash.com/photo-1588412079929-790b9f593d8e?q=80&w=200&auto=format&fit=crop' },
-        { name: 'تويو', logo: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=200&auto=format&fit=crop' },
-        { name: 'قناطير', logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=200&auto=format&fit=crop' },
-        { name: 'جسار', logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aa9c?q=80&w=200&auto=format&fit=crop' },
-        { name: 'فلاش', logo: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop' },
+        { name: lang === 'ar' ? 'العويد للعود' : 'Al Owaid Oud', logo: 'https://images.unsplash.com/photo-1588412079929-790b9f593d8e?q=80&w=200&auto=format&fit=crop' },
+        { name: lang === 'ar' ? 'تويو' : 'Toyo', logo: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=200&auto=format&fit=crop' },
+        { name: lang === 'ar' ? 'قناطير' : 'Qanatir', logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=200&auto=format&fit=crop' },
+        { name: lang === 'ar' ? 'جسار' : 'Jassar', logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aa9c?q=80&w=200&auto=format&fit=crop' },
+        { name: lang === 'ar' ? 'فلاش' : 'Flash', logo: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop' },
     ];
 
     return (
@@ -54,9 +59,9 @@ const Home = () => {
             <ImpactSimulator />
 
             {/* Trusted By / Partners Section */}
-            <section className="py-20 border-y border-white/5 bg-obsidian-950/50 overflow-hidden">
+            <section className="py-20 border-y border-white/5 bg-obsidian-950/50 overflow-hidden" dir={direction}>
                 <div className="max-w-7xl mx-auto px-[5%]">
-                    <p className="text-center text-white/20 text-xs uppercase tracking-[0.4em] mb-12 font-sans">Trusted by Ambitious Brands</p>
+                    <p className="text-center text-white/20 text-xs uppercase tracking-[0.4em] mb-12 font-sans">{t.home.trustedBy}</p>
                     <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
                         {partners.map((partner, i) => (
                             <motion.div 
@@ -78,7 +83,7 @@ const Home = () => {
             </section>
             
             {/* Value Proposition Section */}
-            <section className="section-padding bg-obsidian-900" dir="rtl">
+            <section className="section-padding bg-obsidian-900" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-20 items-center">
                         <motion.div
@@ -87,32 +92,27 @@ const Home = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 1 }}
                         >
-                            <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">The Outcome Engine</span>
-                            <h2 className="text-4xl md:text-6xl font-serif mb-10 leading-[1.2] text-right">
-                                نحن لا نطلق إعلانات فقط. <br />
-                                <span className="text-gold-500 italic">نحن نهندس النتائج.</span>
+                            <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">{outcomeEngine.eyebrow}</span>
+                            <h2 className={`text-4xl md:text-6xl font-serif mb-10 leading-[1.2] ${textAlign}`}>
+                                {outcomeEngine.title1} <br />
+                                <span className="text-gold-500 italic">{outcomeEngine.title2}</span>
                             </h2>
-                            <p className="text-white/50 text-lg mb-10 font-arabic leading-relaxed text-right">
-                                تركز معظم الوكالات على مقاييس الغرور مثل النقرات والإعجابات. نحن نركز على المقياس الوحيد المهم: أرباحك الصافية. تجمع هندسة النمو لدينا بين تحليل البيانات العميق والمحتوى الإبداعي عالي التأثير لتحويل كل ريال من الإنفاق الإعلاني إلى إيرادات يمكن التنبؤ بها.
+                            <p className={`text-white/50 text-lg mb-10 font-arabic leading-relaxed ${textAlign}`}>
+                                {outcomeEngine.body}
                             </p>
-                            <Link to="/about" className="text-gold-500 hover:text-white transition-colors flex items-center gap-3 font-arabic text-lg justify-end group">
-                                <ArrowUpRight className="w-5 h-5 rotate-[-90deg] group-hover:rotate-[-45deg] transition-transform" /> اكتشف منهجيتنا
+                            <Link to="/about" className={`text-gold-500 hover:text-white transition-colors flex items-center gap-3 font-arabic text-lg ${ctaJustify} group`}>
+                                <ArrowUpRight className="w-5 h-5 rotate-[-90deg] group-hover:rotate-[-45deg] transition-transform" /> {outcomeEngine.cta}
                             </Link>
                         </motion.div>
                         <div className="grid grid-cols-1 gap-6">
-                            {[
-                                { title: 'الاستحواذ (Acquisition)', desc: 'أنظمة قابلة للتوسع للعثور على عملائك المثاليين وتحويلهم.' },
-                                { title: 'الأداء (Performance)', desc: 'تحسين مبني على البيانات يحقق أقصى استفادة من كل ميزانية.' },
-                                { title: 'الإبداع (Creative)', desc: 'سرد قصصي بصري مصمم خصيصاً لجذب الانتباه والتحويل.' },
-                                { title: 'الاستراتيجية (Strategy)', desc: 'المخطط المعماري وراء كل حملة ناجحة.' },
-                            ].map((item, i) => (
+                            {outcomeEngine.cards.map((item, i) => (
                                 <motion.div 
                                     key={i} 
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.8 }}
-                                    className="glass-card p-10 rounded-[2rem] group hover:border-gold-500/30 transition-all text-right"
+                                    className={`glass-card p-10 rounded-[2rem] group hover:border-gold-500/30 transition-all ${textAlign}`}
                                 >
                                     <h3 className="text-2xl font-serif mb-3 group-hover:text-gold-500 transition-colors">{item.title}</h3>
                                     <p className="text-white/40 text-lg font-arabic leading-relaxed">{item.desc}</p>
@@ -153,15 +153,15 @@ const Home = () => {
             </section>
 
             {/* Selected Work Section */}
-            <section className="section-padding bg-obsidian-900" dir="rtl">
+            <section className="section-padding bg-obsidian-900" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="flex justify-between items-end mb-20">
-                        <div className="text-right">
-                            <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">Selected Impact</span>
-                            <h2 className="text-4xl md:text-6xl font-serif">أعمال مختارة</h2>
+                        <div className={textAlign}>
+                            <span className="text-gold-500 text-xs uppercase tracking-widest font-medium mb-6 block font-sans">{selectedImpact.eyebrow}</span>
+                            <h2 className="text-4xl md:text-6xl font-serif">{selectedImpact.title}</h2>
                         </div>
-                        <Link to="/portfolio" className="text-white/40 hover:text-gold-500 transition-colors flex items-center gap-3 font-arabic text-lg group">
-                            <ArrowUpRight className="w-5 h-5 rotate-[-90deg] group-hover:rotate-[-45deg] transition-transform" /> عرض جميع المشاريع
+                        <Link to="/portfolio" className={`text-white/40 hover:text-gold-500 transition-colors flex items-center gap-3 font-arabic text-lg ${ctaJustify} group`}>
+                            <ArrowUpRight className="w-5 h-5 rotate-[-90deg] group-hover:rotate-[-45deg] transition-transform" /> {selectedImpact.viewAll}
                         </Link>
                     </div>
 
@@ -170,7 +170,7 @@ const Home = () => {
                             <Link 
                                 to={`/portfolio/${work.id}`}
                                 key={i}
-                                className="group cursor-pointer text-right block"
+                                className={`group cursor-pointer ${textAlign} block`}
                             >
                                 <motion.div 
                                     initial={{ opacity: 0, y: 30 }}
@@ -187,7 +187,7 @@ const Home = () => {
                                     <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-80"></div>
                                     <div className="absolute bottom-10 right-10 left-10">
                                         <p className="text-5xl font-serif text-gold-500 mb-2">{work.metric}</p>
-                                        <p className="text-xs uppercase tracking-[0.2em] text-white/60 font-sans">Primary Outcome</p>
+                                        <p className="text-xs uppercase tracking-[0.2em] text-white/60 font-sans">{selectedImpact.primaryOutcome}</p>
                                     </div>
                                 </div>
                                 <h3 className="text-3xl font-serif mb-3 group-hover:text-gold-500 transition-colors">{work.name}</h3>

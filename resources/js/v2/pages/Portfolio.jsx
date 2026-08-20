@@ -7,10 +7,23 @@ import { useApp } from '../context/AppContext.jsx';
 
 const Portfolio = () => {
     const { lang, content } = useApp();
+    const copy = lang === 'ar' ? {
+        eyebrow: 'دراسات الحالة',
+        title1: 'نتائج',
+        title2: 'مُثبتة.',
+        primaryOutcome: 'النتيجة الأساسية',
+    } : {
+        eyebrow: 'CASE STUDIES',
+        title1: 'Proven',
+        title2: 'outcomes.',
+        primaryOutcome: 'Primary outcome',
+    };
+    const direction = lang === 'ar' ? 'rtl' : 'ltr';
+    const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const fallbackProjects = [
         {
             id: 'al-owaid',
-            name: 'براند العويد للعود',
+            name: lang === 'ar' ? 'براند العويد للعود' : 'Al Owaid Oud',
             category: 'Performance Marketing',
             metric: '2.6x ROAS',
             outcome: 'Revenue Growth',
@@ -18,7 +31,7 @@ const Portfolio = () => {
         },
         {
             id: 'toyo',
-            name: 'تطبيق تويو (Toyo)',
+            name: lang === 'ar' ? 'تطبيق تويو (Toyo)' : 'Toyo App',
             category: 'Growth Engineering',
             metric: '2,500+',
             outcome: 'Conversions',
@@ -26,28 +39,28 @@ const Portfolio = () => {
         },
         {
             id: 'qanatir',
-            name: 'براند قناطير الغذائي',
+            name: lang === 'ar' ? 'براند قناطير الغذائي' : 'Qanatir Food Brand',
             category: 'Paid Social',
             metric: '2.5x ROAS',
             outcome: 'E-commerce Scale',
             image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop'
         },
         {
-            name: 'براند بارنر (Partner)',
+            name: lang === 'ar' ? 'براند بارنر (Partner)' : 'Barner Brand',
             category: 'Acquisition',
             metric: '2.1x ROAS',
             outcome: 'Meta Optimization',
             image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
         },
         {
-            name: 'مؤسسة جسار التجارية',
+            name: lang === 'ar' ? 'مؤسسة جسار التجارية' : 'Jassar Trading',
             category: 'Conversion Design',
             metric: '+45%',
             outcome: 'CVR Growth',
             image: 'https://images.unsplash.com/photo-1551288049-bbbda595c7c8?q=80&w=1000&auto=format&fit=crop'
         },
         {
-            name: 'براند فلاش (Flash)',
+            name: lang === 'ar' ? 'براند فلاش (Flash)' : 'Flash Brand',
             category: 'Omnichannel Growth',
             metric: '2.4x ROAS',
             outcome: 'ROI Increase',
@@ -61,21 +74,21 @@ const Portfolio = () => {
             name: project.name,
             category: project.category || (lang === 'ar' ? 'دراسة حالة' : 'Case Study'),
             metric: Object.values(project.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
-            outcome: lang === 'ar' ? 'النتيجة الأساسية' : 'Primary outcome',
+            outcome: copy.primaryOutcome,
             image: project.image_url || project.thumbnail_url,
         }))
         : fallbackProjects;
 
     return (
         <Layout>
-            <section className="pt-48 pb-24 px-[5%]" dir="rtl">
-                <div className="max-w-6xl mx-auto text-right">
+            <section className="pt-48 pb-24 px-[5%]" dir={direction}>
+                <div className={`max-w-6xl mx-auto ${textAlign}`}>
                     <motion.span 
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-gold-500 text-xs uppercase tracking-[0.3em] font-medium mb-8 block font-sans"
                     >
-                        CASE STUDIES
+                        {copy.eyebrow}
                     </motion.span>
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
@@ -83,18 +96,18 @@ const Portfolio = () => {
                         transition={{ delay: 0.1 }}
                         className="text-6xl md:text-[10rem] font-serif leading-[0.85] mb-16 tracking-tighter"
                     >
-                        نتائج <span className="italic text-gold-500">مُثبتة.</span>
+                        {copy.title1} <span className="italic text-gold-500">{copy.title2}</span>
                     </motion.h1>
                 </div>
             </section>
 
-            <section className="section-padding pt-0" dir="rtl">
+            <section className="section-padding pt-0" dir={direction}>
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-x-20 gap-y-40">
                     {projects.map((project, i) => (
                         <Link 
                             to={project.id ? `/portfolio/${project.id}` : '#'}
                             key={i}
-                            className="group text-right block"
+                            className={`group ${textAlign} block`}
                         >
                             <motion.div 
                                 initial={{ opacity: 0, y: 30 }}
@@ -110,7 +123,7 @@ const Portfolio = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90"></div>
                                 <div className="absolute bottom-12 right-12 left-12 flex justify-between items-end">
-                                    <div className="text-right">
+                                    <div className={textAlign}>
                                         <p className="text-6xl font-serif text-gold-500 mb-2">{project.metric}</p>
                                         <p className="text-xs uppercase tracking-[0.2em] text-white/60 font-sans">{project.outcome}</p>
                                     </div>

@@ -98,7 +98,7 @@ const Navbar = () => {
                             {t.nav.cta}
                         </Link>
                         <div className="mt-12 pt-12 border-t border-white/5 w-full">
-                            <p className="text-gold-500 text-2xl font-serif italic">وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.</p>
+                            <p className="text-gold-500 text-2xl font-serif italic">{lang === 'ar' ? 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.' : 'WAJD... FOUND FOR RESULTS.'}</p>
                         </div>
                     </motion.div>
                 )}
