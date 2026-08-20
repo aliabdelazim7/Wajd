@@ -21,8 +21,9 @@ class Lead extends Model
     ];
 
     protected $fillable = [
-        'name', 'email', 'phone', 'page_url', 'service', 'budget_sar', 'message',
-        'locale', 'source', 'status', 'ip_address', 'user_agent', 'consent_at',
+        'name', 'company_name', 'email', 'phone', 'page_url', 'service', 'industry',
+        'contact_preference', 'budget_sar', 'message', 'locale', 'source', 'status',
+        'ip_address', 'user_agent', 'consent_at',
     ];
 
     protected $hidden = [

@@ -85,13 +85,22 @@ class LeadController extends Controller
         }
 
         $budget = $lead->budget_sar ? number_format($lead->budget_sar) . ' SAR' : 'غير مذكورة';
+        $contactPreference = match ($lead->contact_preference) {
+            'phone' => 'مكالمة هاتفية',
+            'whatsapp' => 'واتساب',
+            'email' => 'البريد الإلكتروني',
+            default => 'غير محددة',
+        };
         $text = implode("\n", [
-            '🔔 طلب عميل جديد | Wajd Agency',
+            '🔔 عميل جديد | Wajd Agency',
             '',
             '👤 الاسم: ' . $lead->name,
+            '🏢 الشركة: ' . ($lead->company_name ?: 'غير مذكورة'),
             '✉️ البريد: ' . $lead->email,
-            '📞 الهاتف: ' . ($lead->phone ?: 'غير مذكور'),
-            '🧩 الخدمة: ' . ($lead->service ?: 'غير محددة'),
+            '📞 الهاتف: ' . $lead->phone,
+            '💬 يفضّل التواصل عبر: ' . $contactPreference,
+            '🧩 الخدمة: ' . $lead->service,
+            '📌 المجال: ' . $lead->industry,
             '💰 الميزانية: ' . $budget,
             '🌐 اللغة: ' . strtoupper($lead->locale ?: 'ar'),
             '🔗 الصفحة: ' . ($lead->page_url ?: 'غير مذكورة'),
