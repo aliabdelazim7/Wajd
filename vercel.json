@@ -1,19 +1,15 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "echo 'No install'",
-  "buildCommand": "echo 'Done'",
-  "outputDirectory": ".",
   "functions": {
-    "api/index.php": {
+    "api/main.php": {
       "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(favicon.ico|logo-dark.png|robots.txt)", "dest": "/public/$1" },
-    { "src": "/api/(.*)", "dest": "/api/index.php?route=/api/$1" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
+    { "src": "/api/(.*)", "dest": "/api/main.php?route=/api/$1" },
+    { "src": "/(.*)", "dest": "/api/main.php" }
   ],
   "env": {
     "APP_ENV": "production",
