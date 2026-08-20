@@ -49,6 +49,10 @@ class WajdCmsApiTest extends TestCase
         $this->postJson('/api/leads/submit', [
             'name' => 'Test Lead',
             'email' => 'lead@example.com',
+            'phone' => '+966500000000',
+            'service' => 'performance-marketing',
+            'industry' => 'ecommerce',
+            'contact_preference' => 'whatsapp',
             'budget_sar' => 2000,
             'message' => 'Test submission',
             'consent' => true,
