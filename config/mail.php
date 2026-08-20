@@ -115,4 +115,9 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    'lead_notification_address' => env(
+        'WAJD_LEAD_NOTIFICATION_EMAIL',
+        env('WAJD_ADMIN_EMAIL', 'wajd.marketing@gmail.com')
+    ),
+
 ];
