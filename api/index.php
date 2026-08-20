@@ -30,4 +30,10 @@ if (str_starts_with($currentPath, $entrypointPrefix)) {
     $_SERVER['PATH_INFO'] = $laravelPath;
 }
 
+// The Vercel function lives at /api/index.php, but Laravel's public index is
+// the application base. Align CGI variables so Symfony keeps the full path.
+$_SERVER['SCRIPT_NAME'] = '/index.php';
+$_SERVER['PHP_SELF'] = '/index.php';
+$_SERVER['DOCUMENT_URI'] = '/index.php';
+
 require __DIR__.'/../public/index.php';
