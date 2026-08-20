@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('{any}', function () {
-    return view('app');
-})->where('any', '^(?!api(?:/|$)|up$).*$');
+// All web routes are handled by the PHP SPA shell in api/main.php
+Route::get('/health-check', function () {
+    return ['status' => 'ok'];
+});
