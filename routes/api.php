@@ -9,6 +9,15 @@ use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/content', [ContentController::class, 'index']);
+Route::get('/debug-config', function() {
+    return response()->json([
+        'host' => config('database.connections.pgsql.host'),
+        'port' => config('database.connections.pgsql.port'),
+        'database' => config('database.connections.pgsql.database'),
+        'username' => config('database.connections.pgsql.username'),
+        'env_port' => env('DB_PORT'),
+    ]);
+});
 Route::get('/content/projects/{slug}', [ContentController::class, 'project']);
 
 Route::post('/leads/submit', [LeadController::class, 'submit'])
