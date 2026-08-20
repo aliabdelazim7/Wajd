@@ -16,14 +16,14 @@ if ($isApi) {
         $_SERVER['QUERY_STRING'] = http_build_query($query);
     }
 
-    $_SERVER['SCRIPT_NAME'] = '/index.php';
-    $_SERVER['PHP_SELF'] = '/index.php';
-    $_SERVER['DOCUMENT_URI'] = '/index.php';
+    $_SERVER['SCRIPT_NAME'] = '/api/index.php';
+    $_SERVER['PHP_SELF'] = '/api/index.php';
+    $_SERVER['DOCUMENT_URI'] = '/api/index.php';
 
     define('LARAVEL_START', microtime(true));
 
-    require __DIR__.'/vendor/autoload.php';
-    $app = require_once __DIR__.'/bootstrap/app.php';
+    require __DIR__.'/../vendor/autoload.php';
+    $app = require_once __DIR__.'/../bootstrap/app.php';
     $response = $app->handleRequest(\Illuminate\Http\Request::capture());
     $response->send();
     $app->terminate($response);
@@ -31,7 +31,7 @@ if ($isApi) {
 }
 
 // Load manifest to get hashed asset paths
-$manifestPath = __DIR__.'/public/build/manifest.json';
+$manifestPath = __DIR__.'/../public/build/manifest.json';
 $assets = [
     'css' => [],
     'js' => ''
