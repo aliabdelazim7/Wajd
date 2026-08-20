@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import GrowthMesh from './GrowthMesh.jsx';
 import { Link } from 'react-router-dom';
+import { Monitor, Smartphone, Database, Code2, ShoppingBag } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 
@@ -35,6 +36,58 @@ const CinematicHero = () => {
             {/* Cinematic Background Gradients & Glows */}
             <div id="cursor-glow" className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none transition-transform duration-300 ease-out"></div>
             <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+            {/* The Hook: Floating Tech System Elements */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <motion.div 
+                    animate={{ 
+                        y: [0, -20, 0],
+                        rotate: [0, 5, 0]
+                    }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[20%] -right-20 opacity-20 md:opacity-30 blur-sm md:blur-none"
+                >
+                    <div className="relative w-64 h-64 border border-gold-500/30 rounded-[3rem] rotate-12 flex items-center justify-center">
+                        <div className="absolute inset-4 border border-gold-500/20 rounded-[2rem]"></div>
+                        <Code2 size={80} className="text-gold-500/40" />
+                    </div>
+                </motion.div>
+
+                <motion.div 
+                    animate={{ 
+                        y: [0, 25, 0],
+                        rotate: [0, -8, 0]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute bottom-[15%] -left-10 opacity-10 md:opacity-20"
+                >
+                    <div className="relative w-48 h-48 border border-white/10 rounded-[2.5rem] -rotate-12 flex items-center justify-center">
+                        <ShoppingBag size={60} className="text-white/20" />
+                    </div>
+                </motion.div>
+                
+                {/* Digital Data Particles */}
+                {[...Array(5)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        animate={{
+                            y: [-20, 20, -20],
+                            x: [-10, 10, -10],
+                            opacity: [0.1, 0.3, 0.1]
+                        }}
+                        transition={{
+                            duration: 4 + i,
+                            repeat: Infinity,
+                            delay: i * 0.5
+                        }}
+                        className="absolute hidden md:block w-1 h-1 bg-gold-500 rounded-full"
+                        style={{
+                            top: `${20 + i * 15}%`,
+                            left: `${10 + i * 20}%`
+                        }}
+                    />
+                ))}
+            </div>
 
             <div className="max-w-7xl mx-auto w-full relative z-10">
                 <div className="relative z-20">

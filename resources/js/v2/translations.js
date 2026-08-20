@@ -9,11 +9,11 @@ export const translations = {
             cta: 'ضاعف أرباحك الآن'
         },
         hero: {
-            badge: 'الرياض ودبي • وكالة لهندسة النمو',
-            title1: 'نُهندس النمو',
+            badge: 'الرياض ودبي • شريك الحلول التقنية والنمو',
+            title1: 'نُهندس الحلول والنمو',
             title2: 'للعلامات الطموحة.',
             slogan: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.',
-            desc: 'نبدأ معك من حيث أنت — بميزانية اختبار صغيرة أو خطة توسّع أكبر. نبني لك تسويقاً عملياً يناسب السوق الخليجي، يحوّل الانتباه إلى عملاء، ويكبر مع نتائجك لا مع الوعود.',
+            desc: 'نحن لا نكتفي بالتسويق، بل نبني لك البنية التقنية (كاشير، أنظمة إدارة، متاجر) ونقود مبيعاتك عبر أداء إعلاني موثوق. حلول متكاملة تناسب السوق الخليجي، تحوّل الانتباه إلى أرباح حقيقية.',
             cta: 'لنبدأ هندسة نجاحك',
             metrics: {
                 adSpend: 'الإنفاق الإعلاني المُدار',
@@ -44,10 +44,10 @@ export const translations = {
             title: 'لماذا وجد تحديداً؟',
             subtitle: 'لأننا لا نبيعك "وعوداً تسويقية"، بل نُهندس لك "نتائج مالية" ملموسة.',
             items: [
+                { title: 'دمج التقنية بالتسويق', desc: 'نحن نبرمج أنظمتك ونسوق لها في مكان واحد. هذا الترابط يضمن تتبعاً دقيقاً وعائداً أعلى على الاستثمار.' },
                 { title: 'عقلية الشريك لا الوكالة', desc: 'نتعامل مع ميزانيتك كأنها مالنا الخاص. هدفنا ليس صرف الميزانية، بل تعظيم الربح الصافي لك.' },
-                { title: 'هندسة العروض', desc: 'لا نكتفي بإطلاق الإعلانات، بل نساعدك في صياغة "عرض لا يقاوم" يضمن أعلى معدل تحويل في السوق.' },
-                { title: 'الشفافية المطلقة', desc: 'لوحة بيانات حية تتتبع كل ريال تنفقه والنتائج المحققة في لحظتها. لا أرقام مخفية أبداً.' },
-                { title: 'سرعة التنفيذ الفائقة', desc: 'في سوق متسارع، التأخير يعني خسارة. حملاتك تنطلق وتُحسن خلال 48 ساعة فقط من بدء التعاون.' }
+                { title: 'هندسة العروض والأنظمة', desc: 'نصمم لك العرض التسويقي والنظام البرمجي الذي يسهل على العميل الشراء ويقلل من فواقد العمليات.' },
+                { title: 'الشفافية المطلقة', desc: 'لوحة بيانات حية تتتبع كل ريال تنفقه والنتائج المحققة في لحظتها. لا أرقام مخفية أبداً.' }
             ]
         },
         home: {
@@ -119,11 +119,11 @@ export const translations = {
             cta: 'Scale Now'
         },
         hero: {
-            badge: 'RIYADH & DUBAI • GROWTH ENGINEERING AGENCY',
-            title1: 'Engineering Growth',
+            badge: 'RIYADH & DUBAI • TECH & GROWTH PARTNER',
+            title1: 'Engineering Tech & Growth',
             title2: 'For Ambitious Brands.',
             slogan: 'WAJD... FOUND FOR RESULTS.',
-            desc: 'We meet you where you are — with a focused test budget or a larger scaling plan. We build practical marketing for Gulf markets that turns attention into customers and grows with your results, not empty promises.',
+            desc: 'We do more than marketing; we build your tech infrastructure (POS, Admin, Stores) and drive sales via reliable performance. Integrated solutions for the Gulf market that turn attention into real profits.',
             cta: 'Start Engineering Success',
             metrics: {
                 adSpend: 'Ad Spend Managed',
@@ -154,10 +154,10 @@ export const translations = {
             title: 'Why Wajd Specifically?',
             subtitle: 'Because we don’t sell you "marketing promises", we engineer tangible "financial outcomes".',
             items: [
+                { title: 'Tech & Marketing Synergy', desc: 'We code your systems and market them under one roof. This integration ensures precise tracking and higher ROI.' },
                 { title: 'Partner Mindset, Not Agency', desc: 'We treat your budget as our own. Our goal is never just spending, but maximizing your net profit.' },
-                { title: 'Offer Engineering', desc: 'We do not just launch ads; we craft an "irresistible offer" that guarantees peak market conversion.' },
-                { title: 'Absolute Transparency 24/7', desc: 'A live dashboard tracking every spent rial and real-time result. No hidden metrics ever.' },
-                { title: 'Blazing Fast Execution', desc: 'In a fast-paced market, delay is loss. Your campaigns launch and optimize within 48 hours of onboarding.' }
+                { title: 'System & Offer Engineering', desc: 'We design both the marketing offer and the software system to make buying effortless for your customers.' },
+                { title: 'Absolute Transparency 24/7', desc: 'A live dashboard tracking every spent rial and real-time result. No hidden metrics ever.' }
             ]
         },
         home: {

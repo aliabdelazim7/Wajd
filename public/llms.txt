@@ -1,0 +1,25 @@
+# Wajd Agency — Tech & Growth Partner in KSA & UAE
+
+Wajd Agency is a premier digital partner for Gulf-based brands (Saudi Arabia and UAE), specializing in the synergy between advanced software development and performance marketing. We don't just market; we build the technical infrastructure and drive growth through data-led engineering.
+
+## Core Services
+- **SaaS & POS Development:** Custom retail management systems, smart cashier solutions, and automated admin panels.
+- **E-commerce Infrastructure:** Full setup and optimization for Shopify, Salla, and Zid platforms.
+- **Performance Marketing:** ROI-focused advertising across Snapchat, TikTok, Google, and Meta.
+- **Acquisition Engineering:** Building predictable sales systems grounded in behavioral insights.
+- **Growth Strategy:** Architectural blueprints for market leadership in the GCC.
+
+## Key Products & Case Studies
+- **Market POS:** End-to-end retail operating system with inventory, live profit reporting, and barcode support.
+- **Adria Admin:** Specialized fashion boutique management platform with manufacturing and WhatsApp marketing integration.
+- **Al Owaid Oud:** Luxury fragrance brand growth (2.6x ROAS).
+- **Toyo App:** Saudi-market delivery service expansion (2,500+ conversions).
+
+## Contact Information
+- **Website:** https://www.wajd-agency.com
+- **Email:** wajd.marketing@gmail.com
+- **Location:** Riyadh, Kingdom of Saudi Arabia.
+- **Focus Market:** Gulf Cooperation Council (GCC), primarily KSA and UAE.
+
+## Why Wajd?
+Wajd integrates software engineering with marketing psychology. This unified approach ensures precise tracking, operational efficiency, and a higher return on investment (ROI) compared to traditional siloed agencies.

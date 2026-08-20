@@ -22,6 +22,22 @@ const Portfolio = () => {
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const fallbackProjects = [
         {
+            id: 'market-pos',
+            name: lang === 'ar' ? 'نظام Market POS' : 'Market POS System',
+            category: 'SaaS Development',
+            metric: '100%',
+            outcome: 'Process Automation',
+            image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1000&auto=format&fit=crop'
+        },
+        {
+            id: 'adria-admin',
+            name: lang === 'ar' ? 'منصة Adria الإدارية' : 'Adria Admin Platform',
+            category: 'Enterprise Software',
+            metric: '+65%',
+            outcome: 'Operational Efficiency',
+            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
+        },
+        {
             id: 'al-owaid',
             name: lang === 'ar' ? 'براند العويد للعود' : 'Al Owaid Oud',
             category: 'Performance Marketing',

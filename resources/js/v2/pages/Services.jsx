@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { motion } from 'framer-motion';
-import { Target, BarChart3, PenTool, Layers, Rocket, Search, Zap, TrendingUp } from 'lucide-react';
+import { Target, BarChart3, PenTool, Layers, Rocket, Search, Zap, TrendingUp, Code2, ShoppingBag } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 
@@ -14,6 +14,20 @@ const Services = () => {
         : { title: 'Our Growth Mechanisms.', body: 'We do not deliver marketing tasks; we deliver tangible business outcomes.', data: { eyebrow: 'CAPABILITIES' } });
     const catalog = getCmsBlock(content, 'services.catalog', { data: { items: [] } });
     const fallbackServices = [
+        {
+            icon: Code2,
+            title: lang === 'ar' ? 'تطوير أنظمة SaaS & POS' : 'SaaS & POS Development',
+            mechanism: lang === 'ar' ? 'حلول برمجية مخصصة' : 'Custom software solutions',
+            outcome: lang === 'ar' ? 'أتمتة العمليات بالكامل' : 'Full process automation',
+            desc: lang === 'ar' ? 'نصمم ونبني أنظمة إدارية ونقاط بيع (POS) ذكية مخصصة لاحتياجاتك. نربط العمليات التقنية بالتسويق لضمان تدفق بيانات دقيق وكفاءة تشغيلية قصوى.' : 'We design and build custom admin systems and smart POS solutions tailored to your needs. We link tech operations with marketing for precise data flow and maximum efficiency.'
+        },
+        {
+            icon: ShoppingBag,
+            title: lang === 'ar' ? 'بنية التجارة الإلكترونية' : 'E-commerce Infrastructure',
+            mechanism: lang === 'ar' ? 'تجهيز Shopify, Salla, Zid' : 'Shopify, Salla, Zid Setup',
+            outcome: lang === 'ar' ? 'متجر جاهز للتحويل' : 'Conversion-ready store',
+            desc: lang === 'ar' ? 'لا نبني مجرد متجر، بل نجهز بنية تحتية متكاملة للبيع. من الربط التقني والتحليلات إلى تحسين رحلة العميل (CRO) لضمان أعلى معدل تحويل.' : 'We don’t just build a store; we set up a complete selling infrastructure. From tech integration and analytics to CRO, ensuring the highest conversion rates.'
+        },
         {
             icon: Target,
             title: lang === 'ar' ? 'هندسة الاستحواذ' : 'Acquisition Engineering',
@@ -43,7 +57,7 @@ const Services = () => {
             desc: lang === 'ar' ? 'الأساس الاستراتيجي وراء كل حملة. نرسم خريطة رحلة عميلك بالكامل ونبني الأنظمة التقنية اللازمة للهيمنة على تخصصك وتوسيع حصتك السوقية.' : 'The strategic foundation behind every campaign. We map the full customer journey and build the systems needed to expand your market share.'
         }
     ];
-    const services = catalog.data?.items?.length ? catalog.data.items.map((item, index) => ({ ...item, icon: [Target, BarChart3, PenTool, Layers][index] || Target })) : fallbackServices;
+    const services = catalog.data?.items?.length ? catalog.data.items.map((item, index) => ({ ...item, icon: [Code2, ShoppingBag, Target, BarChart3, PenTool, Layers][index] || Target })) : fallbackServices;
 
     const process = lang === 'ar' ? [
         { icon: Search, title: 'الفحص والتقييم', desc: 'تحديد فجوات الأداء الحالية ومواضع هدر الميزانية.' },

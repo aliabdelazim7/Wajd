@@ -3,6 +3,7 @@ import Layout from '../layout/Layout.jsx';
 import CinematicHero from '../components/CinematicHero.jsx';
 import FAQ from '../components/FAQ.jsx';
 import ImpactSimulator from '../components/ImpactSimulator.jsx';
+import TechShowcase from '../components/TechShowcase.jsx';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -151,6 +152,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Tech Solutions Showcase */}
+            <TechShowcase />
 
             {/* Selected Work Section */}
             <section className="section-padding bg-obsidian-900" dir={direction}>
