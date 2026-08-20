@@ -15,6 +15,9 @@
       "dest": "/api/index.php?route=/api/$1"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

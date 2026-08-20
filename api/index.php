@@ -30,7 +30,29 @@ if ($isApi) {
     exit;
 }
 
-// For web requests, output HTML directly without touching Laravel or cache files!
+// Load manifest to get hashed asset paths
+$manifestPath = __DIR__.'/../public/build/manifest.json';
+$assets = [
+    'css' => [],
+    'js' => ''
+];
+
+if (file_exists($manifestPath)) {
+    $manifest = json_decode(file_get_contents($manifestPath), true);
+    if (isset($manifest['resources/js/main.jsx'])) {
+        $assets['js'] = '/build/' . $manifest['resources/js/main.jsx']['file'];
+        if (isset($manifest['resources/js/main.jsx']['css'])) {
+            foreach ($manifest['resources/js/main.jsx']['css'] as $cssFile) {
+                $assets['css'][] = '/build/' . $cssFile;
+            }
+        }
+    }
+    if (isset($manifest['resources/css/app.css'])) {
+        $assets['css'][] = '/build/' . $manifest['resources/css/app.css']['file'];
+    }
+}
+
+// For web requests, output HTML directly
 ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
@@ -46,9 +68,13 @@ if ($isApi) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/build/assets/main-CDPVEH3C.css" />
-    <link rel="stylesheet" href="/build/assets/app-B-MMahtO.css" />
-    <script type="module" src="/build/assets/main-BRmYZbHa.js"></script>
+    <?php foreach ($assets['css'] as $css): ?>
+    <link rel="stylesheet" href="<?php echo $css; ?>" />
+    <?php endforeach; ?>
+    
+    <?php if ($assets['js']): ?>
+    <script type="module" src="<?php echo $assets['js']; ?>"></script>
+    <?php endif; ?>
 
     <!-- Organization & Service Schema -->
     <script type="application/ld+json">
