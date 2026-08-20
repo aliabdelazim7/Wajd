@@ -14,25 +14,20 @@
 
     @php
       $manifestPath = public_path('build/manifest.json');
-      $manifest = file_exists($manifestPath) ? (json_decode(file_get_contents($manifestPath), true) ?: []) : [];
-      $jsEntry = $manifest['resources/js/main.jsx'] ?? null;
-      $cssEntry = $manifest['resources/css/app.css'] ?? null;
+      $manifest = [];
+      if (file_exists($manifestPath)) {
+          $content = file_get_contents($manifestPath);
+          $manifest = json_decode($content, true) ?: [];
+      }
+      
+      $jsFile = $manifest['resources/js/main.jsx']['file'] ?? 'assets/main-BRmYZbHa.js';
+      $cssFile1 = $manifest['resources/js/main.jsx']['css'][0] ?? 'assets/main-CDPVEH3C.css';
+      $cssFile2 = $manifest['resources/css/app.css']['file'] ?? 'assets/app-B-MMahtO.css';
     @endphp
 
-    @if($jsEntry)
-      @if(!empty($jsEntry['css']))
-        @foreach($jsEntry['css'] as $cssFile)
-          <link rel="stylesheet" href="{{ '/build/' . ltrim($cssFile, '/') }}" />
-        @endforeach
-      @endif
-      @if($cssEntry)
-        <link rel="stylesheet" href="{{ '/build/' . ltrim($cssEntry['file'], '/') }}" />
-      @endif
-      <script type="module" src="{{ '/build/' . ltrim($jsEntry['file'], '/') }}"></script>
-    @else
-      @viteReactRefresh
-      @vite(['resources/js/main.jsx', 'resources/css/app.css'])
-    @endif
+    <link rel="stylesheet" href="{{ asset('build/' . $cssFile1) }}" />
+    <link rel="stylesheet" href="{{ asset('build/' . $cssFile2) }}" />
+    <script type="module" src="{{ asset('build/' . $jsFile) }}"></script>
 
     <!-- Organization & Service Schema -->
     <script type="application/ld+json">
