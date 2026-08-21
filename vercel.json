@@ -7,7 +7,7 @@
   ],
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
-    { "src": "/(favicon.ico|logo-dark.png|robots.txt)", "dest": "/public/$1" },
+    { "src": "/(favicon.ico|logo-dark.png|robots.txt|sitemap.xml|llms.txt|pricing.md)", "dest": "/public/$1" },
     { "src": "/api/(.*)", "dest": "/api/main.php?route=/api/$1" },
     { "src": "/up", "dest": "/api/main.php?route=/up" },
     { "src": "/debug-files", "dest": "/api/main.php" },
