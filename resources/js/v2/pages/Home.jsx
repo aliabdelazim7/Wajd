@@ -35,7 +35,7 @@ const Home = () => {
         }))
         : fallbackWork;
 
-    const basePlans = content?.packages?.length
+    const basePlans = lang === 'ar' && content?.packages?.length
         ? content.packages.map((pkg) => ({
             id: pkg.slug,
             name: pkg.name,
