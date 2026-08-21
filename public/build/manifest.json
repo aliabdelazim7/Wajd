@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-C0a3GpH0.js",
+    "file": "assets/main-Cvgfiz3P.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
@@ -19,39 +19,39 @@
     "assets": [
       "assets/2.6-zi5Qlh-u.png",
       "assets/2.10-EQQPL8b7.png",
-      "assets/2500-Cmwtggap.png",
       "assets/2.3-Btigg_8z.png",
-      "assets/2.5-C7rVYbsJ.png",
       "assets/1.8-Atsh_E7K.png",
-      "assets/10-3bQAzlqn.png"
+      "assets/10-3bQAzlqn.png",
+      "assets/2.5-C7rVYbsJ.png",
+      "assets/2500-Cmwtggap.png"
     ]
   },
-  "resources/js/v2/assets/portfolio_redacted/العويد/2.6.png": {
+  "resources/js/v2/assets/portfolio_redacted/al-owaid/2.6.png": {
     "file": "assets/2.6-zi5Qlh-u.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/العويد/2.6.png"
+    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/2.6.png"
   },
-  "resources/js/v2/assets/portfolio_redacted/بارنر/2.10.png": {
+  "resources/js/v2/assets/portfolio_redacted/barner/2.10.png": {
     "file": "assets/2.10-EQQPL8b7.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/بارنر/2.10.png"
+    "src": "resources/js/v2/assets/portfolio_redacted/barner/2.10.png"
   },
-  "resources/js/v2/assets/portfolio_redacted/تويو/2500.png": {
-    "file": "assets/2500-Cmwtggap.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/تويو/2500.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/فلاش/2.3.png": {
+  "resources/js/v2/assets/portfolio_redacted/flash/2.3.png": {
     "file": "assets/2.3-Btigg_8z.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/فلاش/2.3.png"
+    "src": "resources/js/v2/assets/portfolio_redacted/flash/2.3.png"
   },
-  "resources/js/v2/assets/portfolio_redacted/قناطير/2.5.png": {
-    "file": "assets/2.5-C7rVYbsJ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/قناطير/2.5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/كاملز/1.8.png": {
+  "resources/js/v2/assets/portfolio_redacted/kamalz/1.8.png": {
     "file": "assets/1.8-Atsh_E7K.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/كاملز/1.8.png"
+    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/1.8.png"
   },
-  "resources/js/v2/assets/portfolio_redacted/منابت/10.png": {
+  "resources/js/v2/assets/portfolio_redacted/manabet/10.png": {
     "file": "assets/10-3bQAzlqn.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/منابت/10.png"
+    "src": "resources/js/v2/assets/portfolio_redacted/manabet/10.png"
+  },
+  "resources/js/v2/assets/portfolio_redacted/qanatir/2.5.png": {
+    "file": "assets/2.5-C7rVYbsJ.png",
+    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/2.5.png"
+  },
+  "resources/js/v2/assets/portfolio_redacted/toyo/2500.png": {
+    "file": "assets/2500-Cmwtggap.png",
+    "src": "resources/js/v2/assets/portfolio_redacted/toyo/2500.png"
   }
 }

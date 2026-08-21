@@ -5,7 +5,7 @@ const portfolioAssets = import.meta.glob('../assets/portfolio_redacted/**/*.{png
 });
 
 const assetsFor = (folder) => Object.entries(portfolioAssets)
-    .filter(([path]) => path.includes(`/portfolio/${folder}/`))
+    .filter(([path]) => path.includes(`/portfolio_redacted/${folder}/`))
     .sort(([a], [b]) => {
         const score = (path) => /\/2\.6\.|\/2\.54\.|\/2\.5\.|\/2\.10\.|\/2\.3\.|\/1\.8\.|\/2500\.|\/10\.png$/i.test(path) ? 0 : 1;
         return score(a) - score(b) || a.localeCompare(b);
@@ -14,7 +14,7 @@ const assetsFor = (folder) => Object.entries(portfolioAssets)
 
 const evidence = {
     'al-owaid': {
-        folder: 'العويد',
+        folder: 'al-owaid',
         name: { ar: 'براند العويد للعود', en: 'Al Owaid Oud' },
         category: { ar: 'تسويق الأداء', en: 'Performance Marketing' },
         metric: { ar: '2.62x ROAS', en: '2.62x ROAS' },
@@ -40,7 +40,7 @@ const evidence = {
         period: 'Nov 1–29, 2025',
     },
     barner: {
-        folder: 'بارنر',
+        folder: 'barner',
         name: { ar: 'براند بارنر', en: 'Barner Brand' },
         category: { ar: 'استحواذ وتحسين ميتا', en: 'Acquisition & Meta Optimization' },
         metric: { ar: '2.10x ROAS', en: '2.10x ROAS' },
@@ -66,7 +66,7 @@ const evidence = {
         period: 'Oct 1–31, 2025',
     },
     toyo: {
-        folder: 'تويو',
+        folder: 'toyo',
         name: { ar: 'تطبيق تويو', en: 'Toyo App' },
         category: { ar: 'هندسة النمو', en: 'Growth Engineering' },
         metric: { ar: 'KWD 2,567.558', en: 'KWD 2,567.558' },
@@ -92,7 +92,7 @@ const evidence = {
         period: 'Mar 1–31, 2025',
     },
     qanatir: {
-        folder: 'قناطير',
+        folder: 'qanatir',
         name: { ar: 'براند قناطير الغذائي', en: 'Qanatir Food Brand' },
         category: { ar: 'الإعلانات المدفوعة', en: 'Paid Social' },
         metric: { ar: '2.54x ROAS', en: '2.54x ROAS' },
@@ -118,7 +118,7 @@ const evidence = {
         period: 'Aug 1–31, 2025',
     },
     jassar: {
-        folder: 'جسار',
+        folder: 'jassar',
         name: { ar: 'مؤسسة جسار التجارية', en: 'Jassar Trading' },
         category: { ar: 'تحسين رحلة التحويل', en: 'Conversion Journey' },
         metric: { ar: '3,228 طلباً', en: '3,228 orders' },
@@ -144,7 +144,7 @@ const evidence = {
         period: null,
     },
     flash: {
-        folder: 'فلاش',
+        folder: 'flash',
         name: { ar: 'براند فلاش', en: 'Flash Brand' },
         category: { ar: 'نمو متعدد القنوات', en: 'Omnichannel Growth' },
         metric: { ar: '2.34x ROAS', en: '2.34x ROAS' },
@@ -170,7 +170,7 @@ const evidence = {
         period: 'May 1–31, 2025',
     },
     kamalz: {
-        folder: 'كاملز',
+        folder: 'kamalz',
         name: { ar: 'براند كاملز', en: 'Kamalz Brand' },
         category: { ar: 'تحسين الاستحواذ', en: 'Acquisition Optimization' },
         metric: { ar: '1.89x ROAS', en: '1.89x ROAS' },
@@ -196,7 +196,7 @@ const evidence = {
         period: 'Aug 1–31, 2025',
     },
     manabet: {
-        folder: 'منابت',
+        folder: 'manabet',
         name: { ar: 'منابت', en: 'Manabet' },
         category: { ar: 'نمو التجارة الإلكترونية', en: 'E-commerce Growth' },
         metric: { ar: 'KWD 753.76', en: 'KWD 753.76' },
