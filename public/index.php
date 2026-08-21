@@ -50,6 +50,10 @@ $meta = [
         'ar' => ['title' => 'سياسة الخصوصية | وكالة وجد', 'description' => 'تعرف على طريقة تعامل وكالة وجد مع بيانات زوار الموقع والعملاء المحتملين.'],
         'en' => ['title' => 'Privacy Policy | Wajd Agency', 'description' => 'Learn how Wajd Agency handles website visitor and prospective client information.'],
     ],
+    'insights' => [
+        'ar' => ['title' => 'رؤى النمو | وكالة وجد', 'description' => 'أفكار عملية عن التسويق والتقنية والقياس والتجارة في السوق الخليجي، بمصادر واضحة وبدون وعود عامة.'],
+        'en' => ['title' => 'Growth Insights | Wajd Agency', 'description' => 'Practical, source-backed ideas on marketing, technology, measurement, and commerce in the Gulf.'],
+    ],
 ];
 
 $segments = trim($path, '/');
