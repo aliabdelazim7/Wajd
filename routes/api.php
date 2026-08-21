@@ -7,6 +7,7 @@ use App\Http\Controllers\API\LeadController;
 use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\API\NurtureController;
+use App\Http\Controllers\API\PublicActivityController;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::post('/analytics/collect', [AnalyticsController::class, 'collect'])
     ->middleware('throttle:analytics-collection');
 
 Route::get('/automation/nurture', [NurtureController::class, 'run']);
+Route::get('/activity/recent', [PublicActivityController::class, 'recent'])
+    ->middleware('throttle:analytics-collection');
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])

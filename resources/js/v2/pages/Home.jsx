@@ -4,6 +4,7 @@ import CinematicHero from '../components/CinematicHero.jsx';
 import FAQ from '../components/FAQ.jsx';
 import GrowthROICalculator from '../components/GrowthROICalculator.jsx';
 import ProductDemo from '../components/ProductDemo.jsx';
+import SocialProof from '../components/SocialProof.jsx';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2, ShoppingBag, Plus, Check, Trash2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -203,6 +204,9 @@ const Home = () => {
 
             {/* Product Tangibility & Interactive Demo */}
             <ProductDemo />
+
+            {/* Social Proof & Reviewable Evidence */}
+            <SocialProof projects={selectedWork} />
 
             {/* Selected Work Section */}
             <section className="section-padding bg-obsidian-900" dir={direction}>

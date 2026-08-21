@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
+import LiveActivityToast from '../components/LiveActivityToast.jsx';
 
 const Layout = ({ children }) => {
     const { t, lang, content } = useApp();
@@ -52,6 +53,7 @@ const Layout = ({ children }) => {
                         <Link to="/services" className="hover:text-gold-500 transition-colors">{t.nav.services}</Link>
                         <Link to="/portfolio" className="hover:text-gold-500 transition-colors">{t.nav.portfolio}</Link>
                         <Link to="/contact" className="hover:text-gold-500 transition-colors">{t.nav.contact}</Link>
+                        <Link to="/portal" className="hover:text-gold-500 transition-colors">{lang === 'ar' ? 'بوابة العميل' : 'Client portal'}</Link>
                     </div>
 
                     <div className="w-full flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 text-xs text-white/20 uppercase tracking-[0.2em]">
@@ -66,6 +68,7 @@ const Layout = ({ children }) => {
                     </div>
                 </div>
             </footer>
+            <LiveActivityToast />
         </div>
     );
 };

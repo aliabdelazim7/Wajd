@@ -17,7 +17,7 @@ class ContentController extends Controller
     {
         $locale = $request->query('locale', 'ar') === 'en' ? 'en' : 'ar';
 
-        $publicSettingKeys = ['brand', 'contact', 'seo'];
+        $publicSettingKeys = ['brand', 'contact', 'seo', 'social_proof'];
         $settings = SiteSetting::query()
             ->whereIn('key', $publicSettingKeys)
             ->get()

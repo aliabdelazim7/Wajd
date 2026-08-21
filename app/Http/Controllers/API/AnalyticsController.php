@@ -36,6 +36,12 @@ class AnalyticsController extends Controller
         'demo_request_clicked',
         'roi_calculator_used',
         'roi_plan_requested',
+        'video_testimonial_played',
+        'testimonial_cta_clicked',
+        'case_study_opened_from_proof',
+        'portal_preview_tab_clicked',
+        'portal_message_clicked',
+        'portal_request_clicked',
     ];
 
     private const SCORE_WEIGHTS = [
@@ -61,6 +67,12 @@ class AnalyticsController extends Controller
         'demo_request_clicked' => 25,
         'roi_calculator_used' => 10,
         'roi_plan_requested' => 24,
+        'video_testimonial_played' => 8,
+        'testimonial_cta_clicked' => 12,
+        'case_study_opened_from_proof' => 6,
+        'portal_preview_tab_clicked' => 3,
+        'portal_message_clicked' => 8,
+        'portal_request_clicked' => 14,
     ];
 
     private const PROPERTY_KEYS = [
@@ -69,7 +81,7 @@ class AnalyticsController extends Controller
         'plan_id', 'plan_name', 'price', 'addon_id', 'addon_name', 'action',
         'base_plan_id', 'billing_type', 'addon_ids', 'monthly_total', 'one_time_total',
         'service', 'industry', 'budget_sar', 'contact_preference', 'has_builder_selection',
-        'source', 'demo_id', 'average_order_value', 'margin_percent', 'scenario', 'target_roas', 'projected_revenue', 'has_roi_snapshot',
+        'source', 'demo_id', 'average_order_value', 'margin_percent', 'scenario', 'target_roas', 'projected_revenue', 'has_roi_snapshot', 'video_id', 'project_id',
     ];
 
     public function collect(Request $request): JsonResponse
