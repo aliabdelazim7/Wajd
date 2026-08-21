@@ -12,6 +12,18 @@ use App\Http\Middleware\EnsureAdmin;
 use App\Http\Middleware\RequireAdminBearerToken;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/debug-env', function() {
+    return response()->json([
+        'app_env' => env('APP_ENV'),
+        'db_conn' => env('DB_CONNECTION'),
+        'db_host' => env('DB_HOST'),
+        'db_port' => env('DB_PORT'),
+        'db_database' => env('DB_DATABASE'),
+        'db_username' => env('DB_USERNAME'),
+        'app_url' => env('APP_URL'),
+    ]);
+});
+
 Route::get('/content', [ContentController::class, 'index']);
 Route::get('/content/projects/{slug}', [ContentController::class, 'project']);
 
