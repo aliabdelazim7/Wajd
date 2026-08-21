@@ -1,31 +1,34 @@
+// Import all redacted evidence images
 const portfolioAssets = import.meta.glob('../assets/portfolio_redacted/**/*.{png,jpg,jpeg,webp}', {
     eager: true,
     import: 'default',
-    query: '?url',
 });
 
+// Import all meaningful hero images
 const heroAssets = import.meta.glob('../assets/portfolio_hero/**/*.{png,jpg,jpeg,webp}', {
     eager: true,
     import: 'default',
-    query: '?url',
 });
 
 const getHero = (slug) => {
-    const entry = Object.entries(heroAssets).find(([path]) => path.includes(`${slug}.`));
+    // Find hero image that matches the slug
+    const entry = Object.entries(heroAssets).find(([path]) => {
+        const filename = path.split('/').pop().split('.')[0];
+        return filename === slug;
+    });
     return entry ? entry[1] : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop';
 };
 
-const assetsFor = (folder) => Object.entries(portfolioAssets)
-    .filter(([path]) => {
-        const p = path.toLowerCase();
-        const f = folder.toLowerCase();
-        return p.includes(`/${f}/`) || p.includes(`_${f}/`);
-    })
-    .sort(([a], [b]) => {
-        const score = (path) => /\/2\.6\.|\/2\.54\.|\/2\.5\.|\/2\.10\.|\/2\.3\.|\/1\.8\.|\/2500\.|\/10\.png$/i.test(path) ? 0 : 1;
-        return score(a) - score(b) || a.localeCompare(b);
-    })
-    .map(([, url]) => url);
+const assetsFor = (folder) => {
+    const folderLower = folder.toLowerCase();
+    return Object.entries(portfolioAssets)
+        .filter(([path]) => {
+            const pathLower = path.toLowerCase();
+            // Match if the path contains the folder name as a segment
+            return pathLower.includes(`/portfolio_redacted/${folderLower}/`);
+        })
+        .map(([, url]) => url);
+};
 
 const evidence = {
     'al-owaid': {
@@ -195,7 +198,7 @@ const evidence = {
             en: 'A disciplined performance campaign converting traffic and checkout intent into measurable purchases.',
         },
         challenge: {
-            ar: 'اختبار كفاءة الإنفاق وتحسين المراحل السابقة للشراء دون توسيع الميزانية بلا دليل.',
+            ar: 'الحاجة إلى اختبار كفاءة الإنفاق وتحسين المراحل السابقة للشراء دون توسيع الميزانية بلا دليل.',
             en: 'The brief was to test spend efficiency and improve pre-purchase stages before scaling the budget.',
         },
         strategy: {
