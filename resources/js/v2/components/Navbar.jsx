@@ -26,6 +26,7 @@ const Navbar = () => {
         { name: t.nav.about, path: '/about' },
         { name: t.nav.services, path: '/services' },
         { name: t.nav.portfolio, path: '/portfolio' },
+        { name: lang === 'ar' ? 'رؤى النمو' : 'Insights', path: '/insights' },
         { name: t.nav.contact, path: '/contact' },
     ];
 

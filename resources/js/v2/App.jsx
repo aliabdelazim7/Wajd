@@ -11,6 +11,7 @@ import Services from './pages/Services.jsx';
 import Admin from './pages/Admin.jsx';
 import CaseStudy from './pages/CaseStudy.jsx';
 import ClientPortal from './pages/ClientPortal.jsx';
+import GrowthInsights from './pages/GrowthInsights.jsx';
 import Error from './pages/Error.jsx';
 import { useApp } from './context/AppContext.jsx';
 
@@ -42,6 +43,10 @@ const pageMeta = {
     '/portal': {
         ar: { title: 'بوابة العميل | وكالة وجد', description: 'معاينة بوابة وجد لمتابعة تقدم المشروع والملفات والتقارير والقرارات القادمة في مساحة واحدة.' },
         en: { title: 'Client Portal Preview | Wajd Agency', description: 'Preview Wajd’s client workspace for project progress, files, reports, and next decisions.' },
+    },
+    '/insights': {
+        ar: { title: 'رؤى النمو | وكالة وجد', description: 'أفكار عملية عن التسويق والتقنية والقياس والتجارة في السوق الخليجي، بمصادر واضحة وبدون وعود عامة.' },
+        en: { title: 'Growth Insights | Wajd Agency', description: 'Practical, source-backed ideas on marketing, technology, measurement, and commerce in the Gulf.' },
     },
 };
 
@@ -130,6 +135,8 @@ const AppV2 = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/portal" element={<ClientPortal />} />
+                <Route path="/insights" element={<GrowthInsights />} />
+                <Route path="/insights/:slug" element={<GrowthInsights />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/admin/*" element={<Admin />} />
                 <Route path="*" element={<Error />} />
