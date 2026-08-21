@@ -11,3 +11,5 @@ The live browser exposed the technical add-on buttons and positioned the builder
 Selecting LiftDesk AI automation changed its button to a selected/check state and recalculated the cart from SAR 950 monthly to SAR 1,700 monthly, while preserving the selected add-on line item.
 
 The request-build CTA is present in the extracted live page content immediately after the recalculated total. The browser viewport did not expose it as a numbered control because the sticky two-column layout kept the add-on grid in view; the underlying route handoff is covered by the compiled implementation and backend validation checks.
+
+After redeploying the bilingual fix, switching the live site to English showed `Starter Plan`, `Growth Plan`, and `Partner Plan` with English subtitles and features. The English add-on catalog and the `Your growth-engine cart` summary also render fully in English, while SAR pricing remains consistent.
