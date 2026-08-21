@@ -5,3 +5,19 @@ Disallow: /api
 
 # Public pages are available to search and answer engines.
 Sitemap: https://www.wajd-agency.com/sitemap.xml
+
+# AI Crawler optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

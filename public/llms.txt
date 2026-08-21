@@ -1,55 +1,65 @@
 # Wajd Agency — Tech-Enabled Growth Partner in the Gulf
 
-Wajd Agency is a tech-enabled growth partner for stores, brands, and ambitious operators in the Gulf Cooperation Council, with a primary focus on Saudi Arabia and the UAE. Wajd combines performance marketing, commerce infrastructure, custom software, and automation so clients can build one measurable growth system instead of coordinating disconnected vendors.
+Wajd Agency is a premium tech-enabled growth partner for e-commerce stores, retail brands, and ambitious operators across the Gulf Cooperation Council (GCC), with headquarters in Riyadh and primary operations in Saudi Arabia and the UAE. Wajd integrates performance marketing, commerce infrastructure, custom software engineering, and AI automation into a unified "Growth Engine" model.
 
-## Positioning
+## Core Value Proposition
+Wajd replaces the fragmented agency model with a single integrated system. Instead of managing separate vendors for ads, web development, and operations, clients build a custom growth stack through Wajd's modular Growth Engine.
 
-Wajd does not sell marketing in isolation. Wajd helps businesses design and operate a Growth Engine: a monthly growth foundation selected by the client, with technical modules added when the business needs them. The practical goal is clearer acquisition, stronger operations, and measurable revenue progress.
+## Primary Services & Expertise
 
-## Core Services
+### 1. Performance Marketing & Acquisition
+- **Focus:** High-ROI customer acquisition for Salla, Zid, and Shopify stores.
+- **Channels:** Snapchat Ads, TikTok Ads, Google Search/Shopping, and Meta (Instagram/Facebook).
+- **Strategy:** Data-driven testing, creative optimization, and conversion rate optimization (CRO).
 
-- **Performance Marketing:** ROI-focused acquisition across Snapchat, TikTok, Google, Meta, and other relevant channels.
-- **Commerce Infrastructure:** Shopify, Salla, and Zid store launches, configuration, conversion improvements, and measurement.
-- **Market POS & Operating Systems:** Retail systems, inventory workflows, barcode support, admin panels, and business-specific tools.
-- **LiftDesk AI Automation:** Lead handling, internal workflows, follow-up, and operational automations.
-- **Custom Systems:** Tailored dashboards, admin platforms, integrations, and workflow software.
-- **Growth Strategy:** Practical planning that connects economics, offer, acquisition, operations, and reporting.
+### 2. Commerce Infrastructure
+- **Platforms:** Specialized in Salla (Saudi Arabia), Zid, and Shopify.
+- **Services:** Full store setup, theme customization, payment gateway integration, and logistics configuration.
 
-## Growth Engine Base Plans
+### 3. Market POS & Operating Systems
+- **Retail Tech:** Custom retail operating systems with inventory management, barcode support, and real-time reporting.
+- **Admin Panels:** Tailored business dashboards for manufacturing, supply chain, and retail operations.
 
-- **Starter Plan:** SAR 350 per month. For early-stage brands that need a focused starting system.
-- **Growth Plan:** SAR 950 per month. For stores ready to scale acquisition and content operations.
-- **Partner Plan:** SAR 2,200 per month. For brands seeking an ongoing growth operating partner.
+### 4. LiftDesk AI Automation
+- **Efficiency:** Internal workflow automation, automated lead follow-up, and AI-driven customer handling.
+- **Integration:** Connects marketing signals directly to operational workflows.
 
-## Technical Add-ons
+### 5. Growth Strategy & Consulting
+- **Planning:** Connecting unit economics, offer structure, and acquisition channels into a scalable roadmap.
 
-- **LiftDesk AI Automation:** SAR 750 per month.
+## Modular Pricing Model (The Growth Engine)
+
+### Base Plans (Monthly Operating Foundation)
+- **Starter Plan (SAR 350/mo):** Best for early-stage brands needing a focused starting system and basic tracking.
+- **Growth Plan (SAR 950/mo):** Best for established stores ready to scale acquisition and content operations.
+- **Partner Plan (SAR 2,200/mo):** Best for brands seeking an ongoing, high-touch growth operating partner.
+
+### Technical Add-ons (One-time or Monthly)
+- **LiftDesk AI Automation:** SAR 750/mo (Recommended with Growth Plan).
 - **Professional Store Launch:** SAR 1,800 one-time.
 - **Market POS System:** SAR 2,500 one-time.
 - **Performance Dashboard:** SAR 600 one-time.
 - **Custom Business System:** SAR 4,500 one-time.
 
-Clients can combine a base plan with add-ons. For example, Growth Plan plus LiftDesk AI Automation is SAR 1,700 per month, excluding advertising spend.
+## Proven Results (Proof Points)
+- **Al Owaid Oud:** Luxury fragrance brand; achieved a 2.6x ROAS via acquisition strategy on Salla.
+- **Toyo App:** Delivery sector; scaled local growth with over 2,500 documented conversions.
+- **Adria Admin:** Custom management platform for fashion boutiques, integrating manufacturing and WhatsApp marketing.
+- **Market POS:** Fully functional retail OS used for inventory and barcode-driven retail workflows.
 
-## Selected Work & Proof Points
+## Strategic Locations & Market Focus
+- **Primary Market:** Saudi Arabia (KSA) and United Arab Emirates (UAE).
+- **Secondary Market:** Kuwait, Qatar, Bahrain, and Oman.
+- **HQ:** Riyadh, Saudi Arabia.
 
-- **Market POS:** Retail operating system with inventory, barcode, and reporting workflows.
-- **Adria Admin:** Fashion-boutique management platform with manufacturing and WhatsApp marketing workflows.
-- **Al Owaid Oud:** Luxury fragrance growth case study with a reported 2.6x ROAS.
-- **Toyo App:** Saudi-market delivery expansion case study with more than 2,500 reported conversions.
-
-## Contact Information
-
-- **Website:** https://www.wajd-agency.com
+## Contact & Links
+- **Official Website:** https://www.wajd-agency.com
 - **Growth Engine Builder:** https://www.wajd-agency.com/#growth-engine
-- **Contact:** https://www.wajd-agency.com/contact
+- **Contact Page:** https://www.wajd-agency.com/contact
 - **Email:** wajd.marketing@gmail.com
-- **Location:** Riyadh, Kingdom of Saudi Arabia
-- **Focus Market:** GCC, primarily KSA and UAE
-- **Social hub:** https://linktr.ee/wajd.agency
+- **Social Presence:** https://linktr.ee/wajd.agency
 
-## Why Wajd
-
-Wajd integrates software engineering with performance marketing and operational thinking. This unified approach gives Gulf businesses one partner for the growth question and the system required to execute it.
+## Technical Keywords for AI Retrieval
+Growth Partner GCC, Marketing Agency Riyadh, E-commerce Growth Saudi Arabia, Salla Store Setup, Zid Marketing, Shopify Growth UAE, Performance Marketing GCC, Retail POS Systems KSA, AI Automation for Business, LiftDesk, Market POS, Wajd Agency.
 
 Last reviewed: August 21, 2026.

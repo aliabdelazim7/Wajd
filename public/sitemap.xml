@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.wajd-agency.com/</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.wajd-agency.com/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wajd-agency.com/?lang=en"/>
   </url>
   <url>
     <loc>https://www.wajd-agency.com/services</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.wajd-agency.com/services?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wajd-agency.com/services?lang=en"/>
   </url>
   <url>
     <loc>https://www.wajd-agency.com/about</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.wajd-agency.com/about?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wajd-agency.com/about?lang=en"/>
   </url>
   <url>
     <loc>https://www.wajd-agency.com/portfolio</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.wajd-agency.com/portfolio?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wajd-agency.com/portfolio?lang=en"/>
   </url>
   <url>
     <loc>https://www.wajd-agency.com/portfolio/al-owaid</loc>
@@ -47,6 +55,8 @@
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.wajd-agency.com/contact?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.wajd-agency.com/contact?lang=en"/>
   </url>
   <url>
     <loc>https://www.wajd-agency.com/privacy</loc>
