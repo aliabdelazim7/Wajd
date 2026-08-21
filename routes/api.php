@@ -9,6 +9,7 @@ use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\API\NurtureController;
 use App\Http\Controllers\API\PublicActivityController;
 use App\Http\Middleware\EnsureAdmin;
+use App\Http\Middleware\RequireAdminBearerToken;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/content', [ContentController::class, 'index']);
@@ -27,7 +28,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
         ->middleware('throttle:admin-login');
 
-    Route::middleware(['admin.bearer', 'auth:sanctum', EnsureAdmin::class])->group(function () {
+    Route::middleware([
+        RequireAdminBearerToken::class,
+        'auth:sanctum',
+        EnsureAdmin::class,
+    ])->group(function () {
         Route::get('/me', [AuthController::class, 'me']);
         Route::post('/logout', [AuthController::class, 'logout']);
 
