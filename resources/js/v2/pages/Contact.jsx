@@ -26,23 +26,35 @@ const Contact = () => {
     const location = useLocation();
     const isArabic = lang === 'ar';
     const packageBuilder = location.state?.packageBuilder || null;
+    const roiSnapshot = location.state?.roiSnapshot || null;
     const builderSummary = packageBuilder ? [
         `${packageBuilder.basePlan?.name || ''} — ${Number(packageBuilder.basePlan?.price || 0).toLocaleString()} SAR / ${lang === 'ar' ? 'شهرياً' : 'monthly'}`,
         ...(packageBuilder.addons || []).map((addon) => `${addon.name} — ${Number(addon.price || 0).toLocaleString()} SAR / ${addon.type === 'monthly' ? (lang === 'ar' ? 'شهرياً' : 'monthly') : (lang === 'ar' ? 'مرة واحدة' : 'one-time')}`),
         `${lang === 'ar' ? 'الإجمالي الشهري المبدئي' : 'Indicative monthly total'}: ${Number(packageBuilder.monthlyTotal || 0).toLocaleString()} SAR`,
         ...(Number(packageBuilder.oneTimeTotal || 0) > 0 ? [`${lang === 'ar' ? 'إضافات تدفع مرة واحدة' : 'One-time add-ons'}: ${Number(packageBuilder.oneTimeTotal).toLocaleString()} SAR`] : []),
-    ].filter(Boolean).join('\n') : '';
+    ].filter(Boolean).join('\\n') : '';
+    const roiSummary = roiSnapshot ? [
+        `${lang === 'ar' ? 'ملخص حاسبة العائد:' : 'ROI calculator snapshot:'}`,
+        `${lang === 'ar' ? 'الميزانية الإعلانية' : 'Ad budget'}: ${Number(roiSnapshot.budget || 0).toLocaleString()} SAR`,
+        `${lang === 'ar' ? 'متوسط الطلب' : 'Average order value'}: ${Number(roiSnapshot.averageOrderValue || 0).toLocaleString()} SAR`,
+        `${lang === 'ar' ? 'الهامش' : 'Margin'}: ${Number(roiSnapshot.margin || 0)}%`,
+        `${lang === 'ar' ? 'الإيراد المتوقع في السيناريو' : 'Scenario revenue'}: ${Number(roiSnapshot.projectedRevenue || 0).toLocaleString()} SAR`,
+        `${lang === 'ar' ? 'ROAS نقطة التعادل التقريبية' : 'Approx. break-even ROAS'}: ${Number(roiSnapshot.breakEvenRoas || 0).toFixed(1)}x`,
+    ].join('\\n') : '';
+    const initialBrief = packageBuilder
+        ? `${lang === 'ar' ? 'المنظومة المختارة:' : 'Selected growth-engine build:'}\\n${builderSummary}`
+        : roiSummary;
     const [formData, setFormData] = useState({
         name: '',
         company_name: '',
         email: '',
         phone: '',
         website: '',
-        service: packageBuilder ? 'growth-engine' : '',
+        service: packageBuilder || roiSnapshot ? 'growth-engine' : '',
         industry: '',
         budget_sar: '',
         contact_preference: 'whatsapp',
-        message: packageBuilder ? `${lang === 'ar' ? 'المنظومة المختارة:' : 'Selected growth-engine build:'}\\n${builderSummary}` : '',
+        message: initialBrief,
         package_selection: packageBuilder || null,
         consent: false,
     });
@@ -53,7 +65,8 @@ const Contact = () => {
     React.useEffect(() => {
         trackAnalyticsEvent('contact_form_viewed', {
             has_builder_selection: Boolean(packageBuilder),
-            service: packageBuilder ? 'growth-engine' : null,
+            has_roi_snapshot: Boolean(roiSnapshot),
+            service: packageBuilder || roiSnapshot ? 'growth-engine' : null,
         });
     }, [packageBuilder]);
 
@@ -182,6 +195,7 @@ const Contact = () => {
             industry: formData.industry,
             budget_sar: formData.budget_sar,
             has_builder_selection: Boolean(packageBuilder),
+            has_roi_snapshot: Boolean(roiSnapshot),
         });
         setSubmitting(true);
         setError('');

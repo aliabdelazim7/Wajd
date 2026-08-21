@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Layout from '../layout/Layout.jsx';
 import CinematicHero from '../components/CinematicHero.jsx';
 import FAQ from '../components/FAQ.jsx';
-import ImpactSimulator from '../components/ImpactSimulator.jsx';
+import GrowthROICalculator from '../components/GrowthROICalculator.jsx';
 import ProductDemo from '../components/ProductDemo.jsx';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2, ShoppingBag, Plus, Check, Trash2 } from 'lucide-react';
@@ -104,8 +104,8 @@ const Home = () => {
         <Layout>
             <CinematicHero />
 
-            {/* Impact Simulator Hook */}
-            <ImpactSimulator />
+            {/* Growth ROI Calculator */}
+            <GrowthROICalculator />
 
             {/* Trusted By / Partners Section */}
             <section className="py-20 border-y border-white/5 bg-obsidian-950/50 overflow-hidden" dir={direction}>

@@ -34,6 +34,8 @@ class AnalyticsController extends Controller
         'demo_walkthrough_clicked',
         'demo_live_preview_clicked',
         'demo_request_clicked',
+        'roi_calculator_used',
+        'roi_plan_requested',
     ];
 
     private const SCORE_WEIGHTS = [
@@ -57,6 +59,8 @@ class AnalyticsController extends Controller
         'demo_walkthrough_clicked' => 8,
         'demo_live_preview_clicked' => 12,
         'demo_request_clicked' => 25,
+        'roi_calculator_used' => 10,
+        'roi_plan_requested' => 24,
     ];
 
     private const PROPERTY_KEYS = [
@@ -65,7 +69,7 @@ class AnalyticsController extends Controller
         'plan_id', 'plan_name', 'price', 'addon_id', 'addon_name', 'action',
         'base_plan_id', 'billing_type', 'addon_ids', 'monthly_total', 'one_time_total',
         'service', 'industry', 'budget_sar', 'contact_preference', 'has_builder_selection',
-        'source', 'demo_id',
+        'source', 'demo_id', 'average_order_value', 'margin_percent', 'scenario', 'target_roas', 'projected_revenue', 'has_roi_snapshot',
     ];
 
     public function collect(Request $request): JsonResponse
