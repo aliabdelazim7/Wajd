@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
     AlertTriangle, BarChart3, BriefcaseBusiness, Check, ChevronLeft, FileText,
     HelpCircle, History, Image as ImageIcon, LayoutDashboard, LogOut, Menu,
@@ -74,6 +74,71 @@ const apiRequest = async (path, options = {}, token = null) => {
         throw new Error(validation || payload.message || 'تعذر تنفيذ العملية حالياً.');
     }
     return payload;
+};
+
+class DashboardErrorBoundary extends React.Component {
+    state = { hasError: false };
+
+    static getDerivedStateFromError() {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error, info) {
+        console.error('Wajd CMS module render error', error, info);
+    }
+
+    retry = () => {
+        this.setState({ hasError: false });
+        this.props.onRetry?.();
+    };
+
+    render() {
+        if (!this.state.hasError) return this.props.children;
+        return (
+            <div className="rounded-2xl border border-red-400/20 bg-red-500/[0.08] p-10 text-center">
+                <AlertTriangle className="mx-auto mb-4 h-8 w-8 text-red-200" />
+                <h2 className="font-serif text-2xl text-white">تعذر عرض هذه الوحدة</h2>
+                <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-white/50">حدث خطأ غير متوقع أثناء تجهيز البيانات. بياناتك لم تتأثر؛ جرّب إعادة المحاولة أو انتقل لوحدة أخرى.</p>
+                <button type="button" onClick={this.retry} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gold-500 px-4 py-3 text-sm font-bold text-obsidian-950 transition hover:bg-white"><RefreshCw className="h-4 w-4" />إعادة المحاولة</button>
+            </div>
+        );
+    }
+}
+
+const LoadingPanel = () => (
+    <div role="status" aria-live="polite" className="rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center text-white/55">
+        <RefreshCw className="mx-auto mb-4 h-6 w-6 animate-spin text-gold-500" />
+        جاري تحميل بيانات هذه الوحدة...
+    </div>
+);
+
+const ErrorPanel = ({ onRetry }) => (
+    <div role="alert" className="rounded-2xl border border-red-400/20 bg-red-500/[0.08] p-10 text-center">
+        <AlertTriangle className="mx-auto mb-4 h-8 w-8 text-red-200" />
+        <h2 className="font-serif text-2xl text-white">تعذر تحميل بيانات هذه الوحدة</h2>
+        <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-white/50">تحقق من الاتصال ثم أعد المحاولة. إذا استمرت المشكلة، ستظل بقية وحدات لوحة التحكم متاحة.</p>
+        <button type="button" onClick={onRetry} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gold-500 px-4 py-3 text-sm font-bold text-obsidian-950 transition hover:bg-white"><RefreshCw className="h-4 w-4" />إعادة المحاولة</button>
+    </div>
+);
+
+const moduleEmptyCopy = {
+    blocks: { title: 'لا يوجد محتوى مضاف بعد', description: 'أضف أول كتلة محتوى لإدارة النصوص العربية والإنجليزية من لوحة واحدة.' },
+    packages: { title: 'لا توجد باقات بعد', description: 'أضف خططك الأساسية حتى تظهر في أداة بناء منظومة النمو.' },
+    faqs: { title: 'لا توجد أسئلة شائعة بعد', description: 'أضف الأسئلة التي تساعد العميل على اتخاذ قرار التواصل.' },
+    projects: { title: 'لا توجد دراسات حالة بعد', description: 'أضف مشروعاً موثقاً لعرض التحدي والاستراتيجية والنتيجة.' },
+    settings: { title: 'لا توجد إعدادات بعد', description: 'أضف إعداداً عاماً للموقع بصيغة JSON صحيحة.' },
+};
+
+const ModuleEmptyState = ({ active, onAdd }) => {
+    const copy = moduleEmptyCopy[active] || { title: 'لا توجد عناصر بعد', description: 'ابدأ بإضافة أول عنصر من الزر أعلاه.' };
+    return (
+        <div className="flex flex-col items-center justify-center gap-3 py-8 text-center">
+            <FileText className="h-8 w-8 text-gold-500/70" />
+            <h3 className="font-serif text-xl text-white">{copy.title}</h3>
+            <p className="max-w-md text-sm leading-7 text-white/40">{copy.description}</p>
+            <Button type="button" variant="secondary" onClick={onAdd}><Plus className="h-4 w-4" />إضافة عنصر</Button>
+        </div>
+    );
 };
 
 const inputClass = 'w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none transition focus:border-gold-500/60';
@@ -156,12 +221,14 @@ const Admin = () => {
     const [user, setUser] = useState(null);
     const [active, setActive] = useState('overview');
     const [payload, setPayload] = useState(null);
+    const [payloadSection, setPayloadSection] = useState(null);
     const [loading, setLoading] = useState(Boolean(token));
     const [error, setError] = useState('');
     const [notice, setNotice] = useState('');
     const [editor, setEditor] = useState(null);
     const [mobileNav, setMobileNav] = useState(false);
     const [search, setSearch] = useState('');
+    const requestId = useRef(0);
 
     const notify = useCallback((message) => {
         setNotice(message);
@@ -177,12 +244,14 @@ const Admin = () => {
 
     const load = useCallback(async (section = active) => {
         if (!token) return;
+        const currentRequest = requestId.current + 1;
+        requestId.current = currentRequest;
         setLoading(true);
         setError('');
-        setPayload(null);
         try {
             const endpoint = section === 'audit' ? '/audit-logs' : `/${section}`;
             const response = await apiRequest(endpoint, {}, token);
+            if (currentRequest !== requestId.current) return;
             // Admin endpoints return either a collection or a paginator under `data`.
             // Normalize every non-overview section to an array before rendering so a
             // delayed/nested response can never crash a tab into a blank screen.
@@ -190,11 +259,13 @@ const Admin = () => {
             setPayload(section === 'overview'
                 ? (sectionData || {})
                 : (Array.isArray(sectionData) ? sectionData : (Array.isArray(sectionData?.data) ? sectionData.data : [])));
+            setPayloadSection(section);
         } catch (exception) {
+            if (currentRequest !== requestId.current) return;
             if (exception.message === 'UNAUTHORIZED') return logout();
             setError(exception.message);
         } finally {
-            setLoading(false);
+            if (currentRequest === requestId.current) setLoading(false);
         }
     }, [active, logout, token]);
 
@@ -287,6 +358,7 @@ const Admin = () => {
         if (Array.isArray(payload?.data)) return payload.data;
         return [];
     }, [payload]);
+    const hasPayloadForActive = payloadSection === active && payload !== null;
 
     if (!token) return <AdminLogin onAuthenticated={(data) => { setToken(data.token); setUser(data.user); }} />;
 
@@ -322,13 +394,15 @@ const Admin = () => {
                     <div className="mx-auto max-w-[1500px] p-5 md:p-8">
                         {notice && <div className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-xl border border-green-400/20 bg-green-500/10 px-4 py-3 text-sm text-green-100 shadow-xl"><Check className="h-4 w-4" />{notice}</div>}
                         {error && <div className="mb-5 flex items-start justify-between gap-3 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-100"><span className="flex items-start gap-2"><AlertTriangle className="mt-1 h-4 w-4 shrink-0" />{error}</span><button onClick={() => setError('')}><X className="h-4 w-4" /></button></div>}
-                        {loading && !payload && <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center text-white/45">جاري تحميل بيانات لوحة التحكم...</div>}
-
-                        {active === 'overview' && <Overview payload={payload} />}
-                        {(active === 'packages' || active === 'faqs' || active === 'projects' || active === 'blocks' || active === 'settings') && <CrudSection active={active} records={records} editor={editor} setEditor={setEditor} openEditor={openEditor} save={save} remove={remove} />}
-                        {active === 'leads' && <LeadsSection records={records} search={search} setSearch={setSearch} updateLeadStatus={updateLeadStatus} remove={remove} />}
-                        {active === 'media' && <MediaSection records={records} upload={upload} remove={remove} />}
-                        {active === 'audit' && <AuditSection records={records} />}
+                        {loading && !hasPayloadForActive && <LoadingPanel />}
+                        {!loading && error && !hasPayloadForActive && <ErrorPanel onRetry={() => load(active)} />}
+                        {hasPayloadForActive && <DashboardErrorBoundary onRetry={() => load(active)}>
+                            {active === 'overview' && <Overview payload={payload} />}
+                            {(active === 'packages' || active === 'faqs' || active === 'projects' || active === 'blocks' || active === 'settings') && <CrudSection active={active} records={records} editor={editor} setEditor={setEditor} openEditor={openEditor} save={save} remove={remove} />}
+                            {active === 'leads' && <LeadsSection records={records} search={search} setSearch={setSearch} updateLeadStatus={updateLeadStatus} remove={remove} />}
+                            {active === 'media' && <MediaSection records={records} upload={upload} remove={remove} />}
+                            {active === 'audit' && <AuditSection records={records} />}
+                        </DashboardErrorBoundary>}
                     </div>
                 </section>
             </div>
@@ -345,7 +419,7 @@ const CrudSection = ({ active, records, editor, setEditor, openEditor, save, rem
     const titles = { blocks: 'محتوى الموقع', packages: 'الباقات الشهرية', faqs: 'الأسئلة الشائعة', projects: 'دراسات الحالة', settings: 'إعدادات الموقع' };
     const resources = { packages: 'packages', faqs: 'faqs', projects: 'projects', blocks: 'blocks', settings: 'settings' };
     const newLabel = active === 'blocks' ? 'إضافة محتوى' : active === 'settings' ? 'إضافة إعداد' : 'إضافة جديد';
-    return <div className="space-y-5"><div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="font-serif text-3xl">{titles[active]}</h2><p className="mt-2 text-sm text-white/40">كل تعديل هنا ينعكس على محتوى الموقع بعد ربط الواجهة بالـ API.</p></div><Button onClick={() => openEditor()}><Plus className="h-4 w-4" />{newLabel}</Button></div>{editor && <EditorPanel active={active} editor={editor} setEditor={setEditor} save={save} onClose={() => setEditor(null)} />}{!editor && <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"><div className="overflow-x-auto"><table className="w-full min-w-[760px] text-right text-sm"><thead className="text-white/35"><tr>{active === 'packages' && <><th className="p-4">الباقة</th><th className="p-4">السعر</th><th className="p-4">المميزات</th></>}{active === 'faqs' && <><th className="p-4">السؤال بالعربية</th><th className="p-4">السؤال بالإنجليزية</th></>}{active === 'projects' && <><th className="p-4">المشروع</th><th className="p-4">التصنيف</th><th className="p-4">الصورة</th></>}{active === 'blocks' && <><th className="p-4">المفتاح</th><th className="p-4">اللغة</th><th className="p-4">العنوان</th></>}{active === 'settings' && <><th className="p-4">المفتاح</th><th className="p-4">القيمة</th></>}</tr></thead><tbody>{records.map((record) => <tr key={record.id} className="border-t border-white/5 align-top"><td className="p-4">{active === 'packages' ? <><strong>{record.name_ar}</strong><br /><span className="text-xs text-white/35">{record.name_en}</span></> : active === 'faqs' ? record.question_ar : active === 'projects' ? <><strong>{record.name_ar}</strong><br /><span className="text-xs text-white/35">{record.slug}</span></> : active === 'blocks' ? <><strong>{record.key}</strong><br /><span className="text-xs text-white/35">{record.title}</span></> : record.key}</td>{active === 'packages' && <><td className="p-4 text-gold-500">{Number(record.price_sar || 0).toLocaleString()} SAR</td><td className="max-w-sm p-4 text-white/55">{(record.features_ar || []).slice(0, 3).join(' · ')}</td></>}{active === 'faqs' && <td className="p-4 text-white/55">{record.question_en}</td>}{active === 'projects' && <><td className="p-4 text-white/55">{record.category_ar || '—'}</td><td className="p-4">{record.image_url ? <img src={record.image_url} alt={record.alt_text_ar || record.name_ar} className="h-12 w-20 rounded-lg object-cover" /> : '—'}</td></>}{active === 'blocks' && <><td className="p-4 text-gold-500">{record.locale}</td><td className="p-4 text-white/55">{record.title || '—'}</td></>}{active === 'settings' && <td className="max-w-md p-4 text-white/55"><code className="text-xs">{JSON.stringify(record.value)}</code></td>}<td className="p-4"><div className="flex justify-end gap-2"><Button variant="secondary" onClick={() => openEditor(record)}><Pencil className="h-4 w-4" />تعديل</Button><Button variant="danger" onClick={() => remove(record.id, resources[active])}><Trash2 className="h-4 w-4" />حذف</Button></div></td></tr>)}{!records.length && <tr><td colSpan="6" className="p-12 text-center text-white/35">لا توجد عناصر بعد.</td></tr>}</tbody></table></div></div>}</div>;
+    return <div className="space-y-5"><div className="flex flex-wrap items-center justify-between gap-3"><div><h2 className="font-serif text-3xl">{titles[active]}</h2><p className="mt-2 text-sm text-white/40">كل تعديل هنا ينعكس على محتوى الموقع بعد ربط الواجهة بالـ API.</p></div><Button onClick={() => openEditor()}><Plus className="h-4 w-4" />{newLabel}</Button></div>{editor && <EditorPanel active={active} editor={editor} setEditor={setEditor} save={save} onClose={() => setEditor(null)} />}{!editor && <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"><div className="overflow-x-auto"><table className="w-full min-w-[760px] text-right text-sm"><thead className="text-white/35"><tr>{active === 'packages' && <><th className="p-4">الباقة</th><th className="p-4">السعر</th><th className="p-4">المميزات</th></>}{active === 'faqs' && <><th className="p-4">السؤال بالعربية</th><th className="p-4">السؤال بالإنجليزية</th></>}{active === 'projects' && <><th className="p-4">المشروع</th><th className="p-4">التصنيف</th><th className="p-4">الصورة</th></>}{active === 'blocks' && <><th className="p-4">المفتاح</th><th className="p-4">اللغة</th><th className="p-4">العنوان</th></>}{active === 'settings' && <><th className="p-4">المفتاح</th><th className="p-4">القيمة</th></>}</tr></thead><tbody>{records.map((record) => <tr key={record.id} className="border-t border-white/5 align-top"><td className="p-4">{active === 'packages' ? <><strong>{record.name_ar}</strong><br /><span className="text-xs text-white/35">{record.name_en}</span></> : active === 'faqs' ? record.question_ar : active === 'projects' ? <><strong>{record.name_ar}</strong><br /><span className="text-xs text-white/35">{record.slug}</span></> : active === 'blocks' ? <><strong>{record.key}</strong><br /><span className="text-xs text-white/35">{record.title}</span></> : record.key}</td>{active === 'packages' && <><td className="p-4 text-gold-500">{Number(record.price_sar || 0).toLocaleString()} SAR</td><td className="max-w-sm p-4 text-white/55">{(record.features_ar || []).slice(0, 3).join(' · ')}</td></>}{active === 'faqs' && <td className="p-4 text-white/55">{record.question_en}</td>}{active === 'projects' && <><td className="p-4 text-white/55">{record.category_ar || '—'}</td><td className="p-4">{record.image_url ? <img src={record.image_url} alt={record.alt_text_ar || record.name_ar} className="h-12 w-20 rounded-lg object-cover" /> : '—'}</td></>}{active === 'blocks' && <><td className="p-4 text-gold-500">{record.locale}</td><td className="p-4 text-white/55">{record.title || '—'}</td></>}{active === 'settings' && <td className="max-w-md p-4 text-white/55"><code className="text-xs">{JSON.stringify(record.value)}</code></td>}<td className="p-4"><div className="flex justify-end gap-2"><Button variant="secondary" onClick={() => openEditor(record)}><Pencil className="h-4 w-4" />تعديل</Button><Button variant="danger" onClick={() => remove(record.id, resources[active])}><Trash2 className="h-4 w-4" />حذف</Button></div></td></tr>)}{!records.length && <tr><td colSpan="6" className="p-5"><ModuleEmptyState active={active} onAdd={() => openEditor()} /></td></tr>}</tbody></table></div></div>}</div>;
 };
 
 const EditorPanel = ({ active, editor, setEditor, save, onClose }) => {
