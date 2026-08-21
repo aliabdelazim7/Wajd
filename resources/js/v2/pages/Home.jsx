@@ -271,6 +271,7 @@ const Home = () => {
                                                     <div>
                                                         <h4 className={`font-serif text-2xl ${isSelected ? 'text-gold-500' : 'text-white'}`}>{plan.name}</h4>
                                                         <p className="mt-2 text-sm leading-6 text-white/40">{plan.subtitle}</p>
+                                                        <span className="mt-3 block text-xs tracking-wide text-gold-500/65">{builder.bestForLabel}: {builder.planHints?.[plan.id]}</span>
                                                     </div>
                                                     <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${isSelected ? 'border-gold-500 bg-gold-500 text-obsidian-950' : 'border-white/20 text-transparent'}`}><Check className="h-4 w-4" /></span>
                                                 </div>
@@ -307,7 +308,7 @@ const Home = () => {
                                             >
                                                 <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border ${isAdded ? 'border-gold-500 bg-gold-500 text-obsidian-950' : 'border-white/10 bg-white/5 text-gold-500'}`}>{isAdded ? <Check className="h-5 w-5" /> : <Plus className="h-5 w-5" />}</span>
                                                 <span className="min-w-0 flex-1">
-                                                    <span className="mb-1 flex flex-wrap items-center gap-2 font-serif text-lg text-white"><span>{addon.name}</span><span className="rounded-full border border-white/10 px-2 py-0.5 text-[9px] font-sans uppercase tracking-[0.14em] text-white/35">{addon.tag}</span></span>
+                                                    <span className="mb-1 flex flex-wrap items-center gap-2 font-serif text-lg text-white"><span>{addon.name}</span><span className="rounded-full border border-white/10 px-2 py-0.5 text-[9px] font-sans uppercase tracking-[0.14em] text-white/35">{addon.tag}</span>{addon.id === 'liftdesk-automation' && selectedBase?.id === 'growth' && <span className="rounded-full bg-gold-500/15 px-2 py-0.5 text-[9px] font-sans tracking-wide text-gold-500">{builder.recommendedAddonLabel}</span>}</span>
                                                     <span className="block text-sm leading-6 text-white/40">{addon.subtitle}</span>
                                                 </span>
                                                 <span className="shrink-0 text-end"><span className="block text-lg font-serif text-gold-500">{formatSar(addon.price)}</span><span className="text-[10px] uppercase tracking-[0.12em] text-white/30">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</span></span>

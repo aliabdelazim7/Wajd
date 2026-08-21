@@ -1,17 +1,38 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { translations } from '../translations.js';
 
 const AppContext = createContext();
 
+const getInitialLanguage = () => {
+    if (typeof window === 'undefined') return 'ar';
+    const queryLocale = new URLSearchParams(window.location.search).get('lang');
+    if (queryLocale === 'ar' || queryLocale === 'en') return queryLocale;
+    const storedLocale = window.localStorage.getItem('wajd.locale');
+    return storedLocale === 'en' ? 'en' : 'ar';
+};
+
 export const AppProvider = ({ children }) => {
-    const [lang, setLang] = useState('ar');
+    const [lang, setLangState] = useState(getInitialLanguage);
     // Wajd is currently focused exclusively on Gulf markets.
     const [currency] = useState('SAR');
-    const setCurrency = () => {}; 
-
+    const setCurrency = () => {};
     const t = translations[lang];
     const [content, setContent] = useState(null);
     const [contentLoading, setContentLoading] = useState(true);
+
+    const setLang = useCallback((nextLanguage) => {
+        setLangState((currentLanguage) => {
+            const next = typeof nextLanguage === 'function' ? nextLanguage(currentLanguage) : nextLanguage;
+            return next === 'en' ? 'en' : 'ar';
+        });
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem('wajd.locale', lang);
+        document.cookie = `wajd_locale=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    }, [lang]);
 
     useEffect(() => {
         let mounted = true;
@@ -30,12 +51,11 @@ export const AppProvider = ({ children }) => {
             .finally(() => {
                 if (mounted) setContentLoading(false);
             });
-
         return () => { mounted = false; };
     }, [lang]);
 
     const toggleLang = () => {
-        setLang(prev => (prev === 'ar' ? 'en' : 'ar'));
+        setLang((prev) => (prev === 'ar' ? 'en' : 'ar'));
     };
 
     const toggleCurrency = () => {

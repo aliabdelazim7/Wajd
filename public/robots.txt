@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
 
-# Sitemaps
-Sitemap: https://wajd-agency.com/sitemap.xml
+# Public pages are available to search and answer engines.
+Sitemap: https://www.wajd-agency.com/sitemap.xml

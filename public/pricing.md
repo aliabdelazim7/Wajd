@@ -1,27 +1,37 @@
-# Wajd Agency Pricing — Strategic Growth & Tech Packages
+# Wajd Agency Growth Engine Pricing
 
-Wajd Agency offers clear, performance-based pricing for Gulf startups and established brands. All prices are in Saudi Riyals (SAR).
+Wajd Agency is a tech-enabled growth partner for Gulf stores, brands, and ambitious operators. The Growth Engine is modular: choose a monthly base plan, then add only the technical or automation modules your business needs. All prices are in Saudi Riyals (SAR), and advertising spend is separate.
 
-## Growth & Marketing Packages (Monthly Retainers)
+## Monthly Base Plans
 
-| Package | Monthly Fee | Best For | Key Features |
-| :--- | :--- | :--- | :--- |
-| **Starter (الانطلاق)** | SAR 350 | New Brands | 1 Platform, 4 Assets, Initial Setup, Performance Summary |
-| **Growth (النمو)** | SAR 950 | Scaling Stores | 2 Platforms, 12 Assets, Full Management, Audience Testing |
-| **Partner (الشراكة)** | SAR 2,200 | Market Leaders | Complete Strategy, Content Plan, Video Production, Monthly Strategy Sessions |
+| Plan | Monthly Fee | Best For | Includes |
+| :--- | ---: | :--- | :--- |
+| **Starter Plan** | SAR 350 / month | New or early-stage brands | One social platform, four creative assets, initial campaign setup, and a performance summary |
+| **Growth Plan** | SAR 950 / month | Stores ready to scale | Two social platforms, twelve creative assets with copywriting, campaign management, and audience testing |
+| **Partner Plan** | SAR 2,200 / month | Brands that need an operating growth partner | Growth strategy, monthly content and campaign plan, ongoing advertising management, and strategic reviews |
 
-*Note: Ad spend is managed separately based on client goals.*
+## Technical & Automation Add-ons
 
-## Tech & E-commerce Infrastructure
+Add-ons can be combined with any base plan. Monthly add-ons increase the monthly subscription; one-time add-ons are implementation projects.
 
-| Service | Pricing Model | Features |
-| :--- | :--- | :--- |
-| **SaaS / POS Setup** | Project-based | Custom Admin, Inventory Management, Barcode Integration |
-| **E-commerce Setup** | Project-based | Salla, Zid, or Shopify full configuration & CRO |
-| **Custom Integration** | Hourly / Project | API connections, CRM setup, WhatsApp automation |
+| Add-on | Price | Billing | Purpose |
+| :--- | ---: | :--- | :--- |
+| **LiftDesk AI Automation** | SAR 750 / month | Monthly | Automate lead handling, internal workflows, and operational follow-up |
+| **Professional Store Launch** | SAR 1,800 | One-time | Launch or configure a professional Shopify, Salla, or Zid store |
+| **Market POS System** | SAR 2,500 | One-time | Retail operations, inventory, barcode support, and management workflows |
+| **Performance Dashboard** | SAR 600 | One-time | Connect performance signals into a decision-ready reporting dashboard |
+| **Custom Business System** | SAR 4,500 | One-time | A tailored admin, workflow, or operational system built around the business |
 
-## Contact for Custom Quotes
-For large-scale enterprise solutions or custom software development, contact our team for a tailored proposal.
-- **Email:** wajd.marketing@gmail.com
-- **WhatsApp:** Available via website contact form.
-- **Website:** https://www.wajd-agency.com/contact
+## Example Builds
+
+**Growth Plan + LiftDesk AI Automation:** SAR 1,700 per month.
+
+**Starter Plan + Professional Store Launch:** SAR 350 per month plus SAR 1,800 one-time.
+
+**Partner Plan + Market POS System + Performance Dashboard:** SAR 2,200 per month plus SAR 3,100 one-time.
+
+## How to Get a Recommendation
+
+Clients can configure a Growth Engine on the Wajd website and send the selected build to the team. For a custom combination, enterprise scope, or a system that requires discovery, contact wajd.marketing@gmail.com through https://www.wajd-agency.com/contact.
+
+Last reviewed: August 21, 2026.
