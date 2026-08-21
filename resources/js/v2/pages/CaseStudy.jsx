@@ -4,6 +4,7 @@ import Layout from '../layout/Layout.jsx';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Target, Zap } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
+import { getEvidenceProject } from '../utils/portfolioEvidence.js';
 
 const projectsData = {
     'al-owaid': {
@@ -105,7 +106,7 @@ const CaseStudy = () => {
     }, [id, lang]);
 
     const fallbackProject = (lang === 'ar' ? projectsData : projectsDataEn)[id];
-    const project = remoteProject ? {
+    const remoteProjectView = remoteProject ? {
         ...remoteProject,
         metric: Object.values(remoteProject.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
         outcome: lang === 'ar' ? 'النتيجة الأساسية' : 'Primary outcome',
@@ -114,6 +115,7 @@ const CaseStudy = () => {
             ? remoteProject.results
             : Object.entries(remoteProject.results || {}).map(([key, value]) => `${key}: ${value}`),
     } : fallbackProject;
+    const project = getEvidenceProject(id, lang) || remoteProjectView;
 
     if (project && lang === 'ar') {
         const arabicCategories = {
@@ -177,6 +179,36 @@ const CaseStudy = () => {
                     <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
                 </div>
             </section>
+
+            {project.evidenceImages?.length ? (
+                <section className="px-[5%] pb-24" dir={direction}>
+                    <div className="max-w-7xl mx-auto">
+                        <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 ${textAlign}`}>
+                            <div>
+                                <span className="text-gold-500 text-xs uppercase tracking-[0.3em] font-medium mb-4 block font-sans">
+                                    {lang === 'ar' ? 'دليل الأداء' : 'PERFORMANCE EVIDENCE'}
+                                </span>
+                                <h2 className="text-3xl md:text-5xl font-serif text-white/90">
+                                    {lang === 'ar' ? 'الأرقام كما ظهرت في لوحة الأداء' : 'The numbers as reported in the performance dashboard'}
+                                </h2>
+                            </div>
+                            {project.period ? (
+                                <p className="text-white/40 text-sm font-sans">{project.period}</p>
+                            ) : null}
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {project.evidenceImages.slice(0, 12).map((image, index) => (
+                                <figure key={`${image}-${index}`} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white">
+                                    <img src={image} alt={`${project.name} ${lang === 'ar' ? 'نتيجة أداء' : 'performance result'} ${index + 1}`} className="w-full h-auto object-contain" loading={index > 1 ? 'lazy' : 'eager'} />
+                                </figure>
+                            ))}
+                        </div>
+                        {project.evidenceNote ? (
+                            <p className={`mt-6 text-white/40 text-xs leading-relaxed ${textAlign}`}>{project.evidenceNote}</p>
+                        ) : null}
+                    </div>
+                </section>
+            ) : null}
 
             {/* Strategy Content */}
             <section className="section-padding bg-obsidian-900" dir={direction}>

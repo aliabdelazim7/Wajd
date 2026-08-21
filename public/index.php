@@ -240,16 +240,58 @@ $schema = [
         [
             '@type' => 'CreativeWork',
             'name' => 'Al Owaid Oud Growth Case Study',
-            'description' => 'Acquisition strategy for a luxury fragrance brand on Salla platform, achieving 2.6x ROAS.',
+            'description' => 'Acquisition strategy for a premium fragrance brand on Salla, with 2.62x purchase ROAS and 1,137 purchases reported for Nov 1–29, 2025.',
             'author' => ['@id' => $siteUrl . '/#organization'],
             'url' => $siteUrl . '/portfolio/al-owaid'
         ],
         [
             '@type' => 'CreativeWork',
-            'name' => 'Toyo App Local Growth Case Study',
-            'description' => 'Saudi market delivery sector expansion with more than 2,500 conversions.',
+            'name' => 'Toyo App Growth Case Study',
+            'description' => 'Commerce growth proof showing KWD 2,567.558 total sales, 130 orders, and 251 products sold for Mar 1–31, 2025.',
             'author' => ['@id' => $siteUrl . '/#organization'],
             'url' => $siteUrl . '/portfolio/toyo'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Qanatir Food Brand Performance Case Study',
+            'description' => 'Paid social performance proof showing 2.54x purchase ROAS and 22 purchases for Aug 1–31, 2025.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/qanatir'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Barner Brand Acquisition Case Study',
+            'description' => 'Meta acquisition optimization proof showing 2.10x average purchase ROAS and 40 purchases for Oct 1–31, 2025.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/barner'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Jassar Trading Conversion Case Study',
+            'description' => 'Commerce funnel proof showing 3,228 orders, 137,893 sessions, and 3,177 customers.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/jassar'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Flash Brand Omnichannel Growth Case Study',
+            'description' => 'Paid performance proof showing 2.34x purchase ROAS, 242 purchases, and $15,260.71 purchase value for May 1–31, 2025.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/flash'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Kamalz Brand Acquisition Case Study',
+            'description' => 'Performance proof showing 1.89x purchase ROAS, 39 purchases, and $2,823.10 purchase value for Aug 1–31, 2025.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/kamalz'
+        ],
+        [
+            '@type' => 'CreativeWork',
+            'name' => 'Manabet E-commerce Growth Case Study',
+            'description' => 'Store dashboard proof showing KWD 753.76 total sales, 66 orders, 2,340 visits, and 60 customers.',
+            'author' => ['@id' => $siteUrl . '/#organization'],
+            'url' => $siteUrl . '/portfolio/manabet'
         ]
     ],
 ];

@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 import { trackAnalyticsEvent } from '../utils/analytics.js';
+import { mergePortfolioProjects } from '../utils/portfolioEvidence.js';
 
 const Home = () => {
     const { lang, t, content } = useApp();
@@ -23,21 +24,15 @@ const Home = () => {
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const ctaJustify = lang === 'ar' ? 'justify-end' : 'justify-start';
-    const fallbackWork = [
-        { id: 'al-owaid', name: lang === 'ar' ? 'براند العويد للعود' : 'Al Owaid Oud', metric: '2.6x ROAS', desc: lang === 'ar' ? 'استراتيجية استحواذ لبراند عطور فاخر على منصة سلة.' : 'Acquisition strategy for a luxury fragrance brand on Salla.', image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop' },
-        { id: 'toyo', name: lang === 'ar' ? 'تطبيق تويو (Toyo)' : 'Toyo App', metric: '2,500+ Conv.', desc: lang === 'ar' ? 'نمو محلي مكثف لخدمات التوصيل في السوق السعودي.' : 'Focused local growth for delivery services in Saudi Arabia.', image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop' },
-        { id: 'qanatir', name: lang === 'ar' ? 'براند قناطير الغذائي' : 'Qanatir Food Brand', metric: '2.5x ROAS', desc: lang === 'ar' ? 'توسيع نطاق الإيرادات عبر المحتوى الإبداعي عالي الأداء.' : 'Expanded revenue through high-performance creative content.', image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' },
-    ];
-
-    const selectedWork = lang === 'ar' && content?.projects?.length
-        ? content.projects.map((project) => ({
+    const selectedWork = mergePortfolioProjects(content?.projects || [], lang)
+        .slice(0, 3)
+        .map((project) => ({
             id: project.slug,
             name: project.name,
-            metric: Object.values(project.results || {})[0] || 'أثر مختار',
+            metric: project.metric || Object.values(project.results || {})[0] || (lang === 'ar' ? 'أثر مختار' : 'Selected impact'),
             desc: project.description || '',
-            image: project.image_url || project.thumbnail_url || fallbackWork[0].image,
-        }))
-        : fallbackWork;
+            image: project.image || project.image_url || project.thumbnail_url,
+        }));
 
     const basePlans = lang === 'ar' && content?.packages?.length
         ? content.packages.map((pkg) => ({

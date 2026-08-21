@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
+import { mergePortfolioProjects } from '../utils/portfolioEvidence.js';
 
 const Portfolio = () => {
     const { lang, content } = useApp();
@@ -20,80 +21,14 @@ const Portfolio = () => {
     };
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
-    const fallbackProjects = [
-        {
-            id: 'market-pos',
-            name: lang === 'ar' ? 'نظام Market POS' : 'Market POS System',
-            category: 'SaaS Development',
-            metric: '100%',
-            outcome: 'Process Automation',
-            image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            id: 'adria-admin',
-            name: lang === 'ar' ? 'منصة Adria الإدارية' : 'Adria Admin Platform',
-            category: 'Enterprise Software',
-            metric: '+65%',
-            outcome: 'Operational Efficiency',
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            id: 'al-owaid',
-            name: lang === 'ar' ? 'براند العويد للعود' : 'Al Owaid Oud',
-            category: 'Performance Marketing',
-            metric: '2.6x ROAS',
-            outcome: 'Revenue Growth',
-            image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            id: 'toyo',
-            name: lang === 'ar' ? 'تطبيق تويو (Toyo)' : 'Toyo App',
-            category: 'Growth Engineering',
-            metric: '2,500+',
-            outcome: 'Conversions',
-            image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            id: 'qanatir',
-            name: lang === 'ar' ? 'براند قناطير الغذائي' : 'Qanatir Food Brand',
-            category: 'Paid Social',
-            metric: '2.5x ROAS',
-            outcome: 'E-commerce Scale',
-            image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            name: lang === 'ar' ? 'براند بارنر (Partner)' : 'Barner Brand',
-            category: 'Acquisition',
-            metric: '2.1x ROAS',
-            outcome: 'Meta Optimization',
-            image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            name: lang === 'ar' ? 'مؤسسة جسار التجارية' : 'Jassar Trading',
-            category: 'Conversion Design',
-            metric: '+45%',
-            outcome: 'CVR Growth',
-            image: 'https://images.unsplash.com/photo-1551288049-bbbda595c7c8?q=80&w=1000&auto=format&fit=crop'
-        },
-        {
-            name: lang === 'ar' ? 'براند فلاش (Flash)' : 'Flash Brand',
-            category: 'Omnichannel Growth',
-            metric: '2.4x ROAS',
-            outcome: 'ROI Increase',
-            image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop'
-        }
-    ];
-
-    const projects = content?.projects?.length
-        ? content.projects.map((project) => ({
-            id: project.slug,
-            name: project.name,
-            category: project.category || (lang === 'ar' ? 'دراسة حالة' : 'Case Study'),
-            metric: Object.values(project.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
-            outcome: copy.primaryOutcome,
-            image: project.image_url || project.thumbnail_url,
-        }))
-        : fallbackProjects;
+    const projects = mergePortfolioProjects(content?.projects || [], lang).map((project) => ({
+        id: project.slug,
+        name: project.name,
+        category: project.category || (lang === 'ar' ? 'دراسة حالة' : 'Case Study'),
+        metric: project.metric || Object.values(project.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
+        outcome: project.outcome || copy.primaryOutcome,
+        image: project.image || project.image_url || project.thumbnail_url,
+    }));
 
     return (
         <Layout>
