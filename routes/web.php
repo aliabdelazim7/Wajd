@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-// All web routes are handled by the PHP SPA shell in api/main.php
+// Vercel serves the public shell directly; this fallback keeps the Laravel app
+// functional in local, preview, and traditional PHP environments as well.
+Route::get('/', function () {
+    return view('app');
+});
+
 Route::get('/health-check', function () {
     return ['status' => 'ok'];
 });

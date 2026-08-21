@@ -1,0 +1,5 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "name": "enable_rls_on_growth_platform_tables",
+  "query": "ALTER TABLE public.lead_nurture_events ENABLE ROW LEVEL SECURITY; ALTER TABLE public.visitor_sessions ENABLE ROW LEVEL SECURITY; ALTER TABLE public.visitor_events ENABLE ROW LEVEL SECURITY;"
+}

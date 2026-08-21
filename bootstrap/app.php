@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -38,7 +39,9 @@ return Application::configure(basePath: dirname(__DIR__))
                 ], 422);
             }
 
-            $status = $exception instanceof HttpExceptionInterface ? $exception->getStatusCode() : 500;
+            $status = $exception instanceof AuthenticationException
+                ? 401
+                : ($exception instanceof HttpExceptionInterface ? $exception->getStatusCode() : 500);
             $message = match ($status) {
                 404 => 'Resource not found.',
                 401 => 'Unauthenticated.',
