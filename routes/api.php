@@ -27,7 +27,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
         ->middleware('throttle:admin-login');
 
-    Route::middleware(['auth:sanctum', EnsureAdmin::class])->group(function () {
+    Route::middleware(['admin.bearer', 'auth:sanctum', EnsureAdmin::class])->group(function () {
         Route::get('/me', [AuthController::class, 'me']);
         Route::post('/logout', [AuthController::class, 'logout']);
 

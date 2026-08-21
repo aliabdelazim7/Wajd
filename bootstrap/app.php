@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\RequireAdminBearerToken;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -25,6 +26,9 @@ return Application::configure(basePath: dirname(__DIR__))
     }, commands: __DIR__.'/../routes/console.php')
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->validateCsrfTokens(except: ['api/*']);
+        $middleware->alias([
+            'admin.bearer' => RequireAdminBearerToken::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (\Throwable $exception, Request $request) {
