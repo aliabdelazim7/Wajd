@@ -45,4 +45,10 @@ Use explicit per-module loading, error, retry, and empty states; keep the last s
 
 ## Final status
 
-Pending fixes and regression verification.
+The stability release deployed successfully. On reloading the authenticated live dashboard, the overview first showed only the dedicated `جاري تحميل بيانات هذه الوحدة...` panel, without a misleading empty table, then rendered the counts, recent leads, and activity successfully. This confirms the primary loading/empty-state race fix in production.
+
+The deployed packages module now showed the dedicated loading panel first, then rendered all three plans correctly at SAR 350, SAR 950, and SAR 2,200. No misleading `لا توجد عناصر بعد` flash appeared during this regression check.
+
+The deployed site-content module now showed only the dedicated loading panel during the request, then rendered all 14 Arabic/English records with edit/delete controls. The previous misleading empty-table flash was not reproduced.
+
+Pending final module regression verification.
