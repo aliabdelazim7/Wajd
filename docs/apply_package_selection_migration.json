@@ -1,0 +1,5 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "name": "add_package_selection_to_leads_table",
+  "query": "ALTER TABLE public.leads ADD COLUMN IF NOT EXISTS package_selection jsonb NULL;"
+}
