@@ -6,10 +6,9 @@ const portfolioAssets = import.meta.glob('../assets/portfolio_redacted/**/*.{png
 
 const assetsFor = (folder) => Object.entries(portfolioAssets)
     .filter(([path]) => {
-        // Normalize path to handle both dev and build environments
-        const normalizedPath = path.replace(/\\/g, '/');
-        return normalizedPath.includes(`/portfolio_redacted/${folder}/`) || 
-               normalizedPath.includes(`assets/portfolio_redacted/${folder}/`);
+        const p = path.toLowerCase();
+        const f = folder.toLowerCase();
+        return p.includes(`/${f}/`) || p.includes(`_${f}/`);
     })
     .sort(([a], [b]) => {
         const score = (path) => /\/2\.6\.|\/2\.54\.|\/2\.5\.|\/2\.10\.|\/2\.3\.|\/1\.8\.|\/2500\.|\/10\.png$/i.test(path) ? 0 : 1;
@@ -246,7 +245,7 @@ export const getEvidenceProject = (slug, lang = 'ar') => {
         metrics: item.metrics.map((metric) => metric[lang]),
         period: item.period,
         evidenceImages: images,
-        image: images[0],
+        image: images[0] || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
         evidenceNote: lang === 'ar'
             ? 'الأرقام المعروضة مأخوذة من لقطات لوحات الأداء المقدمة من العميل، والفترة موضحة حيث ظهرت في المصدر.'
             : 'The figures are taken from the supplied performance-dashboard screenshots; the period is shown where visible in the source.',

@@ -70,7 +70,7 @@ const Portfolio = () => {
                                 <img 
                                     src={project.image} 
                                     alt={project.name} 
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90"></div>
                                 <div className="absolute bottom-12 right-12 left-12 flex justify-between items-end">

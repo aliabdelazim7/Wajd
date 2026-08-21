@@ -206,7 +206,7 @@ const CaseStudy = () => {
                         </div>
                         <div className="grid md:grid-cols-2 gap-6">
                             {project.evidenceImages.slice(0, 12).map((image, index) => (
-                                <figure key={`${image}-${index}`} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white">
+                                <figure key={`${image}-${index}`} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-obsidian-800">
                                     <img src={image} alt={`${project.name} ${lang === 'ar' ? 'نتيجة أداء' : 'performance result'} ${index + 1}`} className="w-full h-auto object-contain" loading={index > 1 ? 'lazy' : 'eager'} />
                                 </figure>
                             ))}
