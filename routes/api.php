@@ -9,17 +9,6 @@ use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/content', [ContentController::class, 'index']);
-Route::get('/debug-config', function() {
-    return response()->json([
-        'host' => config('database.connections.pgsql.host'),
-        'port' => config('database.connections.pgsql.port'),
-        'database' => config('database.connections.pgsql.database'),
-        'username' => config('database.connections.pgsql.username'),
-        'env_port' => env('DB_PORT'),
-        'wajd_env_port' => env('WAJD_DB_PORT'),
-        'wajd_env_url' => env('WAJD_DB_URL') ? 'set' : 'not set',
-    ]);
-});
 Route::get('/content/projects/{slug}', [ContentController::class, 'project']);
 
 Route::post('/leads/submit', [LeadController::class, 'submit'])
@@ -36,18 +25,36 @@ Route::prefix('admin')->group(function () {
         Route::get('/overview', [CmsController::class, 'overview']);
 
         Route::get('/settings', [CmsController::class, 'settings']);
-        Route::post('/settings', [CmsController::class, 'updateSettings']);
+        Route::put('/settings', [CmsController::class, 'upsertSetting']);
+        Route::delete('/settings/{setting}', [CmsController::class, 'deleteSetting']);
+
+        Route::get('/blocks', [CmsController::class, 'blocks']);
+        Route::put('/blocks', [CmsController::class, 'upsertBlock']);
+        Route::delete('/blocks/{block}', [CmsController::class, 'deleteBlock']);
+
+        Route::get('/packages', [CmsController::class, 'packages']);
+        Route::post('/packages', [CmsController::class, 'storePackage']);
+        Route::put('/packages/{package}', [CmsController::class, 'updatePackage']);
+        Route::delete('/packages/{package}', [CmsController::class, 'deletePackage']);
+
+        Route::get('/faqs', [CmsController::class, 'faqs']);
+        Route::post('/faqs', [CmsController::class, 'storeFaq']);
+        Route::put('/faqs/{faq}', [CmsController::class, 'updateFaq']);
+        Route::delete('/faqs/{faq}', [CmsController::class, 'deleteFaq']);
 
         Route::get('/projects', [CmsController::class, 'projects']);
         Route::post('/projects', [CmsController::class, 'storeProject']);
-        Route::get('/projects/{project}', [CmsController::class, 'showProject']);
-        Route::post('/projects/{project}', [CmsController::class, 'updateProject']);
+        Route::put('/projects/{project}', [CmsController::class, 'updateProject']);
         Route::delete('/projects/{project}', [CmsController::class, 'deleteProject']);
 
         Route::get('/leads', [CmsController::class, 'leads']);
-        Route::get('/leads/{lead}', [CmsController::class, 'showLead']);
-        Route::post('/leads/{lead}/status', [CmsController::class, 'updateLeadStatus']);
+        Route::patch('/leads/{lead}/status', [CmsController::class, 'updateLeadStatus']);
+        Route::delete('/leads/{lead}', [CmsController::class, 'deleteLead']);
 
-        Route::post('/upload', [UploadController::class, 'upload']);
+        Route::get('/media', [UploadController::class, 'index']);
+        Route::post('/media', [UploadController::class, 'uploadImage']);
+        Route::delete('/media/{asset}', [UploadController::class, 'destroy']);
+
+        Route::get('/audit-logs', [CmsController::class, 'auditLogs']);
     });
 });
