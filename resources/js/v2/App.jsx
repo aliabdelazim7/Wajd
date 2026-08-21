@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { startAnalytics, trackRouteView } from './utils/analytics.js';
 import Home from './pages/Home.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import About from './pages/About.jsx';
@@ -61,6 +62,21 @@ const ensureLink = (rel, hreflang, href) => {
     node.href = href;
 };
 
+const AnalyticsManager = () => {
+    const { lang } = useApp();
+    const location = useLocation();
+
+    useEffect(() => startAnalytics(), []);
+
+    useEffect(() => {
+        if (!location.pathname.startsWith('/admin')) {
+            trackRouteView(location.pathname, lang);
+        }
+    }, [lang, location.pathname]);
+
+    return null;
+};
+
 const SeoManager = () => {
     const { lang } = useApp();
     const location = useLocation();
@@ -99,6 +115,7 @@ const AppV2 = () => {
     return (
         <Router>
             <ScrollToTop />
+            <AnalyticsManager />
             <SeoManager />
             <Routes>
                 <Route path="/" element={<Home />} />

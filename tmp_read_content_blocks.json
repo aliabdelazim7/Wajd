@@ -1,0 +1,4 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "query": "SELECT id, key, locale, title, body, data, is_published FROM public.content_blocks WHERE key IN ('home.hero', 'footer', 'home.why_wajd', 'services.hero', 'services.catalog') ORDER BY key, locale LIMIT 20;"
+}

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
 import { useLocation } from 'react-router-dom';
+import { trackAnalyticsEvent } from '../utils/analytics.js';
 
 const fieldClass = 'w-full rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 text-base text-white outline-none transition-all placeholder:text-white/25 focus:border-gold-500/70 focus:bg-white/[0.07] focus:ring-4 focus:ring-gold-500/10';
 const labelClass = 'mb-2 block text-sm font-medium text-white/65';
@@ -48,6 +49,13 @@ const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+
+    React.useEffect(() => {
+        trackAnalyticsEvent('contact_form_viewed', {
+            has_builder_selection: Boolean(packageBuilder),
+            service: packageBuilder ? 'growth-engine' : null,
+        });
+    }, [packageBuilder]);
 
     const copy = isArabic ? {
         eyebrow: 'خلينا نتكلم',
@@ -169,6 +177,12 @@ const Contact = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        trackAnalyticsEvent('lead_submit_attempted', {
+            service: formData.service,
+            industry: formData.industry,
+            budget_sar: formData.budget_sar,
+            has_builder_selection: Boolean(packageBuilder),
+        });
         setSubmitting(true);
         setError('');
         try {
@@ -187,6 +201,13 @@ const Contact = () => {
                 const validation = payload.errors ? Object.values(payload.errors).flat().join(' ') : '';
                 throw new Error(validation || payload.message || copy.error);
             }
+            trackAnalyticsEvent('lead_submitted', {
+                service: formData.service,
+                industry: formData.industry,
+                budget_sar: formData.budget_sar,
+                contact_preference: formData.contact_preference,
+                has_builder_selection: Boolean(packageBuilder),
+            });
             setSuccess(true);
         } catch (submitError) {
             setError(submitError.message || copy.error);
@@ -240,7 +261,7 @@ const Contact = () => {
                             <div className="relative">
                                 <div className="mb-8 border-b border-white/10 pb-7"><h2 className="font-serif text-3xl md:text-4xl">{copy.formTitle}</h2><p className="mt-3 text-sm leading-7 text-white/45">{copy.formIntro}</p></div>
                                 {packageBuilder && !success && <div className={`mb-7 rounded-2xl border border-gold-500/25 bg-gold-500/[0.06] p-5 ${isArabic ? 'text-right' : 'text-left'}`}><div className="mb-3 flex items-center justify-between gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-500">{isArabic ? 'المنظومة التي اخترتها' : 'Your selected build'}</p><span className="text-xs text-white/35">{isArabic ? 'سنراجعها معك' : 'We will review it with you'}</span></div><pre className="whitespace-pre-wrap font-sans text-sm leading-7 text-white/70">{builderSummary}</pre></div>}
-                                {success ? <div className="py-16 text-center"><div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10"><CheckCircle2 className="h-8 w-8 text-gold-500" /></div><h3 className="mb-4 font-serif text-3xl text-gold-500">{copy.successTitle}</h3><p className="mx-auto max-w-md text-base leading-8 text-white/60">{copy.successText}</p></div> : <form className="space-y-5" onSubmit={handleSubmit}>
+                                {success ? <div className="py-16 text-center"><div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10"><CheckCircle2 className="h-8 w-8 text-gold-500" /></div><h3 className="mb-4 font-serif text-3xl text-gold-500">{copy.successTitle}</h3><p className="mx-auto max-w-md text-base leading-8 text-white/60">{copy.successText}</p></div> : <form data-analytics-event="contact_form_started" data-analytics-location="contact_form" className="space-y-5" onSubmit={handleSubmit}>
                                     <div className="grid gap-5 md:grid-cols-2">
                                         <label className="block"><span className={labelClass}>{copy.name}<span className="mr-1 text-gold-500">*</span></span><input required type="text" autoComplete="name" value={formData.name} onChange={(event) => update('name', event.target.value)} className={fieldClass} placeholder={copy.namePlaceholder} /></label>
                                         <label className="block"><span className={labelClass}>{copy.company}</span><input type="text" autoComplete="organization" value={formData.company_name} onChange={(event) => update('company_name', event.target.value)} className={fieldClass} placeholder={copy.companyPlaceholder} /></label>
@@ -261,7 +282,7 @@ const Contact = () => {
                                     <label className="block"><span className={labelClass}>{copy.message}</span><textarea rows="4" value={formData.message} onChange={(event) => update('message', event.target.value)} className={`${fieldClass} resize-none leading-7`} placeholder={copy.messagePlaceholder} /></label>
                                     {error && <p role="alert" className="rounded-xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-200">{error}</p>}
                                     <label className="flex items-start gap-3 text-sm leading-6 text-white/45"><input required type="checkbox" checked={formData.consent} onChange={(event) => update('consent', event.target.checked)} className="mt-1 accent-gold-500" />{copy.consent}</label>
-                                    <button disabled={submitting} className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-6 py-4 text-base font-bold text-obsidian-950 shadow-xl shadow-gold-500/10 transition hover:bg-gold-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50">{submitting ? copy.submitting : copy.submit}<Send className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></button>
+                                    <button data-analytics-event="lead_submit_clicked" data-analytics-location="contact_form" disabled={submitting} className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-6 py-4 text-base font-bold text-obsidian-950 shadow-xl shadow-gold-500/10 transition hover:bg-gold-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50">{submitting ? copy.submitting : copy.submit}<Send className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></button>
                                 </form>}
                             </div>
                         </motion.div>

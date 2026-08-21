@@ -1,0 +1,4 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "query": "SELECT id, key, locale, title, body, data, is_published FROM public.content_blocks ORDER BY key, locale;"
+}

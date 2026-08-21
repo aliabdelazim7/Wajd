@@ -5,6 +5,7 @@ use App\Http\Controllers\API\Admin\CmsController;
 use App\Http\Controllers\API\ContentController;
 use App\Http\Controllers\API\LeadController;
 use App\Http\Controllers\API\UploadController;
+use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,9 @@ Route::get('/content/projects/{slug}', [ContentController::class, 'project']);
 
 Route::post('/leads/submit', [LeadController::class, 'submit'])
     ->middleware('throttle:lead-submissions');
+
+Route::post('/analytics/collect', [AnalyticsController::class, 'collect'])
+    ->middleware('throttle:analytics-collection');
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
@@ -23,6 +27,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
 
         Route::get('/overview', [CmsController::class, 'overview']);
+        Route::get('/analytics', [AnalyticsController::class, 'dashboard']);
 
         Route::get('/settings', [CmsController::class, 'settings']);
         Route::put('/settings', [CmsController::class, 'upsertSetting']);

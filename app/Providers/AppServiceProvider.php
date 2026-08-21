@@ -29,5 +29,9 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('admin-login', function (Request $request) {
             return Limit::perMinute(10)->by($request->ip() ?: 'unknown');
         });
+
+        RateLimiter::for('analytics-collection', function (Request $request) {
+            return Limit::perMinute(60)->by($request->ip() ?: 'unknown');
+        });
     }
 }

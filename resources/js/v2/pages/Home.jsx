@@ -9,6 +9,7 @@ import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2, 
 import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
+import { trackAnalyticsEvent } from '../utils/analytics.js';
 
 const Home = () => {
     const { lang, t, content } = useApp();
@@ -16,6 +17,9 @@ const Home = () => {
     const selectedImpact = t.home.selectedImpact;
     const builder = t.packages;
     const navigate = useNavigate();
+    React.useEffect(() => {
+        trackAnalyticsEvent('builder_started', { source: 'homepage' });
+    }, []);
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const ctaJustify = lang === 'ar' ? 'justify-end' : 'justify-start';
@@ -53,17 +57,38 @@ const Home = () => {
     const oneTimeAddonsTotal = selectedAddons.filter((addon) => addon.type === 'one_time').reduce((total, addon) => total + addon.price, 0);
     const monthlyTotal = (selectedBase?.price || 0) + monthlyAddonsTotal;
     const formatSar = (amount) => new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en-US').format(amount);
-    const toggleAddon = (addonId) => setSelectedAddonIds((current) => current.includes(addonId) ? current.filter((id) => id !== addonId) : [...current, addonId]);
-    const requestBuild = () => navigate('/contact', {
-        state: {
-            packageBuilder: {
-                basePlan: { id: selectedBase.id, name: selectedBase.name, price: selectedBase.price },
-                addons: selectedAddons.map(({ id, name, price, type }) => ({ id, name, price, type })),
-                monthlyTotal,
-                oneTimeTotal: oneTimeAddonsTotal,
-            },
-        },
+    const toggleAddon = (addonId) => setSelectedAddonIds((current) => {
+        const wasAdded = current.includes(addonId);
+        const next = wasAdded ? current.filter((id) => id !== addonId) : [...current, addonId];
+        const addon = builder.addons.find((item) => item.id === addonId);
+        trackAnalyticsEvent('builder_addon_toggled', {
+            addon_id: addonId,
+            addon_name: addon?.name,
+            action: wasAdded ? 'removed' : 'added',
+            base_plan_id: selectedBaseId,
+            price: addon?.price || 0,
+            billing_type: addon?.type,
+        });
+        return next;
     });
+    const requestBuild = () => {
+        trackAnalyticsEvent('builder_continue_clicked', {
+            base_plan_id: selectedBase?.id,
+            addon_ids: selectedAddons.map((addon) => addon.id),
+            monthly_total: monthlyTotal,
+            one_time_total: oneTimeAddonsTotal,
+        });
+        navigate('/contact', {
+            state: {
+                packageBuilder: {
+                    basePlan: { id: selectedBase.id, name: selectedBase.name, price: selectedBase.price },
+                    addons: selectedAddons.map(({ id, name, price, type }) => ({ id, name, price, type })),
+                    monthlyTotal,
+                    oneTimeTotal: oneTimeAddonsTotal,
+                },
+            },
+        });
+    };
 
     const whyBlock = getCmsBlock(content, 'home.why_wajd', { title: t.whyUs.title, body: t.whyUs.subtitle, data: {} });
     const whyItems = lang === 'ar' && whyBlock.data?.items?.length ? whyBlock.data.items : t.whyUs.items;
@@ -262,7 +287,14 @@ const Home = () => {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: index * 0.08 }}
-                                                onClick={() => setSelectedBaseId(plan.id)}
+                                                onClick={() => {
+                                                    setSelectedBaseId(plan.id);
+                                                    trackAnalyticsEvent('builder_base_selected', {
+                                                        plan_id: plan.id,
+                                                        plan_name: plan.name,
+                                                        price: plan.price,
+                                                    });
+                                                }}
                                                 aria-pressed={isSelected}
                                                 className={`relative flex min-h-[280px] flex-col text-start transition-all ${textAlign} ${isSelected ? 'border-gold-500 bg-gold-500/[0.08] shadow-[0_0_40px_rgba(197,168,98,0.08)]' : 'border-white/10 bg-white/[0.025] hover:border-gold-500/40'} rounded-[1.75rem] border p-6`}
                                             >
@@ -333,7 +365,7 @@ const Home = () => {
                                     <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.monthlyLabel}</span><strong className="font-serif text-xl text-gold-500">{formatSar(monthlyTotal)} SAR</strong></div>
                                     {oneTimeAddonsTotal > 0 && <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.oneTimeLabel}</span><strong className="font-serif text-xl text-white">{formatSar(oneTimeAddonsTotal)} SAR</strong></div>}
                                 </div>
-                                <button type="button" onClick={requestBuild} className="mt-7 flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-5 py-4 font-bold text-obsidian-950 transition hover:bg-white active:scale-[0.98]">{builder.continueCta}<ArrowUpRight className="h-5 w-5" /></button>
+                                <button type="button" data-analytics-event="builder_cta_clicked" data-analytics-location="growth_engine_summary" onClick={requestBuild} className="mt-7 flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-5 py-4 font-bold text-obsidian-950 transition hover:bg-white active:scale-[0.98]">{builder.continueCta}<ArrowUpRight className="h-5 w-5" /></button>
                                 <p className="mt-4 text-center text-xs leading-6 text-white/25">{lang === 'ar' ? 'السعر النهائي يتأكد بعد مراجعة نطاق المشروع.' : 'Final pricing is confirmed after reviewing the project scope.'}</p>
                             </div>
                         </aside>
@@ -352,7 +384,7 @@ const Home = () => {
                     <p className="text-obsidian-950/70 text-xl md:text-2xl mb-16 font-arabic max-w-2xl mx-auto leading-relaxed">
                         {t.footer.desc}
                     </p>
-                    <Link to="/contact" className="inline-block bg-obsidian-950 text-white px-16 py-6 rounded-full font-arabic font-bold text-2xl hover:scale-110 transition-all active:scale-95 shadow-2xl shadow-obsidian-950/40 hover:bg-white hover:text-obsidian-950">
+                    <Link data-analytics-event="cta_clicked" data-analytics-location="final_cta" to="/contact" className="inline-block bg-obsidian-950 text-white px-16 py-6 rounded-full font-arabic font-bold text-2xl hover:scale-110 transition-all active:scale-95 shadow-2xl shadow-obsidian-950/40 hover:bg-white hover:text-obsidian-950">
                         {t.footer.cta}
                     </Link>
                 </div>

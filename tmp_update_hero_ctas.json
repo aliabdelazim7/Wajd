@@ -1,0 +1,4 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "query": "WITH targets AS (SELECT id, locale FROM public.content_blocks WHERE key = 'home.hero' AND locale IN ('ar', 'en') ORDER BY id LIMIT 2) UPDATE public.content_blocks AS blocks SET data = jsonb_set(blocks.data, '{cta}', to_jsonb(CASE WHEN targets.locale = 'ar' THEN 'خلّينا نحدد أول خطوة' ELSE 'Plan your first move' END::text)), updated_at = now() FROM targets WHERE blocks.id = targets.id RETURNING blocks.id, blocks.key, blocks.locale, blocks.data->>'cta' AS cta;"
+}

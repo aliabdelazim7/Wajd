@@ -1,15 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-    AlertTriangle, BarChart3, BriefcaseBusiness, Check, ChevronLeft, FileText,
-    HelpCircle, History, Image as ImageIcon, LayoutDashboard, LogOut, Menu,
-    PackageOpen, Pencil, Plus, RefreshCw, Save, Search, Settings2, Trash2,
-    Upload, Users, X
+    Activity, AlertTriangle, BarChart3, BriefcaseBusiness, Check, ChevronLeft, Clock3,
+    Eye, FileText, HelpCircle, History, Image as ImageIcon, LayoutDashboard, LogOut,
+    Menu, MonitorSmartphone, MousePointerClick, PackageOpen, Pencil, Plus, RefreshCw,
+    Save, Search, Settings2, Target, Trash2, Upload, Users, X
 } from 'lucide-react';
 
 const TOKEN_KEY = 'wajd.admin.token';
 
 const navItems = [
     { key: 'overview', label: 'نظرة عامة', icon: LayoutDashboard },
+    { key: 'analytics', label: 'تحليلات الزوار', icon: Activity },
     { key: 'blocks', label: 'محتوى الموقع', icon: FileText },
     { key: 'packages', label: 'الباقات', icon: PackageOpen },
     { key: 'faqs', label: 'الأسئلة الشائعة', icon: HelpCircle },
@@ -266,7 +267,7 @@ const Admin = () => {
             // Normalize every non-overview section to an array before rendering so a
             // delayed/nested response can never crash a tab into a blank screen.
             const sectionData = response.data;
-            setPayload(section === 'overview'
+            setPayload(section === 'overview' || section === 'analytics'
                 ? (sectionData || {})
                 : (Array.isArray(sectionData) ? sectionData : (Array.isArray(sectionData?.data) ? sectionData.data : [])));
             setPayloadSection(section);
@@ -408,6 +409,7 @@ const Admin = () => {
                         {!loading && error && !hasPayloadForActive && <ErrorPanel onRetry={() => load(active)} />}
                         {hasPayloadForActive && <DashboardErrorBoundary onRetry={() => load(active)}>
                             {active === 'overview' && <><DashboardIntro payload={payload} /><Overview payload={payload} /></>}
+                            {active === 'analytics' && <AnalyticsSection payload={payload} />}
                             {(active === 'packages' || active === 'faqs' || active === 'projects' || active === 'blocks' || active === 'settings') && <CrudSection active={active} records={records} editor={editor} setEditor={setEditor} openEditor={openEditor} save={save} remove={remove} />}
                             {active === 'leads' && <LeadsSection records={records} search={search} setSearch={setSearch} updateLeadStatus={updateLeadStatus} remove={remove} />}
                             {active === 'media' && <MediaSection records={records} upload={upload} remove={remove} />}
@@ -418,6 +420,97 @@ const Admin = () => {
             </div>
         </main>
     );
+};
+
+const analyticsEventLabels = {
+    page_view: 'مشاهدة صفحة',
+    scroll_depth: 'تقدم في التصفح',
+    cta_clicked: 'ضغط على دعوة إجراء',
+    builder_started: 'بدأ بناء المنظومة',
+    builder_base_selected: 'اختار خطة أساسية',
+    builder_addon_toggled: 'غيّر وحدة إضافية',
+    builder_continue_clicked: 'تابع إلى التواصل',
+    contact_form_viewed: 'فتح نموذج التواصل',
+    contact_form_started: 'بدأ نموذج التواصل',
+    lead_submit_clicked: 'ضغط إرسال الطلب',
+    lead_submit_attempted: 'حاول إرسال طلب',
+    lead_submitted: 'أرسل طلباً جديداً',
+    engagement_heartbeat: 'تفاعل مستمر',
+    session_pause: 'غادر الصفحة مؤقتاً',
+    session_resume: 'عاد للموقع',
+    session_end: 'انتهت الجلسة',
+};
+
+const formatDuration = (seconds) => {
+    const value = Math.max(0, Number(seconds || 0));
+    if (value < 60) return `${value}ث`;
+    const minutes = Math.floor(value / 60);
+    const remaining = value % 60;
+    return `${minutes}د ${remaining}ث`;
+};
+
+const formatAnalyticsDate = (value) => {
+    if (!value) return '—';
+    return new Date(value).toLocaleDateString('ar-SA', { month: 'short', day: 'numeric' });
+};
+
+const TrendChart = ({ data = [] }) => {
+    const values = data.map((item) => Number(item.sessions || 0));
+    const max = Math.max(...values, 1);
+    const width = 760;
+    const height = 220;
+    const points = data.map((item, index) => {
+        const x = data.length <= 1 ? width / 2 : (index / (data.length - 1)) * width;
+        const y = height - ((Number(item.sessions || 0) / max) * (height - 30)) - 15;
+        return `${x},${y}`;
+    }).join(' ');
+
+    return <div className="min-h-[270px] rounded-2xl border border-white/10 bg-white/[0.025] p-5 md:p-6">
+        <div className="mb-5 flex items-center justify-between gap-3"><div><h3 className="font-serif text-xl">حركة الزيارات</h3><p className="mt-1 text-xs text-white/35">عدد الجلسات المسجلة يومياً</p></div><Activity className="h-5 w-5 text-gold-500" /></div>
+        {data.length ? <>
+            <svg viewBox={`0 0 ${width} ${height}`} className="h-[205px] w-full" role="img" aria-label="رسم بياني للجلسات اليومية">
+                <line x1="0" y1={height - 15} x2={width} y2={height - 15} stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+                <polyline points={points} fill="none" stroke="#c5a862" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                {data.map((item, index) => {
+                    const [x, y] = points.split(' ')[index].split(',');
+                    return <circle key={`${item.date}-${index}`} cx={x} cy={y} r="4" fill="#070707" stroke="#c5a862" strokeWidth="3" />;
+                })}
+            </svg>
+            <div className="flex justify-between gap-3 text-[11px] text-white/30"><span>{formatAnalyticsDate(data[0]?.date)}</span><span>{formatAnalyticsDate(data[data.length - 1]?.date)}</span></div>
+        </> : <div className="flex min-h-[205px] items-center justify-center text-sm text-white/35">لم تبدأ البيانات بالتجمع بعد.</div>}
+    </div>;
+};
+
+const AnalyticsBarList = ({ items = [], label, valueKey = 'sessions', labelKey = 'label', suffix = '' }) => {
+    const max = Math.max(...items.map((item) => Number(item[valueKey] || 0)), 1);
+    return <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 md:p-6"><div className="mb-5 flex items-center justify-between"><h3 className="font-serif text-xl">{label}</h3><Target className="h-5 w-5 text-gold-500" /></div><div className="space-y-4">{items.length ? items.map((item, index) => { const value = Number(item[valueKey] || 0); const title = item[labelKey] || '—'; return <div key={`${title}-${index}`}><div className="mb-2 flex items-center justify-between gap-4 text-sm"><span className="truncate text-white/65" dir="ltr">{title}</span><strong className="shrink-0 text-gold-500">{value}{suffix}</strong></div><div className="h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gold-500" style={{ width: `${Math.max(4, (value / max) * 100)}%` }} /></div></div>; }) : <p className="text-sm text-white/35">لا توجد بيانات كافية في الفترة الحالية.</p>}</div></div>;
+};
+
+const AnalyticsSection = ({ payload }) => {
+    const summary = payload?.summary || {};
+    const trend = payload?.trend || [];
+    const intentBreakdown = (payload?.intent_breakdown || []).map((item) => ({ ...item, bucket: item.bucket === 'high' ? 'اهتمام مرتفع' : item.bucket === 'medium' ? 'اهتمام متوسط' : 'اهتمام منخفض' }));
+    const addonRows = (payload?.top_addons || []).map((item) => ({ ...item, label: item.name || item.id }));
+    const deviceRows = (payload?.device_breakdown || []).map((item) => ({ ...item, label: item.device === 'mobile' ? 'موبايل' : item.device === 'tablet' ? 'تابلت' : 'كمبيوتر' }));
+
+    return <div className="space-y-6">
+        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"><div><p className="text-xs font-bold tracking-[0.22em] text-gold-500">GROWTH COMMAND CENTER</p><h2 className="mt-2 font-serif text-3xl md:text-4xl">الزوار لم يشاهدوا فقط — ماذا فعلوا؟</h2><p className="mt-2 max-w-3xl text-sm leading-7 text-white/45">اقرأ نية الزائر من سلوكه: مدة الجلسة، التصفح، تفاعل Growth Engine، وبدء التواصل. الأرقام مبنية على الأحداث المسجلة من الموقع خلال آخر {payload?.period_days || 30} يوماً.</p></div><span className="inline-flex items-center gap-2 self-start rounded-full border border-green-400/20 bg-green-500/10 px-3 py-2 text-xs text-green-100"><span className="h-2 w-2 rounded-full bg-green-400" />التتبع يعمل</span></div>
+
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+            <StatCard label="الجلسات" value={summary.sessions} hint="زيارات قابلة للتحليل" icon={Eye} accent />
+            <StatCard label="الزوار الفريدون" value={summary.unique_visitors} hint="بدون تكرار visitor ID" icon={Users} />
+            <StatCard label="متوسط الجلسة" value={formatDuration(summary.average_duration)} hint="وقت التفاعل المسجل" icon={Clock3} />
+            <StatCard label="جلسات متفاعلة" value={`${summary.engagement_rate || 0}%`} hint={`${summary.engaged_sessions || 0} جلسة`} icon={MousePointerClick} />
+            <StatCard label="اهتمام مرتفع" value={summary.high_intent_sessions} hint={`${summary.leads || 0} طلبات خلال الفترة`} icon={Target} accent />
+        </div>
+
+        <div className="grid gap-6 xl:grid-cols-[1.5fr_1fr]"><TrendChart data={trend} /><AnalyticsBarList items={intentBreakdown} label="توزيع نية الزوار" valueKey="sessions" labelKey="bucket" /></div>
+        <div className="grid gap-6 lg:grid-cols-2"><AnalyticsBarList items={addonRows} label="أكثر الوحدات التقنية اهتماماً" valueKey="selections" labelKey="label" suffix=" اختيار" /><AnalyticsBarList items={deviceRows} label="الأجهزة المستخدمة" valueKey="sessions" labelKey="label" suffix=" جلسة" /></div>
+
+        <div className="grid gap-6 xl:grid-cols-[1fr_1.25fr]"><AnalyticsBarList items={(payload?.top_pages || []).map((item) => ({ ...item, label: item.path }))} label="أكثر الصفحات زيارة" valueKey="views" labelKey="label" suffix=" مشاهدة" /><div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]"><div className="flex items-center justify-between border-b border-white/10 p-5"><div><h3 className="font-serif text-xl">النشاط الحي</h3><p className="mt-1 text-xs text-white/35">آخر إشارات سلوكية وصلت للنظام</p></div><Activity className="h-5 w-5 text-gold-500" /></div><div className="max-h-[420px] overflow-y-auto">{(payload?.live_activity || []).length ? <div className="divide-y divide-white/5">{payload.live_activity.map((item) => <div key={item.id} className="flex items-start gap-3 p-4"><span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold-500" /><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center justify-between gap-2"><p className="text-sm text-white/80">{analyticsEventLabels[item.event_type] || item.event_type}</p><span className={`rounded-full px-2 py-1 text-[10px] ${Number(item.intent_score) >= 50 ? 'bg-gold-500/15 text-gold-500' : 'bg-white/10 text-white/45'}`}>نية {item.intent_score || 0}</span></div><p className="mt-1 truncate text-xs text-white/35" dir="ltr">{item.page_path}</p><p className="mt-1 text-[11px] text-white/25">{item.locale === 'en' ? 'English' : 'العربية'} · {new Date(item.created_at).toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' })}</p></div></div>)}</div> : <p className="p-8 text-center text-sm text-white/35">ستظهر الأنشطة هنا مع دخول زوار جدد.</p>}</div></div></div>
+
+        <div className="grid gap-4 sm:grid-cols-3"><div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5"><p className="text-xs text-white/35">الطلبات من الزيارات</p><strong className="mt-2 block font-serif text-3xl text-gold-500">{summary.lead_conversion_rate || 0}%</strong><p className="mt-2 text-xs leading-6 text-white/35">مؤشر أولي يحتاج قراءة مع حجم البيانات.</p></div><div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5"><p className="text-xs text-white/35">تقدم التصفح</p><strong className="mt-2 block font-serif text-3xl text-white">{(payload?.top_events || []).find((item) => item.event_type === 'scroll_depth')?.total || 0}</strong><p className="mt-2 text-xs leading-6 text-white/35">إشارات وصول إلى نقاط أعمق في الصفحة.</p></div><div className="rounded-2xl border border-gold-500/20 bg-gold-500/[0.05] p-5"><p className="text-xs text-gold-500/80">قرار عملي</p><strong className="mt-2 block font-serif text-xl text-white">تابع الاهتمام المرتفع أولاً</strong><p className="mt-2 text-xs leading-6 text-white/45">أي جلسة فوق 50 نقطة نية تستحق أولوية في إعادة الاستهداف أو المتابعة.</p></div></div>
+    </div>;
 };
 
 const Overview = ({ payload }) => {
