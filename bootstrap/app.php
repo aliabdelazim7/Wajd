@@ -42,6 +42,16 @@ return Application::configure(basePath: dirname(__DIR__))
             $status = $exception instanceof AuthenticationException
                 ? 401
                 : ($exception instanceof HttpExceptionInterface ? $exception->getStatusCode() : 500);
+            if (config('app.debug')) {
+                return new JsonResponse([
+                    'message' => $exception->getMessage(),
+                    'exception' => get_class($exception),
+                    'file' => $exception->getFile(),
+                    'line' => $exception->getLine(),
+                    'trace' => collect($exception->getTrace())->take(5)->map(fn($t) => \Illuminate\Support\Arr::except($t, ['args']))->toArray(),
+                ], $status);
+            }
+
             $message = match ($status) {
                 404 => 'Resource not found.',
                 401 => 'Unauthenticated.',
