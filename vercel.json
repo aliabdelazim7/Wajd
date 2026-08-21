@@ -5,6 +5,26 @@
     { "src": "public/build/**", "use": "@vercel/static" },
     { "src": "public/*", "use": "@vercel/static" }
   ],
+  "headers": [
+    {
+      "source": "/build/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/api/content/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(sitemap.xml|llms.txt|pricing.md|robots.txt)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400" }
+      ]
+    }
+  ],
   "routes": [
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/(favicon.ico|logo-dark.png|robots.txt|sitemap.xml|llms.txt|pricing.md)", "dest": "/public/$1" },

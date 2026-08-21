@@ -55,7 +55,7 @@ class ContentController extends Controller
                     'results' => $project->results ?? [],
                 ]),
             ],
-        ]);
+        ])->header('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400');
     }
 
     public function project(Request $request, string $slug): JsonResponse
@@ -77,6 +77,6 @@ class ContentController extends Controller
                 'thumbnail_url' => $project->thumbnail_url,
                 'alt_text' => $locale === 'en' ? $project->alt_text_en : $project->alt_text_ar,
             ],
-        ]);
+        ])->header('Cache-Control', 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400');
     }
 }
