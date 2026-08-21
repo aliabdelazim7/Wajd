@@ -6,15 +6,15 @@ export const translations = {
             services: 'الخدمات',
             portfolio: 'أعمالنا',
             contact: 'اتصل بنا',
-            cta: 'ضاعف أرباحك الآن'
+            cta: 'ابدأ خطوة جديدة'
         },
         hero: {
             badge: 'الرياض ودبي • شريك الحلول التقنية والنمو',
             title1: 'نُهندس الحلول والنمو',
             title2: 'للعلامات الطموحة.',
             slogan: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.',
-            desc: 'نحن لا نكتفي بالتسويق، بل نبني لك البنية التقنية (كاشير، أنظمة إدارة، متاجر) ونقود مبيعاتك عبر أداء إعلاني موثوق. حلول متكاملة تناسب السوق الخليجي، تحوّل الانتباه إلى أرباح حقيقية.',
-            cta: 'لنبدأ هندسة نجاحك',
+            desc: 'نحن لا نكتفي بالتسويق؛ نبني المتاجر والأنظمة التي يحتاجها مشروعك، ونساعدك على الوصول إلى العملاء بخطة واضحة قابلة للقياس.',
+            cta: 'خلّينا نحدد أول خطوة',
             metrics: {
                 adSpend: 'الإنفاق الإعلاني المُدار',
                 maxRoas: 'أعلى عائد مُحقق',
@@ -30,8 +30,8 @@ export const translations = {
             revenue: 'الإيرادات المتوقعة',
             roasTarget: 'العائد المستهدف (ROAS)',
             estReach: 'الوصول المتوقع',
-            disclaimer: '* هذه المحاكاة مبنية على متوسط أداء حملاتنا السابقة. النتائج الفعلية تعتمد على جودة المنتج والعرض.',
-            cta: 'احجز مقعدك في القمة',
+            disclaimer: '* هذه المحاكاة تقدير مبني على بيانات سابقة. النتائج الفعلية تتأثر بالمنتج والعرض والسوق.',
+            cta: 'خلّينا نخطط للخطوة الجاية',
             sectors: {
                 ecommerce: 'التجارة الإلكترونية',
                 realestate: 'العقارات',
@@ -103,9 +103,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'جاهز تبدأ نموك في الخليج؟',
-            desc: 'لسنا بحاجة إلى ميزانية ضخمة كي نبدأ. احجز مكالمة قصيرة، وسنقترح لك أول خطوة مناسبة لمرحلة مشروعك الحالية.',
-            cta: 'احجز مقعدك في القمة',
+            ready: 'جاهز تبدأ في الخليج؟',
+            desc: 'لا تحتاج إلى ميزانية ضخمة كي تبدأ. احكِ لنا عن مشروعك، وسنقترح أول خطوة تناسب مرحلته الحالية.',
+            cta: 'خلّينا نبدأ',
             rights: 'جميع الحقوق محفوظة لوكالة وجد للتسويق.'
         }
     },
@@ -116,15 +116,15 @@ export const translations = {
             services: 'Services',
             portfolio: 'Portfolio',
             contact: 'Contact',
-            cta: 'Scale Now'
+            cta: 'Start a conversation'
         },
         hero: {
             badge: 'RIYADH & DUBAI • TECH & GROWTH PARTNER',
             title1: 'Engineering Tech & Growth',
             title2: 'For Ambitious Brands.',
             slogan: 'WAJD... FOUND FOR RESULTS.',
-            desc: 'We do more than marketing; we build your tech infrastructure (POS, Admin, Stores) and drive sales via reliable performance. Integrated solutions for the Gulf market that turn attention into real profits.',
-            cta: 'Start Engineering Success',
+            desc: 'We do more than marketing. We build the stores and systems your business needs, then help you reach customers with a clear, measurable plan.',
+            cta: 'Plan your first move',
             metrics: {
                 adSpend: 'Ad Spend Managed',
                 maxRoas: 'Max ROAS Achieved',
@@ -140,8 +140,8 @@ export const translations = {
             revenue: 'Projected Revenue',
             roasTarget: 'Target ROAS',
             estReach: 'Estimated Reach',
-            disclaimer: '* Simulation based on past agency performance. Actual results vary by product quality and offer strength.',
-            cta: 'Secure Your Spot',
+            disclaimer: '* This projection is based on past data. Actual results vary with the product, offer, and market conditions.',
+            cta: 'Plan your next move',
             sectors: {
                 ecommerce: 'E-commerce',
                 realestate: 'Real Estate',
@@ -213,9 +213,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'Ready to grow across the Gulf?',
-            desc: 'You do not need a massive budget to start. Book a short call and we will recommend the right first move for your current stage.',
-            cta: 'Secure Your Spot',
+            ready: 'Ready to get started in the Gulf?',
+            desc: 'You do not need a massive budget to begin. Tell us about your business and we will recommend a first move that fits your current stage.',
+            cta: 'Let’s start',
             rights: 'All rights reserved to Wajd Marketing Agency.'
         }
     }
