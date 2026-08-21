@@ -19,6 +19,7 @@ const assetsFor = (folder) => Object.entries(portfolioAssets)
 const evidence = {
     'al-owaid': {
         folder: 'al-owaid',
+        heroImage: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'براند العويد للعود', en: 'Al Owaid Oud' },
         category: { ar: 'تسويق الأداء', en: 'Performance Marketing' },
         metric: { ar: '2.62x ROAS', en: '2.62x ROAS' },
@@ -45,6 +46,7 @@ const evidence = {
     },
     barner: {
         folder: 'barner',
+        heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'براند بارنر', en: 'Barner Brand' },
         category: { ar: 'استحواذ وتحسين ميتا', en: 'Acquisition & Meta Optimization' },
         metric: { ar: '2.10x ROAS', en: '2.10x ROAS' },
@@ -71,6 +73,7 @@ const evidence = {
     },
     toyo: {
         folder: 'toyo',
+        heroImage: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'تطبيق تويو', en: 'Toyo App' },
         category: { ar: 'هندسة النمو', en: 'Growth Engineering' },
         metric: { ar: 'KWD 2,567.558', en: 'KWD 2,567.558' },
@@ -97,6 +100,7 @@ const evidence = {
     },
     qanatir: {
         folder: 'qanatir',
+        heroImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'براند قناطير الغذائي', en: 'Qanatir Food Brand' },
         category: { ar: 'الإعلانات المدفوعة', en: 'Paid Social' },
         metric: { ar: '2.54x ROAS', en: '2.54x ROAS' },
@@ -123,6 +127,7 @@ const evidence = {
     },
     jassar: {
         folder: 'jassar',
+        heroImage: 'https://images.unsplash.com/photo-1551288049-bbbda595c7c8?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'مؤسسة جسار التجارية', en: 'Jassar Trading' },
         category: { ar: 'تحسين رحلة التحويل', en: 'Conversion Journey' },
         metric: { ar: '3,228 طلباً', en: '3,228 orders' },
@@ -149,6 +154,7 @@ const evidence = {
     },
     flash: {
         folder: 'flash',
+        heroImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'براند فلاش', en: 'Flash Brand' },
         category: { ar: 'نمو متعدد القنوات', en: 'Omnichannel Growth' },
         metric: { ar: '2.34x ROAS', en: '2.34x ROAS' },
@@ -175,6 +181,7 @@ const evidence = {
     },
     kamalz: {
         folder: 'kamalz',
+        heroImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'براند كاملز', en: 'Kamalz Brand' },
         category: { ar: 'تحسين الاستحواذ', en: 'Acquisition Optimization' },
         metric: { ar: '1.89x ROAS', en: '1.89x ROAS' },
@@ -201,6 +208,7 @@ const evidence = {
     },
     manabet: {
         folder: 'manabet',
+        heroImage: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1000&auto=format&fit=crop',
         name: { ar: 'منابت', en: 'Manabet' },
         category: { ar: 'نمو التجارة الإلكترونية', en: 'E-commerce Growth' },
         metric: { ar: 'KWD 753.76', en: 'KWD 753.76' },
@@ -245,7 +253,7 @@ export const getEvidenceProject = (slug, lang = 'ar') => {
         metrics: item.metrics.map((metric) => metric[lang]),
         period: item.period,
         evidenceImages: images,
-        image: images[0] || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
+        image: item.heroImage || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
         evidenceNote: lang === 'ar'
             ? 'الأرقام المعروضة مأخوذة من لقطات لوحات الأداء المقدمة من العميل، والفترة موضحة حيث ظهرت في المصدر.'
             : 'The figures are taken from the supplied performance-dashboard screenshots; the period is shown where visible in the source.',
