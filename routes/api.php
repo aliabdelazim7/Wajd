@@ -6,6 +6,7 @@ use App\Http\Controllers\API\ContentController;
 use App\Http\Controllers\API\LeadController;
 use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\AnalyticsController;
+use App\Http\Controllers\API\NurtureController;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ Route::post('/leads/submit', [LeadController::class, 'submit'])
 
 Route::post('/analytics/collect', [AnalyticsController::class, 'collect'])
     ->middleware('throttle:analytics-collection');
+
+Route::get('/automation/nurture', [NurtureController::class, 'run']);
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
@@ -54,6 +57,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/leads', [CmsController::class, 'leads']);
         Route::patch('/leads/{lead}/status', [CmsController::class, 'updateLeadStatus']);
+        Route::post('/leads/{lead}/follow-up', [CmsController::class, 'triggerLeadFollowUp']);
         Route::delete('/leads/{lead}', [CmsController::class, 'deleteLead']);
 
         Route::get('/media', [UploadController::class, 'index']);

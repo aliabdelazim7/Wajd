@@ -7,6 +7,7 @@ use App\Http\Requests\API\StoreLeadRequest;
 use App\Mail\NewLeadNotification;
 use App\Models\Lead;
 use App\Services\GrowthEngineCatalog;
+use App\Services\LeadNurtureService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
@@ -16,7 +17,7 @@ use Illuminate\Support\Str;
 
 class LeadController extends Controller
 {
-    public function submit(StoreLeadRequest $request): JsonResponse
+    public function submit(StoreLeadRequest $request, LeadNurtureService $nurture): JsonResponse
     {
         if ($request->filled('website')) {
             return response()->json(['message' => 'تم استلام الطلب.'], 202);
@@ -70,6 +71,7 @@ class LeadController extends Controller
         }
 
         $this->sendTelegramNotification($lead);
+        $nurture->sendWelcome($lead);
 
         return response()->json([
             'data' => ['id' => $lead->id],

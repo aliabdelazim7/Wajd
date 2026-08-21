@@ -40,4 +40,20 @@ return [
         'chat_id' => env('TELEGRAM_CHAT_ID'),
     ],
 
+    'nurture' => [
+        'email_enabled' => env('WAJD_NURTURE_EMAIL_ENABLED', false),
+        'follow_up_after_days' => (int) env('WAJD_NURTURE_FOLLOW_UP_AFTER_DAYS', 2),
+        'cron_secret' => env('WAJD_NURTURE_CRON_SECRET', env('CRON_SECRET')),
+    ],
+
+    'whatsapp' => [
+        'access_token' => env('WHATSAPP_CLOUD_ACCESS_TOKEN'),
+        'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
+        'graph_version' => env('WHATSAPP_GRAPH_VERSION', 'v22.0'),
+        'templates' => [
+            'welcome' => env('WHATSAPP_TEMPLATE_WELCOME'),
+            'follow_up_1' => env('WHATSAPP_TEMPLATE_FOLLOW_UP_1'),
+        ],
+    ],
+
 ];

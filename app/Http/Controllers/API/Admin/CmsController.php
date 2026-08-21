@@ -11,6 +11,7 @@ use App\Models\Package;
 use App\Models\PortfolioProject;
 use App\Models\SiteSetting;
 use App\Services\AuditService;
+use App\Services\LeadNurtureService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -222,6 +223,7 @@ class CmsController extends Controller
         $query = Lead::query()->select([
             'id', 'name', 'company_name', 'email', 'phone', 'page_url', 'service', 'industry',
             'contact_preference', 'budget_sar', 'package_selection', 'message', 'locale', 'source', 'status',
+            'nurture_stage', 'nurture_last_sent_at', 'nurture_next_at', 'portal_status', 'portal_invited_at',
             'consent_at', 'created_at', 'updated_at',
         ])->recent();
 
@@ -258,6 +260,18 @@ class CmsController extends Controller
         $this->audit->record($request, 'delete', 'lead', $lead->id);
 
         return response()->json(['message' => 'تم حذف العميل المحتمل.']);
+    }
+
+    public function triggerLeadFollowUp(Request $request, Lead $lead, LeadNurtureService $nurture): JsonResponse
+    {
+        $lead->forceFill(['nurture_next_at' => now()])->save();
+        $sent = $nurture->sendDueFollowUp($lead);
+        $this->audit->record($request, 'nurture_trigger', 'lead', $lead->id, ['sent' => $sent]);
+
+        return response()->json([
+            'data' => ['sent' => $sent, 'lead' => $lead->fresh()],
+            'message' => $sent ? 'تم إرسال المتابعة.' : 'تم تجهيز المتابعة، وتحتاج إعداد قناة الإرسال أولاً.',
+        ]);
     }
 
     public function auditLogs(): JsonResponse

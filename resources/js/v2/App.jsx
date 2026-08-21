@@ -10,6 +10,7 @@ import Privacy from './pages/Privacy.jsx';
 import Services from './pages/Services.jsx';
 import Admin from './pages/Admin.jsx';
 import CaseStudy from './pages/CaseStudy.jsx';
+import ClientPortal from './pages/ClientPortal.jsx';
 import Error from './pages/Error.jsx';
 import { useApp } from './context/AppContext.jsx';
 
@@ -37,6 +38,10 @@ const pageMeta = {
     '/privacy': {
         ar: { title: 'سياسة الخصوصية | وكالة وجد', description: 'تعرف على طريقة تعامل وكالة وجد مع بيانات زوار الموقع والعملاء المحتملين.' },
         en: { title: 'Privacy Policy | Wajd Agency', description: 'Learn how Wajd Agency handles website visitor and prospective client information.' },
+    },
+    '/portal': {
+        ar: { title: 'بوابة العميل | وكالة وجد', description: 'معاينة بوابة وجد لمتابعة تقدم المشروع والملفات والتقارير والقرارات القادمة في مساحة واحدة.' },
+        en: { title: 'Client Portal Preview | Wajd Agency', description: 'Preview Wajd’s client workspace for project progress, files, reports, and next decisions.' },
     },
 };
 
@@ -124,6 +129,7 @@ const AppV2 = () => {
                 <Route path="/portfolio/:id" element={<CaseStudy />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
+                <Route path="/portal" element={<ClientPortal />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/admin/*" element={<Admin />} />
                 <Route path="*" element={<Error />} />
