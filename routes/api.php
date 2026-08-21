@@ -21,8 +21,7 @@ Route::post('/analytics/collect', [AnalyticsController::class, 'collect'])
     ->middleware('throttle:analytics-collection');
 
 Route::get('/automation/nurture', [NurtureController::class, 'run']);
-Route::get('/activity/recent', [PublicActivityController::class, 'recent'])
-    ->middleware('throttle:analytics-collection');
+Route::get('/activity/recent', [PublicActivityController::class, 'recent']);
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
