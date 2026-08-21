@@ -27,7 +27,7 @@ const Portfolio = () => {
         category: project.category || (lang === 'ar' ? 'دراسة حالة' : 'Case Study'),
         metric: project.metric || Object.values(project.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
         outcome: project.outcome || copy.primaryOutcome,
-        image: project.image || project.image_url || project.thumbnail_url,
+        image: project.image || project.image_url || project.thumbnail_url || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
     }));
 
     return (
@@ -70,7 +70,7 @@ const Portfolio = () => {
                                 <img 
                                     src={project.image} 
                                     alt={project.name} 
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105 opacity-40 group-hover:opacity-100"
+                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90"></div>
                                 <div className="absolute bottom-12 right-12 left-12 flex justify-between items-end">

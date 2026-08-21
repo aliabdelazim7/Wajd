@@ -115,7 +115,15 @@ const CaseStudy = () => {
             ? remoteProject.results
             : Object.entries(remoteProject.results || {}).map(([key, value]) => `${key}: ${value}`),
     } : fallbackProject;
-    const project = getEvidenceProject(id, lang) || remoteProjectView;
+    const evidenceProject = getEvidenceProject(id, lang);
+    const project = evidenceProject || remoteProjectView;
+
+    const heroImage = (evidenceProject && evidenceProject.image) 
+        ? (evidenceProject.slug === 'al-owaid' ? 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop' :
+           evidenceProject.slug === 'toyo' ? 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop' :
+           evidenceProject.slug === 'qanatir' ? 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' :
+           evidenceProject.image)
+        : (remoteProjectView.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop');
 
     if (project && lang === 'ar') {
         const arabicCategories = {
@@ -176,7 +184,7 @@ const CaseStudy = () => {
             {/* Main Image */}
             <section className="px-[5%] pb-24">
                 <div className="max-w-7xl mx-auto aspect-video rounded-[3rem] overflow-hidden bg-obsidian-800 border border-white/5 shadow-2xl">
-                    <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
+                    <img src={heroImage} alt={project.name} className="w-full h-full object-cover" />
                 </div>
             </section>
 

@@ -5,7 +5,12 @@ const portfolioAssets = import.meta.glob('../assets/portfolio_redacted/**/*.{png
 });
 
 const assetsFor = (folder) => Object.entries(portfolioAssets)
-    .filter(([path]) => path.includes(`/portfolio_redacted/${folder}/`))
+    .filter(([path]) => {
+        // Normalize path to handle both dev and build environments
+        const normalizedPath = path.replace(/\\/g, '/');
+        return normalizedPath.includes(`/portfolio_redacted/${folder}/`) || 
+               normalizedPath.includes(`assets/portfolio_redacted/${folder}/`);
+    })
     .sort(([a], [b]) => {
         const score = (path) => /\/2\.6\.|\/2\.54\.|\/2\.5\.|\/2\.10\.|\/2\.3\.|\/1\.8\.|\/2500\.|\/10\.png$/i.test(path) ? 0 : 1;
         return score(a) - score(b) || a.localeCompare(b);
