@@ -52,6 +52,11 @@ Route::prefix('admin')->group(function () {
         Route::put('/packages/{package}', [CmsController::class, 'updatePackage']);
         Route::delete('/packages/{package}', [CmsController::class, 'deletePackage']);
 
+        Route::get('/addons', [CmsController::class, 'addons']);
+        Route::post('/addons', [CmsController::class, 'storeAddon']);
+        Route::put('/addons/{addon}', [CmsController::class, 'updateAddon']);
+        Route::delete('/addons/{addon}', [CmsController::class, 'deleteAddon']);
+
         Route::get('/faqs', [CmsController::class, 'faqs']);
         Route::post('/faqs', [CmsController::class, 'storeFaq']);
         Route::put('/faqs/{faq}', [CmsController::class, 'updateFaq']);

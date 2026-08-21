@@ -24,13 +24,14 @@ import { trackAnalyticsEvent } from '../utils/analytics.js';
 import marketPosMockup from '../assets/market-pos-mockup.png';
 
 const ProductDemo = () => {
-    const { lang } = useApp();
+    const { lang, content } = useApp();
     const isArabic = lang === 'ar';
+    const demoSettings = content?.settings?.product_demos || {};
     const [activeProduct, setActiveProduct] = useState('market-pos');
     const [activeView, setActiveView] = useState('overview');
     const [showVideoHint, setShowVideoHint] = useState(false);
 
-    const copy = useMemo(() => isArabic ? {
+    const baseCopy = useMemo(() => isArabic ? {
         eyebrow: 'شوف المنتج قبل ما تشتريه',
         title: 'مش بنبيعك كلام.\nبنوريك النظام وهو شغال.',
         subtitle: 'وجد تجمع بين التسويق والتقنية في منظومة واحدة. جرّب معاينة تفاعلية سريعة للأنظمة التي يمكن أن تصبح جزءاً من تشغيل مشروعك.',
@@ -105,20 +106,42 @@ const ProductDemo = () => {
         features: ['Arabic and English interface', 'Custom performance dashboards', 'Connected customer journey', 'Team permissions and reporting'],
         proof: 'Do not imagine the result. Experience the shape of it now.',
     }, [isArabic]);
+    const localizedDemoSettings = demoSettings[isArabic ? 'ar' : 'en'] || demoSettings;
+    const copy = useMemo(() => ({
+        ...baseCopy,
+        ...localizedDemoSettings,
+        metrics: { ...baseCopy.metrics, ...(localizedDemoSettings.metrics || {}) },
+        marketRows: Array.isArray(localizedDemoSettings.marketRows) ? localizedDemoSettings.marketRows : baseCopy.marketRows,
+        liftRows: Array.isArray(localizedDemoSettings.liftRows) ? localizedDemoSettings.liftRows : baseCopy.liftRows,
+        features: Array.isArray(localizedDemoSettings.features) ? localizedDemoSettings.features : baseCopy.features,
+    }), [baseCopy, localizedDemoSettings]);
+
+    const metricIcons = { totalSales: CircleDollarSign, orders: ShoppingCart, stock: PackageCheck, messages: MessageSquareText, flows: Workflow, resolved: Clock3 };
+    const marketMetrics = Array.isArray(localizedDemoSettings.marketMetrics) ? localizedDemoSettings.marketMetrics : [
+        { key: 'totalSales', label: copy.metrics.totalSales, value: '24,780', suffix: 'SAR', trend: '+12.5%' },
+        { key: 'orders', label: copy.metrics.orders, value: '48', suffix: '', trend: '+8.3%' },
+        { key: 'stock', label: copy.metrics.stock, value: '92%', suffix: '', trend: 'Healthy' },
+    ];
+    const liftMetrics = Array.isArray(localizedDemoSettings.liftMetrics) ? localizedDemoSettings.liftMetrics : [
+        { key: 'messages', label: isArabic ? 'رسائل اليوم' : 'Messages today', value: '126', suffix: '', trend: '+24%' },
+        { key: 'flows', label: isArabic ? 'تدفقات نشطة' : 'Active flows', value: '14', suffix: '', trend: 'Running' },
+        { key: 'resolved', label: copy.metrics.resolved, value: '89%', suffix: '', trend: '+17%' },
+    ];
+    const marketChart = Array.isArray(localizedDemoSettings.marketChart) && localizedDemoSettings.marketChart.length ? localizedDemoSettings.marketChart : [34, 52, 42, 67, 58, 78, 64, 88, 73, 96, 81, 100];
 
     const products = {
         'market-pos': {
             key: 'market-pos',
-            name: copy.marketPos,
-            category: copy.marketPosCategory,
+            name: localizedDemoSettings.products?.marketPos?.name || copy.marketPos,
+            category: localizedDemoSettings.products?.marketPos?.category || copy.marketPosCategory,
             icon: ShoppingCart,
-            liveUrl: 'https://market-1-tau.vercel.app/login',
+            liveUrl: localizedDemoSettings.products?.marketPos?.liveUrl || 'https://market-1-tau.vercel.app/login',
             accent: 'gold',
         },
         liftdesk: {
             key: 'liftdesk',
-            name: copy.liftDesk,
-            category: copy.liftDeskCategory,
+            name: localizedDemoSettings.products?.liftDesk?.name || copy.liftDesk,
+            category: localizedDemoSettings.products?.liftDesk?.category || copy.liftDeskCategory,
             icon: Bot,
             liveUrl: null,
             accent: 'violet',
@@ -233,15 +256,13 @@ const ProductDemo = () => {
                                     {activeProduct === 'market-pos' ? (
                                         <>
                                             <div className="grid gap-3 sm:grid-cols-3">
-                                                <Metric icon={CircleDollarSign} label={copy.metrics.totalSales} value="24,780" suffix="SAR" trend="+12.5%" />
-                                                <Metric icon={ShoppingCart} label={copy.metrics.orders} value="48" suffix="" trend="+8.3%" />
-                                                <Metric icon={PackageCheck} label={copy.metrics.stock} value="92%" suffix="" trend="Healthy" />
+                                                {marketMetrics.slice(0, 3).map((item) => { const Icon = metricIcons[item.key] || BarChart3; return <Metric key={item.key} icon={Icon} label={item.label} value={item.value} suffix={item.suffix} trend={item.trend} />; })}
                                             </div>
                                             <div className="mt-4 grid gap-4 xl:grid-cols-[1.25fr_0.75fr]">
                                                 <div className="relative min-h-[185px] overflow-hidden rounded-2xl border border-white/8 bg-black/15 p-4">
                                                     <div className="mb-5 flex items-center justify-between text-xs text-white/40"><span>{copy.sales}</span><span className="rounded-md border border-white/10 px-2 py-1">Last 30 days</span></div>
                                                     <div className="flex h-28 items-end gap-2">
-                                                        {[34, 52, 42, 67, 58, 78, 64, 88, 73, 96, 81, 100].map((height, index) => <div key={index} className={`flex-1 rounded-t-md ${index === 9 ? 'bg-gold-500' : 'bg-gold-500/25'}`} style={{ height: `${height}%` }} />)}
+                                                        {marketChart.map((height, index) => <div key={index} className={`flex-1 rounded-t-md ${index === 9 ? 'bg-gold-500' : 'bg-gold-500/25'}`} style={{ height: `${height}%` }} />)}
                                                     </div>
                                                     <div className="mt-2 flex justify-between text-[10px] text-white/25"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div>
                                                 </div>
@@ -258,9 +279,7 @@ const ProductDemo = () => {
                                     ) : (
                                         <>
                                             <div className="grid gap-3 sm:grid-cols-3">
-                                                <Metric icon={MessageSquareText} label={isArabic ? 'رسائل اليوم' : 'Messages today'} value="126" suffix="" trend="+24%" />
-                                                <Metric icon={Workflow} label={isArabic ? 'تدفقات نشطة' : 'Active flows'} value="14" suffix="" trend="Running" />
-                                                <Metric icon={Clock3} label={copy.metrics.resolved} value="89%" suffix="" trend="+17%" />
+                                                {liftMetrics.slice(0, 3).map((item) => { const Icon = metricIcons[item.key] || BarChart3; return <Metric key={item.key} icon={Icon} label={item.label} value={item.value} suffix={item.suffix} trend={item.trend} />; })}
                                             </div>
                                             <div className="mt-4 rounded-2xl border border-white/8 bg-black/15 p-4">
                                                 <div className="mb-4 flex items-center justify-between text-xs text-white/40"><span>{copy.automations}</span><span className="inline-flex items-center gap-1.5 text-emerald-300/70"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live</span></div>

@@ -13,6 +13,7 @@ const CinematicHero = () => {
     const heroTitle1 = hero.data?.title1 || t.hero.title1;
     const heroHighlight = hero.data?.highlight || (lang === 'ar' ? 'النمو' : 'Growth');
     const shouldRenderHeroHighlight = !heroTitle1.includes(heroHighlight);
+    const heroMetrics = hero.data?.metrics || {};
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -160,19 +161,19 @@ const CinematicHero = () => {
                     className={`mt-24 sm:mt-36 pt-10 sm:pt-16 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 ${lang === 'ar' ? 'text-right' : 'text-left'}`}
                 >
                     <div className="group cursor-default">
-                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">$12M+</p>
+                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">{heroMetrics.adSpendValue || '$12M+'}</p>
                         <p className="text-xs uppercase tracking-[0.25em] text-white/40 font-sans">{hero.data?.metrics?.adSpend || t.hero.metrics.adSpend}</p>
                     </div>
                     <div className="group cursor-default">
-                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">6.4x</p>
+                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">{heroMetrics.maxRoasValue || '6.4x'}</p>
                         <p className="text-xs uppercase tracking-[0.25em] text-white/40 font-sans">{hero.data?.metrics?.maxRoas || t.hero.metrics.maxRoas}</p>
                     </div>
                     <div className="group cursor-default">
-                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">120K+</p>
+                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">{heroMetrics.conversionsValue || '120K+'}</p>
                         <p className="text-xs uppercase tracking-[0.25em] text-white/40 font-sans">{hero.data?.metrics?.conversions || t.hero.metrics.conversions}</p>
                     </div>
                     <div className="group cursor-default">
-                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">8+</p>
+                        <p className="text-4xl sm:text-5xl md:text-7xl font-serif mb-3 text-white group-hover:text-gold-500 transition-colors">{heroMetrics.sectorsValue || '8+'}</p>
                         <p className="text-xs uppercase tracking-[0.25em] text-white/40 font-sans">{hero.data?.metrics?.sectors || t.hero.metrics.sectors}</p>
                     </div>
                 </motion.div>

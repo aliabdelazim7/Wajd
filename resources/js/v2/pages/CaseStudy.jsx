@@ -41,37 +41,20 @@ const CaseStudy = () => {
 
     const remoteProjectView = remoteProject ? {
         ...remoteProject,
-        metric: Object.values(remoteProject.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
-        outcome: lang === 'ar' ? 'النتيجة الأساسية' : 'Primary outcome',
+        metric: remoteProject.metric || Object.values(remoteProject.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
+        outcome: remoteProject.outcome || (lang === 'ar' ? 'النتيجة الأساسية' : 'Primary outcome'),
         image: remoteProject.image_url || remoteProject.thumbnail_url,
+        evidenceImages: Array.isArray(remoteProject.gallery) ? remoteProject.gallery.filter(Boolean) : [],
+        evidenceNote: remoteProject.evidence_note || '',
+        period: remoteProject.period || null,
         results: Array.isArray(remoteProject.results)
             ? remoteProject.results
             : Object.entries(remoteProject.results || {}).map(([key, value]) => `${key}: ${value}`),
     } : null;
     const evidenceProject = getEvidenceProject(id, lang);
-    const project = evidenceProject || remoteProjectView;
-
-    const heroImage = (evidenceProject && evidenceProject.image) 
-        ? (evidenceProject.slug === 'al-owaid' ? 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop' :
-           evidenceProject.slug === 'toyo' ? 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop' :
-           evidenceProject.slug === 'qanatir' ? 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop' :
-           evidenceProject.image)
-        : (remoteProjectView.image || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop');
-
-    if (project && lang === 'ar') {
-        const arabicCategories = {
-            'al-owaid': 'تسويق الأداء',
-            toyo: 'هندسة النمو',
-            qanatir: 'الإعلانات المدفوعة',
-        };
-        const arabicOutcomes = {
-            'al-owaid': 'نمو الإيرادات',
-            toyo: 'تحويلات',
-            qanatir: 'توسع التجارة الإلكترونية',
-        };
-        project.category = arabicCategories[id] || project.category;
-        project.outcome = arabicOutcomes[id] || project.outcome;
-    }
+    // CMS is the source of truth. Bundled evidence is retained only when the API has no record.
+    const project = remoteProjectView || evidenceProject;
+    const heroImage = project?.image || project?.image_url || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop';
 
     if (!project && loading) return (
         <Layout><div className="min-h-screen flex items-center justify-center text-white/50">{copy.loading}</div></Layout>

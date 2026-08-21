@@ -8,6 +8,7 @@ use App\Models\ContentBlock;
 use App\Models\Faq;
 use App\Models\Lead;
 use App\Models\Package;
+use App\Models\PackageAddon;
 use App\Models\PortfolioProject;
 use App\Models\SiteSetting;
 use App\Services\AuditService;
@@ -31,6 +32,7 @@ class CmsController extends Controller
                     'leads' => Lead::count(),
                     'new_leads' => Lead::where('status', Lead::STATUS_NEW)->count(),
                     'packages' => Package::where('is_published', true)->count(),
+                    'addons' => PackageAddon::where('is_published', true)->count(),
                     'faqs' => Faq::where('is_published', true)->count(),
                     'projects' => PortfolioProject::where('is_published', true)->count(),
                     'content_blocks' => ContentBlock::where('is_published', true)->count(),
@@ -152,6 +154,35 @@ class CmsController extends Controller
         $this->audit->record($request, 'delete', 'package', $package->id, ['slug' => $package->slug]);
 
         return response()->json(['message' => 'تم حذف الباقة.']);
+    }
+
+    public function addons(): JsonResponse
+    {
+        return response()->json(['data' => PackageAddon::query()->orderBy('sort_order')->orderBy('id')->get()]);
+    }
+
+    public function storeAddon(Request $request): JsonResponse
+    {
+        $addon = PackageAddon::create($this->addonData($request));
+        $this->audit->record($request, 'create', 'package_addon', $addon->id, ['slug' => $addon->slug]);
+
+        return response()->json(['data' => $addon, 'message' => 'تم إنشاء الوحدة التقنية.'], 201);
+    }
+
+    public function updateAddon(Request $request, PackageAddon $addon): JsonResponse
+    {
+        $addon->update($this->addonData($request, $addon));
+        $this->audit->record($request, 'update', 'package_addon', $addon->id, ['slug' => $addon->slug]);
+
+        return response()->json(['data' => $addon->fresh(), 'message' => 'تم تحديث الوحدة التقنية.']);
+    }
+
+    public function deleteAddon(Request $request, PackageAddon $addon): JsonResponse
+    {
+        $addon->delete();
+        $this->audit->record($request, 'delete', 'package_addon', $addon->id, ['slug' => $addon->slug]);
+
+        return response()->json(['message' => 'تم حذف الوحدة التقنية.']);
     }
 
     public function faqs(): JsonResponse
@@ -285,16 +316,46 @@ class CmsController extends Controller
     {
         return $request->validate([
             'slug' => ['required', 'string', 'max:80', 'regex:/^[a-z0-9-]+$/', Rule::unique('packages', 'slug')->ignore($package?->id)],
+            'category' => ['required', 'string', Rule::in(['marketing', 'technology', 'hybrid'])],
             'name_ar' => ['required', 'string', 'max:120'],
             'name_en' => ['required', 'string', 'max:120'],
             'subtitle_ar' => ['nullable', 'string', 'max:255'],
             'subtitle_en' => ['nullable', 'string', 'max:255'],
             'price_sar' => ['required', 'integer', 'min:0', 'max:10000000'],
+            'price_one_time_sar' => ['nullable', 'integer', 'min:0', 'max:10000000'],
+            'compare_at_price_sar' => ['nullable', 'integer', 'min:0', 'max:10000000'],
             'billing_cycle' => ['required', 'string', 'max:30'],
+            'cta_label_ar' => ['nullable', 'string', 'max:120'],
+            'cta_label_en' => ['nullable', 'string', 'max:120'],
             'features_ar' => ['required', 'array', 'max:30'],
             'features_ar.*' => ['string', 'max:255'],
             'features_en' => ['required', 'array', 'max:30'],
             'features_en.*' => ['string', 'max:255'],
+            'metadata' => ['nullable', 'array'],
+            'sort_order' => ['sometimes', 'integer', 'min:0', 'max:10000'],
+            'is_featured' => ['sometimes', 'boolean'],
+            'is_published' => ['sometimes', 'boolean'],
+        ]);
+    }
+
+    private function addonData(Request $request, ?PackageAddon $addon = null): array
+    {
+        return $request->validate([
+            'slug' => ['required', 'string', 'max:80', 'regex:/^[a-z0-9-]+$/', Rule::unique('package_addons', 'slug')->ignore($addon?->id)],
+            'category' => ['required', 'string', Rule::in(['technology', 'service', 'hybrid'])],
+            'name_ar' => ['required', 'string', 'max:120'],
+            'name_en' => ['required', 'string', 'max:120'],
+            'subtitle_ar' => ['nullable', 'string', 'max:255'],
+            'subtitle_en' => ['nullable', 'string', 'max:255'],
+            'price_sar' => ['required', 'integer', 'min:0', 'max:10000000'],
+            'billing_cycle' => ['required', 'string', Rule::in(['monthly', 'one_time', 'custom'])],
+            'tag_ar' => ['nullable', 'string', 'max:80'],
+            'tag_en' => ['nullable', 'string', 'max:80'],
+            'features_ar' => ['nullable', 'array', 'max:30'],
+            'features_ar.*' => ['string', 'max:255'],
+            'features_en' => ['nullable', 'array', 'max:30'],
+            'features_en.*' => ['string', 'max:255'],
+            'metadata' => ['nullable', 'array'],
             'sort_order' => ['sometimes', 'integer', 'min:0', 'max:10000'],
             'is_featured' => ['sometimes', 'boolean'],
             'is_published' => ['sometimes', 'boolean'],
@@ -327,9 +388,20 @@ class CmsController extends Controller
             'challenge_en' => ['nullable', 'string', 'max:10000'],
             'strategy_ar' => ['nullable', 'string', 'max:10000'],
             'strategy_en' => ['nullable', 'string', 'max:10000'],
+            'metric_ar' => ['nullable', 'string', 'max:255'],
+            'metric_en' => ['nullable', 'string', 'max:255'],
+            'outcome_ar' => ['nullable', 'string', 'max:255'],
+            'outcome_en' => ['nullable', 'string', 'max:255'],
+            'evidence_note_ar' => ['nullable', 'string', 'max:5000'],
+            'evidence_note_en' => ['nullable', 'string', 'max:5000'],
+            'period_ar' => ['nullable', 'string', 'max:120'],
+            'period_en' => ['nullable', 'string', 'max:120'],
             'results' => ['nullable', 'array', 'max:30'],
             'image_url' => ['nullable', 'string', 'max:2048'],
             'thumbnail_url' => ['nullable', 'string', 'max:2048'],
+            'gallery' => ['nullable', 'array', 'max:60'],
+            'gallery.*' => ['nullable', 'string', 'max:2048'],
+            'metadata' => ['nullable', 'array'],
             'alt_text_ar' => ['nullable', 'string', 'max:255'],
             'alt_text_en' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['sometimes', 'integer', 'min:0', 'max:10000'],

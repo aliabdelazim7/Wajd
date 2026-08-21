@@ -22,7 +22,7 @@ const fieldClass = 'w-full rounded-2xl border border-white/10 bg-white/[0.045] p
 const labelClass = 'mb-2 block text-sm font-medium text-white/65';
 
 const Contact = () => {
-    const { lang } = useApp();
+    const { lang, content } = useApp();
     const location = useLocation();
     const isArabic = lang === 'ar';
     const packageBuilder = location.state?.packageBuilder || null;
@@ -187,6 +187,19 @@ const Contact = () => {
         error: 'We could not send your request right now. Please try again.',
         portalCta: 'Preview the client portal',
     };
+
+    const formOptions = content?.settings?.form_options || {};
+    const contactSettings = content?.settings?.contact || {};
+    const localizeOptions = (key, fallback) => Array.isArray(formOptions[key]) && formOptions[key].length
+        ? formOptions[key].map((item) => [item.value || item.id || item.key, item[`label_${lang}`] || item.label || item.name]).filter(([value, label]) => value && label)
+        : fallback;
+    copy.services = localizeOptions('services', copy.services);
+    copy.industries = localizeOptions('industries', copy.industries);
+    copy.budgets = localizeOptions('budgets', copy.budgets);
+    copy.preferences = localizeOptions('preferences', copy.preferences);
+    copy.location = contactSettings[`location_${lang}`] || contactSettings.location || copy.location;
+    copy.email = contactSettings.email_label || copy.email;
+    copy.phonePlaceholder = contactSettings.phone_placeholder || copy.phonePlaceholder;
 
     const update = (key, value) => setFormData((current) => ({ ...current, [key]: value }));
 

@@ -35,20 +35,30 @@ const Home = () => {
             image: project.image || project.image_url || project.thumbnail_url,
         }));
 
-    const basePlans = lang === 'ar' && content?.packages?.length
+    const basePlans = content?.packages?.length
         ? content.packages.map((pkg) => ({
             id: pkg.slug,
             name: pkg.name,
             subtitle: pkg.subtitle,
-            price: Number(pkg.price_sar),
+            price: Number(pkg.price_sar || 0),
+            priceOneTime: pkg.price_one_time_sar ? Number(pkg.price_one_time_sar) : null,
+            billingCycle: pkg.billing_cycle || 'monthly',
             features: pkg.features || [],
             popular: Boolean(pkg.is_featured),
+            ctaLabel: pkg.cta_label || '',
+            category: pkg.category || 'marketing',
         }))
         : builder.basePlans;
+    const catalogAddons = content?.addons?.length ? content.addons : builder.addons;
     const [selectedBaseId, setSelectedBaseId] = useState(basePlans.find((plan) => plan.popular)?.id || basePlans[0]?.id);
     const [selectedAddonIds, setSelectedAddonIds] = useState([]);
     const selectedBase = basePlans.find((plan) => plan.id === selectedBaseId) || basePlans[0];
-    const selectedAddons = builder.addons.filter((addon) => selectedAddonIds.includes(addon.id));
+    const selectedAddons = catalogAddons.filter((addon) => selectedAddonIds.includes(addon.id));
+    useEffect(() => {
+        if (!basePlans.some((plan) => plan.id === selectedBaseId)) {
+            setSelectedBaseId(basePlans.find((plan) => plan.popular)?.id || basePlans[0]?.id);
+        }
+    }, [content?.packages, lang]);
     const monthlyAddonsTotal = selectedAddons.filter((addon) => addon.type === 'monthly').reduce((total, addon) => total + addon.price, 0);
     const oneTimeAddonsTotal = selectedAddons.filter((addon) => addon.type === 'one_time').reduce((total, addon) => total + addon.price, 0);
     const monthlyTotal = (selectedBase?.price || 0) + monthlyAddonsTotal;
@@ -56,7 +66,7 @@ const Home = () => {
     const toggleAddon = (addonId) => setSelectedAddonIds((current) => {
         const wasAdded = current.includes(addonId);
         const next = wasAdded ? current.filter((id) => id !== addonId) : [...current, addonId];
-        const addon = builder.addons.find((item) => item.id === addonId);
+        const addon = catalogAddons.find((item) => item.id === addonId);
         trackAnalyticsEvent('builder_addon_toggled', {
             addon_id: addonId,
             addon_name: addon?.name,
@@ -93,7 +103,13 @@ const Home = () => {
         icon: [Target, TrendingUp, Shield, Zap][index] || Target
     }));
 
-    const partners = [
+    const partnersFromCms = content?.settings?.partners?.items || content?.settings?.partners;
+    const partners = Array.isArray(partnersFromCms) && partnersFromCms.length
+        ? partnersFromCms.map((partner) => ({
+            name: partner.name || partner.label || '',
+            logo: partner.logo || '',
+        }))
+        : [
         { name: lang === 'ar' ? 'العويد للعود' : 'Al Owaid Oud', logo: 'https://images.unsplash.com/photo-1588412079929-790b9f593d8e?q=80&w=200&auto=format&fit=crop' },
         { name: lang === 'ar' ? 'تويو' : 'Toyo', logo: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=200&auto=format&fit=crop' },
         { name: lang === 'ar' ? 'قناطير' : 'Qanatir', logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=200&auto=format&fit=crop' },
@@ -323,7 +339,7 @@ const Home = () => {
                                     <p className="mt-3 max-w-2xl text-sm leading-7 text-white/35">{builder.addonsHint}</p>
                                 </div>
                                 <div className="grid gap-4 md:grid-cols-2">
-                                    {builder.addons.map((addon, index) => {
+                                    {catalogAddons.map((addon, index) => {
                                         const isAdded = selectedAddonIds.includes(addon.id);
                                         return (
                                             <motion.button

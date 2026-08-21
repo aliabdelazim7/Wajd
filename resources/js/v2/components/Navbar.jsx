@@ -3,12 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
+import { getCmsSetting } from '../utils/content.js';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const { lang, toggleLang, t } = useApp();
+    const { lang, toggleLang, t, content } = useApp();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -21,14 +22,23 @@ const Navbar = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
 
-    const navLinks = [
-        { name: t.nav.home, path: '/' },
-        { name: t.nav.about, path: '/about' },
-        { name: t.nav.services, path: '/services' },
-        { name: t.nav.portfolio, path: '/portfolio' },
-        { name: lang === 'ar' ? 'رؤى النمو' : 'Insights', path: '/insights' },
-        { name: t.nav.contact, path: '/contact' },
-    ];
+    const navigation = getCmsSetting(content, 'navigation', {});
+    const customLinks = Array.isArray(navigation.links) ? navigation.links : [];
+    const navLinks = customLinks.length
+        ? customLinks.filter((link) => link?.path).map((link) => ({
+            name: link[`label_${lang}`] || link.label || link.name || link.path,
+            path: link.path,
+        }))
+        : [
+            { name: t.nav.home, path: '/' },
+            { name: t.nav.about, path: '/about' },
+            { name: t.nav.services, path: '/services' },
+            { name: t.nav.portfolio, path: '/portfolio' },
+            { name: lang === 'ar' ? 'رؤى النمو' : 'Insights', path: '/insights' },
+            { name: t.nav.contact, path: '/contact' },
+        ];
+    const ctaLabel = navigation[`cta_${lang}`] || navigation.cta || t.nav.cta;
+    const wordmark = getCmsSetting(content, 'brand', {})[`wordmark_${lang}`] || getCmsSetting(content, 'brand', {}).wordmark || 'WAJD';
 
     return (
         <nav className={`fixed top-0 left-0 w-full z-[120] transition-all duration-500 ${scrolled ? 'py-3 lg:py-4 bg-obsidian-950/95 backdrop-blur-xl border-b border-white/5' : 'py-5 lg:py-6 bg-transparent'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
@@ -36,7 +46,7 @@ const Navbar = () => {
                 {/* Logo - Text Only */}
                 <Link to="/" className="group">
                     <span className="text-2xl md:text-3xl font-serif font-bold tracking-[0.2em] text-white group-hover:text-gold-500 transition-all duration-500">
-                        WAJD
+                        {wordmark}
                     </span>
                 </Link>
 
@@ -64,7 +74,7 @@ const Navbar = () => {
                     </div>
 
                     <Link to="/contact" className="bg-gold-500 text-obsidian-950 px-8 py-3 rounded-full text-sm font-arabic font-bold hover:bg-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(197,168,98,0.3)]">
-                        {t.nav.cta}
+                        {ctaLabel}
                     </Link>
                 </div>
 
@@ -103,7 +113,7 @@ const Navbar = () => {
                             onClick={() => setIsOpen(false)}
                             className="mt-4 w-full max-w-xs bg-gold-500 text-obsidian-950 px-6 py-4 rounded-full text-xl sm:text-2xl font-arabic font-bold shadow-[0_0_30px_rgba(197,168,98,0.3)]"
                         >
-                            {t.nav.cta}
+                            {ctaLabel}
                         </Link>
                         <div className="mt-8 pt-8 border-t border-white/5 w-full">
                             <p className="text-gold-500 text-xl sm:text-2xl font-serif italic">{lang === 'ar' ? 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.' : 'WAJD... FOUND FOR RESULTS.'}</p>

@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-Cw3XoQyJ.css",
+    "file": "assets/app-DQLhxvD1.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-DQ-Do1-Z.js",
+    "file": "assets/main-Bma-ueG8.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
@@ -18,735 +18,705 @@
     ],
     "assets": [
       "assets/market-pos-mockup-ubIPuK8_.png",
-      "assets/1-BipQMdy7.png",
-      "assets/2.6-BOeKLgl6.png",
-      "assets/2-CLe5IM3D.png",
-      "assets/3-CZmarJ_Y.png",
-      "assets/4-Db3-YBVQ.png",
-      "assets/5-B4o0ifvR.png",
-      "assets/6-CD4CMS9j.png",
-      "assets/7-CfVxQpC_.png",
-      "assets/8-D3dNOPqD.png",
-      "assets/9-3GiOSwA2.png",
-      "assets/0.76-CAjv0cLv.png",
-      "assets/1.29-C0yv6ntL.png",
-      "assets/1.54-Fy71JFa3.png",
-      "assets/1.66-DSYxHau1.png",
-      "assets/2.1-wT6tqYKM.png",
-      "assets/2.10-BKO5RhLu.png",
-      "assets/cms_794-C20atTo9.png",
-      "assets/cms_aug_-_cms-D3RS0FBG.png",
-      "assets/cms_jul_-_cms-DOlLKaa6.png",
-      "assets/cms_jun_-_cms-CrPcWgIq.png",
-      "assets/cms_oct_-_cms-Ck-CoqDp.png",
-      "assets/cms_sep_-_cms-CaeEgxly.png",
-      "assets/jul-Cdi9aWo9.png",
-      "assets/jun-D8B6KumH.png",
-      "assets/may-39hHZ3eX.png",
-      "assets/screenshot_5-BNlkctIw.png",
-      "assets/screenshot_6-BhFG24EJ.png",
-      "assets/screenshot_7-DQJnvGAI.png",
-      "assets/sep-B5Chv-e5.png",
-      "assets/2.3-Bk3c8AEH.png",
-      "assets/2.4-DvNCDE1B.png",
-      "assets/cms_10-CsLULqQE.png",
-      "assets/cms_5-DOYX3aWP.png",
-      "assets/cms_6-B6wX7Yrd.png",
-      "assets/cms_7-B6IddT4D.png",
-      "assets/cms_8-iqmTj4kG.png",
-      "assets/cms_9-DltHufkq.png",
-      "assets/meta_3_month-BnBMydg0.png",
-      "assets/meta_aug-Czqh085N.png",
-      "assets/meta_dec-1jrwy4N1.png",
-      "assets/meta_feb-BBUBJYYa.png",
-      "assets/meta_jul-Duzrmodv.png",
-      "assets/meta_mar-D--YJmJ1.png",
-      "assets/meta_nov-DAdgktKQ.png",
-      "assets/meta_oct-h_Y6VDCz.png",
-      "assets/meta_oct_24-UOk8uAPC.png",
-      "assets/meta_sep-9kVtn5vm.png",
-      "assets/screenshot_1-CvJman87.png",
-      "assets/screenshot_10-h7KNcNSh.png",
-      "assets/screenshot_2-ZnKZZNDJ.png",
-      "assets/screenshot_3-DzhHEYjg.png",
-      "assets/screenshot_4-DW8r_KEX.png",
-      "assets/screenshot_5-BySnz1NB.png",
-      "assets/screenshot_6-DAOJDtth.png",
-      "assets/screenshot_7-DJfZlrun.png",
-      "assets/snap_-_aug-hr9x_Bgm.png",
-      "assets/snap_-_dec_24-Bks4Z1QM.png",
-      "assets/snap_-_jul-BNkXk_BA.png",
-      "assets/snap_-_jul_24-C-SxNOgc.png",
-      "assets/snap_-_jul_25-BpqonMPU.png",
-      "assets/snap_-_jun_24-UYshGnpI.png",
-      "assets/snap_-_may_24-BjeyxF3X.png",
-      "assets/حلو_10_-_10-BtrCrGaC.png",
-      "assets/حلو_jul-Cs13vQY5.png",
-      "assets/حلو_jul_-_cms-B66bN9gx.png",
-      "assets/حلو_may-BTzZGSde.png",
-      "assets/حلو_screenshot_8-8Lo-hNjT.png",
-      "assets/حلو_screenshot_9-Dxuunjgd.png",
-      "assets/حلو_snap-__nov_24-B_ahtn6Z.png",
-      "assets/حلو_snap_-_oct_24-DOtm2xLR.png",
-      "assets/screenshot_1-VFEm414s.png",
-      "assets/screenshot_2-D8-1KnQM.png",
-      "assets/screenshot_3-mGjzsojy.png",
-      "assets/screenshot_4-BBzvn4IN.png",
-      "assets/1.8-DINWv8aS.png",
-      "assets/meta_apr-CfaSbE6O.png",
-      "assets/meta_aug-6niqzB5D.png",
-      "assets/meta_jun-NFdVeZnn.png",
-      "assets/meta_mar-DAsiSB-o.png",
-      "assets/meta_oct-D4Z-o1hH.png",
-      "assets/meta_sep-C2HIW3Km.png",
-      "assets/snap_-_jul-D1doswEj.png",
-      "assets/snap_-_jun-Cz0d3Hlz.png",
-      "assets/snap_-_may-Dd_KfjvD.png",
-      "assets/snap_-_oct-BbfW0gF_.png",
-      "assets/snap_-_sep-BXc0ydJ-.png",
-      "assets/10-BHDq42jg.png",
-      "assets/3-Cmcy2Hs4.png",
-      "assets/4-Dpjn7_PC.png",
-      "assets/5-BrtN5OkA.png",
-      "assets/6-BQCRzRxt.png",
-      "assets/7-EruXqJvD.png",
-      "assets/8-BoTSmA-o.png",
-      "assets/9-DVh_zhI_.png",
-      "assets/منابت_زد_screenshot_1-BLE96oUQ.png",
-      "assets/منابت_زد_screenshot_2-cXhaaJ6Y.png",
-      "assets/منابت_زد_screenshot_6-BXhCznPj.png",
-      "assets/2.2-Clq_kX1b.png",
-      "assets/2.5-Db3Ls4yf.png",
-      "assets/41-CDyR83st.png",
-      "assets/62-S6GanmkO.png",
-      "assets/69-U9Cc0e70.png",
-      "assets/72-Dlowwk2d.png",
-      "assets/77-AMubK5S8.png",
-      "assets/meta_aug-B8vBoHGc.png",
-      "assets/meta_jul-BDeWSG3T.png",
-      "assets/meta_jun-TgPy0atE.png",
-      "assets/meta_oct-J2upTpxJ.png",
-      "assets/meta_sep-0ObJMLC6.png",
-      "assets/salla_10_25-BR_ibkP-.png",
-      "assets/salla_1_25-TRSqTk33.png",
-      "assets/salla_2_25-De2MF2lk.png",
-      "assets/salla_3_25-BfLXGHoY.png",
-      "assets/salla_7_25-DTR1tGtR.png",
-      "assets/salla_9_25-DWd5acbl.png",
-      "assets/salla_dec_24-DfzHnFcL.png",
-      "assets/screenshot_1-jtpfumWp.png",
-      "assets/screenshot_10-y26EjOP2.png",
-      "assets/screenshot_11-N3MCMWO0.png",
-      "assets/screenshot_2-ChSrU4tH.png",
-      "assets/screenshot_3-DK6UZf6w.png",
-      "assets/screenshot_4-DkbVGfnn.png",
-      "assets/screenshot_5-CJC2_-xG.png",
-      "assets/screenshot_6-DaxbwiHw.png",
-      "assets/screenshot_7-Ddr9h2YN.png",
-      "assets/snap_-_jul-DOMuADtt.png",
-      "assets/snap_-_oct-C654uG4b.png",
-      "assets/snap_-_sep-CKjcrmrg.png",
-      "assets/1.89-CDkEd39H.png",
-      "assets/1.98-SBCehi75.png",
-      "assets/10-C1jxnO24.png",
-      "assets/2500-DsoBAxMp.png",
-      "assets/8_24-DaaIRMtE.png",
-      "assets/9-DDo8rXJQ.png",
-      "assets/971-Cme45v30.png",
-      "assets/nov_24-CdtRPnEG.png",
-      "assets/sep-8YBH9ErQ.png",
-      "assets/al-owaid-Ba21H_ZK.jpg",
-      "assets/barner-M788ecbv.jpg",
-      "assets/flash-CSI4zV3A.jpg",
-      "assets/jassar-USV8TLsh.jpg",
-      "assets/kamalz-DjJyVoTp.jpg",
-      "assets/manabet-DxMZU383.jpg",
-      "assets/qanatir-syTRdjtM.webp",
-      "assets/toyo-C7QVnVtS.png"
+      "assets/1-OWjRszda.png",
+      "assets/2.6-D6crBtuM.png",
+      "assets/2-DgJXt0Wp.png",
+      "assets/3-DGTuVMfJ.png",
+      "assets/4-DPia8e2B.png",
+      "assets/5-uEEdPmaM.png",
+      "assets/6-B-C47gB9.png",
+      "assets/7-BL_gMBj5.png",
+      "assets/8-yuBsuXvj.png",
+      "assets/9-DEv2sCxl.png",
+      "assets/0.76-Dm_FAkoO.png",
+      "assets/1.29-BzkjzdYY.png",
+      "assets/1.54-yKeWN8tS.png",
+      "assets/1.66-DvrATTl4.png",
+      "assets/2.1-rCf6pMTm.png",
+      "assets/2.10-CTNXE0H0.png",
+      "assets/794-DwLYpujF.png",
+      "assets/Aug - CMS-dguPRFJG.png",
+      "assets/Jul - CMS-3uLwdoYf.png",
+      "assets/Jun - CMS-DG1rLQpv.png",
+      "assets/Oct - CMS-BIFUvO21.png",
+      "assets/Sep - CMS-DaglO9a1.png",
+      "assets/Jul-CpjSway0.png",
+      "assets/Jun-BjWsWQp3.png",
+      "assets/May-BhpgtKaw.png",
+      "assets/Screenshot_5-BjS6W-Fc.png",
+      "assets/Screenshot_6-DHHWh2sa.png",
+      "assets/Screenshot_7-3QDQ269K.png",
+      "assets/Sep-3xNx1c95.png",
+      "assets/1.89-BSVXiTzb.png",
+      "assets/1.98-DqX1ual7.png",
+      "assets/10-CINaB99h.png",
+      "assets/2500-rQn1sWR4.png",
+      "assets/8 24-DCWGKKak.png",
+      "assets/9-BDBhud8q.png",
+      "assets/971-Gg7OAwW2.png",
+      "assets/Nov 24-CzPhcRDO.png",
+      "assets/sep-CQMsEK7O.png",
+      "assets/Screenshot_1-CoNZj8Iz.png",
+      "assets/Screenshot_2-Cyy03aAt.png",
+      "assets/Screenshot_3-BwHGhzml.png",
+      "assets/Screenshot_4-oD00Ei_b.png",
+      "assets/2.3-BUEyvHbX.png",
+      "assets/2.4-BMaFGNzB.png",
+      "assets/10-DDcD8Iuw.png",
+      "assets/5-C4eRZABT.png",
+      "assets/6-CVQIOoS1.png",
+      "assets/7-kIejwzvY.png",
+      "assets/8-uje45v9c.png",
+      "assets/9-rY7bdBir.png",
+      "assets/3 Month-B5MJWJxi.png",
+      "assets/Aug-96PN8MsD.png",
+      "assets/Dec-Co0-TKxE.png",
+      "assets/Feb-EYvx6wyY.png",
+      "assets/Jul-ZL8Lxk6c.png",
+      "assets/Mar-Dg2tC-qJ.png",
+      "assets/Nov-DXupJ8o2.png",
+      "assets/Oct 24-BqLfCDF5.png",
+      "assets/Oct-Mm4pccQU.png",
+      "assets/Sep-Dnex0mbx.png",
+      "assets/Screenshot_1-ChnF5f9T.png",
+      "assets/Screenshot_10-CBZ_Bhwt.png",
+      "assets/Screenshot_2-DH56BXXk.png",
+      "assets/Screenshot_3-CAhehvVG.png",
+      "assets/Screenshot_4-Dis6JRH_.png",
+      "assets/Screenshot_5-CrSMs2vO.png",
+      "assets/Screenshot_6-uZXmcqpU.png",
+      "assets/Screenshot_7-BvwhYVgL.png",
+      "assets/Snap - Aug-G468VYu1.png",
+      "assets/Snap - Dec 24-CGU4zizV.png",
+      "assets/Snap - Jul 24-CJsXlJ3f.png",
+      "assets/Snap - Jul 25-DXOjgLZ8.png",
+      "assets/Snap - Jul-XoSb0UHE.png",
+      "assets/Snap - Jun 24-ib-WRr4v.png",
+      "assets/Snap - May 24-DZ0P5Q_5.png",
+      "assets/10 - 10-B9nvHJO6.png",
+      "assets/Jul - CMS-C8qgbO5V.png",
+      "assets/Jul-hY-umF3j.png",
+      "assets/May-SC2eTC6d.png",
+      "assets/Screenshot_8-BPZZrGLv.png",
+      "assets/Screenshot_9-ChWtscSo.png",
+      "assets/Snap - Oct 24-Dqrsjhy8.png",
+      "assets/Snap-  Nov 24-BIQfQ5Kb.png",
+      "assets/2.2-BYLw0jrE.png",
+      "assets/2.5-4IXMk1q6.png",
+      "assets/41-C5OaKzne.png",
+      "assets/62-4mTpB2fv.png",
+      "assets/69-ZZ86bKsv.png",
+      "assets/72-CGQJDyKR.png",
+      "assets/77-CIihJEHt.png",
+      "assets/Screenshot_1-DWfF8AoV.png",
+      "assets/Screenshot_10-DeAPNwmo.png",
+      "assets/Screenshot_11-B6t8ld8p.png",
+      "assets/Screenshot_2-C9LOKzyb.png",
+      "assets/Screenshot_3-C9Zn7O-v.png",
+      "assets/Screenshot_4-D-4dE8JP.png",
+      "assets/Screenshot_5-C3BTbYh2.png",
+      "assets/Screenshot_6-CIVgV9Xl.png",
+      "assets/Screenshot_7-CKYipPpo.png",
+      "assets/Snap - Jul-DMFV0COp.png",
+      "assets/Snap - Oct-WZBLuT8G.png",
+      "assets/Snap - Sep-DKdWXgeI.png",
+      "assets/Aug-B7rWyk9t.png",
+      "assets/Jul-ogOrVJz-.png",
+      "assets/Jun-DxpmC4-K.png",
+      "assets/Oct-DrXHWND4.png",
+      "assets/Sep-CCwoRC1W.png",
+      "assets/salla 1 25-BcQU3k5k.png",
+      "assets/salla 10 25-Czxtglvi.png",
+      "assets/salla 2 25-BM-76CEJ.png",
+      "assets/salla 3 25-SxwpY8BP.png",
+      "assets/salla 7 25-DIIxJu4u.png",
+      "assets/salla 9 25-Eo-_TWtn.png",
+      "assets/salla Dec 24-CAoIm2JN.png",
+      "assets/1.8-K8ayfZkb.png",
+      "assets/Snap - Jul-B0jrfiGn.png",
+      "assets/Snap - Jun-Bt8dBE_7.png",
+      "assets/Snap - May-CEdg6jTv.png",
+      "assets/Snap - Oct-D74HdqMT.png",
+      "assets/Snap - Sep-CXYE_Jc9.png",
+      "assets/Apr-d9ASDSi_.png",
+      "assets/Aug-CNu7HXG7.png",
+      "assets/Jun-BUljnDwJ.png",
+      "assets/Mar-DcLTLX_B.png",
+      "assets/Oct--NB21A3g.png",
+      "assets/Sep-DUqFbjGO.png",
+      "assets/10-D8maud86.png",
+      "assets/3-4SICW22Q.png",
+      "assets/4-oK0V04GW.png",
+      "assets/5-n37RDMMr.png",
+      "assets/6-DMRmSGpC.png",
+      "assets/7-BmQ_eAO7.png",
+      "assets/8-a2a-XpLj.png",
+      "assets/9-BpDC8RVA.png",
+      "assets/Screenshot_1-CRtis6HM.png",
+      "assets/Screenshot_2-Bp2tudj1.png",
+      "assets/Screenshot_6-omDmyoUr.png",
+      "assets/Cover-B5_BqzsD.png",
+      "assets/hero-CLDdwZDr.png"
     ]
+  },
+  "resources/js/v2/assets/Cover.png": {
+    "file": "assets/Cover-B5_BqzsD.png",
+    "src": "resources/js/v2/assets/Cover.png"
+  },
+  "resources/js/v2/assets/hero.png": {
+    "file": "assets/hero-CLDdwZDr.png",
+    "src": "resources/js/v2/assets/hero.png"
   },
   "resources/js/v2/assets/market-pos-mockup.png": {
     "file": "assets/market-pos-mockup-ubIPuK8_.png",
     "src": "resources/js/v2/assets/market-pos-mockup.png"
   },
-  "resources/js/v2/assets/portfolio_hero/al-owaid.jpg": {
-    "file": "assets/al-owaid-Ba21H_ZK.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/al-owaid.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/barner.jpg": {
-    "file": "assets/barner-M788ecbv.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/barner.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/flash.jpg": {
-    "file": "assets/flash-CSI4zV3A.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/flash.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/jassar.jpg": {
-    "file": "assets/jassar-USV8TLsh.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/jassar.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/kamalz.jpg": {
-    "file": "assets/kamalz-DjJyVoTp.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/kamalz.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/manabet.jpg": {
-    "file": "assets/manabet-DxMZU383.jpg",
-    "src": "resources/js/v2/assets/portfolio_hero/manabet.jpg"
-  },
-  "resources/js/v2/assets/portfolio_hero/qanatir.webp": {
-    "file": "assets/qanatir-syTRdjtM.webp",
-    "src": "resources/js/v2/assets/portfolio_hero/qanatir.webp"
-  },
-  "resources/js/v2/assets/portfolio_hero/toyo.png": {
-    "file": "assets/toyo-C7QVnVtS.png",
-    "src": "resources/js/v2/assets/portfolio_hero/toyo.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/1.png": {
-    "file": "assets/1-BipQMdy7.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/2.6.png": {
-    "file": "assets/2.6-BOeKLgl6.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/2.6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/2.png": {
-    "file": "assets/2-CLe5IM3D.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/3.png": {
-    "file": "assets/3-CZmarJ_Y.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/4.png": {
-    "file": "assets/4-Db3-YBVQ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/5.png": {
-    "file": "assets/5-B4o0ifvR.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/6.png": {
-    "file": "assets/6-CD4CMS9j.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/7.png": {
-    "file": "assets/7-CfVxQpC_.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/8.png": {
-    "file": "assets/8-D3dNOPqD.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/8.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/al-owaid/9.png": {
-    "file": "assets/9-3GiOSwA2.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/al-owaid/9.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/0.76.png": {
-    "file": "assets/0.76-CAjv0cLv.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/0.76.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/1.29.png": {
-    "file": "assets/1.29-C0yv6ntL.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/1.29.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/1.54.png": {
-    "file": "assets/1.54-Fy71JFa3.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/1.54.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/1.66.png": {
-    "file": "assets/1.66-DSYxHau1.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/1.66.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/2.1.png": {
-    "file": "assets/2.1-wT6tqYKM.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/2.1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/2.10.png": {
-    "file": "assets/2.10-BKO5RhLu.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/2.10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_794.png": {
-    "file": "assets/cms_794-C20atTo9.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_794.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_aug_-_cms.png": {
-    "file": "assets/cms_aug_-_cms-D3RS0FBG.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_aug_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_jul_-_cms.png": {
-    "file": "assets/cms_jul_-_cms-DOlLKaa6.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_jul_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_jun_-_cms.png": {
-    "file": "assets/cms_jun_-_cms-CrPcWgIq.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_jun_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_oct_-_cms.png": {
-    "file": "assets/cms_oct_-_cms-Ck-CoqDp.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_oct_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/cms_sep_-_cms.png": {
-    "file": "assets/cms_sep_-_cms-CaeEgxly.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/cms_sep_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/jul.png": {
-    "file": "assets/jul-Cdi9aWo9.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/jun.png": {
-    "file": "assets/jun-D8B6KumH.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/jun.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/may.png": {
-    "file": "assets/may-39hHZ3eX.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/may.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/screenshot_5.png": {
-    "file": "assets/screenshot_5-BNlkctIw.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/screenshot_5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/screenshot_6.png": {
-    "file": "assets/screenshot_6-BhFG24EJ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/screenshot_6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/screenshot_7.png": {
-    "file": "assets/screenshot_7-DQJnvGAI.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/screenshot_7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/barner/sep.png": {
-    "file": "assets/sep-B5Chv-e5.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/barner/sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/2.3.png": {
-    "file": "assets/2.3-Bk3c8AEH.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/2.3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/2.4.png": {
-    "file": "assets/2.4-DvNCDE1B.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/2.4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_10.png": {
-    "file": "assets/cms_10-CsLULqQE.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_5.png": {
-    "file": "assets/cms_5-DOYX3aWP.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_6.png": {
-    "file": "assets/cms_6-B6wX7Yrd.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_7.png": {
-    "file": "assets/cms_7-B6IddT4D.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_8.png": {
-    "file": "assets/cms_8-iqmTj4kG.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_8.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/cms_9.png": {
-    "file": "assets/cms_9-DltHufkq.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/cms_9.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_3_month.png": {
-    "file": "assets/meta_3_month-BnBMydg0.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_3_month.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_aug.png": {
-    "file": "assets/meta_aug-Czqh085N.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_aug.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_dec.png": {
-    "file": "assets/meta_dec-1jrwy4N1.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_dec.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_feb.png": {
-    "file": "assets/meta_feb-BBUBJYYa.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_feb.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_jul.png": {
-    "file": "assets/meta_jul-Duzrmodv.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_mar.png": {
-    "file": "assets/meta_mar-D--YJmJ1.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_mar.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_nov.png": {
-    "file": "assets/meta_nov-DAdgktKQ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_nov.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_oct.png": {
-    "file": "assets/meta_oct-h_Y6VDCz.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_oct.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_oct_24.png": {
-    "file": "assets/meta_oct_24-UOk8uAPC.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_oct_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/meta_sep.png": {
-    "file": "assets/meta_sep-9kVtn5vm.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/meta_sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_1.png": {
-    "file": "assets/screenshot_1-CvJman87.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_10.png": {
-    "file": "assets/screenshot_10-h7KNcNSh.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_2.png": {
-    "file": "assets/screenshot_2-ZnKZZNDJ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_3.png": {
-    "file": "assets/screenshot_3-DzhHEYjg.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_4.png": {
-    "file": "assets/screenshot_4-DW8r_KEX.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_5.png": {
-    "file": "assets/screenshot_5-BySnz1NB.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_6.png": {
-    "file": "assets/screenshot_6-DAOJDtth.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/screenshot_7.png": {
-    "file": "assets/screenshot_7-DJfZlrun.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/screenshot_7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_aug.png": {
-    "file": "assets/snap_-_aug-hr9x_Bgm.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_aug.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_dec_24.png": {
-    "file": "assets/snap_-_dec_24-Bks4Z1QM.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_dec_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul.png": {
-    "file": "assets/snap_-_jul-BNkXk_BA.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul_24.png": {
-    "file": "assets/snap_-_jul_24-C-SxNOgc.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul_25.png": {
-    "file": "assets/snap_-_jul_25-BpqonMPU.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jul_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jun_24.png": {
-    "file": "assets/snap_-_jun_24-UYshGnpI.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_jun_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/snap_-_may_24.png": {
-    "file": "assets/snap_-_may_24-BjeyxF3X.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/snap_-_may_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_10_-_10.png": {
-    "file": "assets/حلو_10_-_10-BtrCrGaC.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_10_-_10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_jul.png": {
-    "file": "assets/حلو_jul-Cs13vQY5.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_jul_-_cms.png": {
-    "file": "assets/حلو_jul_-_cms-B66bN9gx.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_jul_-_cms.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_may.png": {
-    "file": "assets/حلو_may-BTzZGSde.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_may.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_screenshot_8.png": {
-    "file": "assets/حلو_screenshot_8-8Lo-hNjT.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_screenshot_8.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_screenshot_9.png": {
-    "file": "assets/حلو_screenshot_9-Dxuunjgd.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_screenshot_9.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_snap-__nov_24.png": {
-    "file": "assets/حلو_snap-__nov_24-B_ahtn6Z.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_snap-__nov_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/flash/حلو_snap_-_oct_24.png": {
-    "file": "assets/حلو_snap_-_oct_24-DOtm2xLR.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/flash/حلو_snap_-_oct_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_1.png": {
-    "file": "assets/screenshot_1-VFEm414s.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_2.png": {
-    "file": "assets/screenshot_2-D8-1KnQM.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_3.png": {
-    "file": "assets/screenshot_3-mGjzsojy.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_4.png": {
-    "file": "assets/screenshot_4-BBzvn4IN.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/jassar/screenshot_4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/1.8.png": {
-    "file": "assets/1.8-DINWv8aS.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/1.8.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_apr.png": {
-    "file": "assets/meta_apr-CfaSbE6O.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_apr.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_aug.png": {
-    "file": "assets/meta_aug-6niqzB5D.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_aug.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_jun.png": {
-    "file": "assets/meta_jun-NFdVeZnn.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_jun.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_mar.png": {
-    "file": "assets/meta_mar-DAsiSB-o.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_mar.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_oct.png": {
-    "file": "assets/meta_oct-D4Z-o1hH.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_oct.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/meta_sep.png": {
-    "file": "assets/meta_sep-C2HIW3Km.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/meta_sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_jul.png": {
-    "file": "assets/snap_-_jul-D1doswEj.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_jun.png": {
-    "file": "assets/snap_-_jun-Cz0d3Hlz.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_jun.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_may.png": {
-    "file": "assets/snap_-_may-Dd_KfjvD.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_may.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_oct.png": {
-    "file": "assets/snap_-_oct-BbfW0gF_.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_oct.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_sep.png": {
-    "file": "assets/snap_-_sep-BXc0ydJ-.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/kamalz/snap_-_sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/10.png": {
-    "file": "assets/10-BHDq42jg.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/3.png": {
-    "file": "assets/3-Cmcy2Hs4.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/4.png": {
-    "file": "assets/4-Dpjn7_PC.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/5.png": {
-    "file": "assets/5-BrtN5OkA.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/6.png": {
-    "file": "assets/6-BQCRzRxt.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/7.png": {
-    "file": "assets/7-EruXqJvD.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/8.png": {
-    "file": "assets/8-BoTSmA-o.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/8.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/9.png": {
-    "file": "assets/9-DVh_zhI_.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/9.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_1.png": {
-    "file": "assets/منابت_زد_screenshot_1-BLE96oUQ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_2.png": {
-    "file": "assets/منابت_زد_screenshot_2-cXhaaJ6Y.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_6.png": {
-    "file": "assets/منابت_زد_screenshot_6-BXhCznPj.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/manabet/منابت_زد_screenshot_6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/2.2.png": {
-    "file": "assets/2.2-Clq_kX1b.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/2.2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/2.5.png": {
-    "file": "assets/2.5-Db3Ls4yf.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/2.5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/41.png": {
-    "file": "assets/41-CDyR83st.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/41.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/62.png": {
-    "file": "assets/62-S6GanmkO.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/62.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/69.png": {
-    "file": "assets/69-U9Cc0e70.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/69.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/72.png": {
-    "file": "assets/72-Dlowwk2d.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/72.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/77.png": {
-    "file": "assets/77-AMubK5S8.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/77.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/meta_aug.png": {
-    "file": "assets/meta_aug-B8vBoHGc.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/meta_aug.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/meta_jul.png": {
-    "file": "assets/meta_jul-BDeWSG3T.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/meta_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/meta_jun.png": {
-    "file": "assets/meta_jun-TgPy0atE.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/meta_jun.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/meta_oct.png": {
-    "file": "assets/meta_oct-J2upTpxJ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/meta_oct.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/meta_sep.png": {
-    "file": "assets/meta_sep-0ObJMLC6.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/meta_sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_10_25.png": {
-    "file": "assets/salla_10_25-BR_ibkP-.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_10_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_1_25.png": {
-    "file": "assets/salla_1_25-TRSqTk33.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_1_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_2_25.png": {
-    "file": "assets/salla_2_25-De2MF2lk.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_2_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_3_25.png": {
-    "file": "assets/salla_3_25-BfLXGHoY.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_3_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_7_25.png": {
-    "file": "assets/salla_7_25-DTR1tGtR.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_7_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_9_25.png": {
-    "file": "assets/salla_9_25-DWd5acbl.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_9_25.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/salla_dec_24.png": {
-    "file": "assets/salla_dec_24-DfzHnFcL.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/salla_dec_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_1.png": {
-    "file": "assets/screenshot_1-jtpfumWp.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_1.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_10.png": {
-    "file": "assets/screenshot_10-y26EjOP2.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_11.png": {
-    "file": "assets/screenshot_11-N3MCMWO0.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_11.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_2.png": {
-    "file": "assets/screenshot_2-ChSrU4tH.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_2.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_3.png": {
-    "file": "assets/screenshot_3-DK6UZf6w.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_3.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_4.png": {
-    "file": "assets/screenshot_4-DkbVGfnn.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_4.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_5.png": {
-    "file": "assets/screenshot_5-CJC2_-xG.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_5.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_6.png": {
-    "file": "assets/screenshot_6-DaxbwiHw.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_6.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_7.png": {
-    "file": "assets/screenshot_7-Ddr9h2YN.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/screenshot_7.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_jul.png": {
-    "file": "assets/snap_-_jul-DOMuADtt.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_jul.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_oct.png": {
-    "file": "assets/snap_-_oct-C654uG4b.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_oct.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_sep.png": {
-    "file": "assets/snap_-_sep-CKjcrmrg.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/qanatir/snap_-_sep.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/1.89.png": {
-    "file": "assets/1.89-CDkEd39H.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/1.89.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/1.98.png": {
-    "file": "assets/1.98-SBCehi75.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/1.98.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/10.png": {
-    "file": "assets/10-C1jxnO24.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/10.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/2500.png": {
-    "file": "assets/2500-DsoBAxMp.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/2500.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/8_24.png": {
-    "file": "assets/8_24-DaaIRMtE.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/8_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/9.png": {
-    "file": "assets/9-DDo8rXJQ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/9.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/971.png": {
-    "file": "assets/971-Cme45v30.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/971.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/nov_24.png": {
-    "file": "assets/nov_24-CdtRPnEG.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/nov_24.png"
-  },
-  "resources/js/v2/assets/portfolio_redacted/toyo/sep.png": {
-    "file": "assets/sep-8YBH9ErQ.png",
-    "src": "resources/js/v2/assets/portfolio_redacted/toyo/sep.png"
+  "resources/js/v2/assets/portfolio/العويد/1.png": {
+    "file": "assets/1-OWjRszda.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/1.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/2.6.png": {
+    "file": "assets/2.6-D6crBtuM.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/2.6.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/2.png": {
+    "file": "assets/2-DgJXt0Wp.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/2.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/3.png": {
+    "file": "assets/3-DGTuVMfJ.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/3.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/4.png": {
+    "file": "assets/4-DPia8e2B.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/4.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/5.png": {
+    "file": "assets/5-uEEdPmaM.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/5.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/6.png": {
+    "file": "assets/6-B-C47gB9.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/6.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/7.png": {
+    "file": "assets/7-BL_gMBj5.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/7.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/8.png": {
+    "file": "assets/8-yuBsuXvj.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/8.png"
+  },
+  "resources/js/v2/assets/portfolio/العويد/9.png": {
+    "file": "assets/9-DEv2sCxl.png",
+    "src": "resources/js/v2/assets/portfolio/العويد/9.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/0.76.png": {
+    "file": "assets/0.76-Dm_FAkoO.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/0.76.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/1.29.png": {
+    "file": "assets/1.29-BzkjzdYY.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/1.29.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/1.54.png": {
+    "file": "assets/1.54-yKeWN8tS.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/1.54.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/1.66.png": {
+    "file": "assets/1.66-DvrATTl4.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/1.66.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/2.1.png": {
+    "file": "assets/2.1-rCf6pMTm.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/2.1.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/2.10.png": {
+    "file": "assets/2.10-CTNXE0H0.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/2.10.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/794.png": {
+    "file": "assets/794-DwLYpujF.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/794.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/Aug - CMS.png": {
+    "file": "assets/Aug - CMS-dguPRFJG.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/Aug - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/Jul - CMS.png": {
+    "file": "assets/Jul - CMS-3uLwdoYf.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/Jul - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/Jun - CMS.png": {
+    "file": "assets/Jun - CMS-DG1rLQpv.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/Jun - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/Oct - CMS.png": {
+    "file": "assets/Oct - CMS-BIFUvO21.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/Oct - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/CMS/Sep - CMS.png": {
+    "file": "assets/Sep - CMS-DaglO9a1.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/CMS/Sep - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Jul.png": {
+    "file": "assets/Jul-CpjSway0.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Jun.png": {
+    "file": "assets/Jun-BjWsWQp3.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Jun.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/May.png": {
+    "file": "assets/May-BhpgtKaw.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/May.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Screenshot_5.png": {
+    "file": "assets/Screenshot_5-BjS6W-Fc.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Screenshot_5.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Screenshot_6.png": {
+    "file": "assets/Screenshot_6-DHHWh2sa.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Screenshot_6.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Screenshot_7.png": {
+    "file": "assets/Screenshot_7-3QDQ269K.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Screenshot_7.png"
+  },
+  "resources/js/v2/assets/portfolio/بارنر/Sep.png": {
+    "file": "assets/Sep-3xNx1c95.png",
+    "src": "resources/js/v2/assets/portfolio/بارنر/Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/1.89.png": {
+    "file": "assets/1.89-BSVXiTzb.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/1.89.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/1.98.png": {
+    "file": "assets/1.98-DqX1ual7.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/1.98.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/10.png": {
+    "file": "assets/10-CINaB99h.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/10.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/2500.png": {
+    "file": "assets/2500-rQn1sWR4.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/2500.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/8 24.png": {
+    "file": "assets/8 24-DCWGKKak.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/8 24.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/9.png": {
+    "file": "assets/9-BDBhud8q.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/9.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/971.png": {
+    "file": "assets/971-Gg7OAwW2.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/971.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/Nov 24.png": {
+    "file": "assets/Nov 24-CzPhcRDO.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/Nov 24.png"
+  },
+  "resources/js/v2/assets/portfolio/تويو/sep.png": {
+    "file": "assets/sep-CQMsEK7O.png",
+    "src": "resources/js/v2/assets/portfolio/تويو/sep.png"
+  },
+  "resources/js/v2/assets/portfolio/جسار/Screenshot_1.png": {
+    "file": "assets/Screenshot_1-CoNZj8Iz.png",
+    "src": "resources/js/v2/assets/portfolio/جسار/Screenshot_1.png"
+  },
+  "resources/js/v2/assets/portfolio/جسار/Screenshot_2.png": {
+    "file": "assets/Screenshot_2-Cyy03aAt.png",
+    "src": "resources/js/v2/assets/portfolio/جسار/Screenshot_2.png"
+  },
+  "resources/js/v2/assets/portfolio/جسار/Screenshot_3.png": {
+    "file": "assets/Screenshot_3-BwHGhzml.png",
+    "src": "resources/js/v2/assets/portfolio/جسار/Screenshot_3.png"
+  },
+  "resources/js/v2/assets/portfolio/جسار/Screenshot_4.png": {
+    "file": "assets/Screenshot_4-oD00Ei_b.png",
+    "src": "resources/js/v2/assets/portfolio/جسار/Screenshot_4.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/2.3.png": {
+    "file": "assets/2.3-BUEyvHbX.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/2.3.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/2.4.png": {
+    "file": "assets/2.4-BMaFGNzB.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/2.4.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/10.png": {
+    "file": "assets/10-DDcD8Iuw.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/10.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/5.png": {
+    "file": "assets/5-C4eRZABT.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/5.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/6.png": {
+    "file": "assets/6-CVQIOoS1.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/6.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/7.png": {
+    "file": "assets/7-kIejwzvY.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/7.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/8.png": {
+    "file": "assets/8-uje45v9c.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/8.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/CMS/9.png": {
+    "file": "assets/9-rY7bdBir.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/CMS/9.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/3 Month.png": {
+    "file": "assets/3 Month-B5MJWJxi.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/3 Month.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Aug.png": {
+    "file": "assets/Aug-96PN8MsD.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Aug.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Dec.png": {
+    "file": "assets/Dec-Co0-TKxE.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Dec.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Feb.png": {
+    "file": "assets/Feb-EYvx6wyY.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Feb.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Jul.png": {
+    "file": "assets/Jul-ZL8Lxk6c.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Mar.png": {
+    "file": "assets/Mar-Dg2tC-qJ.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Mar.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Nov.png": {
+    "file": "assets/Nov-DXupJ8o2.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Nov.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Oct 24.png": {
+    "file": "assets/Oct 24-BqLfCDF5.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Oct 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Oct.png": {
+    "file": "assets/Oct-Mm4pccQU.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Oct.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Meta/Sep.png": {
+    "file": "assets/Sep-Dnex0mbx.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Meta/Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_1.png": {
+    "file": "assets/Screenshot_1-ChnF5f9T.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_1.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_10.png": {
+    "file": "assets/Screenshot_10-CBZ_Bhwt.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_10.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_2.png": {
+    "file": "assets/Screenshot_2-DH56BXXk.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_2.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_3.png": {
+    "file": "assets/Screenshot_3-CAhehvVG.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_3.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_4.png": {
+    "file": "assets/Screenshot_4-Dis6JRH_.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_4.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_5.png": {
+    "file": "assets/Screenshot_5-CrSMs2vO.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_5.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_6.png": {
+    "file": "assets/Screenshot_6-uZXmcqpU.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_6.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Screenshot_7.png": {
+    "file": "assets/Screenshot_7-BvwhYVgL.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Screenshot_7.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Aug.png": {
+    "file": "assets/Snap - Aug-G468VYu1.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Aug.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Dec 24.png": {
+    "file": "assets/Snap - Dec 24-CGU4zizV.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Dec 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Jul 24.png": {
+    "file": "assets/Snap - Jul 24-CJsXlJ3f.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Jul 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Jul 25.png": {
+    "file": "assets/Snap - Jul 25-DXOjgLZ8.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Jul 25.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Jul.png": {
+    "file": "assets/Snap - Jul-XoSb0UHE.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - Jun 24.png": {
+    "file": "assets/Snap - Jun 24-ib-WRr4v.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - Jun 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/Snap - May 24.png": {
+    "file": "assets/Snap - May 24-DZ0P5Q_5.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/Snap - May 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/10 - 10.png": {
+    "file": "assets/10 - 10-B9nvHJO6.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/10 - 10.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Jul - CMS.png": {
+    "file": "assets/Jul - CMS-C8qgbO5V.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Jul - CMS.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Jul.png": {
+    "file": "assets/Jul-hY-umF3j.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/May.png": {
+    "file": "assets/May-SC2eTC6d.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/May.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Screenshot_8.png": {
+    "file": "assets/Screenshot_8-BPZZrGLv.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Screenshot_8.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Screenshot_9.png": {
+    "file": "assets/Screenshot_9-ChWtscSo.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Screenshot_9.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Snap - Oct 24.png": {
+    "file": "assets/Snap - Oct 24-Dqrsjhy8.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Snap - Oct 24.png"
+  },
+  "resources/js/v2/assets/portfolio/فلاش/حلو/Snap-  Nov 24.png": {
+    "file": "assets/Snap-  Nov 24-BIQfQ5Kb.png",
+    "src": "resources/js/v2/assets/portfolio/فلاش/حلو/Snap-  Nov 24.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/2.2.png": {
+    "file": "assets/2.2-BYLw0jrE.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/2.2.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/2.5.png": {
+    "file": "assets/2.5-4IXMk1q6.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/2.5.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/41.png": {
+    "file": "assets/41-C5OaKzne.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/41.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/62.png": {
+    "file": "assets/62-4mTpB2fv.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/62.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/69.png": {
+    "file": "assets/69-ZZ86bKsv.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/69.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/72.png": {
+    "file": "assets/72-CGQJDyKR.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/72.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/77.png": {
+    "file": "assets/77-CIihJEHt.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/77.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_1.png": {
+    "file": "assets/Screenshot_1-DWfF8AoV.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_1.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_10.png": {
+    "file": "assets/Screenshot_10-DeAPNwmo.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_10.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_11.png": {
+    "file": "assets/Screenshot_11-B6t8ld8p.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_11.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_2.png": {
+    "file": "assets/Screenshot_2-C9LOKzyb.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_2.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_3.png": {
+    "file": "assets/Screenshot_3-C9Zn7O-v.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_3.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_4.png": {
+    "file": "assets/Screenshot_4-D-4dE8JP.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_4.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_5.png": {
+    "file": "assets/Screenshot_5-C3BTbYh2.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_5.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_6.png": {
+    "file": "assets/Screenshot_6-CIVgV9Xl.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_6.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Screenshot_7.png": {
+    "file": "assets/Screenshot_7-CKYipPpo.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Screenshot_7.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Snap - Jul.png": {
+    "file": "assets/Snap - Jul-DMFV0COp.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Snap - Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Snap - Oct.png": {
+    "file": "assets/Snap - Oct-WZBLuT8G.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Snap - Oct.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/Snap - Sep.png": {
+    "file": "assets/Snap - Sep-DKdWXgeI.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/Snap - Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/meta/Aug.png": {
+    "file": "assets/Aug-B7rWyk9t.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/meta/Aug.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/meta/Jul.png": {
+    "file": "assets/Jul-ogOrVJz-.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/meta/Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/meta/Jun.png": {
+    "file": "assets/Jun-DxpmC4-K.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/meta/Jun.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/meta/Oct.png": {
+    "file": "assets/Oct-DrXHWND4.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/meta/Oct.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/meta/Sep.png": {
+    "file": "assets/Sep-CCwoRC1W.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/meta/Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 1 25.png": {
+    "file": "assets/salla 1 25-BcQU3k5k.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 1 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 10 25.png": {
+    "file": "assets/salla 10 25-Czxtglvi.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 10 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 2 25.png": {
+    "file": "assets/salla 2 25-BM-76CEJ.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 2 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 3 25.png": {
+    "file": "assets/salla 3 25-SxwpY8BP.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 3 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 7 25.png": {
+    "file": "assets/salla 7 25-DIIxJu4u.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 7 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla 9 25.png": {
+    "file": "assets/salla 9 25-Eo-_TWtn.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla 9 25.png"
+  },
+  "resources/js/v2/assets/portfolio/قناطير/salla Dec 24.png": {
+    "file": "assets/salla Dec 24-CAoIm2JN.png",
+    "src": "resources/js/v2/assets/portfolio/قناطير/salla Dec 24.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/1.8.png": {
+    "file": "assets/1.8-K8ayfZkb.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/1.8.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/Snap - Jul.png": {
+    "file": "assets/Snap - Jul-B0jrfiGn.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/Snap - Jul.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/Snap - Jun.png": {
+    "file": "assets/Snap - Jun-Bt8dBE_7.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/Snap - Jun.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/Snap - May.png": {
+    "file": "assets/Snap - May-CEdg6jTv.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/Snap - May.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/Snap - Oct.png": {
+    "file": "assets/Snap - Oct-D74HdqMT.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/Snap - Oct.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/Snap - Sep.png": {
+    "file": "assets/Snap - Sep-CXYE_Jc9.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/Snap - Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Apr.png": {
+    "file": "assets/Apr-d9ASDSi_.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Apr.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Aug.png": {
+    "file": "assets/Aug-CNu7HXG7.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Aug.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Jun.png": {
+    "file": "assets/Jun-BUljnDwJ.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Jun.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Mar.png": {
+    "file": "assets/Mar-DcLTLX_B.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Mar.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Oct.png": {
+    "file": "assets/Oct--NB21A3g.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Oct.png"
+  },
+  "resources/js/v2/assets/portfolio/كاملز/meta/Sep.png": {
+    "file": "assets/Sep-DUqFbjGO.png",
+    "src": "resources/js/v2/assets/portfolio/كاملز/meta/Sep.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/10.png": {
+    "file": "assets/10-D8maud86.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/10.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/3.png": {
+    "file": "assets/3-4SICW22Q.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/3.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/4.png": {
+    "file": "assets/4-oK0V04GW.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/4.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/5.png": {
+    "file": "assets/5-n37RDMMr.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/5.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/6.png": {
+    "file": "assets/6-DMRmSGpC.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/6.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/7.png": {
+    "file": "assets/7-BmQ_eAO7.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/7.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/8.png": {
+    "file": "assets/8-a2a-XpLj.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/8.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/9.png": {
+    "file": "assets/9-BpDC8RVA.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/9.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_1.png": {
+    "file": "assets/Screenshot_1-CRtis6HM.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_1.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_2.png": {
+    "file": "assets/Screenshot_2-Bp2tudj1.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_2.png"
+  },
+  "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png": {
+    "file": "assets/Screenshot_6-omDmyoUr.png",
+    "src": "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png"
   }
 }

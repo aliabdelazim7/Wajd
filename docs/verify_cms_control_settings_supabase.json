@@ -1,0 +1,4 @@
+{
+  "project_id": "wurvjwbnnusicksvjtey",
+  "query": "SELECT key, type, updated_at FROM public.site_settings WHERE key IN ('navigation', 'form_options', 'product_demos') ORDER BY key LIMIT 10;"
+}

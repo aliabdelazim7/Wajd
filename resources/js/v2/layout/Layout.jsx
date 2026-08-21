@@ -4,13 +4,14 @@ import LiquidGoldBackground from '../components/LiquidGoldBackground.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
-import { getCmsBlock } from '../utils/content.js';
+import { getCmsBlock, getCmsSetting } from '../utils/content.js';
 import LiveActivityToast from '../components/LiveActivityToast.jsx';
 
 const Layout = ({ children }) => {
     const { t, lang, content } = useApp();
     const footer = getCmsBlock(content, 'footer', { title: lang === 'ar' ? 'نُوجد الأثر الذي يتحول إلى مبيعات حقيقية.' : 'We create digital impact that turns into real sales.', body: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.' });
-    const socials = content?.settings?.contact || {};
+    const brand = getCmsSetting(content, 'brand', {});
+    const socials = getCmsSetting(content, 'contact', {});
     return (
         <div className="relative min-h-screen bg-obsidian-950 text-white selection:bg-gold-500 selection:text-obsidian-950" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
             <LiquidGoldBackground />
@@ -43,7 +44,7 @@ const Layout = ({ children }) => {
             {/* Premium Footer - Placeholder for now */}
             <footer className="relative z-10 py-24 px-[5%] border-t border-white/5 text-center font-sans">
                 <div className="max-w-6xl mx-auto flex flex-col items-center">
-                    <span className="text-4xl font-serif font-bold tracking-[0.2em] text-white/20 mb-8">WAJD</span>
+                        <span className="text-4xl font-serif font-bold tracking-[0.2em] text-white/20 mb-8">{brand[`wordmark_${lang}`] || brand.wordmark || 'WAJD'}</span>
                     <p className="text-white/60 text-lg mb-4 max-w-md font-arabic">{footer.title}</p>
                     <p className="text-gold-500 text-2xl font-serif italic mb-12">{footer.body}</p>
                     

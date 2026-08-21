@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\ContentBlock;
 use App\Models\Faq;
 use App\Models\Package;
+use App\Models\PackageAddon;
 use App\Models\PortfolioProject;
 use App\Models\SiteSetting;
 use App\Models\User;
@@ -31,6 +32,52 @@ class WajdCmsSeeder extends Seeder
                 'instagram' => 'https://www.instagram.com/wajdagency',
                 'linkedin' => 'https://www.linkedin.com/company/wajdagency',
                 'facebook' => 'https://www.facebook.com/profile.php?id=61562980695038',
+            ],
+            'navigation' => [
+                'links' => [
+                    ['path' => '/', 'label_ar' => 'الرئيسية', 'label_en' => 'Home'],
+                    ['path' => '/about', 'label_ar' => 'عن وجد', 'label_en' => 'About'],
+                    ['path' => '/services', 'label_ar' => 'الخدمات', 'label_en' => 'Services'],
+                    ['path' => '/portfolio', 'label_ar' => 'الأعمال', 'label_en' => 'Portfolio'],
+                    ['path' => '/insights', 'label_ar' => 'رؤى النمو', 'label_en' => 'Insights'],
+                    ['path' => '/contact', 'label_ar' => 'تواصل معنا', 'label_en' => 'Contact'],
+                ],
+                'cta_ar' => 'ابدأ محادثة',
+                'cta_en' => 'Start a conversation',
+            ],
+            'form_options' => [
+                'services' => [
+                    ['value' => 'growth-engine', 'label_ar' => 'بناء منظومة نمو مخصصة', 'label_en' => 'Build a custom growth engine'],
+                    ['value' => 'saas-pos', 'label_ar' => 'تطوير نظام SaaS / POS', 'label_en' => 'SaaS / POS Development'],
+                    ['value' => 'ecommerce-setup', 'label_ar' => 'تجهيز متجر Salla / Zid / Shopify', 'label_en' => 'E-commerce Setup (Salla / Zid / Shopify)'],
+                    ['value' => 'paid-ads', 'label_ar' => 'إعلانات ممولة', 'label_en' => 'Paid Advertising'],
+                    ['value' => 'social-media', 'label_ar' => 'إدارة السوشيال ميديا', 'label_en' => 'Social Media Management'],
+                    ['value' => 'content', 'label_ar' => 'صناعة المحتوى', 'label_en' => 'Content Creation'],
+                    ['value' => 'branding', 'label_ar' => 'هوية وتجهيز العلامة', 'label_en' => 'Brand Identity'],
+                    ['value' => 'not-sure', 'label_ar' => 'مش متأكد — محتاج ترشيح', 'label_en' => 'Not sure — recommend a path'],
+                ],
+                'industries' => [
+                    ['value' => 'ecommerce', 'label_ar' => 'تجارة إلكترونية', 'label_en' => 'E-commerce'],
+                    ['value' => 'restaurants', 'label_ar' => 'مطاعم ومقاهي', 'label_en' => 'Restaurants & cafés'],
+                    ['value' => 'services', 'label_ar' => 'خدمات', 'label_en' => 'Services'],
+                    ['value' => 'real-estate', 'label_ar' => 'عقارات', 'label_en' => 'Real estate'],
+                    ['value' => 'education', 'label_ar' => 'تعليم وتدريب', 'label_en' => 'Education & training'],
+                    ['value' => 'other', 'label_ar' => 'مجال آخر', 'label_en' => 'Other'],
+                ],
+                'budgets' => [
+                    ['value' => '2000', 'label_ar' => '1,000 – 3,000 ريال', 'label_en' => 'SAR 1,000 – 3,000'],
+                    ['value' => '5000', 'label_ar' => '3,000 – 10,000 ريال', 'label_en' => 'SAR 3,000 – 10,000'],
+                    ['value' => '15000', 'label_ar' => '10,000 – 50,000+ ريال', 'label_en' => 'SAR 10,000 – 50,000+'],
+                ],
+                'preferences' => [
+                    ['value' => 'whatsapp', 'label_ar' => 'واتساب', 'label_en' => 'WhatsApp'],
+                    ['value' => 'phone', 'label_ar' => 'مكالمة هاتفية', 'label_en' => 'Phone call'],
+                    ['value' => 'email', 'label_ar' => 'إيميل', 'label_en' => 'Email'],
+                ],
+            ],
+            'product_demos' => [
+                'ar' => ['marketMetrics' => [['key' => 'totalSales', 'label' => 'إجمالي المبيعات', 'value' => '24,780', 'suffix' => 'SAR', 'trend' => '+12.5%'], ['key' => 'orders', 'label' => 'الطلبات اليوم', 'value' => '48', 'suffix' => '', 'trend' => '+8.3%'], ['key' => 'stock', 'label' => 'حالة المخزون', 'value' => '92%', 'suffix' => '', 'trend' => 'Healthy']]],
+                'en' => ['marketMetrics' => [['key' => 'totalSales', 'label' => 'Total sales', 'value' => '24,780', 'suffix' => 'SAR', 'trend' => '+12.5%'], ['key' => 'orders', 'label' => 'Orders today', 'value' => '48', 'suffix' => '', 'trend' => '+8.3%'], ['key' => 'stock', 'label' => 'Stock health', 'value' => '92%', 'suffix' => '', 'trend' => 'Healthy']]],
             ],
             'seo' => [
                 'title_ar' => 'وكالة وجد للتسويق | نُوجِد الأثر الذي يتحول إلى مبيعات',
@@ -72,30 +119,42 @@ class WajdCmsSeeder extends Seeder
 
         $packages = [
             [
-                'slug' => 'starter', 'name_ar' => 'باقة الانطلاق', 'name_en' => 'Starter Plan',
+                'slug' => 'starter', 'category' => 'marketing', 'name_ar' => 'باقة الانطلاق', 'name_en' => 'Starter Plan',
                 'subtitle_ar' => 'للبدايات الذكية', 'subtitle_en' => 'For smart beginnings', 'price_sar' => 350,
                 'features_ar' => ['إدارة منصة اجتماعية واحدة', '4 أصول إبداعية', 'إعداد أولي للحملات', 'ملخص أداء شهري'],
                 'features_en' => ['One social platform managed', '4 creative assets', 'Initial campaign setup', 'Monthly performance summary'],
-                'sort_order' => 1, 'is_featured' => false,
+                'cta_label_ar' => 'ابدأ من هنا', 'cta_label_en' => 'Start here', 'sort_order' => 1, 'is_featured' => false,
             ],
             [
-                'slug' => 'growth', 'name_ar' => 'باقة النمو', 'name_en' => 'Growth Plan',
+                'slug' => 'growth', 'category' => 'marketing', 'name_ar' => 'باقة النمو', 'name_en' => 'Growth Plan',
                 'subtitle_ar' => 'الأكثر طلباً', 'subtitle_en' => 'Most requested', 'price_sar' => 950,
                 'features_ar' => ['إدارة منصتين اجتماعيتين', '12 أصلاً إبداعياً مع كتابة المحتوى', 'إدارة وتحسين الحملات', 'اختبار الجمهور والعروض', 'تقرير أداء شهري'],
                 'features_en' => ['Two social platforms managed', '12 creative assets with copy', 'Campaign management and optimization', 'Audience and offer testing', 'Monthly performance report'],
-                'sort_order' => 2, 'is_featured' => true,
+                'cta_label_ar' => 'ابنِ خطة النمو', 'cta_label_en' => 'Build your growth plan', 'sort_order' => 2, 'is_featured' => true,
             ],
             [
-                'slug' => 'partner', 'name_ar' => 'باقة الشريك', 'name_en' => 'Partner Plan',
+                'slug' => 'partner', 'category' => 'marketing', 'name_ar' => 'باقة الشريك', 'name_en' => 'Partner Plan',
                 'subtitle_ar' => 'للنمو المتكامل', 'subtitle_en' => 'For integrated growth', 'price_sar' => 2200,
                 'features_ar' => ['استراتيجية نمو كاملة', 'خطة محتوى وحملات شهرية', 'إدارة مستمرة للإعلانات', 'تصاميم وفيديوهات قصيرة', 'تحسين رحلة العميل', 'جلسة استراتيجية شهرية'],
                 'features_en' => ['Complete growth strategy', 'Monthly content and campaign plan', 'Ongoing ad management', 'Designs and short-form videos', 'Customer journey optimization', 'Monthly strategy session'],
-                'sort_order' => 3, 'is_featured' => false,
+                'cta_label_ar' => 'تحدث مع شريك نمو', 'cta_label_en' => 'Talk to a growth partner', 'sort_order' => 3, 'is_featured' => false,
             ],
         ];
 
         foreach ($packages as $package) {
             Package::updateOrCreate(['slug' => $package['slug']], array_merge($package, ['billing_cycle' => 'monthly', 'is_published' => true]));
+        }
+
+        $addons = [
+            ['slug' => 'store-launch', 'category' => 'technology', 'name_ar' => 'إطلاق متجر احترافي', 'name_en' => 'Professional store launch', 'subtitle_ar' => 'Salla أو Zid أو Shopify مع تجهيز رحلة الشراء', 'subtitle_en' => 'Salla, Zid, or Shopify with a conversion-ready buying journey', 'price_sar' => 1800, 'billing_cycle' => 'one_time', 'tag_ar' => 'متاجر', 'tag_en' => 'Stores', 'sort_order' => 1],
+            ['slug' => 'market-pos', 'category' => 'technology', 'name_ar' => 'نظام Market POS', 'name_en' => 'Market POS system', 'subtitle_ar' => 'نقاط بيع ومخزون وتشغيل يومي أكثر وضوحاً', 'subtitle_en' => 'Clearer point-of-sale, inventory, and daily operations', 'price_sar' => 2500, 'billing_cycle' => 'one_time', 'tag_ar' => 'أنظمة', 'tag_en' => 'Systems', 'sort_order' => 2],
+            ['slug' => 'liftdesk-automation', 'category' => 'technology', 'name_ar' => 'أتمتة LiftDesk بالذكاء الاصطناعي', 'name_en' => 'LiftDesk AI automation', 'subtitle_ar' => 'تحويل الرسائل والتقارير إلى مهام وتنبيهات منظمة', 'subtitle_en' => 'Turn messages and reports into organized tasks and alerts', 'price_sar' => 750, 'billing_cycle' => 'monthly', 'tag_ar' => 'أتمتة', 'tag_en' => 'Automation', 'sort_order' => 3],
+            ['slug' => 'custom-system', 'category' => 'technology', 'name_ar' => 'نظام مخصص لمشروعك', 'name_en' => 'Custom system for your business', 'subtitle_ar' => 'نطاق مخصص للوحة تحكم أو SaaS أو نظام عمليات', 'subtitle_en' => 'A tailored scope for a dashboard, SaaS, or operations system', 'price_sar' => 4500, 'billing_cycle' => 'one_time', 'tag_ar' => 'تطوير', 'tag_en' => 'Development', 'sort_order' => 4],
+            ['slug' => 'tracking-dashboard', 'category' => 'technology', 'name_ar' => 'لوحة قياس الأداء', 'name_en' => 'Performance dashboard', 'subtitle_ar' => 'ربط المؤشرات الأساسية في لوحة واحدة مفهومة', 'subtitle_en' => 'Bring the core signals into one clear operating view', 'price_sar' => 600, 'billing_cycle' => 'one_time', 'tag_ar' => 'بيانات', 'tag_en' => 'Data', 'sort_order' => 5],
+        ];
+
+        foreach ($addons as $addon) {
+            PackageAddon::updateOrCreate(['slug' => $addon['slug']], array_merge($addon, ['is_published' => true, 'is_featured' => false]));
         }
 
         $projects = [
