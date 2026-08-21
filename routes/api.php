@@ -8,6 +8,7 @@ use App\Http\Controllers\API\UploadController;
 use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\API\NurtureController;
 use App\Http\Controllers\API\PublicActivityController;
+use App\Http\Controllers\API\ClientPortalController;
 use App\Http\Middleware\EnsureAdmin;
 use App\Http\Middleware\RequireAdminBearerToken;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::post('/analytics/collect', [AnalyticsController::class, 'collect'])
 
 Route::get('/automation/nurture', [NurtureController::class, 'run']);
 Route::get('/activity/recent', [PublicActivityController::class, 'recent']);
+Route::get('/portal/snapshot', [ClientPortalController::class, 'snapshot']);
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
