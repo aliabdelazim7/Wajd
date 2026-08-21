@@ -2,158 +2,83 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
-        .slide-container { 
-            width: 1280px; 
-            min-height: 720px; 
-            background: #050505;
-            position: relative;
-            overflow: hidden;
-        }
-        .header-section {
-            padding-top: 60px;
-            padding-left: 100px;
-            padding-right: 100px;
-            margin-bottom: 40px;
-        }
-        .eyebrow {
-            color: #D4AF37;
-            font-family: 'Instrument Sans', sans-serif;
-            font-size: 14px;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: block;
-        }
-        .title {
-            font-family: 'Playfair Display', serif;
-            font-size: 54px;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-        .divider {
-            width: 1080px;
-            height: 1px;
-            background: rgba(212, 175, 55, 0.3);
-            margin: 0 auto 50px auto;
-        }
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            padding-left: 100px;
-            padding-right: 100px;
-        }
-        .tier-card {
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            background: rgba(255, 255, 255, 0.02);
-            padding-top: 40px;
-            padding-left: 30px;
-            padding-right: 30px;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-        .tier-name {
-            font-size: 18px;
-            color: #D4AF37;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .tier-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-        }
-        .tier-price span {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.5);
-            font-family: 'Tajawal', sans-serif;
-        }
-        .feature-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-        .feature-item {
-            font-size: 16px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .feature-item::before {
-            content: "•";
-            color: #D4AF37;
-            font-weight: bold;
-        }
-        .highlight-card {
-            border-color: #D4AF37;
-            background: rgba(212, 175, 55, 0.05);
-            transform: scale(1.05);
-            z-index: 2;
-        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #050505; color: #FFFFFF; font-family: 'Tajawal', sans-serif; }
+        .slide-container { width: 1280px; min-height: 720px; background: #050505; padding-top: 52px; }
+        .header { padding: 0 92px; }
+        .eyebrow { color: #D4AF37; font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.34em; text-transform: uppercase; margin-bottom: 12px; }
+        .title { margin: 0; font-family: 'Playfair Display', serif; font-size: 48px; line-height: 1.14; color: #FFFFFF; }
+        .intro { margin: 12px 0 0; color: rgba(255,255,255,0.55); font-size: 17px; line-height: 1.65; max-width: 800px; }
+        .divider { width: 1096px; height: 1px; background: rgba(212,175,55,0.28); margin: 26px auto 28px; }
+        .content { display: grid; grid-template-columns: 1.38fr 0.92fr; gap: 30px; padding: 0 92px; direction: ltr; }
+        .panel { direction: rtl; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.025); padding: 23px 24px; min-height: 430px; }
+        .panel-title { color: #D4AF37; font-size: 14px; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 17px; }
+        .base-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .base { min-height: 327px; border: 1px solid rgba(255,255,255,0.12); padding: 20px 16px; background: rgba(0,0,0,0.14); }
+        .base.featured { border-color: #D4AF37; background: rgba(212,175,55,0.065); }
+        .base-name { color: #D4AF37; font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .base-price { font-family: 'Playfair Display', serif; font-size: 33px; color: #FFFFFF; margin-bottom: 20px; }
+        .base-price span { font-family: 'Tajawal', sans-serif; font-size: 12px; color: rgba(255,255,255,0.42); }
+        .base-copy { color: rgba(255,255,255,0.42); font-size: 13px; line-height: 1.65; min-height: 44px; margin-bottom: 15px; }
+        .base-list { margin: 0; padding: 0; list-style: none; color: rgba(255,255,255,0.68); font-size: 13px; line-height: 1.8; }
+        .base-list li::before { content: '＋'; color: #D4AF37; margin-left: 5px; }
+        .addons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .addon { min-height: 104px; border-bottom: 1px solid rgba(212,175,55,0.22); padding: 12px 4px 14px; }
+        .addon-name { font-size: 16px; color: #FFFFFF; font-weight: 700; margin-bottom: 5px; }
+        .addon-copy { color: rgba(255,255,255,0.42); font-size: 12px; line-height: 1.6; margin-bottom: 8px; }
+        .addon-price { color: #D4AF37; font-family: 'Instrument Sans', sans-serif; font-size: 13px; }
+        .bottom-note { padding: 18px 92px 0; display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.37); font-size: 13px; }
+        .bottom-note strong { color: #D4AF37; font-weight: 500; }
     </style>
 </head>
 <body>
     <div class="slide-container">
-        <div class="header-section">
-            <span class="eyebrow">Strategic Investment</span>
-            <h1 class="title">باقات نمو مرنة تناسب مرحلتك</h1>
+        <div class="header">
+            <div class="eyebrow">Build Your Growth Engine</div>
+            <h1 class="title">ابدأ بالأساس.. وأضف ما يحتاجه مشروعك</h1>
+            <p class="intro">نموذج مرن يتيح لك اختيار خطة الشراكة ثم إضافة المتجر أو النظام أو الأتمتة عندما يصبح مشروعك جاهزاً لها.</p>
         </div>
-        
         <div class="divider"></div>
-        
-        <div class="pricing-grid">
-            <!-- Starter Tier -->
-            <div class="tier-card">
-                <div class="tier-name">باقة الانطلاق</div>
-                <div class="tier-price">350 <span>SAR / شهر</span></div>
-                <ul class="feature-list">
-                    <li class="feature-item">إعداد الحملات الأولي</li>
-                    <li class="feature-item">إدارة منصة اجتماعية واحدة</li>
-                    <li class="feature-item">4 أصول إبداعية شهرياً</li>
-                    <li class="feature-item">ملخص أداء دوري</li>
-                </ul>
-            </div>
-            
-            <!-- Growth Tier -->
-            <div class="tier-card highlight-card">
-                <div class="tier-name">باقة النمو</div>
-                <div class="tier-price">950 <span>SAR / شهر</span></div>
-                <ul class="feature-list">
-                    <li class="feature-item">إدارة وتحسين الحملات</li>
-                    <li class="feature-item">إدارة منصتين اجتماعيتين</li>
-                    <li class="feature-item">12 أصلاً إبداعياً مع المحتوى</li>
-                    <li class="feature-item">اختبار الجمهور والعروض</li>
-                    <li class="feature-item">تقرير أداء تفصيلي</li>
-                </ul>
-            </div>
-            
-            <!-- Partner Tier -->
-            <div class="tier-card">
-                <div class="tier-name">باقة الشريك</div>
-                <div class="tier-price">2,200 <span>SAR / شهر</span></div>
-                <ul class="feature-list">
-                    <li class="feature-item">استراتيجية نمو متكاملة</li>
-                    <li class="feature-item">خطة محتوى وحملات شاملة</li>
-                    <li class="feature-item">تصاميم وفيديوهات قصيرة</li>
-                    <li class="feature-item">تحسين رحلة العميل (CRO)</li>
-                    <li class="feature-item">جلسة استراتيجية شهرية</li>
-                </ul>
-            </div>
+        <div class="content">
+            <section class="panel">
+                <div class="panel-title">خطة الأساس · اشتراك شهري</div>
+                <div class="base-grid">
+                    <div class="base">
+                        <div class="base-name">خطة الانطلاق</div>
+                        <div class="base-price">350 <span>SAR / شهر</span></div>
+                        <div class="base-copy">للمشاريع التي تريد بداية مرتبة دون التزام أكبر من احتياجها.</div>
+                        <ul class="base-list"><li>منصة اجتماعية واحدة</li><li>4 مواد إبداعية</li><li>إعداد أولي للحملة</li><li>ملخص أداء شهري</li></ul>
+                    </div>
+                    <div class="base featured">
+                        <div class="base-name">خطة النمو</div>
+                        <div class="base-price">950 <span>SAR / شهر</span></div>
+                        <div class="base-copy">للمتاجر التي تريد بناء زخم مستمر وتحسين ما يثبت نجاحه.</div>
+                        <ul class="base-list"><li>منصتان اجتماعيتان</li><li>12 مادة مع كتابة</li><li>إدارة وتحسين الحملات</li><li>اختبار الجمهور والعروض</li></ul>
+                    </div>
+                    <div class="base">
+                        <div class="base-name">خطة الشريك</div>
+                        <div class="base-price">2,200 <span>SAR / شهر</span></div>
+                        <div class="base-copy">لمن يريد فريق نمو يعمل معه على الاستراتيجية والتنفيذ.</div>
+                        <ul class="base-list"><li>استراتيجية نمو متكاملة</li><li>محتوى وحملات شهرية</li><li>تحسين رحلة العميل</li><li>جلسة استراتيجية شهرية</li></ul>
+                    </div>
+                </div>
+            </section>
+            <section class="panel">
+                <div class="panel-title">وحدات تقنية · أضف عند الحاجة</div>
+                <div class="addons">
+                    <div class="addon"><div class="addon-name">إطلاق متجر احترافي</div><div class="addon-copy">Salla أو Zid أو Shopify مع رحلة شراء جاهزة.</div><div class="addon-price">من 1,800 SAR · مرة واحدة</div></div>
+                    <div class="addon"><div class="addon-name">نظام Market POS</div><div class="addon-copy">نقاط بيع ومخزون وتشغيل يومي أوضح.</div><div class="addon-price">من 2,500 SAR · مرة واحدة</div></div>
+                    <div class="addon"><div class="addon-name">أتمتة LiftDesk AI</div><div class="addon-copy">تحويل الرسائل والتقارير إلى مهام وتنبيهات.</div><div class="addon-price">من 750 SAR · شهرياً</div></div>
+                    <div class="addon"><div class="addon-name">نظام مخصص</div><div class="addon-copy">لوحة تحكم أو SaaS أو نظام عمليات حول سير عملك.</div><div class="addon-price">من 4,500 SAR · مرة واحدة</div></div>
+                    <div class="addon"><div class="addon-name">لوحة قياس الأداء</div><div class="addon-copy">المؤشرات الأساسية في لوحة واحدة مفهومة.</div><div class="addon-price">من 600 SAR · مرة واحدة</div></div>
+                    <div class="addon"><div class="addon-name">نطاق قابل للتخصيص</div><div class="addon-copy">نركّب لك المنظومة حسب مرحلة المشروع لا حسب قالب جاهز.</div><div class="addon-price">يُحدد بعد المراجعة</div></div>
+                </div>
+            </section>
         </div>
-        
-        <div style="position: absolute; bottom: 40px; width: 100%; text-align: center; color: rgba(255,255,255,0.4); font-size: 14px;">
-            * الأسعار تخص أتعاب الإدارة والمحتوى؛ الميزانية الإعلانية تُحدد بشكل مستقل.
-        </div>
+        <div class="bottom-note"><span>الأسعار تقديرية لأتعاب التنفيذ والإدارة؛ الميزانية الإعلانية والتكاملات تُحدد بشكل مستقل.</span><strong>اختر · أضف · اطلب منظومتك</strong></div>
     </div>
 </body>
 </html>

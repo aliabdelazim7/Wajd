@@ -35,7 +35,7 @@ class CmsController extends Controller
                     'content_blocks' => ContentBlock::where('is_published', true)->count(),
                 ],
                 'recent_leads' => Lead::query()
-                    ->select(['id', 'name', 'company_name', 'email', 'phone', 'service', 'industry', 'contact_preference', 'budget_sar', 'status', 'created_at'])
+                    ->select(['id', 'name', 'company_name', 'email', 'phone', 'service', 'industry', 'contact_preference', 'budget_sar', 'package_selection', 'status', 'created_at'])
                     ->latest()
                     ->limit(8)
                     ->get(),
@@ -221,7 +221,7 @@ class CmsController extends Controller
 
         $query = Lead::query()->select([
             'id', 'name', 'company_name', 'email', 'phone', 'page_url', 'service', 'industry',
-            'contact_preference', 'budget_sar', 'message', 'locale', 'source', 'status',
+            'contact_preference', 'budget_sar', 'package_selection', 'message', 'locale', 'source', 'status',
             'consent_at', 'created_at', 'updated_at',
         ])->recent();
 

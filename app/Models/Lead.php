@@ -22,7 +22,7 @@ class Lead extends Model
 
     protected $fillable = [
         'name', 'company_name', 'email', 'phone', 'page_url', 'service', 'industry',
-        'contact_preference', 'budget_sar', 'message', 'locale', 'source', 'status',
+        'contact_preference', 'budget_sar', 'package_selection', 'message', 'locale', 'source', 'status',
         'ip_address', 'user_agent', 'consent_at',
     ];
 
@@ -34,6 +34,7 @@ class Lead extends Model
     {
         return [
             'budget_sar' => 'integer',
+            'package_selection' => 'array',
             'consent_at' => 'datetime',
         ];
     }

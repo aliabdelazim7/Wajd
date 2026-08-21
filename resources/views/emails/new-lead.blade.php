@@ -5,6 +5,7 @@
         'email' => 'البريد الإلكتروني',
         default => 'غير محددة',
     };
+    $package = $lead->package_selection;
 @endphp
 <!doctype html>
 <html lang="ar" dir="rtl">
@@ -29,6 +30,11 @@
                 <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">الخدمة</td><td style="padding:10px 0;color:#fff;border-top:1px solid #2b2b2b;">{{ $lead->service }}</td></tr>
                 <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">مجال النشاط</td><td style="padding:10px 0;color:#fff;border-top:1px solid #2b2b2b;">{{ $lead->industry }}</td></tr>
                 <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">الميزانية</td><td style="padding:10px 0;color:#fff;border-top:1px solid #2b2b2b;">{{ $lead->budget_sar ? number_format($lead->budget_sar) . ' SAR' : 'غير مذكورة' }}</td></tr>
+                @if($package)
+                    <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">خطة الأساس</td><td style="padding:10px 0;color:#fff;border-top:1px solid #2b2b2b;">{{ $package['basePlan']['name'] ?? '—' }} — {{ number_format($package['basePlan']['price'] ?? 0) }} SAR / شهرياً</td></tr>
+                    <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">الوحدات المضافة</td><td style="padding:10px 0;color:#fff;border-top:1px solid #2b2b2b;">{{ collect($package['addons'] ?? [])->map(fn($addon) => ($addon['name'] ?? '—') . ' — ' . number_format($addon['price'] ?? 0) . ' SAR')->implode('، ') ?: 'لا توجد' }}</td></tr>
+                    <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">الإجمالي المبدئي</td><td style="padding:10px 0;color:#d7b66f;border-top:1px solid #2b2b2b;">{{ number_format($package['monthlyTotal'] ?? 0) }} SAR شهرياً @if(($package['oneTimeTotal'] ?? 0) > 0) + {{ number_format($package['oneTimeTotal']) }} SAR مرة واحدة @endif</td></tr>
+                @endif
                 <tr><td style="padding:10px 0;color:#aaa;border-top:1px solid #2b2b2b;">رابط الموقع أو الحساب</td><td style="padding:10px 0;border-top:1px solid #2b2b2b;word-break:break-word;">{{ $lead->page_url ?: 'غير مذكور' }}</td></tr>
             </table>
 

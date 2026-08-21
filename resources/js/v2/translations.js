@@ -9,12 +9,12 @@ export const translations = {
             cta: 'ابدأ خطوة جديدة'
         },
         hero: {
-            badge: 'الرياض ودبي • شريك الحلول التقنية والنمو',
-            title1: 'نُهندس الحلول والنمو',
-            title2: 'للعلامات الطموحة.',
+            badge: 'الرياض ودبي • شريكك التقني للنمو في الخليج',
+            title1: 'نُهندس نموّك..',
+            title2: 'لنُوجد أثرك.',
             slogan: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.',
-            desc: 'نحن لا نكتفي بالتسويق؛ نبني المتاجر والأنظمة التي يحتاجها مشروعك، ونساعدك على الوصول إلى العملاء بخطة واضحة قابلة للقياس.',
-            cta: 'خلّينا نحدد أول خطوة',
+            desc: 'لا نكتفي بإطلاق الحملات؛ نبني لك المتجر والنظام التقني الذي يحوّل كل ريال إعلاني إلى مبيعات حقيقية ومستدامة في السوق الخليجي.',
+            cta: 'خلّينا نرسم خطة نموّك',
             metrics: {
                 adSpend: 'الإنفاق الإعلاني المُدار',
                 maxRoas: 'أعلى عائد مُحقق',
@@ -40,14 +40,14 @@ export const translations = {
             }
         },
         whyUs: {
-            tag: 'ما يميز وجد',
-            title: 'لماذا وجد تحديداً؟',
-            subtitle: 'لأننا لا نبيعك "وعوداً تسويقية"، بل نُهندس لك "نتائج مالية" ملموسة.',
+            tag: 'لماذا وجد؟',
+            title: 'شريكك في هندسة الأرباح',
+            subtitle: 'لأنك لا تحتاج لمزيد من "الوعود التسويقية"، بل تحتاج لمنظومة تقنية تُنتج نتائج مالية ملموسة.',
             items: [
-                { title: 'دمج التقنية بالتسويق', desc: 'نحن نبرمج أنظمتك ونسوق لها في مكان واحد. هذا الترابط يضمن تتبعاً دقيقاً وعائداً أعلى على الاستثمار.' },
-                { title: 'عقلية الشريك لا الوكالة', desc: 'نتعامل مع ميزانيتك كأنها مالنا الخاص. هدفنا ليس صرف الميزانية، بل تعظيم الربح الصافي لك.' },
-                { title: 'هندسة العروض والأنظمة', desc: 'نصمم لك العرض التسويقي والنظام البرمجي الذي يسهل على العميل الشراء ويقلل من فواقد العمليات.' },
-                { title: 'الشفافية المطلقة', desc: 'لوحة بيانات حية تتتبع كل ريال تنفقه والنتائج المحققة في لحظتها. لا أرقام مخفية أبداً.' }
+                { title: 'تكامل التقنية والنمو', desc: 'إعلاناتك تنجح عندما تكون تقنياتك قوية. نحن نبني المتجر ونقود الحملات في تناغم واحد لضمان أعلى عائد.' },
+                { title: 'عقلية الشريك الحقيقي', desc: 'نتعامل مع ميزانيتك كأنها مالنا الخاص؛ هدفنا ليس مجرد "صرف الميزانية"، بل تعظيم ربحك الصافي.' },
+                { title: 'هندسة رحلة العميل', desc: 'نصمم العرض التسويقي والنظام البرمجي الذي يجعل الشراء سهلاً لعميلك، ومربحاً لعملياتك.' },
+                { title: 'شفافية البيانات 24/7', desc: 'لوحة بيانات حية تظهر لك كل ريال أين ذهب وماذا حقق. لا غموض، لا أرقام مخفية، فقط حقائق.' }
             ]
         },
         home: {
@@ -73,33 +73,34 @@ export const translations = {
             }
         },
         packages: {
-            tag: 'باقات استراتيجية',
-            title: 'اختر باقة نموك',
-            subtitle: 'خطط شهرية واضحة للمتاجر والبراندات الناشئة في الخليج — ابدأ بشكل عملي، ثم وسّع عندما ترى ما يعمل.',
-            adSpendNote: 'الأسعار تخص أتعاب الإدارة والمحتوى فقط؛ الميزانية الإعلانية تُحدد بشكل مستقل حسب هدفك.',
-            monthlyFrom: 'الاشتراك الشهري يبدأ من',
+            tag: 'ابنِ منظومة نموك',
+            title: 'ابدأ بالأساس.. وأضف ما يحتاجه مشروعك',
+            subtitle: 'اختر مستوى الشراكة المناسب لك، ثم أضف المتجر أو النظام أو الأتمتة التي يحتاجها مشروعك. لا تدفع مقابل شيء لست مستعداً له.',
+            adSpendNote: 'الأسعار تقديرية لأتعاب التنفيذ والإدارة. الميزانية الإعلانية وأي تكاملات خارجية تُحدد بعد مراجعة احتياجك.',
             mostPopular: 'الأكثر طلباً',
-            cta: 'ابدأ الآن',
-            items: [
-                {
-                    name: 'باقة الانطلاق',
-                    subtitle: '(بداية)',
-                    price: '350 ريال',
-                    features: ['إدارة منصة اجتماعية واحدة', '4 تصاميم أو مواد إعلانية', 'إعداد حملة إعلانية أولية', 'ملخص أداء شهري']
-                },
-                {
-                    name: 'باقة النمو',
-                    subtitle: '(نمو)',
-                    price: '950 ريال',
-                    popular: true,
-                    features: ['إدارة منصتين اجتماعيتين', '12 تصميماً وكتابة محتوى', 'إدارة وتحسين الحملات', 'اختبارات للجمهور والعروض', 'تقرير أداء وتوصيات شهرية']
-                },
-                {
-                    name: 'باقة الشريك',
-                    subtitle: '(شراكة)',
-                    price: '2,200 ريال',
-                    features: ['استراتيجية نمو متكاملة', 'خطة محتوى وحملات شهرية', 'إدارة الإعلانات والتحسين المستمر', 'تصاميم وفيديوهات قصيرة', 'تحسين رحلة العميل', 'اجتماع استراتيجي شهري']
-                }
+            baseLabel: 'اختر خطة الأساس',
+            addonsLabel: 'أضف وحدات تقنية عند الحاجة',
+            addonsHint: 'يمكنك إضافة أكثر من وحدة، وسنراجع النطاق النهائي معك قبل التنفيذ.',
+            summaryTitle: 'سلة منظومة النمو',
+            emptyAddons: 'لم تضف وحدات تقنية بعد',
+            monthlyLabel: 'شهرياً',
+            oneTimeLabel: 'مرة واحدة',
+            fromLabel: 'يبدأ من',
+            addCta: 'أضف للسلة',
+            addedCta: 'تمت الإضافة',
+            removeCta: 'إزالة',
+            continueCta: 'اطلب هذه المنظومة',
+            basePlans: [
+                { id: 'starter', name: 'خطة الانطلاق', subtitle: 'للمشاريع التي تريد بداية مرتبة', price: 350, features: ['منصة اجتماعية واحدة', '4 مواد إبداعية', 'إعداد أولي للحملة', 'ملخص أداء شهري'] },
+                { id: 'growth', name: 'خطة النمو', subtitle: 'للمتاجر التي تريد نمواً مستمراً', price: 950, popular: true, features: ['منصتان اجتماعيتان', '12 مادة إبداعية مع كتابة', 'إدارة وتحسين الحملات', 'اختبار الجمهور والعروض', 'تقرير وتوصيات شهرية'] },
+                { id: 'partner', name: 'خطة الشريك', subtitle: 'لمن يريد فريق نمو يعمل معه', price: 2200, features: ['استراتيجية نمو متكاملة', 'خطة محتوى وحملات شهرية', 'إدارة وتحسين مستمر', 'تصاميم وفيديوهات قصيرة', 'تحسين رحلة العميل', 'جلسة استراتيجية شهرية'] }
+            ],
+            addons: [
+                { id: 'store-launch', name: 'إطلاق متجر احترافي', subtitle: 'Salla أو Zid أو Shopify مع تجهيز رحلة الشراء', price: 1800, type: 'one_time', tag: 'متاجر' },
+                { id: 'market-pos', name: 'نظام Market POS', subtitle: 'نقاط بيع ومخزون وتشغيل يومي أكثر وضوحاً', price: 2500, type: 'one_time', tag: 'أنظمة' },
+                { id: 'liftdesk-automation', name: 'أتمتة LiftDesk بالذكاء الاصطناعي', subtitle: 'تحويل الرسائل والتقارير إلى مهام وتنبيهات منظمة', price: 750, type: 'monthly', tag: 'أتمتة' },
+                { id: 'custom-system', name: 'نظام مخصص لمشروعك', subtitle: 'نطاق مخصص للوحة تحكم أو SaaS أو نظام عمليات', price: 4500, type: 'one_time', tag: 'تطوير' },
+                { id: 'tracking-dashboard', name: 'لوحة قياس الأداء', subtitle: 'ربط المؤشرات الأساسية في لوحة واحدة مفهومة', price: 600, type: 'one_time', tag: 'بيانات' }
             ]
         },
         footer: {
@@ -119,12 +120,12 @@ export const translations = {
             cta: 'Start a conversation'
         },
         hero: {
-            badge: 'RIYADH & DUBAI • TECH & GROWTH PARTNER',
-            title1: 'Engineering Tech & Growth',
-            title2: 'For Ambitious Brands.',
-            slogan: 'WAJD... FOUND FOR RESULTS.',
-            desc: 'We do more than marketing. We build the stores and systems your business needs, then help you reach customers with a clear, measurable plan.',
-            cta: 'Plan your first move',
+            badge: 'RIYADH & DUBAI • YOUR TECH-GROWTH PARTNER',
+            title1: 'We Engineer Growth.',
+            title2: 'We Found Results.',
+            slogan: 'WAJD... BUILT FOR OUTCOMES.',
+            desc: 'We don’t just run ads; we build the high-converting stores and AI systems that turn your ad spend into predictable revenue across the GCC.',
+            cta: 'Map your growth roadmap',
             metrics: {
                 adSpend: 'Ad Spend Managed',
                 maxRoas: 'Max ROAS Achieved',
@@ -151,13 +152,13 @@ export const translations = {
         },
         whyUs: {
             tag: 'THE WAJD EDGE',
-            title: 'Why Wajd Specifically?',
-            subtitle: 'Because we don’t sell you "marketing promises", we engineer tangible "financial outcomes".',
+            title: 'Your Partner in Profit Engineering',
+            subtitle: 'Because you don’t need more "marketing promises"—you need a technical ecosystem that delivers real financial outcomes.',
             items: [
-                { title: 'Tech & Marketing Synergy', desc: 'We code your systems and market them under one roof. This integration ensures precise tracking and higher ROI.' },
-                { title: 'Partner Mindset, Not Agency', desc: 'We treat your budget as our own. Our goal is never just spending, but maximizing your net profit.' },
-                { title: 'System & Offer Engineering', desc: 'We design both the marketing offer and the software system to make buying effortless for your customers.' },
-                { title: 'Absolute Transparency 24/7', desc: 'A live dashboard tracking every spent rial and real-time result. No hidden metrics ever.' }
+                { title: 'Growth & Tech Synergy', desc: 'Your ads succeed when your tech is strong. We build the store and lead the campaigns in harmony to ensure maximum ROI.' },
+                { title: 'A True Partner Mindset', desc: 'We treat your budget as our own. Our goal isn’t just to "spend the budget," but to maximize your net profit.' },
+                { title: 'Customer Journey Engineering', desc: 'We design the marketing offer and the software systems that make buying effortless for your customers and profitable for you.' },
+                { title: '24/7 Data Transparency', desc: 'A live dashboard showing you exactly where every riyal went and what it achieved. No fluff, no hidden metrics—just facts.' }
             ]
         },
         home: {
@@ -183,33 +184,34 @@ export const translations = {
             }
         },
         packages: {
-            tag: 'STRATEGIC PACKAGES',
-            title: 'Choose Your Growth Tier',
-            subtitle: 'Clear monthly plans for Gulf startups, stores, and growing brands — start lean, then scale what proves its value.',
-            adSpendNote: 'Plans cover management and creative work only; your ad budget is set separately around your goals.',
-            monthlyFrom: 'Monthly plan from',
+            tag: 'BUILD YOUR GROWTH ENGINE',
+            title: 'Start with the core. Add what your business needs.',
+            subtitle: 'Choose the right level of partnership, then add the store, system, or automation your business is ready for. No paying for what you do not need yet.',
+            adSpendNote: 'Prices are indicative for execution and management. Ad spend and third-party integrations are scoped separately after reviewing your needs.',
             mostPopular: 'Most Popular',
-            cta: 'Get Started',
-            items: [
-                {
-                    name: 'Starter Plan',
-                    subtitle: '(Starter)',
-                    price: 'SAR 350',
-                    features: ['One social platform managed', '4 creative assets', 'Initial campaign setup', 'Monthly performance summary']
-                },
-                {
-                    name: 'Growth Plan',
-                    subtitle: '(Growth)',
-                    price: 'SAR 950',
-                    popular: true,
-                    features: ['Two social platforms managed', '12 creative assets with copy', 'Campaign management & optimization', 'Audience and offer testing', 'Monthly performance report']
-                },
-                {
-                    name: 'Partner Plan',
-                    subtitle: '(Partner)',
-                    price: 'SAR 2,200',
-                    features: ['Complete growth strategy', 'Monthly content and campaign plan', 'Ongoing ad management', 'Designs and short-form videos', 'Customer journey optimization', 'Monthly strategy session']
-                }
+            baseLabel: 'Choose your core plan',
+            addonsLabel: 'Add technical modules as needed',
+            addonsHint: 'Select more than one module if needed. We confirm the final scope with you before delivery.',
+            summaryTitle: 'Your growth-engine cart',
+            emptyAddons: 'No technical modules added yet',
+            monthlyLabel: 'monthly',
+            oneTimeLabel: 'one-time',
+            fromLabel: 'From',
+            addCta: 'Add to cart',
+            addedCta: 'Added',
+            removeCta: 'Remove',
+            continueCta: 'Request this setup',
+            basePlans: [
+                { id: 'starter', name: 'Starter Plan', subtitle: 'For businesses ready for a structured start', price: 350, features: ['One social platform', '4 creative assets', 'Initial campaign setup', 'Monthly performance summary'] },
+                { id: 'growth', name: 'Growth Plan', subtitle: 'For stores ready to build consistent momentum', price: 950, popular: true, features: ['Two social platforms', '12 creative assets with copy', 'Campaign management and optimization', 'Audience and offer testing', 'Monthly report and recommendations'] },
+                { id: 'partner', name: 'Partner Plan', subtitle: 'For brands that need a growth team beside them', price: 2200, features: ['Complete growth strategy', 'Monthly content and campaign plan', 'Ongoing management and optimization', 'Design and short-form video', 'Customer journey optimization', 'Monthly strategy session'] }
+            ],
+            addons: [
+                { id: 'store-launch', name: 'Professional store launch', subtitle: 'Salla, Zid, or Shopify with a ready-to-buy customer journey', price: 1800, type: 'one_time', tag: 'Stores' },
+                { id: 'market-pos', name: 'Market POS system', subtitle: 'Point of sale, inventory, and clearer day-to-day operations', price: 2500, type: 'one_time', tag: 'Systems' },
+                { id: 'liftdesk-automation', name: 'LiftDesk AI automation', subtitle: 'Turn messages and field reports into organized tasks and alerts', price: 750, type: 'monthly', tag: 'Automation' },
+                { id: 'custom-system', name: 'Custom system for your business', subtitle: 'A scoped dashboard, SaaS, or operations system built around your workflow', price: 4500, type: 'one_time', tag: 'Development' },
+                { id: 'tracking-dashboard', name: 'Performance dashboard', subtitle: 'Bring the metrics that matter into one clear view', price: 600, type: 'one_time', tag: 'Data' }
             ]
         },
         footer: {

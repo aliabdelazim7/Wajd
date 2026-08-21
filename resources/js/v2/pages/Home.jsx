@@ -5,8 +5,8 @@ import FAQ from '../components/FAQ.jsx';
 import ImpactSimulator from '../components/ImpactSimulator.jsx';
 import TechShowcase from '../components/TechShowcase.jsx';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2, ShoppingBag, Plus, Check, Trash2 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 
@@ -14,6 +14,8 @@ const Home = () => {
     const { lang, t, content } = useApp();
     const outcomeEngine = t.home.outcomeEngine;
     const selectedImpact = t.home.selectedImpact;
+    const builder = t.packages;
+    const navigate = useNavigate();
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const ctaJustify = lang === 'ar' ? 'justify-end' : 'justify-start';
@@ -33,9 +35,35 @@ const Home = () => {
         }))
         : fallbackWork;
 
-    const cmsPackages = content?.packages?.length
-        ? content.packages.map((pkg) => ({ ...pkg, price: `${Number(pkg.price_sar).toLocaleString()} SAR` }))
-        : t.packages.items;
+    const basePlans = content?.packages?.length
+        ? content.packages.map((pkg) => ({
+            id: pkg.slug,
+            name: pkg.name,
+            subtitle: pkg.subtitle,
+            price: Number(pkg.price_sar),
+            features: pkg.features || [],
+            popular: Boolean(pkg.is_featured),
+        }))
+        : builder.basePlans;
+    const [selectedBaseId, setSelectedBaseId] = React.useState(basePlans.find((plan) => plan.popular)?.id || basePlans[0]?.id);
+    const [selectedAddonIds, setSelectedAddonIds] = React.useState([]);
+    const selectedBase = basePlans.find((plan) => plan.id === selectedBaseId) || basePlans[0];
+    const selectedAddons = builder.addons.filter((addon) => selectedAddonIds.includes(addon.id));
+    const monthlyAddonsTotal = selectedAddons.filter((addon) => addon.type === 'monthly').reduce((total, addon) => total + addon.price, 0);
+    const oneTimeAddonsTotal = selectedAddons.filter((addon) => addon.type === 'one_time').reduce((total, addon) => total + addon.price, 0);
+    const monthlyTotal = (selectedBase?.price || 0) + monthlyAddonsTotal;
+    const formatSar = (amount) => new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en-US').format(amount);
+    const toggleAddon = (addonId) => setSelectedAddonIds((current) => current.includes(addonId) ? current.filter((id) => id !== addonId) : [...current, addonId]);
+    const requestBuild = () => navigate('/contact', {
+        state: {
+            packageBuilder: {
+                basePlan: { id: selectedBase.id, name: selectedBase.name, price: selectedBase.price },
+                addons: selectedAddons.map(({ id, name, price, type }) => ({ id, name, price, type })),
+                monthlyTotal,
+                oneTimeTotal: oneTimeAddonsTotal,
+            },
+        },
+    });
 
     const whyBlock = getCmsBlock(content, 'home.why_wajd', { title: t.whyUs.title, body: t.whyUs.subtitle, data: {} });
     const whyItems = lang === 'ar' && whyBlock.data?.items?.length ? whyBlock.data.items : t.whyUs.items;
@@ -203,53 +231,111 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Growth Packages Section */}
+            {/* Build Your Growth Engine */}
             <section className="section-padding bg-obsidian-950" dir={direction}>
-                <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-20">
-                        <span className="text-gold-500 text-xs uppercase tracking-[0.4em] font-medium mb-6 block font-sans">{t.packages.tag}</span>
-                        <h2 className="text-4xl md:text-7xl font-serif mb-8">{t.packages.title}</h2>
-                        <p className="text-white/40 text-xl font-arabic max-w-2xl mx-auto">{t.packages.subtitle}</p>
-                        <p className="text-white/30 text-sm font-arabic max-w-xl mx-auto mt-5">{t.packages.adSpendNote}</p>
+                <div className="mx-auto max-w-7xl">
+                    <div className={`mb-16 max-w-4xl ${lang === 'ar' ? 'mr-0 ml-auto text-right' : 'ml-0 mr-auto text-left'}`}>
+                        <span className="mb-6 block text-xs font-medium tracking-[0.4em] text-gold-500">{builder.tag}</span>
+                        <h2 className="mb-7 max-w-4xl font-serif text-4xl leading-[1.05] md:text-7xl">{builder.title}</h2>
+                        <p className="max-w-3xl text-lg leading-8 text-white/45 md:text-xl">{builder.subtitle}</p>
+                        <p className="mt-5 max-w-2xl text-sm leading-7 text-white/25">{builder.adSpendNote}</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {(lang === 'ar' ? cmsPackages : t.packages.items).map((pkg, i) => (
-                            <motion.div 
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.2 }}
-                                className={`glass-card p-10 rounded-[2.5rem] flex flex-col justify-between relative group transition-all ${textAlign} ${pkg.popular ? 'border-2 border-gold-500/50 scale-105 z-10 bg-gold-500/5' : 'border border-white/5 hover:border-gold-500/20'}`}
-                            >
-                                {pkg.popular && (
-                                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gold-500 text-obsidian-950 px-6 py-1 rounded-full text-xs font-bold uppercase tracking-widest">{t.packages.mostPopular}</div>
-                                )}
-                                <div>
-                                    <h3 className={`text-2xl font-serif mb-2 ${pkg.popular ? 'text-gold-500' : ''}`}>{pkg.name}</h3>
-                                    <p className="text-white/30 text-sm mb-8 font-sans uppercase tracking-widest">{pkg.subtitle}</p>
-                                    <ul className="space-y-4 mb-10">
-                                        {pkg.features.map((feat, j) => (
-                                            <li key={j} className={`flex items-center gap-3 text-white/70 font-arabic ${lang === 'ar' ? '' : 'flex-row-reverse justify-end text-right'}`}>
-                                                <CheckCircle2 className="w-5 h-5 text-gold-500 flex-shrink-0" /> <span>{feat}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div>
-                                    <div className="pt-8 border-t border-white/5 mb-8">
-                                        <p className="text-white/30 text-xs mb-2">{t.packages.monthlyFrom}</p>
-                                        <p className="text-4xl font-serif text-white group-hover:text-gold-500 transition-colors">
-                                            {pkg.price}
-                                        </p>
+                    <div className="grid items-start gap-10 xl:grid-cols-[minmax(0,1fr)_360px]">
+                        <div className="space-y-12">
+                            <div>
+                                <div className={`mb-6 flex items-end justify-between gap-4 ${textAlign}`}>
+                                    <div>
+                                        <p className="mb-2 text-xs uppercase tracking-[0.24em] text-gold-500/80">01</p>
+                                        <h3 className="font-serif text-3xl md:text-4xl">{builder.baseLabel}</h3>
                                     </div>
-                                    <Link to="/contact" className={`w-full py-4 rounded-full font-arabic font-bold text-center block transition-all ${pkg.popular ? 'bg-gold-500 text-obsidian-950 hover:bg-white shadow-[0_0_30px_rgba(197,168,98,0.2)]' : 'border border-white/10 text-white hover:bg-white hover:text-obsidian-950'}`}>
-                                        {t.packages.cta}
-                                    </Link>
+                                    <span className="hidden text-sm text-white/30 md:block">{lang === 'ar' ? 'كل خطة تبدأ من هنا' : 'Every build starts here'}</span>
                                 </div>
-                            </motion.div>
-                        ))}
+                                <div className="grid gap-5 md:grid-cols-3">
+                                    {basePlans.map((plan, index) => {
+                                        const isSelected = plan.id === selectedBase?.id;
+                                        return (
+                                            <motion.button
+                                                type="button"
+                                                key={plan.id}
+                                                initial={{ opacity: 0, y: 16 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: index * 0.08 }}
+                                                onClick={() => setSelectedBaseId(plan.id)}
+                                                aria-pressed={isSelected}
+                                                className={`relative flex min-h-[280px] flex-col text-start transition-all ${textAlign} ${isSelected ? 'border-gold-500 bg-gold-500/[0.08] shadow-[0_0_40px_rgba(197,168,98,0.08)]' : 'border-white/10 bg-white/[0.025] hover:border-gold-500/40'} rounded-[1.75rem] border p-6`}
+                                            >
+                                                {plan.popular && <span className="absolute -top-3 right-5 rounded-full bg-gold-500 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-obsidian-950">{builder.mostPopular}</span>}
+                                                <div className="mb-6 flex items-start justify-between gap-3">
+                                                    <div>
+                                                        <h4 className={`font-serif text-2xl ${isSelected ? 'text-gold-500' : 'text-white'}`}>{plan.name}</h4>
+                                                        <p className="mt-2 text-sm leading-6 text-white/40">{plan.subtitle}</p>
+                                                    </div>
+                                                    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${isSelected ? 'border-gold-500 bg-gold-500 text-obsidian-950' : 'border-white/20 text-transparent'}`}><Check className="h-4 w-4" /></span>
+                                                </div>
+                                                <div className={`mb-6 text-3xl font-serif ${isSelected ? 'text-gold-500' : 'text-white'}`}>{formatSar(plan.price)} <span className="text-xs font-sans text-white/35">{builder.monthlyLabel}</span></div>
+                                                <ul className="mt-auto space-y-2.5 text-sm leading-6 text-white/60">
+                                                    {plan.features.slice(0, 4).map((feature) => <li key={feature} className={`flex items-start gap-2 ${lang === 'ar' ? '' : 'flex-row-reverse justify-end text-right'}`}><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-gold-500/80" /><span>{feature}</span></li>)}
+                                                </ul>
+                                            </motion.button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className={`mb-6 ${textAlign}`}>
+                                    <p className="mb-2 text-xs uppercase tracking-[0.24em] text-gold-500/80">02</p>
+                                    <h3 className="font-serif text-3xl md:text-4xl">{builder.addonsLabel}</h3>
+                                    <p className="mt-3 max-w-2xl text-sm leading-7 text-white/35">{builder.addonsHint}</p>
+                                </div>
+                                <div className="grid gap-4 md:grid-cols-2">
+                                    {builder.addons.map((addon, index) => {
+                                        const isAdded = selectedAddonIds.includes(addon.id);
+                                        return (
+                                            <motion.button
+                                                type="button"
+                                                key={addon.id}
+                                                initial={{ opacity: 0, y: 14 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: index * 0.06 }}
+                                                onClick={() => toggleAddon(addon.id)}
+                                                aria-pressed={isAdded}
+                                                className={`group flex items-center gap-4 rounded-[1.5rem] border p-5 text-start transition-all ${textAlign} ${isAdded ? 'border-gold-500/70 bg-gold-500/[0.08]' : 'border-white/10 bg-white/[0.02] hover:border-gold-500/35'}`}
+                                            >
+                                                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border ${isAdded ? 'border-gold-500 bg-gold-500 text-obsidian-950' : 'border-white/10 bg-white/5 text-gold-500'}`}>{isAdded ? <Check className="h-5 w-5" /> : <Plus className="h-5 w-5" />}</span>
+                                                <span className="min-w-0 flex-1">
+                                                    <span className="mb-1 flex flex-wrap items-center gap-2 font-serif text-lg text-white"><span>{addon.name}</span><span className="rounded-full border border-white/10 px-2 py-0.5 text-[9px] font-sans uppercase tracking-[0.14em] text-white/35">{addon.tag}</span></span>
+                                                    <span className="block text-sm leading-6 text-white/40">{addon.subtitle}</span>
+                                                </span>
+                                                <span className="shrink-0 text-end"><span className="block text-lg font-serif text-gold-500">{formatSar(addon.price)}</span><span className="text-[10px] uppercase tracking-[0.12em] text-white/30">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</span></span>
+                                            </motion.button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside className="xl:sticky xl:top-28">
+                            <div className="rounded-[1.75rem] border border-gold-500/30 bg-[#171613] p-6 shadow-2xl shadow-black/20 md:p-7">
+                                <div className={`mb-7 flex items-center justify-between gap-3 border-b border-white/10 pb-5 ${textAlign}`}>
+                                    <div><p className="mb-2 text-xs uppercase tracking-[0.2em] text-gold-500">03</p><h3 className="font-serif text-2xl">{builder.summaryTitle}</h3></div>
+                                    <ShoppingBag className="h-5 w-5 text-gold-500" />
+                                </div>
+                                <div className={`space-y-4 ${textAlign}`}>
+                                    {selectedBase && <div className="flex items-start justify-between gap-4"><div><p className="text-sm text-white/45">{selectedBase.name}</p><p className="mt-1 text-xs text-white/25">{builder.monthlyLabel}</p></div><strong className="font-serif text-white">{formatSar(selectedBase.price)}</strong></div>}
+                                    {selectedAddons.length ? selectedAddons.map((addon) => <div key={addon.id} className="flex items-start justify-between gap-4 border-t border-white/5 pt-4"><div className="min-w-0"><p className="text-sm text-white/55">{addon.name}</p><p className="mt-1 text-xs text-white/25">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</p></div><div className="flex items-center gap-2"><strong className="font-serif text-white">{formatSar(addon.price)}</strong><button type="button" onClick={() => toggleAddon(addon.id)} aria-label={builder.removeCta} className="text-white/25 transition hover:text-red-200"><Trash2 className="h-4 w-4" /></button></div></div>) : <p className="border-t border-white/5 pt-4 text-sm leading-6 text-white/30">{builder.emptyAddons}</p>}
+                                </div>
+                                <div className="mt-7 space-y-3 border-t border-white/10 pt-5">
+                                    <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.monthlyLabel}</span><strong className="font-serif text-xl text-gold-500">{formatSar(monthlyTotal)} SAR</strong></div>
+                                    {oneTimeAddonsTotal > 0 && <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.oneTimeLabel}</span><strong className="font-serif text-xl text-white">{formatSar(oneTimeAddonsTotal)} SAR</strong></div>}
+                                </div>
+                                <button type="button" onClick={requestBuild} className="mt-7 flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-5 py-4 font-bold text-obsidian-950 transition hover:bg-white active:scale-[0.98]">{builder.continueCta}<ArrowUpRight className="h-5 w-5" /></button>
+                                <p className="mt-4 text-center text-xs leading-6 text-white/25">{lang === 'ar' ? 'السعر النهائي يتأكد بعد مراجعة نطاق المشروع.' : 'Final pricing is confirmed after reviewing the project scope.'}</p>
+                            </div>
+                        </aside>
                     </div>
                 </div>
             </section>
