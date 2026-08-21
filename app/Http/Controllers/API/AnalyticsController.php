@@ -30,6 +30,10 @@ class AnalyticsController extends Controller
         'session_pause',
         'session_resume',
         'session_end',
+        'demo_tab_switched',
+        'demo_walkthrough_clicked',
+        'demo_live_preview_clicked',
+        'demo_request_clicked',
     ];
 
     private const SCORE_WEIGHTS = [
@@ -49,6 +53,10 @@ class AnalyticsController extends Controller
         'session_pause' => 0,
         'session_resume' => 1,
         'session_end' => 0,
+        'demo_tab_switched' => 4,
+        'demo_walkthrough_clicked' => 8,
+        'demo_live_preview_clicked' => 12,
+        'demo_request_clicked' => 25,
     ];
 
     private const PROPERTY_KEYS = [
@@ -57,7 +65,7 @@ class AnalyticsController extends Controller
         'plan_id', 'plan_name', 'price', 'addon_id', 'addon_name', 'action',
         'base_plan_id', 'billing_type', 'addon_ids', 'monthly_total', 'one_time_total',
         'service', 'industry', 'budget_sar', 'contact_preference', 'has_builder_selection',
-        'source',
+        'source', 'demo_id',
     ];
 
     public function collect(Request $request): JsonResponse

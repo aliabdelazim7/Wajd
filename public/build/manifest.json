@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-inQmC_CF.css",
+    "file": "assets/app-DvhMMT4R.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-D1EXEqtY.js",
+    "file": "assets/main-Bd_lFWI_.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
@@ -17,6 +17,7 @@
       "assets/main-CDPVEH3C.css"
     ],
     "assets": [
+      "assets/market-pos-mockup-ubIPuK8_.png",
       "assets/1-BipQMdy7.png",
       "assets/2.6-BOeKLgl6.png",
       "assets/2-CLe5IM3D.png",
@@ -163,6 +164,10 @@
       "assets/qanatir-syTRdjtM.webp",
       "assets/toyo-C7QVnVtS.png"
     ]
+  },
+  "resources/js/v2/assets/market-pos-mockup.png": {
+    "file": "assets/market-pos-mockup-ubIPuK8_.png",
+    "src": "resources/js/v2/assets/market-pos-mockup.png"
   },
   "resources/js/v2/assets/portfolio_hero/al-owaid.jpg": {
     "file": "assets/al-owaid-Ba21H_ZK.jpg",

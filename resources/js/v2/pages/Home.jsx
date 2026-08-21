@@ -1,9 +1,9 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../layout/Layout.jsx';
 import CinematicHero from '../components/CinematicHero.jsx';
 import FAQ from '../components/FAQ.jsx';
 import ImpactSimulator from '../components/ImpactSimulator.jsx';
-import TechShowcase from '../components/TechShowcase.jsx';
+import ProductDemo from '../components/ProductDemo.jsx';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Sparkles, TrendingUp, Shield, Zap, Target, CheckCircle2, ShoppingBag, Plus, Check, Trash2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const Home = () => {
     const selectedImpact = t.home.selectedImpact;
     const builder = t.packages;
     const navigate = useNavigate();
-    React.useEffect(() => {
+    useEffect(() => {
         trackAnalyticsEvent('builder_started', { source: 'homepage' });
     }, []);
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
@@ -44,8 +44,8 @@ const Home = () => {
             popular: Boolean(pkg.is_featured),
         }))
         : builder.basePlans;
-    const [selectedBaseId, setSelectedBaseId] = React.useState(basePlans.find((plan) => plan.popular)?.id || basePlans[0]?.id);
-    const [selectedAddonIds, setSelectedAddonIds] = React.useState([]);
+    const [selectedBaseId, setSelectedBaseId] = useState(basePlans.find((plan) => plan.popular)?.id || basePlans[0]?.id);
+    const [selectedAddonIds, setSelectedAddonIds] = useState([]);
     const selectedBase = basePlans.find((plan) => plan.id === selectedBaseId) || basePlans[0];
     const selectedAddons = builder.addons.filter((addon) => selectedAddonIds.includes(addon.id));
     const monthlyAddonsTotal = selectedAddons.filter((addon) => addon.type === 'monthly').reduce((total, addon) => total + addon.price, 0);
@@ -201,8 +201,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Tech Solutions Showcase */}
-            <TechShowcase />
+            {/* Product Tangibility & Interactive Demo */}
+            <ProductDemo />
 
             {/* Selected Work Section */}
             <section className="section-padding bg-obsidian-900" dir={direction}>
