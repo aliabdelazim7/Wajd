@@ -38,34 +38,33 @@ class AppErrorBoundary extends Component {
 
 const Root = () => {
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !isMobile, // Disable smooth scroll on mobile for better native performance
       wheelMultiplier: 1,
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
     })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-
     lenis.on('scroll', ScrollTrigger.update)
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
-    })
+    // Use GSAP ticker for a single unified animation loop
+    const raf = (time) => {
+      lenis.raf(time * 1000);
+    };
+    
+    gsap.ticker.add(raf);
 
     gsap.ticker.lagSmoothing(0)
 
     return () => {
+      gsap.ticker.remove(raf);
       lenis.destroy()
     }
   }, [])

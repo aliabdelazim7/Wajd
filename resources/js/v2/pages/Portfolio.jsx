@@ -61,16 +61,21 @@ const Portfolio = () => {
                             className={`group ${textAlign} block`}
                         >
                             <motion.div 
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: (i % 2) * 0.2, duration: 1 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ 
+                                    delay: window.innerWidth < 768 ? 0 : (i % 2) * 0.1, 
+                                    duration: 0.8,
+                                    ease: "easeOut"
+                                }}
                             >
                             <div className="relative aspect-video rounded-[2.5rem] overflow-hidden mb-12 bg-obsidian-800 border border-white/5">
                                 <img 
                                     src={project.image} 
                                     alt={project.name} 
-                                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    loading={i < 4 ? "eager" : "lazy"}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90"></div>
                                 <div className="absolute bottom-12 right-12 left-12 flex justify-between items-end">

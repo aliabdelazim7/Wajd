@@ -180,12 +180,17 @@ export const startAnalytics = () => {
         const context = collectClickContext(event.target);
         if (context) trackAnalyticsEvent(context.eventType, context.properties);
     };
+    let scrollTimeout = null;
     const onScroll = () => {
-        const depth = getScrollDepth();
-        if (depth >= runtime.maxScrollDepth + 25) {
-            runtime.maxScrollDepth = Math.floor(depth / 25) * 25;
-            trackAnalyticsEvent('scroll_depth', { depth: runtime.maxScrollDepth });
-        }
+        if (scrollTimeout) return;
+        scrollTimeout = window.setTimeout(() => {
+            scrollTimeout = null;
+            const depth = getScrollDepth();
+            if (depth >= runtime.maxScrollDepth + 25) {
+                runtime.maxScrollDepth = Math.floor(depth / 25) * 25;
+                trackAnalyticsEvent('scroll_depth', { depth: runtime.maxScrollDepth });
+            }
+        }, 1000); // Only check scroll depth once per second
     };
     const onVisibility = () => {
         if (document.visibilityState === 'hidden') {
@@ -205,13 +210,14 @@ export const startAnalytics = () => {
     document.addEventListener('visibilitychange', onVisibility);
     window.addEventListener('pagehide', onPageHide);
     const flushTimer = window.setInterval(() => flush(), FLUSH_INTERVAL_MS);
+    const isMobile = window.innerWidth < 768;
     const heartbeatTimer = window.setInterval(() => {
         trackAnalyticsEvent('engagement_heartbeat', {
             duration_seconds: Math.round((Date.now() - session.startedAt) / 1000),
             scroll_depth: runtime.maxScrollDepth,
         });
         flush();
-    }, HEARTBEAT_MS);
+    }, isMobile ? HEARTBEAT_MS * 2 : HEARTBEAT_MS); // Less frequent heartbeats on mobile
 
     return () => {
         document.removeEventListener('click', onClick);

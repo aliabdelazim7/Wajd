@@ -6,74 +6,7 @@ import { ArrowLeft, CheckCircle2, Target, Zap } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
 import { getEvidenceProject } from '../utils/portfolioEvidence.js';
 
-const projectsData = {
-    'al-owaid': {
-        name: 'براند العويد للعود',
-        category: 'Performance Marketing',
-        metric: '2.6x ROAS',
-        outcome: 'Revenue Growth',
-        image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'كان البراند يعاني من ارتفاع تكلفة الاستحواذ (CAC) وضعف في معدل التحويل على منصة سلة رغم جودة المنتج العالية.',
-        strategy: 'قمنا بإعادة بناء مسار الشراء بالكامل، مع التركيز على المحتوى الإبداعي الذي يبرز فخامة العود السعودي، وتفعيل استراتيجية إعادة استهداف ذكية.',
-        results: [
-            'تحقيق عائد إعلاني 2.6x خلال أول 30 يوماً.',
-            'زيادة معدل التحويل (CVR) بنسبة 45%.',
-            'خفض تكلفة الاستحواذ بنسبة 30%.'
-        ]
-    },
-    'toyo': {
-        name: 'تطبيق تويو (Toyo)',
-        category: 'Growth Engineering',
-        metric: '2,500+',
-        outcome: 'Conversions',
-        image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'الحاجة إلى توسع سريع وكثيف في مناطق جغرافية محددة داخل المملكة مع الحفاظ على جودة المستخدمين النشطين.',
-        strategy: 'هندسة حملات استحواذ تعتمد على البيانات الجغرافية اللحظية، مع تصميم عروض ترويجية مخصصة لكل منطقة لتعظيم معدلات التحميل والطلب.',
-        results: [
-            'أكثر من 2,500 عملية طلب ناجحة في شهر واحد.',
-            'تصدر التطبيق لقائمة الأكثر تحميلاً في الفئة المستهدفة.',
-            'تحسين تكلفة الطلب الواحد (CPO) بنسبة 25%.'
-        ]
-    },
-    'qanatir': {
-        name: 'براند قناطير الغذائي',
-        category: 'Paid Social',
-        metric: '2.5x ROAS',
-        outcome: 'E-commerce Scale',
-        image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'الرغبة في الانتقال من المبيعات التقليدية إلى التجارة الإلكترونية المباشرة للمستهلك (D2C) وبناء قاعدة عملاء مخلصين.',
-        strategy: 'بناء استراتيجية محتوى تعتمد على "سرد القصص الغذائية" لجذب العائلات، مع حملات أداء مركزة على منصات Meta و TikTok.',
-        results: [
-            'تحقيق ROAS مستدام بمعدل 2.5x.',
-            'بناء قاعدة بيانات تضم أكثر من 10,000 عميل مهتم.',
-            'نمو المبيعات الشهرية بنسبة 200% في الربع الأول.'
-        ]
-    }
-};
-
-const projectsDataEn = {
-    'al-owaid': {
-        name: 'Al Owaid Oud', category: 'Performance Marketing', metric: '2.6x ROAS', outcome: 'Revenue Growth',
-        image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'The brand faced a high customer acquisition cost (CAC) and a weak conversion rate on Salla despite strong product quality.',
-        strategy: 'We rebuilt the purchase journey around creative that communicates the richness of Saudi oud, then activated a smart retargeting system.',
-        results: ['Achieved a 2.6x ROAS within the first 30 days.', 'Increased conversion rate (CVR) by 45%.', 'Reduced acquisition cost by 30%.']
-    },
-    'toyo': {
-        name: 'Toyo App', category: 'Growth Engineering', metric: '2,500+', outcome: 'Conversions',
-        image: 'https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'The business needed rapid, concentrated expansion across selected regions while preserving the quality of active users.',
-        strategy: 'We engineered acquisition campaigns around live geographic data and created localized offers to maximize installs and orders.',
-        results: ['More than 2,500 successful orders in one month.', 'Reached the top of the target category’s download rankings.', 'Improved cost per order (CPO) by 25%.']
-    },
-    'qanatir': {
-        name: 'Qanatir Food Brand', category: 'Paid Social', metric: '2.5x ROAS', outcome: 'E-commerce Scale',
-        image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop',
-        challenge: 'The brand wanted to move from traditional sales to direct-to-consumer e-commerce and build a loyal customer base.',
-        strategy: 'We built a food-storytelling content system for families, supported by focused performance campaigns across Meta and TikTok.',
-        results: ['Sustained a 2.5x ROAS.', 'Built a database of more than 10,000 interested customers.', 'Grew monthly sales by 200% in the first quarter.']
-    }
-};
+// Projects data is now managed in portfolioEvidence.js
 
 const CaseStudy = () => {
     const { id } = useParams();
@@ -87,6 +20,7 @@ const CaseStudy = () => {
     };
     const [remoteProject, setRemoteProject] = React.useState(null);
     const [loading, setLoading] = React.useState(true);
+    const [showAllEvidence, setShowMore] = React.useState(false);
 
     React.useEffect(() => {
         let mounted = true;
@@ -105,7 +39,6 @@ const CaseStudy = () => {
         return () => { mounted = false; };
     }, [id, lang]);
 
-    const fallbackProject = (lang === 'ar' ? projectsData : projectsDataEn)[id];
     const remoteProjectView = remoteProject ? {
         ...remoteProject,
         metric: Object.values(remoteProject.results || {})[0] || (lang === 'ar' ? 'أثر مثبت' : 'Proven impact'),
@@ -114,7 +47,7 @@ const CaseStudy = () => {
         results: Array.isArray(remoteProject.results)
             ? remoteProject.results
             : Object.entries(remoteProject.results || {}).map(([key, value]) => `${key}: ${value}`),
-    } : fallbackProject;
+    } : null;
     const evidenceProject = getEvidenceProject(id, lang);
     const project = evidenceProject || remoteProjectView;
 
@@ -205,12 +138,33 @@ const CaseStudy = () => {
                             ) : null}
                         </div>
                         <div className="grid md:grid-cols-2 gap-6">
-                            {project.evidenceImages.slice(0, 60).map((image, index) => (
-                                <figure key={`${image}-${index}`} className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-obsidian-800">
-                                    <img src={image} alt={`${project.name} ${lang === 'ar' ? 'نتيجة أداء' : 'performance result'} ${index + 1}`} className="w-full h-auto object-contain" loading={index > 1 ? 'lazy' : 'eager'} />
-                                </figure>
+                            {project.evidenceImages.slice(0, showAllEvidence ? 60 : 4).map((image, index) => (
+                                <motion.figure 
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    key={`${image}-${index}`} 
+                                    className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-obsidian-800"
+                                >
+                                    <img 
+                                        src={image} 
+                                        alt={`${project.name} ${lang === 'ar' ? 'نتيجة أداء' : 'performance result'} ${index + 1}`} 
+                                        className="w-full h-auto object-contain" 
+                                        loading="lazy" 
+                                    />
+                                </motion.figure>
                             ))}
                         </div>
+                        {project.evidenceImages.length > 4 && !showAllEvidence && (
+                            <div className="mt-12 flex justify-center">
+                                <button 
+                                    onClick={() => setShowMore(true)}
+                                    className="px-8 py-4 rounded-full border border-gold-500/30 text-gold-500 hover:bg-gold-500 hover:text-obsidian-950 transition-all font-sans text-sm tracking-widest"
+                                >
+                                    {lang === 'ar' ? 'عرض المزيد من الإثباتات' : 'SHOW MORE EVIDENCE'}
+                                </button>
+                            </div>
+                        )}
                         {project.evidenceNote ? (
                             <p className={`mt-6 text-white/40 text-xs leading-relaxed ${textAlign}`}>{project.evidenceNote}</p>
                         ) : null}

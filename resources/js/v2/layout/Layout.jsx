@@ -29,7 +29,10 @@ const Layout = ({ children }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ 
+                            duration: window.innerWidth < 768 ? 0.3 : 0.6, 
+                            ease: "easeOut" 
+                        }}
                     >
                         {children}
                     </motion.div>
