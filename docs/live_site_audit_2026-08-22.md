@@ -29,3 +29,18 @@ The English homepage was checked after the changes. Navigation, hero, ROI calcul
 ## Remaining non-blocking observations
 
 The production bundle still reports a chunk-size warning above 500 kB. This does not block functionality, but future performance work should split the large React bundle using route-level dynamic imports. Product names such as `Market POS`, `LiftDesk`, `ROAS`, `CAC`, and currency code `SAR` remain intentionally unchanged as product or industry terminology.
+
+## Bundle-splitting performance follow-up
+
+- Before this change, the main JavaScript chunk exceeded the 500 kB Vite warning threshold.
+- After route-level lazy loading, the main chunk is `390.63 kB` (`134.28 kB` gzip).
+- Page chunks are loaded on demand; the largest page-specific chunk is `Layout` at `137.90 kB` (`45.30 kB` gzip), followed by `Home` at `71.35 kB` (`19.74 kB` gzip).
+- The Vite build completed without the previous >500 kB chunk warning.
+- Production commit: `92efc56`.
+- Vercel deployment: `https://wajd-agency-website-f47kd1voa-ali-abdelazim-s-projects.vercel.app` with state `READY`.
+
+## Live smoke verification after code splitting
+
+The READY performance deployment was opened from a clean Arabic homepage URL. The first viewport rendered in Arabic with the navigation, hero, ROI controls, product demo, portfolio proof, and primary CTA present. The product-demo content was available without a blank route state.
+
+The Arabic `/contact` route was then opened directly. Its lazy page chunk loaded successfully, the form displayed the expected name, company, email, phone/WhatsApp, social URL, service, industry, budget, contact preference, message, consent, and submit controls, and the localized contact copy remained intact.
