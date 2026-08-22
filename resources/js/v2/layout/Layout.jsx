@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
             <main className="relative z-10">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        initial={{ opacity: 0 }}
+                        initial={false}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ 

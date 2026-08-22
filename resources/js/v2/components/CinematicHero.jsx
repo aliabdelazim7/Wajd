@@ -94,7 +94,7 @@ const CinematicHero = () => {
                 <div className="relative z-20">
                 {/* Elite Badge */}
                 <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="mb-8 sm:mb-10 flex justify-start"
@@ -107,7 +107,7 @@ const CinematicHero = () => {
 
                 {/* Main Headline with Editorial Stagger */}
                 <motion.h1 
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className={`text-[2.65rem] leading-[1.18] sm:text-5xl sm:leading-[1.12] md:text-7xl lg:text-[7.5rem] font-serif font-medium mb-6 lg:mb-8 tracking-tight ${lang === 'ar' ? 'text-right' : 'text-left'}`}
@@ -118,7 +118,7 @@ const CinematicHero = () => {
 
                 {/* Official Diacritics Slogan Hook */}
                 <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.4 }}
                     className={`mb-10 sm:mb-14 flex items-center gap-3 sm:gap-4 ${lang === 'ar' ? 'text-right flex-row' : 'text-left flex-row-reverse justify-end'}`}
@@ -132,7 +132,7 @@ const CinematicHero = () => {
                 {/* Subheadline & CTA Box */}
                 <div className={`flex flex-col md:flex-row md:items-end justify-between gap-8 sm:gap-12 ${lang === 'ar' ? '' : 'md:flex-row-reverse'}`}>
                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.6 }}
                         className="order-2 md:order-1 w-full md:w-auto"
@@ -144,7 +144,7 @@ const CinematicHero = () => {
                     </motion.div>
 
                     <motion.p 
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.7 }}
                         className={`w-full max-w-2xl text-base sm:text-xl md:text-2xl text-white/60 leading-[1.8] font-arabic order-1 md:order-2 ${lang === 'ar' ? 'text-right border-r-2 pr-4 sm:pr-6' : 'text-left border-l-2 pl-4 sm:pl-6'} border-gold-500/30`}
@@ -155,7 +155,7 @@ const CinematicHero = () => {
 
                 {/* High-Impact Statistics Strip */}
                 <motion.div 
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.9 }}
                     className={`mt-24 sm:mt-36 pt-10 sm:pt-16 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 ${lang === 'ar' ? 'text-right' : 'text-left'}`}
