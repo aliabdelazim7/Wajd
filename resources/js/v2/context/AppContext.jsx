@@ -8,7 +8,8 @@ const getInitialLanguage = () => {
     const queryLocale = new URLSearchParams(window.location.search).get('lang');
     if (queryLocale === 'ar' || queryLocale === 'en') return queryLocale;
     const storedLocale = window.localStorage.getItem('wajd.locale');
-    return storedLocale === 'en' ? 'en' : 'ar';
+    const hasExplicitChoice = window.localStorage.getItem('wajd.locale.selected') === '1';
+    return hasExplicitChoice && storedLocale === 'en' ? 'en' : 'ar';
 };
 
 export const AppProvider = ({ children }) => {
@@ -23,6 +24,7 @@ export const AppProvider = ({ children }) => {
     const setLang = useCallback((nextLanguage) => {
         setLangState((currentLanguage) => {
             const next = typeof nextLanguage === 'function' ? nextLanguage(currentLanguage) : nextLanguage;
+            if (typeof window !== 'undefined') window.localStorage.setItem('wajd.locale.selected', '1');
             return next === 'en' ? 'en' : 'ar';
         });
     }, []);
