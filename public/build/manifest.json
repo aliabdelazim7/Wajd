@@ -1,23 +1,44 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-DQLhxvD1.css",
-    "name": "app",
-    "names": [
-      "app.css"
-    ],
-    "src": "resources/css/app.css",
-    "isEntry": true
+  "_Layout-G4rabMcg.js": {
+    "file": "assets/Layout-G4rabMcg.js",
+    "name": "Layout",
+    "imports": [
+      "resources/js/main.jsx",
+      "_x-eo7uHUEs.js"
+    ]
   },
-  "resources/js/main.jsx": {
-    "file": "assets/main-pu82DKTd.js",
-    "name": "main",
-    "src": "resources/js/main.jsx",
-    "isEntry": true,
-    "css": [
-      "assets/main-CDPVEH3C.css"
-    ],
+  "_chart-column-B4uxD0CR.js": {
+    "file": "assets/chart-column-B4uxD0CR.js",
+    "name": "chart-column",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_chevron-right-BYvXcAsI.js": {
+    "file": "assets/chevron-right-BYvXcAsI.js",
+    "name": "chevron-right",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_clock-3-DkRvsy4q.js": {
+    "file": "assets/clock-3-DkRvsy4q.js",
+    "name": "clock-3",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_layout-dashboard-Byy13M8u.js": {
+    "file": "assets/layout-dashboard-Byy13M8u.js",
+    "name": "layout-dashboard",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_portfolioEvidence-BPQ-WdMH.js": {
+    "file": "assets/portfolioEvidence-BPQ-WdMH.js",
+    "name": "portfolioEvidence",
     "assets": [
-      "assets/market-pos-mockup-ubIPuK8_.png",
       "assets/1-OWjRszda.png",
       "assets/2.6-D6crBtuM.png",
       "assets/2-DgJXt0Wp.png",
@@ -157,6 +178,93 @@
       "assets/Screenshot_6-omDmyoUr.png",
       "assets/Cover-B5_BqzsD.png",
       "assets/hero-CLDdwZDr.png"
+    ]
+  },
+  "_quote-vm9O4Rbe.js": {
+    "file": "assets/quote-vm9O4Rbe.js",
+    "name": "quote",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_search-WHpZucMZ.js": {
+    "file": "assets/search-WHpZucMZ.js",
+    "name": "search",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_shield-check-DSzW521D.js": {
+    "file": "assets/shield-check-DSzW521D.js",
+    "name": "shield-check",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_target-BQ0V-ZbS.js": {
+    "file": "assets/target-BQ0V-ZbS.js",
+    "name": "target",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_trending-up-CpjQS1qR.js": {
+    "file": "assets/trending-up-CpjQS1qR.js",
+    "name": "trending-up",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_users-vFeEgEub.js": {
+    "file": "assets/users-vFeEgEub.js",
+    "name": "users",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "_x-eo7uHUEs.js": {
+    "file": "assets/x-eo7uHUEs.js",
+    "name": "x",
+    "imports": [
+      "resources/js/main.jsx"
+    ]
+  },
+  "_zap-ZshCj_zC.js": {
+    "file": "assets/zap-ZshCj_zC.js",
+    "name": "zap",
+    "imports": [
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DZPxG_s5.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/main.jsx": {
+    "file": "assets/main-BJaRT6SY.js",
+    "name": "main",
+    "src": "resources/js/main.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/v2/pages/Home.jsx",
+      "resources/js/v2/pages/About.jsx",
+      "resources/js/v2/pages/Portfolio.jsx",
+      "resources/js/v2/pages/Contact.jsx",
+      "resources/js/v2/pages/Privacy.jsx",
+      "resources/js/v2/pages/Services.jsx",
+      "resources/js/v2/pages/Admin.jsx",
+      "resources/js/v2/pages/CaseStudy.jsx",
+      "resources/js/v2/pages/ClientPortal.jsx",
+      "resources/js/v2/pages/GrowthInsights.jsx",
+      "resources/js/v2/pages/Error.jsx"
+    ],
+    "css": [
+      "assets/main-CDPVEH3C.css"
     ]
   },
   "resources/js/v2/assets/Cover.png": {
@@ -718,5 +826,158 @@
   "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png": {
     "file": "assets/Screenshot_6-omDmyoUr.png",
     "src": "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png"
+  },
+  "resources/js/v2/pages/About.jsx": {
+    "file": "assets/About-DpdSAuLy.js",
+    "name": "About",
+    "src": "resources/js/v2/pages/About.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js"
+    ]
+  },
+  "resources/js/v2/pages/Admin.jsx": {
+    "file": "assets/Admin-nMLEgK4w.js",
+    "name": "Admin",
+    "src": "resources/js/v2/pages/Admin.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_x-eo7uHUEs.js",
+      "_chart-column-B4uxD0CR.js",
+      "_layout-dashboard-Byy13M8u.js",
+      "_users-vFeEgEub.js",
+      "_clock-3-DkRvsy4q.js",
+      "_search-WHpZucMZ.js",
+      "_target-BQ0V-ZbS.js"
+    ]
+  },
+  "resources/js/v2/pages/CaseStudy.jsx": {
+    "file": "assets/CaseStudy-CbK4385C.js",
+    "name": "CaseStudy",
+    "src": "resources/js/v2/pages/CaseStudy.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js",
+      "_target-BQ0V-ZbS.js",
+      "_zap-ZshCj_zC.js",
+      "_portfolioEvidence-BPQ-WdMH.js"
+    ]
+  },
+  "resources/js/v2/pages/ClientPortal.jsx": {
+    "file": "assets/ClientPortal-DjkWdPv-.js",
+    "name": "ClientPortal",
+    "src": "resources/js/v2/pages/ClientPortal.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js",
+      "_chart-column-B4uxD0CR.js",
+      "_layout-dashboard-Byy13M8u.js",
+      "_chevron-right-BYvXcAsI.js",
+      "_clock-3-DkRvsy4q.js",
+      "_shield-check-DSzW521D.js",
+      "_target-BQ0V-ZbS.js"
+    ]
+  },
+  "resources/js/v2/pages/Contact.jsx": {
+    "file": "assets/Contact-CQyDckdI.js",
+    "name": "Contact",
+    "src": "resources/js/v2/pages/Contact.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js"
+    ]
+  },
+  "resources/js/v2/pages/Error.jsx": {
+    "file": "assets/Error-B1jFAUie.js",
+    "name": "Error",
+    "src": "resources/js/v2/pages/Error.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js"
+    ]
+  },
+  "resources/js/v2/pages/GrowthInsights.jsx": {
+    "file": "assets/GrowthInsights-CT0DgvEV.js",
+    "name": "GrowthInsights",
+    "src": "resources/js/v2/pages/GrowthInsights.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js",
+      "_chevron-right-BYvXcAsI.js",
+      "_clock-3-DkRvsy4q.js",
+      "_quote-vm9O4Rbe.js"
+    ]
+  },
+  "resources/js/v2/pages/Home.jsx": {
+    "file": "assets/Home-4Jd8sGAH.js",
+    "name": "Home",
+    "src": "resources/js/v2/pages/Home.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js",
+      "_chart-column-B4uxD0CR.js",
+      "_layout-dashboard-Byy13M8u.js",
+      "_chevron-right-BYvXcAsI.js",
+      "_users-vFeEgEub.js",
+      "_clock-3-DkRvsy4q.js",
+      "_trending-up-CpjQS1qR.js",
+      "_quote-vm9O4Rbe.js",
+      "_shield-check-DSzW521D.js",
+      "_target-BQ0V-ZbS.js",
+      "_zap-ZshCj_zC.js",
+      "_portfolioEvidence-BPQ-WdMH.js"
+    ],
+    "assets": [
+      "assets/market-pos-mockup-ubIPuK8_.png"
+    ]
+  },
+  "resources/js/v2/pages/Portfolio.jsx": {
+    "file": "assets/Portfolio-B--CyXVQ.js",
+    "name": "Portfolio",
+    "src": "resources/js/v2/pages/Portfolio.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_portfolioEvidence-BPQ-WdMH.js"
+    ]
+  },
+  "resources/js/v2/pages/Privacy.jsx": {
+    "file": "assets/Privacy-BFXS9k0k.js",
+    "name": "Privacy",
+    "src": "resources/js/v2/pages/Privacy.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js"
+    ]
+  },
+  "resources/js/v2/pages/Services.jsx": {
+    "file": "assets/Services-CAquj4XZ.js",
+    "name": "Services",
+    "src": "resources/js/v2/pages/Services.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/main.jsx",
+      "_Layout-G4rabMcg.js",
+      "_x-eo7uHUEs.js",
+      "_chart-column-B4uxD0CR.js",
+      "_trending-up-CpjQS1qR.js",
+      "_search-WHpZucMZ.js",
+      "_target-BQ0V-ZbS.js"
+    ]
   }
 }
