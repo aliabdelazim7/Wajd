@@ -32,7 +32,7 @@ const Contact = () => {
         ...(packageBuilder.addons || []).map((addon) => `${addon.name} — ${Number(addon.price || 0).toLocaleString()} SAR / ${addon.type === 'monthly' ? (lang === 'ar' ? 'شهرياً' : 'monthly') : (lang === 'ar' ? 'مرة واحدة' : 'one-time')}`),
         `${lang === 'ar' ? 'الإجمالي الشهري المبدئي' : 'Indicative monthly total'}: ${Number(packageBuilder.monthlyTotal || 0).toLocaleString()} SAR`,
         ...(Number(packageBuilder.oneTimeTotal || 0) > 0 ? [`${lang === 'ar' ? 'إضافات تدفع مرة واحدة' : 'One-time add-ons'}: ${Number(packageBuilder.oneTimeTotal).toLocaleString()} SAR`] : []),
-    ].filter(Boolean).join('\\n') : '';
+    ].filter(Boolean).join('\n') : '';
     const roiSummary = roiSnapshot ? [
         `${lang === 'ar' ? 'ملخص حاسبة العائد:' : 'ROI calculator snapshot:'}`,
         `${lang === 'ar' ? 'الميزانية الإعلانية' : 'Ad budget'}: ${Number(roiSnapshot.budget || 0).toLocaleString()} SAR`,
@@ -40,9 +40,9 @@ const Contact = () => {
         `${lang === 'ar' ? 'الهامش' : 'Margin'}: ${Number(roiSnapshot.margin || 0)}%`,
         `${lang === 'ar' ? 'الإيراد المتوقع في السيناريو' : 'Scenario revenue'}: ${Number(roiSnapshot.projectedRevenue || 0).toLocaleString()} SAR`,
         `${lang === 'ar' ? 'ROAS نقطة التعادل التقريبية' : 'Approx. break-even ROAS'}: ${Number(roiSnapshot.breakEvenRoas || 0).toFixed(1)}x`,
-    ].join('\\n') : '';
+    ].join('\n') : '';
     const initialBrief = packageBuilder
-        ? `${lang === 'ar' ? 'المنظومة المختارة:' : 'Selected growth-engine build:'}\\n${builderSummary}`
+        ? `${lang === 'ar' ? 'المنظومة المختارة:' : 'Selected growth-engine build:'}\n${builderSummary}`
         : roiSummary;
     const [formData, setFormData] = useState({
         name: '',
@@ -215,12 +215,13 @@ const Contact = () => {
         setSubmitting(true);
         setError('');
         try {
+            const { website, ...leadFields } = formData;
             const response = await fetch('/api/leads/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
                 body: JSON.stringify({
-                    ...formData,
-                    page_url: formData.website || undefined,
+                    ...leadFields,
+                    page_url: website || undefined,
                     locale: lang,
                     source: 'website-contact-form',
                 }),

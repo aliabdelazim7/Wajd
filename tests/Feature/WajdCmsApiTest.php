@@ -50,6 +50,7 @@ class WajdCmsApiTest extends TestCase
             'name' => 'Test Lead',
             'email' => 'lead@example.com',
             'phone' => '+966500000000',
+            'page_url' => 'https://example.com/store',
             'service' => 'performance-marketing',
             'industry' => 'ecommerce',
             'contact_preference' => 'whatsapp',
@@ -57,6 +58,11 @@ class WajdCmsApiTest extends TestCase
             'message' => 'Test submission',
             'consent' => true,
         ])->assertCreated()->assertJsonPath('data.id', 1);
+
+        $this->assertDatabaseHas('leads', [
+            'email' => 'lead@example.com',
+            'page_url' => 'https://example.com/store',
+        ]);
     }
 
     public function test_admin_can_manage_package_addon_and_project_proof(): void
