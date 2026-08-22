@@ -1,33 +1,20 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { startAnalytics, trackRouteView } from './utils/analytics.js';
+import Home from './pages/Home.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import About from './pages/About.jsx';
+import Portfolio from './pages/Portfolio.jsx';
+import Contact from './pages/Contact.jsx';
+import Privacy from './pages/Privacy.jsx';
+import Services from './pages/Services.jsx';
+import Admin from './pages/Admin.jsx';
+import CaseStudy from './pages/CaseStudy.jsx';
+import ClientPortal from './pages/ClientPortal.jsx';
+import GrowthInsights from './pages/GrowthInsights.jsx';
+import Error from './pages/Error.jsx';
 import { useApp } from './context/AppContext.jsx';
 
-const Home = lazy(() => import('./pages/Home.jsx'));
-const About = lazy(() => import('./pages/About.jsx'));
-const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
-const Contact = lazy(() => import('./pages/Contact.jsx'));
-const Privacy = lazy(() => import('./pages/Privacy.jsx'));
-const Services = lazy(() => import('./pages/Services.jsx'));
-const Admin = lazy(() => import('./pages/Admin.jsx'));
-const CaseStudy = lazy(() => import('./pages/CaseStudy.jsx'));
-const ClientPortal = lazy(() => import('./pages/ClientPortal.jsx'));
-const GrowthInsights = lazy(() => import('./pages/GrowthInsights.jsx'));
-const Error = lazy(() => import('./pages/Error.jsx'));
-const RouteLoading = () => {
-    const { lang } = useApp();
-    const isArabic = lang === 'ar';
-
-    return (
-        <main dir={isArabic ? 'rtl' : 'ltr'} className="flex min-h-screen items-center justify-center bg-[#0b0b0a] px-6 text-center text-white">
-            <div role="status" aria-live="polite">
-                <span className="mb-4 block text-xs font-semibold tracking-[0.28em] text-gold-500">WAJD</span>
-                <p className="font-serif text-2xl text-white/80">{isArabic ? 'بنجهز لك الصفحة...' : 'Preparing your page...'}</p>
-            </div>
-        </main>
-    );
-};
 
 const pageMeta = {
     '/': {
@@ -141,22 +128,20 @@ const AppV2 = () => {
             <ScrollToTop />
             <AnalyticsManager />
             <SeoManager />
-            <Suspense fallback={<RouteLoading />}>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/portfolio/:id" element={<CaseStudy />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/portal" element={<ClientPortal />} />
-                    <Route path="/insights" element={<GrowthInsights />} />
-                    <Route path="/insights/:slug" element={<GrowthInsights />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/admin/*" element={<Admin />} />
-                    <Route path="*" element={<Error />} />
-                </Routes>
-            </Suspense>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/portfolio/:id" element={<CaseStudy />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/portal" element={<ClientPortal />} />
+                <Route path="/insights" element={<GrowthInsights />} />
+                <Route path="/insights/:slug" element={<GrowthInsights />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/admin/*" element={<Admin />} />
+                <Route path="*" element={<Error />} />
+            </Routes>
         </Router>
     );
 };
