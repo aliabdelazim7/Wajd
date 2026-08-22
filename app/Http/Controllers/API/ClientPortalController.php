@@ -16,9 +16,14 @@ class ClientPortalController extends Controller
             return response()->json(['message' => 'مطلوب رمز الدخول للبوابة.'], 401);
         }
 
+        $email = base64_decode((string) $token, true);
+        if ($email === false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return response()->json(['message' => 'رمز البوابة غير صالح.'], 401);
+        }
+
         $lead = Lead::where('portal_status', 'invited')
-            ->where('email', base64_decode($token))
-            ->first() ?? Lead::latest('created_at')->first();
+            ->where('email', $email)
+            ->first();
 
         if (!$lead) {
             return response()->json(['message' => 'لم يتم العثور على مشروع نشط لهذا الرمز.'], 404);

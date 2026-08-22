@@ -68,6 +68,11 @@ const ProductDemo = () => {
         featureBody: 'لوحة واضحة للفريق، بيانات قابلة للفهم، وأتمتة تقلل الأعمال اليدوية — عشان النمو مايبقاش معلقاً على شخص واحد.',
         features: ['واجهة عربية وإنجليزية', 'لوحات قياس قابلة للتخصيص', 'ربط مع رحلة العميل', 'صلاحيات وتقارير للفريق'],
         proof: 'بدل ما تتخيل النتيجة، جرّب شكلها الآن.',
+        chartRange: 'آخر 30 يوماً',
+        chartWeeks: ['أ1', 'أ2', 'أ3', 'أ4'],
+        liveStatus: 'مباشر',
+        stockTrend: 'جيد',
+        runningTrend: 'يعمل',
     } : {
         eyebrow: 'SEE THE PRODUCT BEFORE YOU BUY IT',
         title: 'We do not sell promises.\nWe show the system working.',
@@ -105,6 +110,11 @@ const ProductDemo = () => {
         featureBody: 'A clear workspace for the team, readable data, and automation that reduces manual work — so growth never depends on one person.',
         features: ['Arabic and English interface', 'Custom performance dashboards', 'Connected customer journey', 'Team permissions and reporting'],
         proof: 'Do not imagine the result. Experience the shape of it now.',
+        chartRange: 'Last 30 days',
+        chartWeeks: ['W1', 'W2', 'W3', 'W4'],
+        liveStatus: 'Live',
+        stockTrend: 'Healthy',
+        runningTrend: 'Running',
     }, [isArabic]);
     const localizedDemoSettings = demoSettings[isArabic ? 'ar' : 'en'] || demoSettings;
     const copy = useMemo(() => ({
@@ -120,11 +130,11 @@ const ProductDemo = () => {
     const marketMetrics = Array.isArray(localizedDemoSettings.marketMetrics) ? localizedDemoSettings.marketMetrics : [
         { key: 'totalSales', label: copy.metrics.totalSales, value: '24,780', suffix: 'SAR', trend: '+12.5%' },
         { key: 'orders', label: copy.metrics.orders, value: '48', suffix: '', trend: '+8.3%' },
-        { key: 'stock', label: copy.metrics.stock, value: '92%', suffix: '', trend: 'Healthy' },
+        { key: 'stock', label: copy.metrics.stock, value: '92%', suffix: '', trend: copy.stockTrend },
     ];
     const liftMetrics = Array.isArray(localizedDemoSettings.liftMetrics) ? localizedDemoSettings.liftMetrics : [
         { key: 'messages', label: isArabic ? 'رسائل اليوم' : 'Messages today', value: '126', suffix: '', trend: '+24%' },
-        { key: 'flows', label: isArabic ? 'تدفقات نشطة' : 'Active flows', value: '14', suffix: '', trend: 'Running' },
+        { key: 'flows', label: isArabic ? 'تدفقات نشطة' : 'Active flows', value: '14', suffix: '', trend: copy.runningTrend },
         { key: 'resolved', label: copy.metrics.resolved, value: '89%', suffix: '', trend: '+17%' },
     ];
     const marketChart = Array.isArray(localizedDemoSettings.marketChart) && localizedDemoSettings.marketChart.length ? localizedDemoSettings.marketChart : [34, 52, 42, 67, 58, 78, 64, 88, 73, 96, 81, 100];
@@ -260,11 +270,11 @@ const ProductDemo = () => {
                                             </div>
                                             <div className="mt-4 grid gap-4 xl:grid-cols-[1.25fr_0.75fr]">
                                                 <div className="relative min-h-[185px] overflow-hidden rounded-2xl border border-white/8 bg-black/15 p-4">
-                                                    <div className="mb-5 flex items-center justify-between text-xs text-white/40"><span>{copy.sales}</span><span className="rounded-md border border-white/10 px-2 py-1">Last 30 days</span></div>
+                                                    <div className="mb-5 flex items-center justify-between text-xs text-white/40"><span>{copy.sales}</span><span className="rounded-md border border-white/10 px-2 py-1">{copy.chartRange}</span></div>
                                                     <div className="flex h-28 items-end gap-2">
                                                         {marketChart.map((height, index) => <div key={index} className={`flex-1 rounded-t-md ${index === 9 ? 'bg-gold-500' : 'bg-gold-500/25'}`} style={{ height: `${height}%` }} />)}
                                                     </div>
-                                                    <div className="mt-2 flex justify-between text-[10px] text-white/25"><span>W1</span><span>W2</span><span>W3</span><span>W4</span></div>
+                                                    <div className="mt-2 flex justify-between text-[10px] text-white/25">{copy.chartWeeks.map((week) => <span key={week}>{week}</span>)}</div>
                                                 </div>
                                                 <div className="rounded-2xl border border-white/8 bg-black/15 p-4">
                                                     <div className="mb-4 flex items-center justify-between text-xs text-white/40"><span>{copy.metrics.stock}</span><PackageCheck className="h-4 w-4 text-gold-500" /></div>
@@ -282,7 +292,7 @@ const ProductDemo = () => {
                                                 {liftMetrics.slice(0, 3).map((item) => { const Icon = metricIcons[item.key] || BarChart3; return <Metric key={item.key} icon={Icon} label={item.label} value={item.value} suffix={item.suffix} trend={item.trend} />; })}
                                             </div>
                                             <div className="mt-4 rounded-2xl border border-white/8 bg-black/15 p-4">
-                                                <div className="mb-4 flex items-center justify-between text-xs text-white/40"><span>{copy.automations}</span><span className="inline-flex items-center gap-1.5 text-emerald-300/70"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Live</span></div>
+                                                <div className="mb-4 flex items-center justify-between text-xs text-white/40"><span>{copy.automations}</span><span className="inline-flex items-center gap-1.5 text-emerald-300/70"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> {copy.liveStatus}</span></div>
                                                 <div className="space-y-2">
                                                     {copy.liftRows.map(([title, body, time], index) => <div key={title} className="flex items-center gap-3 rounded-xl border border-white/8 bg-white/[0.02] px-3 py-3"><div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${index === 0 ? 'bg-gold-500/15 text-gold-500' : 'bg-white/5 text-white/40'}`}>{index === 0 ? <MessageSquareText className="h-4 w-4" /> : index === 1 ? <Users className="h-4 w-4" /> : <BarChart3 className="h-4 w-4" />}</div><div className="min-w-0 flex-1"><p className="truncate text-xs font-semibold text-white/75">{title}</p><p className="truncate text-[11px] text-white/35">{body}</p></div><span className="shrink-0 text-[10px] text-white/25">{time}</span></div>)}
                                                 </div>

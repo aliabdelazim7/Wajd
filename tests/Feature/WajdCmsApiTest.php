@@ -65,6 +65,26 @@ class WajdCmsApiTest extends TestCase
         ]);
     }
 
+    public function test_client_portal_rejects_missing_and_invalid_tokens(): void
+    {
+        $this->getJson('/api/portal/snapshot')->assertUnauthorized();
+
+        $this->postJson('/api/leads/submit', [
+            'name' => 'Portal QA Lead',
+            'email' => 'portal-qa@example.com',
+            'phone' => '+966500000011',
+            'service' => 'growth-engine',
+            'industry' => 'ecommerce',
+            'contact_preference' => 'whatsapp',
+            'budget_sar' => 2000,
+            'message' => 'Portal security regression test',
+            'consent' => true,
+        ])->assertCreated();
+
+        $invalidToken = base64_encode('not-the-qa-lead@example.com');
+        $this->getJson('/api/portal/snapshot?token=' . urlencode($invalidToken))->assertNotFound();
+    }
+
     public function test_admin_can_manage_package_addon_and_project_proof(): void
     {
         $admin = User::factory()->create([
