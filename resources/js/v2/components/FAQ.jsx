@@ -50,12 +50,12 @@ const FAQ = () => {
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
 
     const fallbackFaqs = lang === 'ar' ? [
-        { question: 'ما هي الميزانية الإعلانية التي تنصحون بها للبدء؟', answer: 'نبدأ باختبار إعلاني من 1,000 إلى 2,000 ريال، ثم نزيد الاستثمار فقط عندما تظهر مؤشرات واضحة على ما يعمل.' },
+        { question: 'ما هي الميزانية الإعلانية التي تنصحون بها للبدء؟', answer: 'نبدأ باختبار إعلاني من 1,000 إلى 2,000 من عملتك المحلية، ثم نزيد الاستثمار فقط عندما تظهر مؤشرات واضحة على ما يعمل.' },
         { question: 'متى يمكنني توقع رؤية نتائج ملموسة؟', answer: 'تظهر مؤشرات الأداء الأولى خلال الأسبوع الأول، بينما تحتاج دورة النمو الكاملة عادةً إلى 60–90 يوماً لبناء أساس قابل للتوسع.' },
         { question: 'هل تقدمون خدمات صناعة المحتوى الإبداعي؟', answer: 'نعم، نصمم أصولاً بصرية موجهة لجذب الانتباه والتحويل، مع ربط الإبداع بما تظهره بيانات الجمهور.' },
         { question: 'كيف تضمنون شفافية الأرقام والبيانات؟', answer: 'نشاركك مؤشرات الأداء بوضوح ونشرح أين يذهب كل ريال وما الذي يحقق عائداً فعلياً.' },
     ] : [
-        { question: 'What ad budget do you recommend to start?', answer: 'We start with a focused test from SAR 1,000 to 2,000, then increase spend only when the data shows what works.' },
+        { question: 'What ad budget do you recommend to start?', answer: 'We start with a focused test from 1,000 to 2,000 in your local currency, then increase spend only when the data shows what works.' },
         { question: 'When can I expect to see tangible results?', answer: 'Early indicators can appear in the first week, while a meaningful growth cycle usually needs 60–90 days to build a scalable base.' },
         { question: 'Do you provide creative content production?', answer: 'Yes. We design visual assets built for attention and conversion, connecting creative decisions to audience data.' },
         { question: 'How do you ensure data transparency?', answer: 'We keep performance visible and explain where every riyal goes and which decisions are producing a return.' },

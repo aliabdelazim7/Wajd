@@ -128,7 +128,10 @@ const ProductDemo = () => {
     }), [baseCopy, localizedDemoSettings]);
 
     const metricIcons = { totalSales: CircleDollarSign, orders: ShoppingCart, stock: PackageCheck, messages: MessageSquareText, flows: Workflow, resolved: Clock3 };
-    const marketMetrics = Array.isArray(localizedDemoSettings.marketMetrics) ? localizedDemoSettings.marketMetrics : [
+    const configuredMarketMetrics = Array.isArray(localizedDemoSettings.marketMetrics) ? localizedDemoSettings.marketMetrics : null;
+    const marketMetrics = configuredMarketMetrics ? configuredMarketMetrics.map((metric) => metric.key === 'totalSales'
+        ? { ...metric, value: formatMoney(Number(String(metric.value || '').replace(/[^0-9.]/g, '')) || 24780, currency, lang), suffix: '' }
+        : metric) : [
         { key: 'totalSales', label: copy.metrics.totalSales, value: formatMoney(24780, currency, lang), suffix: '', trend: '+12.5%' },
         { key: 'orders', label: copy.metrics.orders, value: '48', suffix: '', trend: '+8.3%' },
         { key: 'stock', label: copy.metrics.stock, value: '92%', suffix: '', trend: copy.stockTrend },
