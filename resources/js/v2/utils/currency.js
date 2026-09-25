@@ -29,4 +29,3 @@ export const currencyLabel = (currency, lang = 'ar') => {
     const target = CURRENCIES[currency] || CURRENCIES[DEFAULT_CURRENCY];
     return lang === 'ar' ? target.labelAr : target.labelEn;
 };
-EOF
