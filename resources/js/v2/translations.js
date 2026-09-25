@@ -59,10 +59,10 @@ export const translations = {
                 body: 'من الموقع والمتجر إلى التسويق والأنظمة، نرتب لك الصورة في مسار واحد واضح. تعرف ماذا ننجز الآن، وما الذي يأتي بعده، وكيف يخدم كل قرار نمو مشروعك.',
                 cta: 'شوف طريقة شغلنا',
                 cards: [
-                    { title: 'الاستحواذ', desc: 'أنظمة قابلة للتوسع للعثور على عملائك المثاليين وتحويلهم.' },
-                    { title: 'الأداء', desc: 'تحسين مبني على البيانات يحقق أقصى استفادة من كل ميزانية.' },
-                    { title: 'الإبداع', desc: 'سرد قصصي بصري مصمم خصيصاً لجذب الانتباه والتحويل.' },
-                    { title: 'الاستراتيجية', desc: 'المخطط المعماري وراء كل حملة ناجحة.' }
+                    { title: 'توصيل الفكرة', desc: 'نحوّل ما يميز مشروعك إلى رسالة يفهمها العميل ويهتم بها.' },
+                    { title: 'تجربة تبيع', desc: 'نبني موقعًا أو متجرًا مرتبًا يجعل الخطوة التالية أسهل.' },
+                    { title: 'نمو محسوب', desc: 'ندير التسويق بقرارات مبنية على الأرقام، لا على التخمين.' },
+                    { title: 'تشغيل أهدأ', desc: 'نربط الأدوات والمهام حتى يكبر مشروعك من غير فوضى.' }
                 ]
             },
             selectedImpact: {
@@ -173,10 +173,10 @@ export const translations = {
                 body: 'From your website and store to marketing and systems, we bring the work into one clear path. You know what happens now, what comes next, and how each decision supports the business.',
                 cta: 'See our approach',
                 cards: [
-                    { title: 'Acquisition', desc: 'Scalable systems to find and convert your ideal customers.' },
-                    { title: 'Performance', desc: 'Data-led optimization that makes the most of every budget.' },
-                    { title: 'Creative', desc: 'Visual storytelling designed to earn attention and drive conversion.' },
-                    { title: 'Strategy', desc: 'The architectural blueprint behind every successful campaign.' }
+                    { title: 'A sharper proposition', desc: 'Turn what makes your business different into a message customers understand.' },
+                    { title: 'An experience that sells', desc: 'Build a website or store that makes the next step feel easy.' },
+                    { title: 'Measured momentum', desc: 'Make marketing decisions from the numbers, not guesswork.' },
+                    { title: 'Calmer operations', desc: 'Connect tools and tasks so the business can grow without the mess.' }
                 ]
             },
             selectedImpact: {
