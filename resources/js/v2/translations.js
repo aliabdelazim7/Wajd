@@ -9,12 +9,12 @@ export const translations = {
             cta: 'ابدأ خطوة جديدة'
         },
         hero: {
-            badge: 'تسويق • متاجر • أنظمة • أتمتة — في مكان واحد',
-            title1: 'مش محتاج أربع شركات..',
-            title2: 'إحنا نكمل لك الصورة.',
-            slogan: 'من أول فكرة لحد أول عملية بيع — وجد معاك.',
-            desc: 'نبني لك الموقع أو المتجر على WordPress وShopify وSalla وZid، ونوصلّه بالتسويق والأنظمة والأتمتة. فريق واحد يفهم مشروعك وينفّذ الصورة كاملة.',
-            cta: 'خلّينا نبني مشروعك',
+            badge: 'شريك نمو وتسويق وتقنية — بخطة واضحة',
+            title1: 'نبني لك المسار',
+            title2: 'الذي يوصلك للنتيجة.',
+            slogan: 'شغل متقن. نمو محسوب.',
+            desc: 'نبني لك الموقع أو المتجر على WordPress وShopify وSalla وZid، ونوصله بالتسويق والأنظمة والأتمتة. فريق واحد، خطة واضحة، وتنفيذ يليق بطموحك.',
+            cta: 'خلّينا نرتّب الخطوة الجاية',
             metrics: {
                 adSpend: 'الإنفاق الإعلاني المُدار',
                 maxRoas: 'أعلى عائد مُحقق',
@@ -40,24 +40,24 @@ export const translations = {
             }
         },
         whyUs: {
-            tag: 'لماذا وجد؟',
-            title: 'كل اللي مشروعك محتاجه.. من مكان واحد',
-            subtitle: 'بدل ما تشرح مشروعك لشركة تعمل الموقع، وشركة تدير التسويق، وشخص يركّب النظام — خليك مع فريق واحد ماسك الصورة من أولها لآخرها.',
+            tag: 'لماذا يعمل الناس معنا؟',
+            title: 'فريق يفهم الصورة وينفّذها بمستوى يليق بك',
+            subtitle: 'أنت محتاج فريق يفهم مشروعك، يشتغل بجودة، ويقول لك الحقيقة بوضوح. هذا بالضبط هو الدور الذي نأخذه معك.',
             items: [
-                { title: 'مكان واحد لكل شيء', desc: 'موقع، متجر، هوية، تسويق، نظام أو أتمتة — كل قطعة تتبني على اللي قبلها بدل ما تشتغل جزر منفصلة.' },
-                { title: 'نبدأ من احتياجك', desc: 'مش لازم تبدأ بباقة كبيرة. اختار الأساس، وزوّد عليه فقط الوحدات اللي تخدم مرحلتك وميزانيتك.' },
-                { title: 'تقنية تخدم البيع', desc: 'نبني تجربة سهلة لعميلك وفريقك، من أول زيارة لحد الطلب والمتابعة والتقرير.' },
-                { title: 'شغل مفهوم وأرقام واضحة', desc: 'تعرف إيه اتعمل، وإيه اللي جاب نتيجة، وإيه الخطوة الجاية — من غير كلام تقيل أو تقارير مالهاش لازمة.' }
+                { title: 'فريق واحد يفهم الصورة', desc: 'الموقع والمتجر والتسويق والأنظمة تتبني معًا، فلا تضيع وقتك بين جهات لا تتواصل مع بعضها.' },
+                { title: 'تنفيذ يليق باسمك', desc: 'نهتم بالتفاصيل التي يلاحظها عميلك: تجربة مرتبة، رسائل واضحة، وشغل يظهر بمستوى احترافي.' },
+                { title: 'نبدأ من احتياجك', desc: 'مش لازم تبدأ بأكبر باقة. نحدد الأولوية، نبدأ صح، ونوسع عندما يكون التوسع منطقيًا.' },
+                { title: 'وضوح من أول يوم', desc: 'تعرف ماذا سنفعل، لماذا نفعله، وما الذي تحسن — من غير مصطلحات ثقيلة أو وعود مبالغ فيها.' }
             ]
         },
         home: {
             trustedBy: 'موثوق به من علامات طموحة',
             outcomeEngine: {
-                eyebrow: 'شريك واحد بدل دوشة التعاقدات',
-                title1: 'من الفكرة للموقع..',
-                title2: 'ومن التسويق للنظام.',
-                body: 'لو عندك مشروع، مش لازم تروح لجهة تعمل لك الموقع، وجهة ثانية للتسويق، وثالثة للنظام. وجد تجمع لك التنفيذ كله في مسار واحد: نبني الأساس، نشغّل التسويق، ونربط الأرقام بالقرارات.',
-                cta: 'اعرف بنشتغل إزاي',
+                eyebrow: 'من الفكرة إلى التنفيذ — بخطة واحدة',
+                title1: 'نبني الأساس',
+                title2: 'ثم نكبره معك.',
+                body: 'من الموقع والمتجر إلى التسويق والأنظمة، نرتب لك الصورة في مسار واحد واضح. تعرف ماذا ننجز الآن، وما الذي يأتي بعده، وكيف يخدم كل قرار نمو مشروعك.',
+                cta: 'شوف طريقة شغلنا',
                 cards: [
                     { title: 'الاستحواذ', desc: 'أنظمة قابلة للتوسع للعثور على عملائك المثاليين وتحويلهم.' },
                     { title: 'الأداء', desc: 'تحسين مبني على البيانات يحقق أقصى استفادة من كل ميزانية.' },
@@ -73,9 +73,9 @@ export const translations = {
             }
         },
         packages: {
-            tag: 'ابنِ منظومة نموك',
-            title: 'ابدأ بالأساس.. وأضف ما يحتاجه مشروعك',
-            subtitle: 'اختر مستوى الشراكة المناسب لك، ثم أضف المتجر أو النظام أو الأتمتة التي يحتاجها مشروعك. لا تدفع مقابل شيء لست مستعداً له.',
+            tag: 'خطط مرنة، وتنفيذ محسوب',
+            title: 'ابدأ بما تحتاجه الآن، وابنِ عليه بهدوء',
+            subtitle: 'اختر مستوى الشراكة المناسب لمرحلتك، ثم أضف المتجر أو النظام أو الأتمتة عندما تكون جاهزًا. نطاق واضح، وتكلفة مفهومة، وتنفيذ احترافي.',
             adSpendNote: 'الأسعار تقديرية لأتعاب التنفيذ والإدارة. الميزانية الإعلانية وأي تكاملات خارجية تُحدد بعد مراجعة احتياجك.',
             mostPopular: 'الأكثر طلباً',
             bestForLabel: 'مناسب لـ',
@@ -107,9 +107,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'عندك فكرة؟ خلّي تنفيذها علينا.',
-            desc: 'ابعت لنا مشروعك كما هو، وسنرتّب لك أولويات واضحة: إيه يتعمل الآن، وإيه يتأجل، وإزاي تجمع الموقع والتسويق والتقنية في مسار واحد.',
-            cta: 'احكي لنا عن مشروعك',
+            ready: 'عندك خطوة مهمة؟ خلّينا نرتّبها معًا.',
+            desc: 'احكِ لنا عن مشروعك كما هو، وسنعود لك برؤية واضحة: ما الأولوية الآن، وما الذي يمكن تأجيله، وكيف نرفع مستوى التنفيذ من غير تعقيد.',
+            cta: 'رتّب مكالمة مع وجد',
             rights: 'جميع الحقوق محفوظة لوكالة وجد للتسويق.'
         }
     },
@@ -123,12 +123,12 @@ export const translations = {
             cta: 'Start a conversation'
         },
         hero: {
-            badge: 'MARKETING • COMMERCE • SYSTEMS • AUTOMATION — ONE PARTNER',
-            title1: 'You do not need four vendors.',
-            title2: 'You need one team that sees the whole picture.',
-            slogan: 'From first idea to first sale — Wajd stays with you.',
-            desc: 'We build your website or store on WordPress, Shopify, Salla, or Zid, then connect it to marketing, operations, and automation. One team, one context, one accountable path forward.',
-            cta: 'Build my business with Wajd',
+            badge: 'GROWTH, MARKETING & TECHNOLOGY — MADE CLEAR',
+            title1: 'We build the path',
+            title2: 'that gets you to the result.',
+            slogan: 'Thoughtful work. Measurable growth.',
+            desc: 'We build your website or store on WordPress, Shopify, Salla, or Zid, then connect it to marketing, systems, and automation. One team, a clear plan, and work your business can trust.',
+            cta: 'Plan the next step with Wajd',
             metrics: {
                 adSpend: 'Ad Spend Managed',
                 maxRoas: 'Max ROAS Achieved',
@@ -154,24 +154,24 @@ export const translations = {
             }
         },
         whyUs: {
-            tag: 'THE WAJD EDGE',
-            title: 'Everything your business needs, in one place',
-            subtitle: 'Instead of briefing one company on your website, another on marketing, and someone else on systems, work with one team that owns the full picture.',
+            tag: 'WHY CLIENTS CHOOSE WAJD',
+            title: 'A team that sees the whole picture and delivers with care',
+            subtitle: 'You need a team that understands your business, cares about the quality of the work, and tells you what is actually happening. That is the role we take on with you.',
             items: [
-                { title: 'One place for the whole build', desc: 'Website, store, brand, marketing, systems, or automation — each piece is designed to work with the next.' },
-                { title: 'Start at the right level', desc: 'You do not need a large package on day one. Start with the core and add only what your stage and budget need.' },
-                { title: 'Technology that helps you sell', desc: 'We make the experience easier for your customers and your team, from the first visit through the order and follow-up.' },
-                { title: 'Clear work and useful numbers', desc: 'You know what was done, what moved the needle, and what comes next — without heavy jargon or vanity reports.' }
+                { title: 'One team with the full picture', desc: 'Your website, commerce, marketing, and systems are designed together, not handed between disconnected vendors.' },
+                { title: 'Work that represents your brand', desc: 'We care about the details your customers notice: a considered experience, clear messaging, and a professional finish.' },
+                { title: 'Start at the right level', desc: 'You do not need the biggest package on day one. We identify the priority, do it properly, and expand when it makes sense.' },
+                { title: 'Clarity from day one', desc: 'You know what we are doing, why it matters, and what improved — without heavy jargon or inflated promises.' }
             ]
         },
         home: {
             trustedBy: 'Trusted by ambitious brands',
             outcomeEngine: {
-                eyebrow: 'One partner instead of vendor chaos',
-                title1: 'From the idea to the website.',
-                title2: 'From marketing to the system.',
-                body: 'You should not have to brief one company on the website, another on marketing, and a third on operations. Wajd brings the build into one path: we create the foundation, run the growth work, and connect the numbers to decisions.',
-                cta: 'See how we work',
+                eyebrow: 'From the idea to execution — one clear plan',
+                title1: 'We build the foundation',
+                title2: 'then grow it with you.',
+                body: 'From your website and store to marketing and systems, we bring the work into one clear path. You know what happens now, what comes next, and how each decision supports the business.',
+                cta: 'See our approach',
                 cards: [
                     { title: 'Acquisition', desc: 'Scalable systems to find and convert your ideal customers.' },
                     { title: 'Performance', desc: 'Data-led optimization that makes the most of every budget.' },
@@ -187,9 +187,9 @@ export const translations = {
             }
         },
         packages: {
-            tag: 'BUILD YOUR GROWTH ENGINE',
-            title: 'Start with the core. Add what your business needs.',
-            subtitle: 'Choose the right level of partnership, then add the store, system, or automation your business is ready for. No paying for what you do not need yet.',
+            tag: 'FLEXIBLE PLANS. CONSIDERED EXECUTION.',
+            title: 'Start with what matters now. Build from there.',
+            subtitle: 'Choose the right level of partnership for your stage, then add the store, system, or automation when you are ready. Clear scope, understandable costs, and professional delivery.',
             adSpendNote: 'Prices are indicative for execution and management. Ad spend and third-party integrations are scoped separately after reviewing your needs.',
             mostPopular: 'Most Popular',
             bestForLabel: 'Best for',
@@ -221,9 +221,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'Have an idea? Let us handle the build.',
-            desc: 'Tell us where the project stands. We will help you prioritize what to build now, what to defer, and how to bring the website, marketing, and technology into one plan.',
-            cta: 'Tell us about your project',
+            ready: 'Have an important next step? Let’s shape it together.',
+            desc: 'Tell us where the project stands. We will help you see what matters now, what can wait, and how to raise the quality of execution without adding complexity.',
+            cta: 'Plan a conversation with Wajd',
             rights: 'All rights reserved to Wajd Marketing Agency.'
         }
     }

@@ -10,8 +10,8 @@ const Services = () => {
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const hero = getCmsBlock(content, 'services.hero', lang === 'ar'
-        ? { title: 'كل مشروع له طريقه.. وإحنا نمشيه معاك.', body: 'من WordPress وShopify إلى التسويق والأنظمة والأتمتة — خُد احتياجك من مكان واحد، وبنِ الحل على قد مرحلتك.', data: { eyebrow: 'شريكك في التنفيذ' } }
-        : { title: 'One team for the whole build.', body: 'From WordPress and Shopify to marketing, systems, and automation — bring the work together with one accountable partner.', data: { eyebrow: 'ONE PARTNER' } });
+        ? { title: 'حلول نمو مصممة حول مشروعك.', body: 'من WordPress وShopify إلى التسويق والأنظمة والأتمتة — نرتب لك ما تحتاجه ونبنيه بمستوى يليق باسمك.', data: { eyebrow: 'قدرات وجد' } }
+        : { title: 'Growth solutions shaped around your business.', body: 'From WordPress and Shopify to marketing, systems, and automation — we bring the right pieces together and build them to a standard your business can trust.', data: { eyebrow: 'Wajd capabilities' } });
     const catalog = getCmsBlock(content, 'services.catalog', { data: { items: [] } });
     const fallbackServices = [
         {
@@ -127,8 +127,8 @@ const Services = () => {
             <section className="section-padding bg-obsidian-900" dir={direction}>
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-24">
-                        <h2 className="text-5xl md:text-8xl font-serif mb-8">{lang === 'ar' ? 'منهجية التنفيذ' : 'How We Execute'}</h2>
-                        <p className="text-white/40 text-xl font-arabic max-w-2xl mx-auto">{lang === 'ar' ? 'كيف ننتقل بعملك من الوضع الحالي إلى السيادة السوقية.' : 'How we move your business from its current state to market leadership.'}</p>
+                        <h2 className="text-5xl md:text-8xl font-serif mb-8">{lang === 'ar' ? 'كيف نشتغل معك' : 'How We Work'}</h2>
+                        <p className="text-white/40 text-xl font-arabic max-w-2xl mx-auto">{lang === 'ar' ? 'خطوات واضحة تنقل مشروعك من الوضع الحالي إلى المرحلة التالية بثقة.' : 'Clear steps that move your business from where it is today to what comes next.'}</p>
                     </div>
                     <div className="grid md:grid-cols-4 gap-12">
                         {process.map((step, i) => (
