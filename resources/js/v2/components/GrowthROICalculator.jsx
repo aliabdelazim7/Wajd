@@ -3,6 +3,7 @@ import { ArrowUpRight, Calculator, CheckCircle2, CircleHelp, Info, LineChart, Sp
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { trackAnalyticsEvent } from '../utils/analytics.js';
+import { formatMoney } from '../utils/currency.js';
 
 const SCENARIOS = {
     ecommerce: { labelAr: 'متجر إلكتروني', labelEn: 'E-commerce', conservative: 1.8, target: 3.0, upside: 4.2 },
@@ -11,10 +12,8 @@ const SCENARIOS = {
     high_ticket: { labelAr: 'منتج مرتفع القيمة', labelEn: 'High-ticket offer', conservative: 1.7, target: 3.2, upside: 4.8 },
 };
 
-const formatMoney = (amount, lang) => new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en-US', { maximumFractionDigits: 0 }).format(Math.max(0, Math.round(amount)));
-
 const GrowthROICalculator = () => {
-    const { lang } = useApp();
+    const { lang, currency } = useApp();
     const navigate = useNavigate();
     const isArabic = lang === 'ar';
     const [budget, setBudget] = useState(5000);
@@ -129,11 +128,11 @@ const GrowthROICalculator = () => {
                 <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
                     <div className={`rounded-[2rem] border border-white/10 bg-white/[0.025] p-6 md:p-8 ${isArabic ? 'text-right' : 'text-left'}`}>
                         <div className="mb-8 flex items-center justify-between gap-4 border-b border-white/10 pb-5"><div><p className="text-xs uppercase tracking-[0.22em] text-gold-500">01</p><h3 className="mt-2 font-serif text-2xl text-white">{isArabic ? 'أدخل أرقامك' : 'Enter your numbers'}</h3></div><Target className="h-5 w-5 text-gold-500" /></div>
-                        <FieldLabel label={copy.budget} value={`${formatMoney(budget, lang)} SAR`} />
+                        <FieldLabel label={copy.budget} value={formatMoney(budget, currency, lang)} />
                         <input type="range" min="1000" max="25000" step="500" value={budget} onChange={(event) => setBudget(Number(event.target.value))} className="mt-4 h-1 w-full cursor-pointer appearance-none bg-white/10 accent-gold-500" aria-label={copy.budget} />
-                        <div className="mt-2 flex justify-between text-[10px] text-white/25"><span>1,000 SAR</span><span>25,000 SAR</span></div>
+                        <div className="mt-2 flex justify-between text-[10px] text-white/25"><span>{formatMoney(1000, currency, lang)}</span><span>{formatMoney(25000, currency, lang)}</span></div>
 
-                        <div className="mt-8"><label htmlFor="roi-aov" className="mb-2 block text-sm font-semibold text-white/75">{copy.aov}</label><div className="relative"><input id="roi-aov" type="number" min="1" max="100000" value={averageOrderValue} onChange={(event) => setAverageOrderValue(Math.max(1, Number(event.target.value) || 0))} className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-gold-500/60" /><span className="pointer-events-none absolute inset-y-0 end-4 flex items-center text-xs text-white/25">SAR</span></div><p className="mt-2 text-xs text-white/25">{copy.helperAov}</p></div>
+                        <div className="mt-8"><label htmlFor="roi-aov" className="mb-2 block text-sm font-semibold text-white/75">{copy.aov}</label><div className="relative"><input id="roi-aov" type="number" min="1" max="100000" value={averageOrderValue} onChange={(event) => setAverageOrderValue(Math.max(1, Number(event.target.value) || 0))} className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-gold-500/60" /><span className="pointer-events-none absolute inset-y-0 end-4 flex items-center text-xs text-white/25">{currency}</span></div><p className="mt-2 text-xs text-white/25">{copy.helperAov}</p></div>
 
                         <div className="mt-7"><FieldLabel label={copy.margin} value={`${margin}%`} /><input type="range" min="10" max="90" step="5" value={margin} onChange={(event) => setMargin(Number(event.target.value))} className="mt-4 h-1 w-full cursor-pointer appearance-none bg-white/10 accent-gold-500" aria-label={copy.margin} /><p className="mt-2 text-xs text-white/25">{copy.helperMargin}</p></div>
 
@@ -146,8 +145,8 @@ const GrowthROICalculator = () => {
                         <div className={`mb-8 flex items-start justify-between gap-4 ${isArabic ? 'text-right' : 'text-left'}`}><div><p className="text-xs uppercase tracking-[0.22em] text-gold-500">02</p><h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{copy.resultTitle}</h3></div><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-500/10 text-gold-500"><Sparkles className="h-5 w-5" /></div></div>
                         {!hasCalculated ? <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-dashed border-white/12 px-8 text-center"><p className="max-w-sm text-sm leading-7 text-white/35">{copy.notSet}</p></div> : <>
                             <div className={`mb-5 flex items-center justify-between gap-4 rounded-2xl border border-gold-500/15 bg-gold-500/[0.05] p-4 ${isArabic ? 'text-right' : 'text-left'}`}><div><p className="text-xs text-white/35">{copy.scenario}</p><p className="mt-1 font-semibold text-gold-500">{isArabic ? scenario.labelAr : scenario.labelEn}</p></div><span className="rounded-full border border-gold-500/20 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-gold-500">{copy.target} {scenario.target.toFixed(1)}x</span></div>
-                            <div className="grid gap-3 sm:grid-cols-2"><ResultCard label={copy.revenue} value={`${formatMoney(results.targetRevenue, lang)} SAR`} accent /><ResultCard label={copy.grossProfit} value={`${formatMoney(results.grossProfit, lang)} SAR`} /><ResultCard label={copy.breakEven} value={`${results.breakEvenRoas.toFixed(1)}x ROAS`} /><ResultCard label={copy.orders} value={formatMoney(results.orders, lang)} /></div>
-                            <div className="mt-5 rounded-2xl border border-white/8 bg-black/15 p-4"><div className="mb-4 flex items-center justify-between text-xs text-white/35"><span>{isArabic ? 'نطاق السيناريوهات' : 'Scenario range'}</span><span>{formatMoney(results.conservativeRevenue, lang)} — {formatMoney(results.upsideRevenue, lang)} SAR</span></div><div className="h-2 overflow-hidden rounded-full bg-white/8"><div className="h-full w-[58%] rounded-full bg-gradient-to-r from-white/25 via-gold-500 to-gold-300" /></div><div className="mt-3 flex justify-between text-[10px] text-white/25"><span>{isArabic ? 'محافظ' : 'Conservative'}</span><span>{isArabic ? 'مستهدف' : 'Target'}</span><span>{isArabic ? 'متفائل' : 'Upside'}</span></div></div>
+                            <div className="grid gap-3 sm:grid-cols-2"><ResultCard label={copy.revenue} value={formatMoney(results.targetRevenue, currency, lang)} accent /><ResultCard label={copy.grossProfit} value={formatMoney(results.grossProfit, currency, lang)} /><ResultCard label={copy.breakEven} value={`${results.breakEvenRoas.toFixed(1)}x ROAS`} /><ResultCard label={copy.orders} value={formatMoney(results.orders, currency, lang)} /></div>
+                            <div className="mt-5 rounded-2xl border border-white/8 bg-black/15 p-4"><div className="mb-4 flex items-center justify-between text-xs text-white/35"><span>{isArabic ? 'نطاق السيناريوهات' : 'Scenario range'}</span><span>{formatMoney(results.conservativeRevenue, currency, lang)} — {formatMoney(results.upsideRevenue, currency, lang)}</span></div><div className="h-2 overflow-hidden rounded-full bg-white/8"><div className="h-full w-[58%] rounded-full bg-gradient-to-r from-white/25 via-gold-500 to-gold-300" /></div><div className="mt-3 flex justify-between text-[10px] text-white/25"><span>{isArabic ? 'محافظ' : 'Conservative'}</span><span>{isArabic ? 'مستهدف' : 'Target'}</span><span>{isArabic ? 'متفائل' : 'Upside'}</span></div></div>
                             <div className={`mt-5 flex items-start gap-3 text-xs leading-6 text-white/35 ${isArabic ? 'text-right' : 'text-left'}`}><CircleHelp className="mt-1 h-4 w-4 shrink-0 text-gold-500/70" /> <span>{copy.assumptions}</span></div>
                             <button type="button" onClick={requestReview} className="mt-7 flex w-full items-center justify-center gap-3 rounded-xl border border-gold-500/45 bg-transparent px-5 py-4 text-sm font-bold text-gold-500 transition hover:bg-gold-500 hover:text-obsidian-950">{copy.cta}<ArrowUpRight className="h-4 w-4" /></button>
                             <p className="mt-4 text-center text-xs leading-6 text-white/25">{copy.planNote}</p>
