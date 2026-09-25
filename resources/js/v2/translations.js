@@ -9,12 +9,12 @@ export const translations = {
             cta: 'ابدأ خطوة جديدة'
         },
         hero: {
-            badge: 'الرياض ودبي • شريكك التقني للنمو في الخليج',
-            title1: 'نُهندس نموّك..',
-            title2: 'لنُوجد أثرك.',
-            slogan: 'وَجْدٌ... لِلنَّتَائِجِ وُجِدْ.',
-            desc: 'لا نكتفي بإطلاق الحملات؛ نبني لك المتجر والنظام التقني الذي يحوّل كل ريال إعلاني إلى مبيعات حقيقية ومستدامة في السوق الخليجي.',
-            cta: 'خلّينا نرسم خطة نموّك',
+            badge: 'تسويق • متاجر • أنظمة • أتمتة — في مكان واحد',
+            title1: 'مش محتاج أربع شركات..',
+            title2: 'إحنا نكمل لك الصورة.',
+            slogan: 'من أول فكرة لحد أول عملية بيع — وجد معاك.',
+            desc: 'نبني لك الموقع أو المتجر على WordPress وShopify وSalla وZid، ونوصلّه بالتسويق والأنظمة والأتمتة. فريق واحد يفهم مشروعك وينفّذ الصورة كاملة.',
+            cta: 'خلّينا نبني مشروعك',
             metrics: {
                 adSpend: 'الإنفاق الإعلاني المُدار',
                 maxRoas: 'أعلى عائد مُحقق',
@@ -41,23 +41,23 @@ export const translations = {
         },
         whyUs: {
             tag: 'لماذا وجد؟',
-            title: 'شريكك في هندسة الأرباح',
-            subtitle: 'لأنك لا تحتاج لمزيد من "الوعود التسويقية"، بل تحتاج لمنظومة تقنية تُنتج نتائج مالية ملموسة.',
+            title: 'كل اللي مشروعك محتاجه.. من مكان واحد',
+            subtitle: 'بدل ما تشرح مشروعك لشركة تعمل الموقع، وشركة تدير التسويق، وشخص يركّب النظام — خليك مع فريق واحد ماسك الصورة من أولها لآخرها.',
             items: [
-                { title: 'تكامل التقنية والنمو', desc: 'إعلاناتك تنجح عندما تكون تقنياتك قوية. نحن نبني المتجر ونقود الحملات في تناغم واحد لضمان أعلى عائد.' },
-                { title: 'عقلية الشريك الحقيقي', desc: 'نتعامل مع ميزانيتك كأنها مالنا الخاص؛ هدفنا ليس مجرد "صرف الميزانية"، بل تعظيم ربحك الصافي.' },
-                { title: 'هندسة رحلة العميل', desc: 'نصمم العرض التسويقي والنظام البرمجي الذي يجعل الشراء سهلاً لعميلك، ومربحاً لعملياتك.' },
-                { title: 'شفافية البيانات 24/7', desc: 'لوحة بيانات حية تظهر لك كل ريال أين ذهب وماذا حقق. لا غموض، لا أرقام مخفية، فقط حقائق.' }
+                { title: 'مكان واحد لكل شيء', desc: 'موقع، متجر، هوية، تسويق، نظام أو أتمتة — كل قطعة تتبني على اللي قبلها بدل ما تشتغل جزر منفصلة.' },
+                { title: 'نبدأ من احتياجك', desc: 'مش لازم تبدأ بباقة كبيرة. اختار الأساس، وزوّد عليه فقط الوحدات اللي تخدم مرحلتك وميزانيتك.' },
+                { title: 'تقنية تخدم البيع', desc: 'نبني تجربة سهلة لعميلك وفريقك، من أول زيارة لحد الطلب والمتابعة والتقرير.' },
+                { title: 'شغل مفهوم وأرقام واضحة', desc: 'تعرف إيه اتعمل، وإيه اللي جاب نتيجة، وإيه الخطوة الجاية — من غير كلام تقيل أو تقارير مالهاش لازمة.' }
             ]
         },
         home: {
             trustedBy: 'موثوق به من علامات طموحة',
             outcomeEngine: {
-                eyebrow: 'محرك النتائج',
-                title1: 'نحن لا نطلق إعلانات فقط.',
-                title2: 'نحن نهندس النتائج.',
-                body: 'تركز معظم الوكالات على مقاييس الغرور مثل النقرات والإعجابات. نحن نركز على المقياس الوحيد المهم: أرباحك الصافية. تجمع هندسة النمو لدينا بين تحليل البيانات العميق والمحتوى الإبداعي عالي التأثير لتحويل كل ريال من الإنفاق الإعلاني إلى إيرادات يمكن التنبؤ بها.',
-                cta: 'اكتشف منهجيتنا',
+                eyebrow: 'شريك واحد بدل دوشة التعاقدات',
+                title1: 'من الفكرة للموقع..',
+                title2: 'ومن التسويق للنظام.',
+                body: 'لو عندك مشروع، مش لازم تروح لجهة تعمل لك الموقع، وجهة ثانية للتسويق، وثالثة للنظام. وجد تجمع لك التنفيذ كله في مسار واحد: نبني الأساس، نشغّل التسويق، ونربط الأرقام بالقرارات.',
+                cta: 'اعرف بنشتغل إزاي',
                 cards: [
                     { title: 'الاستحواذ', desc: 'أنظمة قابلة للتوسع للعثور على عملائك المثاليين وتحويلهم.' },
                     { title: 'الأداء', desc: 'تحسين مبني على البيانات يحقق أقصى استفادة من كل ميزانية.' },
@@ -107,9 +107,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'جاهز تبدأ في الخليج؟',
-            desc: 'لا تحتاج إلى ميزانية ضخمة كي تبدأ. احكِ لنا عن مشروعك، وسنقترح أول خطوة تناسب مرحلته الحالية.',
-            cta: 'خلّينا نبدأ',
+            ready: 'عندك فكرة؟ خلّي تنفيذها علينا.',
+            desc: 'ابعت لنا مشروعك كما هو، وسنرتّب لك أولويات واضحة: إيه يتعمل الآن، وإيه يتأجل، وإزاي تجمع الموقع والتسويق والتقنية في مسار واحد.',
+            cta: 'احكي لنا عن مشروعك',
             rights: 'جميع الحقوق محفوظة لوكالة وجد للتسويق.'
         }
     },
@@ -123,12 +123,12 @@ export const translations = {
             cta: 'Start a conversation'
         },
         hero: {
-            badge: 'RIYADH & DUBAI • YOUR TECH-GROWTH PARTNER',
-            title1: 'We Engineer Growth.',
-            title2: 'We Found Results.',
-            slogan: 'WAJD... BUILT FOR OUTCOMES.',
-            desc: 'We don’t just run ads; we build the high-converting stores and AI systems that turn your ad spend into predictable revenue across the GCC.',
-            cta: 'Map your growth roadmap',
+            badge: 'MARKETING • COMMERCE • SYSTEMS • AUTOMATION — ONE PARTNER',
+            title1: 'You do not need four vendors.',
+            title2: 'You need one team that sees the whole picture.',
+            slogan: 'From first idea to first sale — Wajd stays with you.',
+            desc: 'We build your website or store on WordPress, Shopify, Salla, or Zid, then connect it to marketing, operations, and automation. One team, one context, one accountable path forward.',
+            cta: 'Build my business with Wajd',
             metrics: {
                 adSpend: 'Ad Spend Managed',
                 maxRoas: 'Max ROAS Achieved',
@@ -155,23 +155,23 @@ export const translations = {
         },
         whyUs: {
             tag: 'THE WAJD EDGE',
-            title: 'Your Partner in Profit Engineering',
-            subtitle: 'Because you don’t need more "marketing promises"—you need a technical ecosystem that delivers real financial outcomes.',
+            title: 'Everything your business needs, in one place',
+            subtitle: 'Instead of briefing one company on your website, another on marketing, and someone else on systems, work with one team that owns the full picture.',
             items: [
-                { title: 'Growth & Tech Synergy', desc: 'Your ads succeed when your tech is strong. We build the store and lead the campaigns in harmony to ensure maximum ROI.' },
-                { title: 'A True Partner Mindset', desc: 'We treat your budget as our own. Our goal isn’t just to "spend the budget," but to maximize your net profit.' },
-                { title: 'Customer Journey Engineering', desc: 'We design the marketing offer and the software systems that make buying effortless for your customers and profitable for you.' },
-                { title: '24/7 Data Transparency', desc: 'A live dashboard showing you exactly where every riyal went and what it achieved. No fluff, no hidden metrics—just facts.' }
+                { title: 'One place for the whole build', desc: 'Website, store, brand, marketing, systems, or automation — each piece is designed to work with the next.' },
+                { title: 'Start at the right level', desc: 'You do not need a large package on day one. Start with the core and add only what your stage and budget need.' },
+                { title: 'Technology that helps you sell', desc: 'We make the experience easier for your customers and your team, from the first visit through the order and follow-up.' },
+                { title: 'Clear work and useful numbers', desc: 'You know what was done, what moved the needle, and what comes next — without heavy jargon or vanity reports.' }
             ]
         },
         home: {
             trustedBy: 'Trusted by ambitious brands',
             outcomeEngine: {
-                eyebrow: 'The Outcome Engine',
-                title1: 'We do not just launch ads.',
-                title2: 'We engineer outcomes.',
-                body: 'Most agencies focus on vanity metrics like clicks and likes. We focus on the only metric that matters: your net profit. Our growth engineering combines deep data analysis with high-impact creative to turn every riyal of ad spend into predictable revenue.',
-                cta: 'Discover our methodology',
+                eyebrow: 'One partner instead of vendor chaos',
+                title1: 'From the idea to the website.',
+                title2: 'From marketing to the system.',
+                body: 'You should not have to brief one company on the website, another on marketing, and a third on operations. Wajd brings the build into one path: we create the foundation, run the growth work, and connect the numbers to decisions.',
+                cta: 'See how we work',
                 cards: [
                     { title: 'Acquisition', desc: 'Scalable systems to find and convert your ideal customers.' },
                     { title: 'Performance', desc: 'Data-led optimization that makes the most of every budget.' },
@@ -221,9 +221,9 @@ export const translations = {
             ]
         },
         footer: {
-            ready: 'Ready to get started in the Gulf?',
-            desc: 'You do not need a massive budget to begin. Tell us about your business and we will recommend a first move that fits your current stage.',
-            cta: 'Let’s start',
+            ready: 'Have an idea? Let us handle the build.',
+            desc: 'Tell us where the project stands. We will help you prioritize what to build now, what to defer, and how to bring the website, marketing, and technology into one plan.',
+            cta: 'Tell us about your project',
             rights: 'All rights reserved to Wajd Marketing Agency.'
         }
     }

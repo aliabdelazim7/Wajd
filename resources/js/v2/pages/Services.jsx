@@ -10,8 +10,8 @@ const Services = () => {
     const direction = lang === 'ar' ? 'rtl' : 'ltr';
     const textAlign = lang === 'ar' ? 'text-right' : 'text-left';
     const hero = getCmsBlock(content, 'services.hero', lang === 'ar'
-        ? { title: 'آليات النمو لدينا.', body: 'نحن لا نقدم مهاماً تسويقية؛ نحن نقدم نتائج تجارية ملموسة.', data: { eyebrow: 'قدراتنا' } }
-        : { title: 'Our Growth Mechanisms.', body: 'We do not deliver marketing tasks; we deliver tangible business outcomes.', data: { eyebrow: 'CAPABILITIES' } });
+        ? { title: 'كل مشروع له طريقه.. وإحنا نمشيه معاك.', body: 'من WordPress وShopify إلى التسويق والأنظمة والأتمتة — خُد احتياجك من مكان واحد، وبنِ الحل على قد مرحلتك.', data: { eyebrow: 'شريكك في التنفيذ' } }
+        : { title: 'One team for the whole build.', body: 'From WordPress and Shopify to marketing, systems, and automation — bring the work together with one accountable partner.', data: { eyebrow: 'ONE PARTNER' } });
     const catalog = getCmsBlock(content, 'services.catalog', { data: { items: [] } });
     const fallbackServices = [
         {
@@ -23,10 +23,10 @@ const Services = () => {
         },
         {
             icon: ShoppingBag,
-            title: lang === 'ar' ? 'بنية التجارة الإلكترونية' : 'E-commerce Infrastructure',
-            mechanism: lang === 'ar' ? 'تجهيز Shopify, Salla, Zid' : 'Shopify, Salla, Zid Setup',
+            title: lang === 'ar' ? 'مواقع ومتاجر تبيع' : 'Websites and stores that sell',
+            mechanism: lang === 'ar' ? 'WordPress وShopify وSalla وZid' : 'WordPress, Shopify, Salla, and Zid',
             outcome: lang === 'ar' ? 'متجر جاهز للتحويل' : 'Conversion-ready store',
-            desc: lang === 'ar' ? 'لا نبني مجرد متجر، بل نجهز بنية تحتية متكاملة للبيع. من الربط التقني والتحليلات إلى تحسين رحلة العميل (CRO) لضمان أعلى معدل تحويل.' : 'We don’t just build a store; we set up a complete selling infrastructure. From tech integration and analytics to CRO, ensuring the highest conversion rates.'
+            desc: lang === 'ar' ? 'نبني موقعك أو متجرك على المنصة المناسبة، ونجهزه للمحتوى والتحليلات والدفع ورحلة العميل — عشان ما يبقاش مجرد شكل حلو من غير مبيعات.' : 'We build your site or store on the right platform, then prepare content, analytics, payments, and the customer journey so it is built to sell—not just look good.'
         },
         {
             icon: Target,

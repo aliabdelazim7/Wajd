@@ -22,9 +22,10 @@ import {
 import { useApp } from '../context/AppContext.jsx';
 import { trackAnalyticsEvent } from '../utils/analytics.js';
 import marketPosMockup from '../assets/market-pos-mockup.png';
+import { formatMoney } from '../utils/currency.js';
 
 const ProductDemo = () => {
-    const { lang, content } = useApp();
+    const { lang, currency, content } = useApp();
     const isArabic = lang === 'ar';
     const demoSettings = content?.settings?.product_demos || {};
     const [activeProduct, setActiveProduct] = useState('market-pos');
@@ -128,7 +129,7 @@ const ProductDemo = () => {
 
     const metricIcons = { totalSales: CircleDollarSign, orders: ShoppingCart, stock: PackageCheck, messages: MessageSquareText, flows: Workflow, resolved: Clock3 };
     const marketMetrics = Array.isArray(localizedDemoSettings.marketMetrics) ? localizedDemoSettings.marketMetrics : [
-        { key: 'totalSales', label: copy.metrics.totalSales, value: '24,780', suffix: 'SAR', trend: '+12.5%' },
+        { key: 'totalSales', label: copy.metrics.totalSales, value: formatMoney(24780, currency, lang), suffix: '', trend: '+12.5%' },
         { key: 'orders', label: copy.metrics.orders, value: '48', suffix: '', trend: '+8.3%' },
         { key: 'stock', label: copy.metrics.stock, value: '92%', suffix: '', trend: copy.stockTrend },
     ];

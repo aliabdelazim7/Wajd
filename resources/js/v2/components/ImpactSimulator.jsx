@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useApp } from '../context/AppContext.jsx';
+import { formatMoney } from '../utils/currency.js';
 
 const ImpactSimulator = () => {
-    const { t, lang } = useApp();
+    const { t, lang, currency } = useApp();
     const [budget, setBudget] = useState(2000);
     const [sector, setSector] = useState('ecommerce');
     const [results, setResults] = useState({ reach: 0, roas: 0, revenue: 0 });
@@ -39,7 +40,7 @@ const ImpactSimulator = () => {
                             <div className="flex justify-between items-end">
                                 <span className="text-white/40 text-xs uppercase tracking-[0.3em] font-sans">{t.simulator.step1}</span>
                                 <span className="text-gold-500 text-5xl font-serif font-light">
-                                    {budget.toLocaleString()} <span className="text-sm uppercase tracking-widest opacity-40 ml-2">SAR</span>
+                                    {formatMoney(budget, currency, lang)}
                                 </span>
                             </div>
                             <input
@@ -50,11 +51,11 @@ const ImpactSimulator = () => {
                                 value={budget}
                                 onChange={(e) => setBudget(parseInt(e.target.value, 10))}
                                 className="w-full h-[1px] bg-white/10 appearance-none cursor-pointer accent-gold-500 hover:bg-white/20 transition-all"
-                                aria-label={lang === 'ar' ? 'الميزانية الإعلانية بالريال السعودي' : 'Monthly ad budget in SAR'}
+                                aria-label={lang === 'ar' ? 'الميزانية الإعلانية بالعملة المختارة' : 'Monthly ad budget in the selected currency'}
                             />
                             <div className="flex justify-between text-xs text-white/25 font-sans">
-                                <span>1,000 SAR</span>
-                                <span>100,000 SAR+</span>
+                                <span>{formatMoney(1000, currency, lang)}</span>
+                                <span>{formatMoney(100000, currency, lang)}+</span>
                             </div>
                         </div>
 
@@ -81,7 +82,7 @@ const ImpactSimulator = () => {
                                 <div>
                                     <p className="text-white/30 text-xs uppercase tracking-widest mb-4 font-sans">{t.simulator.revenue}</p>
                                     <p className="text-6xl md:text-7xl font-serif text-white group-hover:text-gold-500 transition-colors duration-700">
-                                        {results.revenue.toLocaleString()} <span className="text-lg opacity-30 ml-2">SAR</span>
+                                        {formatMoney(results.revenue, currency, lang)}
                                     </p>
                                 </div>
 

@@ -12,9 +12,10 @@ import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
 import { trackAnalyticsEvent } from '../utils/analytics.js';
 import { mergePortfolioProjects } from '../utils/portfolioEvidence.js';
+import { formatMoney } from '../utils/currency.js';
 
 const Home = () => {
-    const { lang, t, content } = useApp();
+    const { lang, currency, t, content } = useApp();
     const outcomeEngine = t.home.outcomeEngine;
     const selectedImpact = t.home.selectedImpact;
     const builder = t.packages;
@@ -62,7 +63,7 @@ const Home = () => {
     const monthlyAddonsTotal = selectedAddons.filter((addon) => addon.type === 'monthly').reduce((total, addon) => total + addon.price, 0);
     const oneTimeAddonsTotal = selectedAddons.filter((addon) => addon.type === 'one_time').reduce((total, addon) => total + addon.price, 0);
     const monthlyTotal = (selectedBase?.price || 0) + monthlyAddonsTotal;
-    const formatSar = (amount) => new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en-US').format(amount);
+    const formatPrice = (amount) => formatMoney(amount, currency, lang);
     const toggleAddon = (addonId) => setSelectedAddonIds((current) => {
         const wasAdded = current.includes(addonId);
         const next = wasAdded ? current.filter((id) => id !== addonId) : [...current, addonId];
@@ -322,7 +323,7 @@ const Home = () => {
                                                     </div>
                                                     <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${isSelected ? 'border-gold-500 bg-gold-500 text-obsidian-950' : 'border-white/20 text-transparent'}`}><Check className="h-4 w-4" /></span>
                                                 </div>
-                                                <div className={`mb-6 text-3xl font-serif ${isSelected ? 'text-gold-500' : 'text-white'}`}>{formatSar(plan.price)} <span className="text-xs font-sans text-white/35">{builder.monthlyLabel}</span></div>
+                                                <div className={`mb-6 text-3xl font-serif ${isSelected ? 'text-gold-500' : 'text-white'}`}>{formatPrice(plan.price)} <span className="text-xs font-sans text-white/35">{builder.monthlyLabel}</span></div>
                                                 <ul className="mt-auto space-y-2.5 text-sm leading-6 text-white/60">
                                                     {plan.features.slice(0, 4).map((feature) => <li key={feature} className={`flex items-start gap-2 ${lang === 'ar' ? '' : 'flex-row-reverse justify-end text-right'}`}><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-gold-500/80" /><span>{feature}</span></li>)}
                                                 </ul>
@@ -358,7 +359,7 @@ const Home = () => {
                                                     <span className="mb-1 flex flex-wrap items-center gap-2 font-serif text-lg text-white"><span>{addon.name}</span><span className="rounded-full border border-white/10 px-2 py-0.5 text-[9px] font-sans uppercase tracking-[0.14em] text-white/35">{addon.tag}</span>{addon.id === 'liftdesk-automation' && selectedBase?.id === 'growth' && <span className="rounded-full bg-gold-500/15 px-2 py-0.5 text-[9px] font-sans tracking-wide text-gold-500">{builder.recommendedAddonLabel}</span>}</span>
                                                     <span className="block text-sm leading-6 text-white/40">{addon.subtitle}</span>
                                                 </span>
-                                                <span className="shrink-0 text-end"><span className="block text-lg font-serif text-gold-500">{formatSar(addon.price)}</span><span className="text-[10px] uppercase tracking-[0.12em] text-white/30">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</span></span>
+                                                <span className="shrink-0 text-end"><span className="block text-lg font-serif text-gold-500">{formatPrice(addon.price)}</span><span className="text-[10px] uppercase tracking-[0.12em] text-white/30">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</span></span>
                                             </motion.button>
                                         );
                                     })}
@@ -373,12 +374,12 @@ const Home = () => {
                                     <ShoppingBag className="h-5 w-5 text-gold-500" />
                                 </div>
                                 <div className={`space-y-4 ${textAlign}`}>
-                                    {selectedBase && <div className="flex items-start justify-between gap-4"><div><p className="text-sm text-white/45">{selectedBase.name}</p><p className="mt-1 text-xs text-white/25">{builder.monthlyLabel}</p></div><strong className="font-serif text-white">{formatSar(selectedBase.price)}</strong></div>}
-                                    {selectedAddons.length ? selectedAddons.map((addon) => <div key={addon.id} className="flex items-start justify-between gap-4 border-t border-white/5 pt-4"><div className="min-w-0"><p className="text-sm text-white/55">{addon.name}</p><p className="mt-1 text-xs text-white/25">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</p></div><div className="flex items-center gap-2"><strong className="font-serif text-white">{formatSar(addon.price)}</strong><button type="button" onClick={() => toggleAddon(addon.id)} aria-label={builder.removeCta} className="text-white/25 transition hover:text-red-200"><Trash2 className="h-4 w-4" /></button></div></div>) : <p className="border-t border-white/5 pt-4 text-sm leading-6 text-white/30">{builder.emptyAddons}</p>}
+                                    {selectedBase && <div className="flex items-start justify-between gap-4"><div><p className="text-sm text-white/45">{selectedBase.name}</p><p className="mt-1 text-xs text-white/25">{builder.monthlyLabel}</p></div><strong className="font-serif text-white">{formatPrice(selectedBase.price)}</strong></div>}
+                                    {selectedAddons.length ? selectedAddons.map((addon) => <div key={addon.id} className="flex items-start justify-between gap-4 border-t border-white/5 pt-4"><div className="min-w-0"><p className="text-sm text-white/55">{addon.name}</p><p className="mt-1 text-xs text-white/25">{addon.type === 'monthly' ? builder.monthlyLabel : builder.oneTimeLabel}</p></div><div className="flex items-center gap-2"><strong className="font-serif text-white">{formatPrice(addon.price)}</strong><button type="button" onClick={() => toggleAddon(addon.id)} aria-label={builder.removeCta} className="text-white/25 transition hover:text-red-200"><Trash2 className="h-4 w-4" /></button></div></div>) : <p className="border-t border-white/5 pt-4 text-sm leading-6 text-white/30">{builder.emptyAddons}</p>}
                                 </div>
                                 <div className="mt-7 space-y-3 border-t border-white/10 pt-5">
-                                    <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.monthlyLabel}</span><strong className="font-serif text-xl text-gold-500">{formatSar(monthlyTotal)} SAR</strong></div>
-                                    {oneTimeAddonsTotal > 0 && <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.oneTimeLabel}</span><strong className="font-serif text-xl text-white">{formatSar(oneTimeAddonsTotal)} SAR</strong></div>}
+                                    <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.monthlyLabel}</span><strong className="font-serif text-xl text-gold-500">{formatPrice(monthlyTotal)}</strong></div>
+                                    {oneTimeAddonsTotal > 0 && <div className="flex items-center justify-between gap-4 text-sm"><span className="text-white/35">{builder.oneTimeLabel}</span><strong className="font-serif text-xl text-white">{formatPrice(oneTimeAddonsTotal)}</strong></div>}
                                 </div>
                                 <button type="button" data-analytics-event="builder_cta_clicked" data-analytics-location="growth_engine_summary" onClick={requestBuild} className="mt-7 flex w-full items-center justify-center gap-3 rounded-2xl bg-gold-500 px-5 py-4 font-bold text-obsidian-950 transition hover:bg-white active:scale-[0.98]">{builder.continueCta}<ArrowUpRight className="h-5 w-5" /></button>
                                 <p className="mt-4 text-center text-xs leading-6 text-white/25">{lang === 'ar' ? 'السعر النهائي يتأكد بعد مراجعة نطاق المشروع.' : 'Final pricing is confirmed after reviewing the project scope.'}</p>

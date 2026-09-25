@@ -9,7 +9,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const { lang, toggleLang, t, content } = useApp();
+    const { lang, toggleLang, currency, setCurrency, currencies, t, content } = useApp();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -61,7 +61,7 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    {/* Language Switcher — Wajd currently serves Gulf markets in SAR */}
+                    {/* Language and market currency controls */}
                     <div className="flex items-center gap-4 border-r border-white/10 pr-6 mr-2">
                         <button 
                             onClick={toggleLang}
@@ -70,7 +70,12 @@ const Navbar = () => {
                             <Globe className="w-3.5 h-3.5" />
                             {lang === 'ar' ? 'EN' : 'عربي'}
                         </button>
-                        <span className="text-xs font-sans tracking-widest text-gold-500 bg-gold-500/10 px-3 py-1.5 rounded-full border border-gold-500/20">SAR</span>
+                        <label className="flex items-center gap-2 rounded-full border border-gold-500/20 bg-gold-500/10 px-3 py-1.5 text-xs font-sans tracking-widest text-gold-500">
+                            <span className="sr-only">{lang === 'ar' ? 'العملة' : 'Currency'}</span>
+                            <select value={currency} onChange={(event) => setCurrency(event.target.value)} className="cursor-pointer bg-transparent text-gold-500 outline-none">
+                                {Object.keys(currencies).map((code) => <option key={code} value={code} className="bg-[#171613] text-white">{code}</option>)}
+                            </select>
+                        </label>
                     </div>
 
                     <Link to="/contact" className="bg-gold-500 text-obsidian-950 px-8 py-3 rounded-full text-sm font-arabic font-bold hover:bg-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(197,168,98,0.3)]">

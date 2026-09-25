@@ -17,28 +17,29 @@ import {
 import { useApp } from '../context/AppContext.jsx';
 import { Link, useLocation } from 'react-router-dom';
 import { trackAnalyticsEvent } from '../utils/analytics.js';
+import { formatMoney } from '../utils/currency.js';
 
 const fieldClass = 'w-full rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 text-base text-white outline-none transition-all placeholder:text-white/25 focus:border-gold-500/70 focus:bg-white/[0.07] focus:ring-4 focus:ring-gold-500/10';
 const labelClass = 'mb-2 block text-sm font-medium text-white/65';
 
 const Contact = () => {
-    const { lang, content } = useApp();
+    const { lang, currency, content } = useApp();
     const location = useLocation();
     const isArabic = lang === 'ar';
     const packageBuilder = location.state?.packageBuilder || null;
     const roiSnapshot = location.state?.roiSnapshot || null;
     const builderSummary = packageBuilder ? [
-        `${packageBuilder.basePlan?.name || ''} — ${Number(packageBuilder.basePlan?.price || 0).toLocaleString()} SAR / ${lang === 'ar' ? 'شهرياً' : 'monthly'}`,
-        ...(packageBuilder.addons || []).map((addon) => `${addon.name} — ${Number(addon.price || 0).toLocaleString()} SAR / ${addon.type === 'monthly' ? (lang === 'ar' ? 'شهرياً' : 'monthly') : (lang === 'ar' ? 'مرة واحدة' : 'one-time')}`),
-        `${lang === 'ar' ? 'الإجمالي الشهري المبدئي' : 'Indicative monthly total'}: ${Number(packageBuilder.monthlyTotal || 0).toLocaleString()} SAR`,
-        ...(Number(packageBuilder.oneTimeTotal || 0) > 0 ? [`${lang === 'ar' ? 'إضافات تدفع مرة واحدة' : 'One-time add-ons'}: ${Number(packageBuilder.oneTimeTotal).toLocaleString()} SAR`] : []),
+        `${packageBuilder.basePlan?.name || ''} — ${formatMoney(packageBuilder.basePlan?.price || 0, currency, lang)} / ${lang === 'ar' ? 'شهرياً' : 'monthly'}`,
+        ...(packageBuilder.addons || []).map((addon) => `${addon.name} — ${formatMoney(addon.price || 0, currency, lang)} / ${addon.type === 'monthly' ? (lang === 'ar' ? 'شهرياً' : 'monthly') : (lang === 'ar' ? 'مرة واحدة' : 'one-time')}`),
+        `${lang === 'ar' ? 'الإجمالي الشهري المبدئي' : 'Indicative monthly total'}: ${formatMoney(packageBuilder.monthlyTotal || 0, currency, lang)}`,
+        ...(Number(packageBuilder.oneTimeTotal || 0) > 0 ? [`${lang === 'ar' ? 'إضافات تدفع مرة واحدة' : 'One-time add-ons'}: ${formatMoney(packageBuilder.oneTimeTotal, currency, lang)}`] : []),
     ].filter(Boolean).join('\n') : '';
     const roiSummary = roiSnapshot ? [
         `${lang === 'ar' ? 'ملخص حاسبة العائد:' : 'ROI calculator snapshot:'}`,
-        `${lang === 'ar' ? 'الميزانية الإعلانية' : 'Ad budget'}: ${Number(roiSnapshot.budget || 0).toLocaleString()} SAR`,
-        `${lang === 'ar' ? 'متوسط الطلب' : 'Average order value'}: ${Number(roiSnapshot.averageOrderValue || 0).toLocaleString()} SAR`,
+        `${lang === 'ar' ? 'الميزانية الإعلانية' : 'Ad budget'}: ${formatMoney(roiSnapshot.budget || 0, currency, lang)}`,
+        `${lang === 'ar' ? 'متوسط الطلب' : 'Average order value'}: ${formatMoney(roiSnapshot.averageOrderValue || 0, currency, lang)}`,
         `${lang === 'ar' ? 'الهامش' : 'Margin'}: ${Number(roiSnapshot.margin || 0)}%`,
-        `${lang === 'ar' ? 'الإيراد المتوقع في السيناريو' : 'Scenario revenue'}: ${Number(roiSnapshot.projectedRevenue || 0).toLocaleString()} SAR`,
+        `${lang === 'ar' ? 'الإيراد المتوقع في السيناريو' : 'Scenario revenue'}: ${formatMoney(roiSnapshot.projectedRevenue || 0, currency, lang)}`,
         `${lang === 'ar' ? 'ROAS نقطة التعادل التقريبية' : 'Approx. break-even ROAS'}: ${Number(roiSnapshot.breakEvenRoas || 0).toFixed(1)}x`,
     ].join('\n') : '';
     const initialBrief = packageBuilder
@@ -196,6 +197,11 @@ const Contact = () => {
     copy.services = localizeOptions('services', copy.services);
     copy.industries = localizeOptions('industries', copy.industries);
     copy.budgets = localizeOptions('budgets', copy.budgets);
+    copy.budgets = copy.budgets.map(([value], index) => {
+        const ranges = [[1000, 3000], [3000, 10000], [10000, 50000]];
+        const [from, to] = ranges[index] || [Number(value), Number(value) * 3];
+        return [value, `${formatMoney(from, currency, lang)} – ${formatMoney(to, currency, lang)}${index === 2 ? '+' : ''}`];
+    });
     copy.preferences = localizeOptions('preferences', copy.preferences);
     copy.location = contactSettings[`location_${lang}`] || contactSettings.location || copy.location;
     copy.email = contactSettings.email_label || copy.email;
