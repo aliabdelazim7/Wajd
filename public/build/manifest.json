@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-DCicSyJ0.js",
+    "file": "assets/main-1Iv0AMRO.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
@@ -156,7 +156,8 @@
       "assets/Screenshot_2-Bp2tudj1.png",
       "assets/Screenshot_6-omDmyoUr.png",
       "assets/Cover-B5_BqzsD.png",
-      "assets/hero-CLDdwZDr.png"
+      "assets/hero-CLDdwZDr.png",
+      "assets/wajd-strategy-room-5ELAVRw1.webp"
     ]
   },
   "resources/js/v2/assets/Cover.png": {
@@ -718,5 +719,9 @@
   "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png": {
     "file": "assets/Screenshot_6-omDmyoUr.png",
     "src": "resources/js/v2/assets/portfolio/منابت/منابت زد/Screenshot_6.png"
+  },
+  "resources/js/v2/assets/wajd-strategy-room.webp": {
+    "file": "assets/wajd-strategy-room-5ELAVRw1.webp",
+    "src": "resources/js/v2/assets/wajd-strategy-room.webp"
   }
 }
