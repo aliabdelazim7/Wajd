@@ -3,6 +3,7 @@ import Layout from '../layout/Layout';
 import { motion } from 'framer-motion';
 import { useApp } from '../context/AppContext.jsx';
 import { getCmsBlock } from '../utils/content.js';
+import strategyRoomImage from '../assets/wajd-strategy-room.webp';
 
 const About = () => {
     const { lang, content } = useApp();
@@ -84,8 +85,8 @@ const About = () => {
                     >
                         <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-obsidian-800 border border-white/5">
                             <img 
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                                alt={lang === 'ar' ? 'جلسة استراتيجية' : 'Strategy Session'}
+                                src={strategyRoomImage}
+                                alt={lang === 'ar' ? 'غرفة استراتيجية ولوحة تحليلات' : 'Strategy room and analytics dashboard'}
                                 className="w-full h-full object-cover grayscale opacity-40 hover:scale-105 transition-transform duration-1000"
                             />
                         </div>
