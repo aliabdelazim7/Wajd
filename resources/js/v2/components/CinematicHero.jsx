@@ -11,7 +11,7 @@ const CinematicHero = () => {
     const { t, lang, content } = useApp();
     const hero = getCmsBlock(content, 'home.hero', { data: {} });
     const heroTitle1 = hero.data?.title1 || t.hero.title1;
-    const heroHighlight = hero.data?.highlight || (lang === 'ar' ? 'النمو' : 'Growth');
+    const heroHighlight = hero.data?.highlight || (lang === 'ar' ? 'المسار' : 'the path');
     const shouldRenderHeroHighlight = !heroTitle1.includes(heroHighlight);
     const heroMetrics = hero.data?.metrics || {};
     const containerRef = useRef(null);

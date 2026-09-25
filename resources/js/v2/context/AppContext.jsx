@@ -55,7 +55,7 @@ export const AppProvider = ({ children }) => {
     useEffect(() => {
         let mounted = true;
         setContentLoading(true);
-        fetch(`/api/content?locale=${lang}`, { headers: { Accept: 'application/json' } })
+        fetch(`/api/content?locale=${lang}&v=${Date.now()}`, { cache: 'no-store', headers: { Accept: 'application/json', 'Cache-Control': 'no-cache' } })
             .then((response) => {
                 if (!response.ok) throw new Error('Content API unavailable');
                 return response.json();
