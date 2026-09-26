@@ -50,6 +50,26 @@ html, body {
   padding: 0;
 }
 
+.hero-atmosphere {
+  background:
+    radial-gradient(circle at 72% 18%, rgba(197, 168, 98, 0.14), transparent 28%),
+    radial-gradient(circle at 18% 74%, rgba(111, 74, 35, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(38, 30, 19, 0.42), transparent 42%, rgba(18, 20, 18, 0.28));
+  opacity: 0.95;
+}
+
+.hero-atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(197, 168, 98, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 168, 98, 0.055) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 78%, transparent);
+  opacity: 0.34;
+}
+
 /* Custom Selection */
 ::selection {
   background: #c5a862;

@@ -43,8 +43,9 @@ const CinematicHero = () => {
     return (
         <section ref={containerRef} className="relative min-h-[auto] md:min-h-screen flex flex-col justify-center pt-32 sm:pt-36 md:pt-48 pb-16 sm:pb-20 px-5 sm:px-[5%] overflow-hidden bg-obsidian-950">
             {/* Cinematic Background Gradients & Glows */}
+            <div aria-hidden="true" className="hero-atmosphere absolute inset-0 pointer-events-none" />
             <div id="cursor-glow" className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none transition-transform duration-300 ease-out"></div>
-            <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
             {/* The Hook: Floating Tech System Elements */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">

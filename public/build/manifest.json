@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-D3k9ITsR.css",
+    "file": "assets/app-Bq9dQOOA.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,12 +9,12 @@
     "isEntry": true
   },
   "resources/js/main.jsx": {
-    "file": "assets/main-CCS1xiW8.js",
+    "file": "assets/main-_ux9zYxp.js",
     "name": "main",
     "src": "resources/js/main.jsx",
     "isEntry": true,
     "css": [
-      "assets/main-C8nXnCeJ.css"
+      "assets/main-czczEfcm.css"
     ],
     "assets": [
       "assets/market-pos-mockup-ubIPuK8_.png",
