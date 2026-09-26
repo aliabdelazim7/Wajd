@@ -39,13 +39,15 @@ class AppErrorBoundary extends Component {
 const Root = () => {
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isMobile || reducedMotion) return undefined;
     
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
-      smoothWheel: !isMobile, // Disable smooth scroll on mobile for better native performance
+      smoothWheel: true,
       wheelMultiplier: 1,
       smoothTouch: false,
       touchMultiplier: 2,

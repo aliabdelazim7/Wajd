@@ -17,19 +17,27 @@ const CinematicHero = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+        if (reducedMotion || isTouchDevice) return undefined;
+
+        let frame = 0;
         const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            const x = (clientX / window.innerWidth - 0.5) * 20;
-            const y = (clientY / window.innerHeight - 0.5) * 20;
-            
-            const glow = document.getElementById('cursor-glow');
-            if (glow) {
-                glow.style.transform = `translate(${x}px, ${y}px)`;
-            }
+            if (frame) return;
+            frame = window.requestAnimationFrame(() => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                const glow = document.getElementById('cursor-glow');
+                if (glow) glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                frame = 0;
+            });
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            if (frame) window.cancelAnimationFrame(frame);
+        };
     }, []);
 
     return (

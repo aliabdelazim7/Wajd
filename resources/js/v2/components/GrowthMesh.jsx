@@ -6,15 +6,20 @@ const GrowthMesh = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
+        if (reducedMotion || isMobile) return;
         
         const ctx = canvas.getContext('2d');
         let animationFrameId;
         let particles = [];
         let mouse = { x: null, y: null, radius: 150 };
+        let lastFrameTime = 0;
 
         const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = Math.min(window.innerWidth, 1600);
+            canvas.height = Math.min(window.innerHeight, 1000);
             init();
         };
 
@@ -73,8 +78,8 @@ const GrowthMesh = () => {
 
         function init() {
             particles = [];
-            const numberOfParticles = (canvas.width * canvas.height) / 15000;
-            for (let i = 0; i < Math.min(numberOfParticles, 150); i++) {
+            const numberOfParticles = (canvas.width * canvas.height) / 26000;
+            for (let i = 0; i < Math.min(numberOfParticles, 72); i++) {
                 particles.push(new Particle());
             }
         }
@@ -83,7 +88,12 @@ const GrowthMesh = () => {
         resize();
         init();
 
-        const animate = () => {
+        const animate = (time = 0) => {
+            if (time - lastFrameTime < 33) {
+                animationFrameId = requestAnimationFrame(animate);
+                return;
+            }
+            lastFrameTime = time;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
             for (let i = 0; i < particles.length; i++) {
@@ -98,8 +108,8 @@ const GrowthMesh = () => {
                     let dy = particles[a].y - particles[b].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 150) {
-                        ctx.strokeStyle = `rgba(197, 168, 98, ${1 - (distance / 150) * 0.5})`;
+                    if (distance < 125) {
+                        ctx.strokeStyle = `rgba(197, 168, 98, ${1 - (distance / 125) * 0.5})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
